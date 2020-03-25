@@ -1,0 +1,11 @@
+# Crear Base de Datos
+
+Usuario:  viajes
+Pass:     viajes
+DB:       viajes
+
+
+cargar en MSQL los archivos de la carpeta: /resources/archivos_sql
+  -crearDB.sql
+  -viajes.sql
+  -insert.sql  
