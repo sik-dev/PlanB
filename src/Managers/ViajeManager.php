@@ -68,7 +68,7 @@ class ViajeManager implements IDWESEntidadManager{
   public static function getByUser($id)
   {
     $db = DWESBaseDatos::obtenerInstancia();
-    //$db->ejecuta("SET sql_mode=(SELECT REPLACE(@@sql_mode, 'ONLY_FULL_GROUP_BY', ''));");
+    $db->ejecuta("SET sql_mode=(SELECT REPLACE(@@sql_mode, 'ONLY_FULL_GROUP_BY', ''));");
 
     $db->ejecuta("SELECT viaje.*,
                           round( avg(valoracion.puntuacion), 2) media,
