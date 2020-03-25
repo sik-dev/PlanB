@@ -1,0 +1,18 @@
+@import url('fonts.css');
+@import url('reset.css');
+@import url('root.css');
+
+.formulario{
+  font-family: 'Sriracha', cursive;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 100px;
+  height: 530px;
+}
+.formulario>form{
+  width: 27%;
+  margin: auto;
+}
+input{
+  margin-top: 10px;
+}

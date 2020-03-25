@@ -1,0 +1,18 @@
+@import url('fonts.css');
+@import url('reset.css');
+@import url('root.css');
+
+.editarPerfil{
+  font-family: 'Sriracha', cursive;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 100px;
+  height: 530px;
+}
+.editarPerfil>form{
+  width: 25%;
+  margin: auto;
+}
+.editarPerfil>form>textarea{
+  width: 260px;
+}

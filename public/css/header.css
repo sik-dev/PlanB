@@ -1,0 +1,63 @@
+@import url('fonts.css');
+@import url('reset.css');
+@import url('root.css');
+
+header{
+  font-family: 'Sriracha', cursive;
+  background-color: var(--colorPrincipal);
+  height:  10em;
+  padding-top: 1em;
+  background-image: url('../logos_proyecto/viajes.jpg');
+  background-size: 1920px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+
+a{
+  text-decoration: none;
+}
+nav{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+nav > a{
+  margin-right: 30px;
+}
+
+header>nav>a:nth-of-type(n+ 2){
+  background-color: var(--colorPrincipal);
+  color: white;
+  padding: 0.5em;
+}
+header>nav>a:nth-of-type(n+ 2):hover{
+  background-color: var(--colorHover);
+}
+
+#logo{
+  width: 100px;
+  margin-left: 20px;
+}
+
+.favoritos2{
+  width: 20px;
+}
+
+header>div>h1, header>div>h3 {
+  text-align: center;
+  margin: auto;
+}
+
+
+
+/******* @media screen and (min-width: 40.5em) **********/
+@media screen and (min-width: 40.5em){
+
+}
+
+
+/******* @media screen and (min-width: 60.5em) **********/
+@media screen and (min-width: 60.5em){
+  
+}

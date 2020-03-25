@@ -1,0 +1,86 @@
+@import url('fonts.css');
+@import url('reset.css');
+@import url('root.css');
+
+.contenedor{
+  overflow: hidden;
+  font-family: 'Sriracha', cursive;
+  background-size: 1920px;
+  padding: 40px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.contenedor h1{
+  border-bottom: 2px solid black;
+}
+
+.datosUsuario{
+  margin: 0 10%;
+  background-color: var(--colorOpacidad);
+  position: relative;
+}
+.datosUsuario>img{
+  width: 600px;
+}
+.datosUsuario>a{
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+}
+.datosUsuario *, .itinerario *{
+  padding: 5px;
+  margin-top: 5px;
+}
+.itinerario{
+  margin: 0 10%;
+  background-color: var(--colorOpacidad);
+}
+.itinerario ul{
+  list-style: none
+}
+.itinerario ul li{
+  font-size: 1.5em;
+  cursor: pointer;
+}
+.itinerario ul li>p:first-of-type:hover{
+  border-bottom: 3px solid black;
+  padding-bottom: 2px;
+}
+
+.itinerario ul{
+  display: flex;
+  justify-content: space-around;
+}
+.itinerarioDias{
+  display: flex;
+  flex-direction: column;
+
+}
+.comentarios{
+  margin: 10%;
+
+}
+.diaSeleccionado{
+  background-color: var(--colorOpacidad);
+}
+#estrella{
+  position: absolute;
+  left: -90px;
+  top: -23px;
+}
+#estrella img{
+  cursor: pointer;
+}
+.fotoSmall{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.favoritos{
+  width: 80px;
+}
+.noEncontrado{
+  text-align: center;
+}

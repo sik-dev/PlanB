@@ -1,0 +1,40 @@
+@import url('fonts.css');
+@import url('reset.css');
+@import url('root.css');
+
+.mainAventura{
+   font-family: 'Sriracha', cursive;
+   float: left;
+   margin:10% 30%;
+   width: 40%;
+   padding: 3.6%;
+   background-color: var(--colorFondoAventura);
+   border-radius: 30px;
+}
+
+.mainAventura>a>img{
+   float: left;
+   width: 220px;
+   height: 150px;
+}
+
+.mainAventura>div{
+   float: left;
+   width: 330px;
+   height: 150px;
+   margin-left: 8%;
+}
+
+.mainAventura>div>h3{
+   margin-bottom: 5%;
+}
+
+#a-aventura{
+   float: right;
+   background-color: var(--colorBotonAventura);
+   padding: .7em;
+   margin-top: 5%;
+   border-radius: 40px;
+   color:white;
+   text-decoration: none;
+}

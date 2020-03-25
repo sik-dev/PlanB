@@ -1,0 +1,20 @@
+@import url('fonts.css');
+@import url('reset.css');
+@import url('root.css');
+
+.fondoPerfil{
+  font-family: 'Sriracha', cursive;
+  background-size: 1920px;
+  height: 1000px;
+  padding-top: 50px;
+}
+
+.perfil{
+  text-align: center;
+}
+
+#fotoPerfil{
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}

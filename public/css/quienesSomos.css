@@ -1,0 +1,16 @@
+@import url('fonts.css');
+@import url('reset.css');
+@import url('root.css');
+
+.quienesSomos{
+  font-family: 'Sriracha', cursive;
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 100px;
+  height: 530px;
+}
+#fotoPerfil{
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}

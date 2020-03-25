@@ -1,0 +1,56 @@
+@import url('fonts.css');
+@import url('reset.css');
+@import url('root.css');
+
+.listaFavoritos{
+  font-family: 'Sriracha', cursive;
+  margin: auto;
+  width: 80%;
+  height:auto;
+  min-width: 600px;
+}
+.listaFavoritos h1{
+  text-align: center;
+  margin: 30px auto;
+
+}
+.listaFavoritos  img{
+  width: 300px;
+}
+.listaFavoritos .datosUsuario{
+  margin-left: 0;
+}
+.listaFavoritos .contenedor *{
+  margin: auto;
+}
+.listaFavoritos .viaje{
+  margin: 10px;
+  height: 600px
+}
+.listaFavoritos .viaje h2:nth-of-type(2){
+  height: 4em
+}
+#noViajes{
+  height: 550px;
+}
+
+
+.viaje{
+  width: calc(33% - 20px);
+  height: 460px;
+  float: left;
+  overflow: hidden;
+  margin: 0 10px;
+  margin-bottom: 30px;
+  background-color: hsla(160.5, 76.2%, 19.8%, 0.1)
+}
+.viaje>a>img{
+  width: 100%;
+  height: 200px;
+}
+.viaje>h4{
+  height: 60px;
+}
+.viaje>h2{
+  height: 60px;
+}

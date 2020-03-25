@@ -1,0 +1,14 @@
+@import url('fonts.css');
+@import url('reset.css');
+@import url('root.css');
+
+.login{
+  font-family: 'Sriracha', cursive;
+  margin: 84.5px auto;
+  text-align: center;
+  width: 50%;
+  height: 530px;
+}
+#olvidadoContraseña{
+  font-size: 13px;
+}

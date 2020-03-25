@@ -1,0 +1,60 @@
+@import url('fonts.css');
+@import url('reset.css');
+@import url('root.css');
+
+footer{
+  font-family: 'Sriracha', cursive;
+  background-color: var(--colorPrincipal);
+  height:  5em;
+  text-align: center;
+  padding-top: 1em;
+  clear: both;
+  display: flex;
+  justify-content: space-between;
+}
+footer > div:nth-of-type(1){
+  margin-left: 20px;
+}
+footer > div:nth-of-type(2){
+  margin-right: 20px;
+}
+footer a{
+  color: white;
+}
+
+.social{
+  height: 2em;
+}
+
+.social a{
+  background-image: url('../logos_proyecto/sprite_social.jpg');
+  display: inline-block;
+  width: 49px;
+  height: 49px;
+  background-repeat: no-repeat;
+  border-radius: 15%
+}
+.social a:nth-of-type(1){
+  background-position: 0px -49px;
+}
+.social a:nth-of-type(1):hover{
+  background-position: 0px 0px;
+}
+.social a:nth-of-type(2){
+  background-position: -49px -49px;
+}
+.social a:nth-of-type(2):hover{
+  background-position: -49px 0px;
+}
+.social a:nth-of-type(3){
+  background-position: -100px -49px;
+}
+.social a:nth-of-type(3):hover{
+  background-position: -100px -1px;
+}
+.social a:nth-of-type(4){
+  background-position: -150px -49px;
+}
+.social a:nth-of-type(4):hover{
+  background-position: -150px -2px;
+}

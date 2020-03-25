@@ -1,0 +1,17 @@
+:root{
+  /*--colorPrincipal:rgb(88, 248, 160);*/
+  --colorPrincipal:#527e7a;
+  --colorOpacidad: rgba(175, 172, 172, 0.288);
+  --colorHover:#85dcd4;
+  --colorBotonAventura:#CE3D3D;
+  --colorFondoAventura:#568884c7;
+  --colorFondoForm:#c4c4c4;
+  --colorFondoLogin:rgba(166, 251, 204, 0.19);
+  --colorAgregar:#8CA4FC;
+  --colorFondo: #FFF;
+}
+
+.error{
+  color:red;
+  font-weight: bold;
+}

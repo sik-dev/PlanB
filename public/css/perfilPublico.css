@@ -1,0 +1,62 @@
+@import url('fonts.css');
+@import url('reset.css');
+@import url('root.css');
+
+.fondoPerfilPublico{
+  font-family: 'Sriracha', cursive;
+  background-size: 1920px;
+  height: 800px;
+  padding-top: 50px;
+}
+.perfilPublic{
+  background-color: var(--colorOpacidad);
+  height: 500px;
+  margin: 3em;
+  width: 370px;
+  text-align: center;
+  float: left;
+  padding: 20px;
+}
+.perfilPublic>img{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.perfilPublic>h2, .perfilPublic>h4, .perfilPublic>p{
+  margin: 20px 0;
+}
+.mejorValoradosPerfilPublic{
+  float: left;
+  margin: 3em 1em;
+  background-color: var(--colorOpacidad);
+  height: 500px;
+}
+.mejorValoradosPerfilPublic>h2{
+  margin-bottom: 20px;
+}
+
+.mejorValoradosPerfilPublic>.viaje{
+  width: 400px;
+}
+
+
+.viaje{
+  width: calc(33% - 20px);
+  height: 460px;
+  float: left;
+  overflow: hidden;
+  margin: 0 10px;
+  margin-bottom: 30px;
+  background-color: hsla(160.5, 76.2%, 19.8%, 0.1)
+}
+.viaje>a>img{
+  width: 100%;
+  height: 200px;
+}
+.viaje>h4{
+  height: 60px;
+}
+.viaje>h2{
+  height: 60px;
+}

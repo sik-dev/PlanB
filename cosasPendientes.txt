@@ -1,0 +1,5 @@
+/***************** COSAS PENDIENTES **************
+
+- Base de datos- Pasar a objeto y organizar todo
+- Crear puntuacion de viaje y de usuario
+- Agregar AJAX
