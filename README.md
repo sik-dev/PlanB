@@ -25,6 +25,13 @@ Estructura de un proyecto completo web
 ```
 
 ## Base de datos
+
+Ejecutar el script crearDB.sql
+\- resources
+  \- archivos_sql
+    -crearDB.sql
+
+
 Utilizamos la herramienta para acceder y facilitar consultas **DWESBaseDatos.php**.
 
 Basándonos en esta también tenemos un interfaz que deberá implementar el manejador de las entidas **IDWESEntidadManager.php**
