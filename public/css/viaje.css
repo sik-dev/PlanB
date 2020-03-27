@@ -10,8 +10,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-.contenedor h1{
+.contenedor h1,
+.contenedor h2{
   border-bottom: 2px solid black;
+}
+.contenedor .datosUsuario h2{
+  border-bottom: 0px;
 }
 
 .datosUsuario{
@@ -58,7 +62,26 @@
 }
 .comentarios{
   margin: 10%;
-
+}
+.comentario{
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+}
+.comentario div:nth-of-type(1) p{
+  font-size: 1.4em;
+}
+.comentario span{
+  font-size: 0.6em;
+}
+.comentario div:nth-of-type(1){
+  margin-left: 20px;
+  flex: 1;
+}
+.comentario .borrarComentario{
+  font-size: 1em;
+  color: blue;
+  cursor: pointer;
 }
 .diaSeleccionado{
   background-color: var(--colorOpacidad);

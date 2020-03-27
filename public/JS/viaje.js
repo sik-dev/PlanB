@@ -8,16 +8,105 @@ const app = (function (){
   let favorito;
   const URL_VIAJE = '/AJAX-obtenViaje.php?id=';
   const URL_FAVORITOS = '/AJAX-obtenFavoritos.php?id=';
+  const URL_COMENTARIOS = '/AJAX-obtenComentarios.php?id=';
+  const URL_COMENTARIOS_ADD_REMOVE = '/comentarios.php?';
   function iniciar(){
     pedirJSON(URL_VIAJE + idViaje, gestinaDatosViaje);
 
     const perfil = document.getElementById('perfil');
     if(perfil){
-      idUser = document.getElementById('perfil').dataset.id;                 //cogemos el ID de usuario
+      idUser = document.getElementById('perfil').dataset.id;                 //cogemos el ID de usuario si se ha logueado
       eventoFavoritos();
     }
     pedirJSON(URL_FAVORITOS + idUser, gestinaDatosFavoritos);
+    pedirJSON(URL_COMENTARIOS + idViaje, gestinaDatosComentarios);
 
+  }
+
+  function gestinaDatosComentarios(datos){
+    //console.log(datos);
+
+    if(!datos)return;
+
+    //Borra los comentarios si los hubiera
+    const h2 = document.querySelectorAll('.comentarios > h2')[0];
+    if (h2.nextElementSibling) {
+      while (h2.nextElementSibling.tagName == 'DIV') {
+        h2.nextElementSibling.remove();
+      }
+    }
+
+    pintaComentarios(datos);
+    gestionaFormulario();
+  }
+
+  function pintaComentarios(datos){
+    const h2 = document.querySelectorAll('.comentarios > h2')[0];
+    datos.forEach( reg=> {
+      console.dir(reg);
+      let div = document.createElement('div');
+      let div2 = document.createElement('div');
+      let p = document.createElement('p');
+      let a = document.createElement('a');
+      let img = document.createElement('img');
+      let span = document.createElement('span');
+      a.href = 'http://localhost:9000/perfilPublico.php?id_user=' + reg.id_user;
+      img.src = `imgs/${reg.id_user}/${reg.foto}`;
+      img.classList.add('fotoSmall');
+      a.appendChild(img);
+      p.textContent = reg.texto;
+      span.textContent = 'Publicado el ' + new Date(reg.fecha).toLocaleDateString() + ' a las ' + new Date(reg.fecha).toLocaleTimeString();
+
+      div.appendChild(a);
+      div2.appendChild(p);
+      div2.appendChild(span);
+      div.appendChild(div2);
+
+      if(reg.id_user == idUser){  //si tu has escrito el comentario, puedes borrarlo
+        let div3 = document.createElement('div');
+        let borrar = document.createElement('p');
+        borrar.textContent = 'Borrar comentario';
+        borrar.dataset.id = reg.id;
+        borrar.classList.add('borrarComentario');
+        borrar.addEventListener('click', borrarComentario);
+        div3.appendChild(borrar);
+        div.appendChild(div3);
+      }
+      div.classList.add('comentario');
+      h2.insertAdjacentElement('afterend', div);
+    });
+
+  }
+  function gestionaFormulario(){
+    const form = document.querySelector('.comentarios form');
+    if(!form)return;    //si no se ha logueado no aparecerá el formualario y se saldra
+    form.setAttribute('novalidate', true);
+
+    if(form.getAttribute('listener') !== 'true'){
+      form.setAttribute('listener', 'true');
+      form.addEventListener('submit', validarFormulario);
+    }
+
+    function validarFormulario(e) {
+      //console.dir(e.target);
+      e.preventDefault();
+      const textarea = document.querySelector('.comentarios form textarea');
+      peticionAJAX(URL_COMENTARIOS_ADD_REMOVE + 'añadir_comentario=true&texto=' + textarea.value + '&id_user=' + idUser + '&id_viaje=' +idViaje, gestionaAddRemoveComentario);
+      textarea.value = '';
+    }
+  }
+  function borrarComentario(e){
+    const element = e.target;
+
+    peticionAJAX(URL_COMENTARIOS_ADD_REMOVE + 'quitar_comentario=true&id=' + element.dataset.id, gestionaAddRemoveComentario);
+  }
+
+  function gestionaAddRemoveComentario(respuesta){
+    if(!respuesta)return;
+
+    if(respuesta == 'EXITO'){
+      pedirJSON(URL_COMENTARIOS + idViaje, gestinaDatosComentarios);
+    }
   }
 
   function gestinaDatosViaje(datos){
@@ -97,8 +186,6 @@ const app = (function (){
   }
 
   function gestinaDatosFavoritos(datosFavoritos){
-
-
 
     console.log(datosFavoritos);
     if(!datosFavoritos)return;

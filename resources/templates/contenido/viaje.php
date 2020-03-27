@@ -7,17 +7,14 @@
     $id = $_GET['id'];
     $viajeEnviado = true;
   }
-  if ( isset($_POST['id_viaje']) ){
-    $id = $_POST['id_viaje'];
-    $viajeEnviado = true;
-  }
-
+/*
   if (isset($_POST['comentario']) && $_POST['comentario'] != null) {
     $comentario = $_POST['comentario'];
     $date = new DateTime('now');
     $dateCadena = $date->format('Y-m-d H:i:s');
     ComentarioManager::insert($comentario, $dateCadena, $_SESSION['id'], $id);
   }
+  */
 
   //$datos = ViajesManager::getViajesID($id)[0];
   $datos = ViajeManager::getById($id);
@@ -74,7 +71,7 @@
     </div>
   </div>
   <div class="itinerario">
-    <h1>Itinerario</h1>
+    <h2>Itinerario</h2>
     <ul>
       <?php foreach ($datosItinerario as $fila){ ?>
         <li data-dia='<?=$contador?>'>
@@ -86,27 +83,15 @@
     </div>
   </div>
   <div class="comentarios">
-    <h1>Comentarios</h1>
-      <?php foreach ($comentarios as $fila){ ?>
-        <p>
-          <?=$fila->getTexto()?>
-          -Publicado a las
-          <?=$fila->getFecha()?>
-          <?php if ($fila->getIdUser() == $_SESSION['id']): ?>
-            <a href="borrarComentario.php?id_comentario=<?=$fila->getId()?>&id_viaje=<?=$id?>">Borrar comentario</a>
-          <?php endif; ?>
-        </p>
+    <h2>Comentarios</h2>
+    <?php if(isset($_SESSION['autentificado']) && $_SESSION['autentificado'] == true) { ?>
+      <form>
+        <textarea name="comentario" rows="8" cols="80" placeholder="Añade un comentario"></textarea>
         <br>
-      <?php } ?>
-      <br>
-      <?php if(isset($_SESSION['autentificado']) && $_SESSION['autentificado'] == true) { ?>
-        <form class="" action="viaje.php" method="post">
-          <textarea name="comentario" rows="8" cols="80" placeholder="Añade un comentario"></textarea>
-          <br>
-          <input type="text" name="id_viaje" value="<?=$id?>" hidden>
-          <input type="submit" name="Enviar" value="Enviar">
-        </form>
-      <?php } ?>
+        <input type="text" name="id_viaje" value="<?=$id?>" hidden>
+        <button>Enviar</button>
+      </form>
+    <?php } ?>
   </div>
   <?php }else{ ?>
     <div class="noEncontrado">
