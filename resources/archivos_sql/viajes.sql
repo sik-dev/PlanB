@@ -3,8 +3,9 @@ jorge ,joan y Adrian
 */
 
 /* SET FOREIGN_KEY_CHECKS=0;   si es que se agregan las tablas mas de una vez */
-use viajes;
+/* use viajes; */
 SET FOREIGN_KEY_CHECKS=0;
+SET NAMES 'utf8';
 /* SET sql_mode=(SELECT REPLACE(@@sql_mode, 'ONLY_FULL_GROUP_BY', '')); */
 
 DROP TABLE IF EXISTS valoracion;
