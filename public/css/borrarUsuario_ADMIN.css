@@ -1,0 +1,12 @@
+@import url('fonts.css');
+@import url('reset.css');
+@import url('root.css');
+
+.borrarUsuario{
+  font-family: 'Sriracha', cursive;
+  height: 560px;
+  margin: auto;
+  width: 80%;
+  text-align: center;
+  margin-top: 40px;
+}

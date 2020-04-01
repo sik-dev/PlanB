@@ -35,7 +35,8 @@ class UsuarioManager implements IDWESEntidadManager
       $fila['nombre'],
       $fila['pais'],
       $fila['foto'],
-      $fila['mediaGlobal']
+      $fila['mediaGlobal'],
+      $fila['rol']
     );
   }
 

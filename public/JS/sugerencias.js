@@ -12,10 +12,6 @@ const app = (function () {
       //console.log(this.value);
       pedirPostJSON(URL_SUGERENCIAS, gestionaSugerencias, "suggest="+this.value);
     });
-
-    /* if (document.getElementsByClassName('inicio')[0]) {
-      console.log('algoo salio bien');
-    } */
   }
 
   function pedirPostJSON(uri, exito, param){

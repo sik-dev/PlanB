@@ -1,0 +1,77 @@
+@import url('fonts.css');
+@import url('reset.css');
+@import url('root.css');
+
+
+.contenedor{
+  font-family: 'Sriracha', cursive;
+}
+#fotoPerfil{
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+.perfil{
+  text-align: center;
+}
+
+/*USUARIOS  */
+.usuarios{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 420px);
+  justify-content: center;
+  margin: 10px;
+}
+
+.user{
+  display: flex;
+  align-items: center;
+  margin: 20px
+}
+.datosFoto{
+  text-align: center;
+}
+.datos{
+  margin-left: 20px
+}
+#h2Usuarios,
+#h2Viajes{
+  font-size: 2.5em;
+  margin-left: 40px;
+}
+
+
+/* VIAJES*/
+.viajes{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 420px);
+  justify-content: center;
+  margin: 10px;
+}
+.viaje{
+  display: flex;
+  align-items: center;
+  margin: 20px
+}
+.viajeFoto{
+  text-align: center;
+}
+.viajeFoto img{
+  width: 150px;
+  height: 150px;
+}
+.viajeDatos{
+  text-align: center;
+}
+
+
+#basura{
+  width: 50px;
+  cursor: pointer;
+}
+
+#fotoPerfilUser{
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}

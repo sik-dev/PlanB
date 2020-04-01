@@ -1,12 +1,13 @@
 /*USUARIOS*/
 
 /* contraseña: 1234*/
-INSERT INTO usuario (descripcion,email, pass, nombre, pais, foto, mediaGlobal)
+INSERT INTO usuario (descripcion,email, pass, nombre, pais, foto, mediaGlobal, rol)
  VALUES
-  ('soy una persona muy aventurera', 'jorge_lacasta@hotmail.com', '$2y$10$MohhVfbQPLo78ahT2topReJJCrD52w3JbkuWW6WP.2EZLVpgdjih6', 'jorge', 'España', 'kurt-cobain.jpg',3),
-  ('soy una persona muy aventurera', 'joan@joan.es', '$2y$10$MohhVfbQPLo78ahT2topReJJCrD52w3JbkuWW6WP.2EZLVpgdjih6', 'joan', 'España', 'messi.jpg',5),
-  ('soy una persona muy aventurera', 'adriansanzperez.94@gmail.com', '$2y$10$MohhVfbQPLo78ahT2topReJJCrD52w3JbkuWW6WP.2EZLVpgdjih6', 'adrian', 'España', 'profileDefault.png',4),
-  ('soy una persona muy aventurera', 'maria@maria.es', '$2y$10$MohhVfbQPLo78ahT2topReJJCrD52w3JbkuWW6WP.2EZLVpgdjih6', 'maria', 'España', 'maria.jpg', 2)
+  ('soy una persona muy aventurera', 'jorge_lacasta@hotmail.com', '$2y$10$MohhVfbQPLo78ahT2topReJJCrD52w3JbkuWW6WP.2EZLVpgdjih6', 'jorge', 'España', 'kurt-cobain.jpg',3, 'ADMIN'),
+  ('soy una persona muy aventurera', 'joan@joan.es', '$2y$10$MohhVfbQPLo78ahT2topReJJCrD52w3JbkuWW6WP.2EZLVpgdjih6', 'joan', 'España', 'messi.jpg',5, 'ADMIN'),
+  ('soy una persona muy aventurera', 'adriansanzperez.94@gmail.com', '$2y$10$MohhVfbQPLo78ahT2topReJJCrD52w3JbkuWW6WP.2EZLVpgdjih6', 'adrian', 'España', 'brad.jpg',4, 'ADMIN'),
+  ('soy una persona muy aventurera', 'maria@maria.es', '$2y$10$MohhVfbQPLo78ahT2topReJJCrD52w3JbkuWW6WP.2EZLVpgdjih6', 'maria', 'España', 'maria.jpg', 2, 'USER'),
+  ('soy una persona muy aventurera', 'sonia@sonia.es', '$2y$10$MohhVfbQPLo78ahT2topReJJCrD52w3JbkuWW6WP.2EZLVpgdjih6', 'sonia', 'España', 'sonia.jpg', 4.2, 'USER')
 ;
 
 /*VIAJE*/
@@ -21,7 +22,9 @@ INSERT INTO viaje (pais_origen, ciudad_origen, pais_destino, ciudad_destino, fot
   ('España', 'Madrid', 'España', 'Barcelona', 'barcelona2.jpg',150, 'Autobus', '2 dias en Barcelona',3),
   ('España', 'Salamanca', 'Portugal', 'Lisboa', 'lisboa.jpg',225, 'Coche', '3 dias en Lisboa',4),
   ('España', 'Madrid', 'España', 'Granada', 'granada.jpg',140, 'Autobus', 'Viaje turistico a Granada',1),
-  ('España', 'Madrid', 'Francia', 'Paris', 'paris.jpg',340, 'Avion', 'Viaje romantico a Paris',2)
+  ('España', 'Madrid', 'Francia', 'Paris', 'paris.jpg',340, 'Avion', 'Viaje romantico a Paris',2),
+  ('España', 'Madrid', 'Argentina', 'Buenos Aires, Iguazú y Ushuaia', 'argentina.jpg', 1460, 'Avion', 'Viaje de aventura por Argentina',5),
+  ('España', 'Madrid', 'Japón', 'Tokio, Osaka y Kioto', 'japon.jpg', 1735, 'Avion', 'Viaje de aventura por Japon',5)
 ;
 
 /*ITINERARIO*/
@@ -48,7 +51,20 @@ INSERT INTO itinerario (localizacion,alojamiento,titulo, manana, tarde, noche, i
  ('Granada','hotel', '2º dia del viaje', 'Visita a la Alhambra', 'Paseo por la ciudad', 'Vuelta a casa en autobus', 9),
  ('Paris','hotel', '1º dia del viaje', 'Viaje en avion a Paris', 'Paseo por la ciudad, comida en el restaurante Ratatouille', 'Visita a la Torre Eiffel', 10),
  ('Paris','hotel', '2º dia del viaje', 'Visita al museo Louvre', 'Visita al arco de triunfo', 'Paseo romantico por el Sena', 10),
- ('Paris','hotel', '3º dia del viaje', 'Visita al barrio de Montmartre', 'Visita a Notre Dame', 'Vuelta a casa en avión', 10)
+ ('Paris','hotel', '3º dia del viaje', 'Visita al barrio de Montmartre', 'Visita a Notre Dame', 'Vuelta a casa en avión', 10),
+ ('Buenos Aires','hotel', '1º dia del viaje', 'Viaje en avión', 'Viaje en avión', 'Llegada al aeropuerto', 11),
+ ('Buenos Aires','hotel', '2º dia del viaje', 'Visita al barrio antiguo', 'Comida de la famosa carne argentina', 'Baile de un tango', 11),
+ ('Iguazú','hotel', '3º dia del viaje', 'Viaje en avión a Iguazú', 'Llegada al aeropuerto', 'Cena en el restaurante Carne y Leña', 11),
+ ('Iguazú','hotel', '4º dia del viaje', 'Visita a las cataratas de Iguazú', 'Visita a las cataratas de Iguazú', 'Vuelta al hotel', 11),
+ ('Ushuaia','hotel', '5º dia del viaje', 'Viaje en avión a Ushuaia', 'Viaje en avión a Ushuaia', 'Llegada al aeropuerto', 11),
+ ('Ushuaia','hotel', '6º dia del viaje', 'Visita el glaciar del Perito Moreno', 'Excursión para ver a los pingüinos', 'Cena romántica', 11),
+ ('Ushuaia','hotel', '7º dia del viaje', 'Llegada al aeropuerto', 'Viaje en avión a casa', 'Viaje en avión a casa', 11),
+ ('Tokio','hotel', '1º dia del viaje', 'Viaje en avión', 'Viaje en avión', 'Llegada al aeropuerto de Tokio', 12),
+ ('Tokio','hotel', '2º dia del viaje', 'Visita el centro de Tokio', 'Visita el museo de Edo-Tokyo', 'Cena en el barrio de Matsuya el ramen típico', 12),
+ ('Tokio','hotel', '3º dia del viaje', 'Viaje en bus al monte Fuji', 'Visita al monte Fuji', 'Cena de sushi en el restaurante Shinagawa', 12),
+ ('Osaka','hotel', '4º dia del viaje', 'Viaje en tren a Osaka', 'Visita el centro de Osaka', 'Paseo nocturno por la ciudad', 12),
+ ('Kioto','hotel', '5º dia del viaje', 'Viaje en tren a Kioto', 'Visita el Santuario Heian', 'Cena frente al Santuario', 12),
+ ('Kioto','hotel', '6º dia del viaje', 'Llegada al aeropuerto', 'Vuelta a casa en avión', 'Vuelta a casa en avión', 12)
 ;
 
 /*PUNTO DE RUTA*/
@@ -96,7 +112,9 @@ INSERT INTO comentario (texto, fecha, id_user, id_viaje)
  ('¿recomiendas algun sitio para comer?', '2020-12-13', 3, 8),
  ('Como mola se merece una ola', '2020-11-16', 2, 9),
  ('Me encanta este viaje', '2020-10-05', 3, 9),
- ('Me gusta mucho este viaje, seguramente lo haga pronto', '2020-09-05', 3, 10)
+ ('Me gusta mucho este viaje, seguramente lo haga pronto', '2020-09-05', 3, 10),
+ ('¿Recomiendas ur más días?', '2020-010-05', 2, 11),
+ ('I love it', '2020-010-05', 1, 12)
 ;
 
 /*VALORACION*/
@@ -121,11 +139,23 @@ INSERT INTO valoracion (puntuacion, id_user, id_viaje)
   (5, 1, 9),
   (5, 1, 9),
   (2, 2, 10),
-  (4, 3, 10)
+  (4, 3, 10),
+  (4, 3, 11),
+  (5, 2, 11),
+  (5, 1, 12),
+  (4, 2, 12),
+  (5, 4, 12)
+
 ;
 
 /*FAVORITOS*/
 INSERT INTO favoritos (id_user, id_viaje)
  VALUES
-  (1, 1)
+ (1, 1),
+ (2, 4),
+ (3, 1),
+ (4, 7),
+ (3, 8),
+ (5, 2),
+ (2, 12)
 ;
