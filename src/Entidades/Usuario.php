@@ -10,16 +10,18 @@ class Usuario
   private $pais;
   private $foto;
   private $media;
+  private $rol;
 
   function __construct(
-    $id, 
-    $descripcion, 
-    $email, 
-    $pass, 
-    $nombre, 
-    $pais, 
-    $foto, 
-    $media
+    $id,
+    $descripcion,
+    $email,
+    $pass,
+    $nombre,
+    $pais,
+    $foto,
+    $media,
+    $rol
   )
   {
     $this->id = $id;
@@ -30,6 +32,7 @@ class Usuario
     $this->pais = $pais;
     $this->foto = $foto;
     $this->media = $media;
+    $this->rol = $rol;
   }
 
   public function getId()
@@ -111,5 +114,14 @@ class Usuario
   public function setMedia($media)
   {
     $this->media = $media;
+  }
+  public function getRol()
+  {
+    return $this->rol;
+  }
+
+  public function setRol($rol)
+  {
+    $this->rol = $rol;
   }
 }

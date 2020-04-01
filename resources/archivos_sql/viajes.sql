@@ -26,7 +26,8 @@ CREATE TABLE usuario(
     nombre VARCHAR(30) NOT NULL,
     pais VARCHAR(50) NOT NULL,
     foto VARCHAR(50) NOT NULL,
-    mediaGlobal FLOAT DEFAULT 0
+    mediaGlobal FLOAT DEFAULT 0,
+    rol VARCHAR(30) NOT NULL DEFAULT 'USER'
 );
 
 CREATE TABLE cookieSesion(

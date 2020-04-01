@@ -21,7 +21,7 @@
          <div class="datos">
            <p>Precio: <?=$fila['viaje']->getPrecio()?></p>
            <p>Transporte: <?=$fila['viaje']->getTransporte()?></p>
-           <a href="borrarViaje.php?id=<?=$fila['viaje']->getId()?>">Borrar viaje</a>
+           <a href="borrarViaje.php?id_viaje=<?=$fila['viaje']->getId()?>&id_user=<?=$_SESSION['id']?>">Borrar viaje</a>
          </div>
        </div>
      <?php } ?>

@@ -14,9 +14,12 @@
 
  $id;
  $uri = $_SERVER['REQUEST_URI'];
+
+
 //OBTENER ID del USER
- if ( isset($_GET['id']) ){
-   $id = intval($_GET['id']);
+ if ( isset($_SESSION['id']) ){
+   $id = intval($_SESSION['id']);
+   $datosUsuario = UsuarioManager::getBy($id);
  }
 
  //Si tiene una cookie establecido de RECUERDAME
@@ -36,16 +39,21 @@ if(isset($_COOKIE['recuerdame'])){
 }
 
 ?>
-<link rel="stylesheet" href="/css/header.css"> 
+<link rel="stylesheet" href="/css/header.css">
 </script>
 <header>
-  <a href="inicio.php"><img id='logo' src="logos_proyecto/logo1.png" alt=""></a>
+  <div class="">
+    <a href="inicio.php"><img id='logo' src="logos_proyecto/logo1.png" alt=""></a>
+    <?php if( isset($datosUsuario) && $datosUsuario->getRol() === 'ADMIN') {?>
+        <a href="admin.php" id="admin">ADMIN</a>
+    <?php } ?>
+  </div>
   <div class="">
     <h1>PLAN B</h1>
     <h3>Red social de viajes</h3>
   </div>
   <nav>
-  <?php  if( isset($_SESSION['autentificado']) && $_SESSION['autentificado'] == true ){ ?>
+  <?php if( isset($_SESSION['autentificado']) && $_SESSION['autentificado'] == true ){ ?>
       <a href="crearViaje_1.php?id=<?=$_SESSION['id']?>">Subir viaje</a>
       <a href="perfil.php" data-id=<?=$_SESSION['id']?> id="perfil">Perfil</a>
       <a href="listaFavoritos.php?id=<?=$_SESSION['id']?>"><img class="favoritos2"src="/logos_proyecto/star_rellena.png"></a>

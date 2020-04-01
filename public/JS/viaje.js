@@ -252,7 +252,19 @@ const app = (function (){
           exito(xhr.responseText);
         }else {
           console.error(`Error: ${xhr.status} ${xhr.statusText}`);
-        }
+        }le.log(datos);
+
+    if(!datos)return;
+
+    //Borra los comentarios si los hubiera
+    const h2 = document.querySelectorAll('.comentarios > h2')[0];
+    if (h2.nextElementSibling) {
+      while (h2.nextElementSibling.tagName == 'DIV') {
+        h2.nextElementSibling.remove();
+      }
+    }
+
+    pintaComentarios(datos);
       }
     });
 
