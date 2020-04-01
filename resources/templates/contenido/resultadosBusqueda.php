@@ -41,9 +41,11 @@
   }elseif ($filtro == 'numDias') {
     $datos = ViajesManager::getViajesNumDias($buscador);
   } */
-  /* print_r('<pre>');
+  print_r('<pre>');
   print_r($datos);
-  print_r('</pre>'); */
+  print_r('</pre>');
+  print_r($filtro);
+  print_r($buscador);
 
 ?>
 <link rel="stylesheet" href="/css/resultadosBusqueda.css">

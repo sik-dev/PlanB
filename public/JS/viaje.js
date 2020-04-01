@@ -10,6 +10,8 @@ const app = (function (){
   const URL_FAVORITOS = '/AJAX-obtenFavoritos.php?id=';
   const URL_COMENTARIOS = '/AJAX-obtenComentarios.php?id=';
   const URL_COMENTARIOS_ADD_REMOVE = '/comentarios.php?';
+  const URL_SUGERENCIAS = '/AJAX-sugerencias.php';
+
   function iniciar(){
     pedirJSON(URL_VIAJE + idViaje, gestinaDatosViaje);
 
@@ -20,7 +22,48 @@ const app = (function (){
     }
     pedirJSON(URL_FAVORITOS + idUser, gestinaDatosFavoritos);
     pedirJSON(URL_COMENTARIOS + idViaje, gestinaDatosComentarios);
+    pedirPostJSON(URL_SUGERENCIAS, gestionaSugerencias);
+  }
 
+  function pedirPostJSON(uri, exito){
+    const xhr = new XMLHttpRequest();
+
+    xhr.onload = function (){
+      if (this.status === 200) {
+        exito(JSON.parse(this.responseText));
+      }else {
+        console.error(`Error: ${this.status} ${this.statusText}`);
+      }
+    }
+    /* xhr.addEventListener('readystatechange', function(e) {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          exito(JSON.parse(xhr.responseText));
+        }else {
+          console.error(`Error: ${xhr.status} ${xhr.statusText}`);
+        }
+      }
+    }); */
+
+    xhr.open('POST', uri, true);
+    //xhr.setRequestHeader('X_REQUESTED_WITH', 'xmlhttprequest');
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.send();
+  }
+
+  function gestionaSugerencias(datos) {
+    /* const form = document.getElementsByClassName('inicio')[0].getElementsByTagName('form')[0]; */
+    const form = document.forms[0];
+    const br = document.createElement('br');
+    let input = document.createElement('input');
+    let text;
+    for (const sugerencia of datos) {
+      text = document.createTextNode(sugerencia);
+      input.type = 'text';
+      input.appendChild(text);
+      form.insertAdjacentElement('beforeend', input);
+      form.insertAdjacentElement('beforeend', br);
+    }
   }
 
   function gestinaDatosComentarios(datos){

@@ -114,7 +114,24 @@ class ViajeManager implements IDWESEntidadManager{
     return self::map($db -> obtenDatos());
   }
 
-  public static function getAllTest()
+  public static function getAllNames($sugerencia){
+    /* $sql = "SELECT $destino
+            FROM viaje
+            WHERE $destino LIKE ?
+            LIMIT 5"; */
+
+    $db = DWESBaseDatos::obtenerInstancia();
+    $db->ejecuta("SELECT DISTINCT ciudad_destino, pais_destino
+                  FROM viaje
+                  WHERE ciudad_destino LIKE ?
+                  OR pais_destino LIKE ?
+                  LIMIT 5",
+                  ["%$sugerencia%", "%$sugerencia%"]);
+    
+    return $db->obtenDatos();
+  }
+
+  public static function getAllTest($offset, $limit)
   {
     $db = DWESBaseDatos::obtenerInstancia();
     $db->ejecuta("SELECT viaje.*,
@@ -125,13 +142,19 @@ class ViajeManager implements IDWESEntidadManager{
                   FROM viaje INNER JOIN valoracion
                   ON viaje.id = valoracion.id_viaje
                   GROUP BY valoracion.id_viaje
-                  ORDER BY media DESC"
+                  ORDER BY media DESC
+                  LIMIT $offset, $limit"
                 );
 
     return self::map($db -> obtenDatos());
   }
 
-  public static function getAll(){
+  public static function getAll()
+  {
+    $db = DWESBaseDatos::obtenerInstancia();
+    $db->ejecuta("SELECT count(*) as numViajes FROM viaje");
+
+    return $db->obtenDatos()[0]['numViajes'];
   }
 
   public static function getBy($id){

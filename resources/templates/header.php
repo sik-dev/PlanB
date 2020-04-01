@@ -36,8 +36,7 @@ if(isset($_COOKIE['recuerdame'])){
 }
 
 ?>
-<link rel="stylesheet" href="/css/header.css"> 
-</script>
+<link rel="stylesheet" href="/css/header.css">
 <header>
   <a href="inicio.php"><img id='logo' src="logos_proyecto/logo1.png" alt=""></a>
   <div class="">
