@@ -58,6 +58,9 @@
 .itinerarioDias{
   display: flex;
   flex-direction: column;
+}
+#fotoDia{
+  width: 600px;
 
 }
 .comentarios{

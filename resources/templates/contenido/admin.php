@@ -10,7 +10,7 @@
        $rutaImgProfile = (explode('.', $user->getFoto())[0] == 'profileDefault'? $user->getFoto():$user->getId().'/'.$user->getFoto());
 
        $usuarios = UsuarioManager::getAll();
-       $viajes = ViajeManager::getAllTest();
+       $viajes = ViajeManager::getAllTest(0, 1000);
 
      //SINO AL INICIO
      }else{

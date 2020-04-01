@@ -64,7 +64,7 @@
       <p>Transporte: <?=$datos['viaje']->getTransporte()?></p>
       <p>Publicado por:
         <a href="perfilPublico.php?id_user=<?=$datos['viaje']->getIdUser()?>">
-          <img class="fotoSmall"src="imgs/<?=$datosPerfil->getId().'/'.$datosPerfil->getFoto()?>">
+          <img class="fotoSmall"src="imgs/<?=$datosPerfil->getId().'/'.$datosPerfil->getFoto()?>" data-idUserViaje="<?=$datos['viaje']->getIdUser()?>">
         </a>
       </p>
       <br><br>

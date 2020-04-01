@@ -170,6 +170,12 @@ const app = (function (){
 
     div.appendChild(itinerario);
 
+    const fotoDia = document.createElement('img');
+    const numUserViaje = document.querySelector('.fotoSmall');
+    fotoDia.src = `imgs/${numUserViaje.dataset.iduserviaje}/${datos.foto}`;
+    fotoDia.id = 'fotoDia';
+
+    div.appendChild(fotoDia);
     divItinerario.appendChild(div);
 
     diaSeleccionado();

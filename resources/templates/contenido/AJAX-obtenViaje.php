@@ -8,6 +8,11 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
     $datosItinerario = ViajesManager::getItinerario($id);
     //print_r(json_encode([$datos, $datosItinerario]));
     //$obj = json_encode([$datos, $datosItinerario));
+
+
+    for ($i=0; $i < count($datosItinerario); $i++) {
+      $datosItinerario[$i]['foto'] = FotosItinerarioManager::getBy($datosItinerario[$i]['id'])[0]['ruta'];
+    }
     $array = [
       'datosViaje'=>$datos,
       'datosItinerario'=>$datosItinerario
