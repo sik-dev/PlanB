@@ -14,7 +14,6 @@ Son necesarias las variables
     <title><?=$titulo?></title>
     <!-- <link rel="shortcut icon" href="<?php //"$ROOT/public/logos_proyecto/logo1.png"?>" type="image/png" /> -->
     <!--<link rel="stylesheet" href="/css/pure.css">-->
-    <script type="text/javascript" src="JS/sugerencias.js"></script>
   </head>
   <body>
     <?php

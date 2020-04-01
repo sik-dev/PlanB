@@ -36,6 +36,7 @@
   */
 
 ?>
+<script type="text/javascript" src="JS/sugerencias.js"></script>
 <link rel="stylesheet" href="/css/inicio.css">
 <div class="fondo">
    <div class="inicio">
