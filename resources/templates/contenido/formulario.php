@@ -85,7 +85,7 @@ if(count($_POST)>0){
   if($errores == null){
     $pass = password_hash($pass, PASSWORD_DEFAULT);
 
-    $info = [$descripcion, $correo, $pass, $nombre, $pais, $fotoDefault];
+    //$info = [$descripcion, $correo, $pass, $nombre, $pais, $fotoDefault];
     //ingresar datos en DB
     $id = UsuarioManager::insert($descripcion, $correo, $pass, $nombre, $pais, $fotoDefault);
     mkdir("$ROOT/public/imgs/$id");
