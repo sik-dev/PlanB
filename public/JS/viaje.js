@@ -10,6 +10,7 @@ const app = (function (){
   const URL_FAVORITOS = '/AJAX-obtenFavoritos.php?id=';
   const URL_COMENTARIOS = '/AJAX-obtenComentarios.php?id=';
   const URL_COMENTARIOS_ADD_REMOVE = '/comentarios.php?';
+  const URL_INSERTA_VALORACION = '/AJAX-insertaValoracion.php?';
 
   function iniciar(){
     pedirJSON(URL_VIAJE + idViaje, gestinaDatosViaje);
@@ -21,6 +22,9 @@ const app = (function (){
     }
     pedirJSON(URL_FAVORITOS + idUser, gestinaDatosFavoritos);
     pedirJSON(URL_COMENTARIOS + idViaje, gestinaDatosComentarios);
+
+    gestionaFormulario();
+    eventoPuntuacion();
   }
 
   function gestinaDatosComentarios(datos){
@@ -37,7 +41,55 @@ const app = (function (){
     }
 
     pintaComentarios(datos);
-    gestionaFormulario();
+  }
+
+  function eventoPuntuacion(){
+
+    const puntuacion = document.getElementsByClassName('puntuacion')[0];
+
+    puntuacion.addEventListener('click', function(e) {
+      const element = e.target;
+
+      if(element.tagName != 'SPAN') return;
+      let puntuacion = 0;
+
+      switch (element) {
+        case element.parentNode.children[0]:
+          puntuacion = 5;
+          break;
+        case element.parentNode.children[1]:
+          puntuacion = 4;
+          break;
+        case element.parentNode.children[2]:
+          puntuacion = 3;
+          break;
+        case element.parentNode.children[3]:
+          puntuacion = 2;
+          break;
+        case element.parentNode.children[4]:
+          puntuacion = 5;
+          break;
+        default:
+      }
+      console.dir(puntuacion);
+
+      //si la puntuacion es distinta de 0 y esta logueado
+      if(puntuacion != 0){
+        if(idUser){
+          peticionAJAX(`${URL_INSERTA_VALORACION}id_user=${idUser}&id_viaje=${idViaje}&puntuacion=${puntuacion}`, gestionaDatosValoracion);
+        }else{
+          alert('Tienes que loguearte para puntuar');
+        }
+      }
+    });
+  }
+
+  function gestionaDatosValoracion(datos){
+    if(!datos) return;
+
+    //recibimos la nueva media del viaje y se la monstramos
+    const p = document.getElementById('mediaViaje');
+    p.textContent = datos;
   }
 
   function pintaComentarios(datos){
@@ -258,22 +310,9 @@ const app = (function (){
           exito(xhr.responseText);
         }else {
           console.error(`Error: ${xhr.status} ${xhr.statusText}`);
-        }le.log(datos);
-
-    if(!datos)return;
-
-    //Borra los comentarios si los hubiera
-    const h2 = document.querySelectorAll('.comentarios > h2')[0];
-    if (h2.nextElementSibling) {
-      while (h2.nextElementSibling.tagName == 'DIV') {
-        h2.nextElementSibling.remove();
-      }
-    }
-
-    pintaComentarios(datos);
+        }
       }
     });
-
     xhr.send();
   }
   function pedirJSON(uri, exito){

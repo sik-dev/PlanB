@@ -52,7 +52,11 @@
           <img class="favoritos" src="logos_proyecto/star_vacia.png">
       </div>
     <?php } ?>
-    <h1>Destino: <?=$datos['viaje']->getCiudadDestino()?></h1>
+    <h1><?=$datos['viaje']->getCiudadDestino()?></h1>
+    <div class="puntuacion">
+      <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+    </div>
+    <p>Puntuación: <span id="mediaViaje"><?=$datos['media']?><span></p>
     <h2>País: <?=$datos['viaje']->getPaisDestino()?></h2>
     <h4>Origen: <?=$datos['viaje']->getCiudadOrigen()?></h4>
     <h4><?=$datos['viaje']->getDescripcion()?></h4>
@@ -60,7 +64,6 @@
     <div class="datos">
       <p>Precio: <?=$datos['viaje']->getPrecio()?>&euro;</p>
       <p>Nº de Dias: <?=count($datosItinerario)?></p>
-      <p>Puntuación: <?=$datos['media']?></p>
       <p>Transporte: <?=$datos['viaje']->getTransporte()?></p>
       <p>Publicado por:
         <a href="perfilPublico.php?id_user=<?=$datos['viaje']->getIdUser()?>">
