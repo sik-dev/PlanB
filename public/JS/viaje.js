@@ -74,8 +74,12 @@ const app = (function (){
       console.dir(puntuacion);
 
       //si la puntuacion es distinta de 0 y esta logueado
-      if(puntuacion != 0 && idUser){
-        peticionAJAX(`${URL_INSERTA_VALORACION}id_user=${idUser}&id_viaje=${idViaje}&puntuacion=${puntuacion}`, gestionaDatosValoracion);
+      if(puntuacion != 0){
+        if(idUser){
+          peticionAJAX(`${URL_INSERTA_VALORACION}id_user=${idUser}&id_viaje=${idViaje}&puntuacion=${puntuacion}`, gestionaDatosValoracion);
+        }else{
+          alert('Tienes que loguearte para puntuar');
+        }
       }
     });
   }
