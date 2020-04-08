@@ -32,6 +32,7 @@ $paises = [
   "Túnez","Turkmenistán","Turquía","Tuvalu","Ucrania","Uganda","Uruguay","Uzbekistán",
   "Vanuatu","Venezuela","Vietnam","Yemen","Yibuti","Zambia","Zimbabue"
 ];
+
 $ciudades = [
   'Tokio','Nueva York','Los Ángeles','Seúl','Londres','París','Osaka',
   'Shanghái','Chicago','Moscú','Pekín','Colonia','Houston','Washington D. C.',
@@ -85,13 +86,46 @@ $ciudades = [
   'Teruel','Toledo','Valladolid','Vizcaya','Zamora','Zaragoza'
 ];
 
+function startsWith ($string, $startString)
+{
+    $len = strlen($startString);
+    return (substr(strtolower($string), 0, $len) === strtolower($startString));
+}
+
+function sacarDatos($datos, $sugerencia)
+{
+  $sugerencias = [];
+  foreach($datos as $dato){
+    /* if (stripos($dato, $sugerencia)) {
+      array_push($sugerencias, $dato);
+    } */
+    if (startsWith($dato, $sugerencia)) {
+      array_push($sugerencias, $dato);
+    }
+  }
+
+  if (count($sugerencias) > 5) {
+    array_splice($sugerencias, 5);
+  }
+  return $sugerencias;
+}
+
 if(isset($_POST['suggest']) && !empty($_POST['suggest'])) {  
   $sugerencia = $_POST['suggest'];
-  $datos = ViajeManager::getAllNames($sugerencia);
-  //print_r($datos);
-  
+  $sugerencias = [];
+  if (!empty($sugerencia = $_POST['suggest'])) {
+    if(strpos($_POST['opcion'], 'ciudad')){
+      $sugerencias = sacarDatos($ciudades, $sugerencia);
+    }else if(strpos($_POST['opcion'], 'pais')){
+      $sugerencias = sacarDatos($paises, $sugerencia);
+    }
+    $obj = json_encode($sugerencias);
+    echo $obj;
+  }
+
+  /* $datos = ViajeManager::getAllNames($sugerencia);
   $obj = json_encode($datos);
-  echo $obj;
+  echo $obj; */
  }
 
 ?>

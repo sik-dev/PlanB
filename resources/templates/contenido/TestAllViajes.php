@@ -2,6 +2,32 @@
   $num_viajes = 6;
   $page = 1;
 
+  $filtrosBusqueda = ['País', 'Ciudad', 'Número de días'];
+  $filtrosValue= ['viaje.pais_destino', 'viaje.ciudad_destino', 'diasViaje'];
+
+  $filtro = '';
+  $buscador = '';
+  $errores = [];
+
+  if( count($_POST) > 0) {
+    if( isset($_POST['filtro']) && $_POST['filtro'] != ''){
+      $filtro = clear_input($_POST['filtro']);
+    }else{
+      $errores['filtro'] = true;
+    }
+
+    if( isset($_POST['buscador']) && $_POST['buscador'] != ''){
+      $buscador = clear_input($_POST['buscador']);
+    }else{
+      $errores['buscador'] = true;
+    }
+
+    if( count($errores) == 0){
+      header("Location: resultadosBusqueda.php?filtro=$filtro&buscador=$buscador");
+      die();
+    }
+  }
+
   if (isset($_GET['page']) && ($_GET['page']) != '') {
     $page = $_GET['page'];
   }
@@ -20,11 +46,24 @@
   }
   
 ?>
-<link rel="stylesheet" href="/css/test.css">
+<script type="text/javascript" src="JS/sugerencias.js"></script>
+<link rel="stylesheet" href="/css/inicio.css">
 <div class="inicio">
-  <form action="inicio.php">
-    <input type="text" placeholder="¿que quieres buscar?">
+  <form method="post" action="inicio.php">
+    <select name="filtro">
+      <option disabled selected value="">Elige una opción</option>
+      <?php for ($i= 0; $i < count($filtrosBusqueda); $i++) {?>
+            <option value="<?=$filtrosValue[$i]?>" <?=($filtro == $filtrosValue[$i])?'selected':''?>><?=$filtrosBusqueda[$i]?></option>
+      <?php } ?>
+    </select>
+    <input type="text" name='buscador' value="<?=$buscador?>" placeholder="    ¿Qué quieres buscar?">
     <input type="submit" name='buscar' value='buscar'>
+    <?php if( isset($errores['filtro']) && $errores['filtro'] == true) { ?>
+    <br><span class="error">Debes selecionar un filtro</span>
+    <?php } ?>
+    <?php if( isset($errores['buscador']) && $errores['buscador'] == true) { ?>
+    <br><span class="error">Debes escribir algo en la busqueda</span>
+    <?php } ?>
   </form>
   <a href="aventura.php">Aventura</a>
   <h1>Mejores Valorados</h1>
@@ -48,9 +87,7 @@
   </div>
   <div class="paginacion">
     <?php for($pagina = 1;$pagina <= $num_paginas; $pagina++){?>
-      <div>
         <a href="TestAllViajes.php?page=<?=$pagina?>"><?=$pagina?></a>
-      </div>
     <?php }?>
   </div>
 </div>

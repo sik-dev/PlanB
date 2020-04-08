@@ -10,7 +10,8 @@ const app = (function () {
 
     input.addEventListener('keyup', function(){
       //console.log(this.previousElementSibling.value);
-      pedirPostJSON(URL_SUGERENCIAS, gestionaSugerencias, "suggest="+this.value);
+      let param = "suggest="+this.value+"&opcion="+this.previousElementSibling.value;
+      pedirPostJSON(URL_SUGERENCIAS, gestionaSugerencias, param);
     });
   }
 
@@ -19,7 +20,9 @@ const app = (function () {
 
     xhr.onload = function (){
       if (this.status === 200) {
+        /* console.log(this.responseText); */
         (this.responseText == '')?exito(this.responseText):exito(JSON.parse(this.responseText));
+        /* exito(JSON.parse(this.responseText)) */
       }else {
         console.error(`Error: ${this.status} ${this.statusText}`);
       }
@@ -37,15 +40,18 @@ const app = (function () {
     const br = document.createElement('br');
     const divS = document.createElement('div');
     let a, text, div, divAntiguo;
-
+    /* if (divAntiguo = form.querySelector('#sugerencia')) {
+      form.removeChild(divAntiguo);
+    } */
     if (datos !== '') {
-      //console.log(datos);
+      /* console.log(datos); */
       datos.forEach(sugerencia => {
-        text = document.createTextNode(sugerencia.ciudad_destino);
+        /* text = document.createTextNode(sugerencia.ciudad_destino); */
+        text = document.createTextNode(sugerencia);
         div = document.createElement('div');
         div.id = 'sugerencia';
         a = document.createElement('a');
-        a.href = 'http://localhost:9000/resultadosBusqueda.php?filtro='+select.value+'&buscador='+sugerencia.ciudad_destino;
+        a.href = 'http://localhost:9000/resultadosBusqueda.php?filtro='+select.value+'&buscador='+sugerencia/* .ciudad_destino */;
         a.style.color = 'black';
         a.appendChild(text);
         div.appendChild(a);

@@ -7,6 +7,9 @@
   $buscador = '';
   $errores = [];
 
+  $num_viajes = 6;
+  $page = 1;
+
   if( count($_POST) > 0) {
     if( isset($_POST['filtro']) && $_POST['filtro'] != ''){
       $filtro = clear_input($_POST['filtro']);
@@ -26,14 +29,26 @@
     }
   }
 
+  if (isset($_GET['page']) && ($_GET['page']) != '') {
+    $page = $_GET['page'];
+  }
 
-  $datos = ViajeManager::getViajes();
+  $offset = ($page - 1) * $num_viajes;
+  $datos = ViajeManager::getAllTest($offset, $num_viajes);
+  $total_viajes = ViajeManager::getAll();
+  /* $datos = ViajeManager::getViajes(); */
 
   /*
   echo "<pre>";
   print_r($datos);
   echo "</pre>";
   */
+
+  if (is_int($total_viajes / $num_viajes)) {
+    $num_paginas = $total_viajes / $num_viajes;
+  }else{
+    $num_paginas = (int) ($total_viajes / $num_viajes) + 1;
+  }
 
 ?>
 <script type="text/javascript" src="JS/sugerencias.js"></script>
@@ -44,14 +59,16 @@
         <select name="filtro">
           <option disabled selected value="">Elige una opción</option>
           <?php for ($i= 0; $i < count($filtrosBusqueda); $i++) {?>
-                <option value="<?=$filtrosValue[$i]?>" <?=($filtro == $filtrosValue[$i])?'selected':''?>><?=$filtrosBusqueda[$i]?></option>
+            <option value="<?=$filtrosValue[$i]?>" <?=($filtro == $filtrosValue[$i])?'selected':''?>><?=$filtrosBusqueda[$i]?></option>
           <?php } ?>
         </select>
         <input type="text" name='buscador' value="<?=$buscador?>" placeholder="    ¿Qué quieres buscar?">
         <input type="submit" name='buscar' value='buscar'>
+
         <?php if( isset($errores['filtro']) && $errores['filtro'] == true) { ?>
         <br><span class="error">Debes selecionar un filtro</span>
         <?php } ?>
+
         <?php if( isset($errores['buscador']) && $errores['buscador'] == true) { ?>
         <br><span class="error">Debes escribir algo en la busqueda</span>
         <?php } ?>
@@ -75,6 +92,15 @@
                </div>
             </div>
          <?php } ?>
+      </div>
+      <div class="paginacion">
+        <?php for($pagina = 1;$pagina <= $num_paginas; $pagina++){?>
+          <?php if($pagina == $page){?>
+            <a href="inicio.php?page=<?=$pagina?>"><u><?=$pagina?></u></a>
+          <?php }else{?>
+            <a href="inicio.php?page=<?=$pagina?>"><?=$pagina?></a>
+          <?php }?>
+        <?php }?>
       </div>
    </div>
 </div>
