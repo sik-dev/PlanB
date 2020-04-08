@@ -26,17 +26,19 @@ Estructura de un proyecto completo web
 
 ## Base de datos
 
-Ejecutar el script crearDB.sql
-
+En PlanB ejecutar el script crearDB.sql
 ```
-\- resources
-  \- archivos_sql
-    ^-crearDB.sql
+# desde la ruta raíz
+$ mysql -u root -p < resources\archivos_sql\crearDB.sql
+```
+Esto creará :
+- El usuario **viajes** con contraseña **viajes** 
+- La base de datos **viajes** con las tablas e inserts ejecutados
 
 
 Utilizamos la herramienta para acceder y facilitar consultas **DWESBaseDatos.php**.
 
-Basándonos en esta también tenemos un interfaz que deberá implementar el manejador de las entidas **IDWESEntidadManager.php**
+Basándonos en esta también tenemos un interfaz que deberá implementar el manejador de las entidades **IDWESEntidadManager.php**
 
 ## Ejecución
 
