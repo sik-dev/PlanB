@@ -15,15 +15,25 @@ class ValoracionManager implements IDWESEntidadManager
                   VALUES (?, ?, ?)",
                   $campos);
   }
+  public static function getMediaViaje($idViaje)
+  {
+    $db = DWESBaseDatos::obtenerInstancia();
+    $db->ejecuta("SELECT round(avg(puntuacion),2) media FROM valoracion
+                  WHERE id_viaje = ?",
+                  $idViaje);
+
+    return $db->obtenDatos();
+  }
 
   public static function update($id, ...$campos){
   }
 
-  public static function delete($id)
+  public static function delete($campos)
   {
-    /* $db = DWESBaseDatos::obtenerInstancia();
+    $db = DWESBaseDatos::obtenerInstancia();
     $db->ejecuta("DELETE FROM valoracion
-                  WHERE id_viaje = ?",
-                  $id); */
+                  WHERE id_user = ?
+                  AND id_viaje = ?",
+                  $campos);
   }
 }

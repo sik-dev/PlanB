@@ -63,6 +63,33 @@
   width: 600px;
 
 }
+/************************** PUNTUACION */
+.puntuacion span{
+  cursor: pointer;
+  font-size: 2em;
+}
+.puntuacion {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+
+  position: absolute;
+  right: 0px;
+  top: -8px;
+}
+.puntuacion > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.puntuacion > span:hover:before,
+.puntuacion > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+   color: gold;
+}
+
+
+
 .comentarios{
   margin: 10%;
 }
