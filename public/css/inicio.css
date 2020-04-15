@@ -108,3 +108,18 @@
   text-decoration: none;
   font-size: 1.2em;
 }
+
+#sugerencia{
+  width: 23em;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 0 0 50px 50px;
+}
+
+#sugerencia ul{
+  list-style: none;
+}
+
+#sugerencia a{
+  width: 100%;
+}

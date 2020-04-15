@@ -7,7 +7,7 @@
    gestionaErrores($_POST, $info, $errores);
 
    if ( $errores == null ) {
-     $datos = ViajesManager::autentificado($info['nombre'])[0];
+     $datos = UsuarioManager::autentificado($info['nombre']);
      $id = $datos['id'];
 
      if( $datos != null && password_verify($info['pass'], $datos['pass']) ){

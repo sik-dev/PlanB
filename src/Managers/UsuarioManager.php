@@ -10,7 +10,7 @@ class UsuarioManager implements IDWESEntidadManager
                   FROM usuario
                   WHERE nombre = ?",
                   $nombre);
-    return $db->obtenDatos();
+    return $db->obtenDatos()[0];
   }
 
   public static function getAll()

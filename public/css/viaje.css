@@ -137,3 +137,24 @@
 .noEncontrado{
   text-align: center;
 }
+
+.pu{
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.pu iframe{
+  width: 80%;
+  height: 100%;
+}
+
+.imgP{
+  width: 100vw;
+  height: 100vh;
+}
+
+.imgP img{
+  width: 100%;
+}

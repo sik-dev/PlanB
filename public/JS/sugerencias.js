@@ -38,35 +38,38 @@ const app = (function () {
     const form = document.forms[0];
     const select = form.querySelector('select');
     const br = document.createElement('br');
-    const divS = document.createElement('div');
-    let a, text, div, divAntiguo;
+    const div = document.createElement('div');
+    const ul = document.createElement('ul');
+    let a, text, li, divAntiguo;
     /* if (divAntiguo = form.querySelector('#sugerencia')) {
       form.removeChild(divAntiguo);
     } */
     if (datos !== '') {
       /* console.log(datos); */
       datos.forEach(sugerencia => {
+        li = document.createElement('li');
         /* text = document.createTextNode(sugerencia.ciudad_destino); */
         text = document.createTextNode(sugerencia);
-        div = document.createElement('div');
-        div.id = 'sugerencia';
         a = document.createElement('a');
         a.href = 'http://localhost:9000/resultadosBusqueda.php?filtro='+select.value+'&buscador='+sugerencia/* .ciudad_destino */;
         a.style.color = 'black';
         a.appendChild(text);
-        div.appendChild(a);
-        divS.appendChild(div);
-        divS.appendChild(br);
+        li.appendChild(a);
+        ul.appendChild(li);
+        /* div.style.borderBottom = '.5px solid black'; */
+        /* div.appendChild(br); */
         /* form.insertAdjacentElement('beforeend', div);
         form.insertAdjacentElement('beforeend', br); */
       });
-      
-      divS.id = 'sugerencia';
+
+      /* div.style.backgroundColor = 'white'; */
+      div.appendChild(ul);
+      div.id = 'sugerencia';
 
       if (divAntiguo = form.querySelector('#sugerencia')) {
-        form.replaceChild(divS, divAntiguo);
+        form.replaceChild(div, divAntiguo);
       }else{
-        form.insertAdjacentElement('beforeend', divS);
+        form.insertAdjacentElement('beforeend', div);
       }
       /* console.log(form.querySelector('#sugerencia')); */
       /* console.log(form); */

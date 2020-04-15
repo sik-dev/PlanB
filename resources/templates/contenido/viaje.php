@@ -101,6 +101,9 @@
       <h1>Viaje no encontrado</h1>
     </div>
   <?php }?>
+  <div class="pu">
+    <iframe src="publicidades.php" frameborder="1" scrolling="no"></iframe>
+  </div>
 </div>
 
 <script type="text/javascript" src="JS/viaje.js">
