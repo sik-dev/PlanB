@@ -102,7 +102,12 @@
     </div>
   <?php }?>
   <div class="pu">
-    <iframe src="publicidades.php" frameborder="1" scrolling="no"></iframe>
+    <!-- <a href="inicio.php">
+      <iframe src="publicidades.php" frameborder="1" scrolling="no"></iframe>
+    </a> -->
+    <a href="#">
+      <img src="imgs/p/publi_2.jpg" alt="">
+    </a>
   </div>
 </div>
 

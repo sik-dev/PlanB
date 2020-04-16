@@ -4,7 +4,7 @@
 
 .inicio{
   font-family: 'Sriracha', cursive;
-  width: 70%;
+  width: 90%;
   margin: auto;
 }
 .inicio>form{
@@ -88,7 +88,10 @@
 }
 
 .fondo{
+  float: left;
   background-size: 1920px;
+  width: 55%;
+  margin: 0 2.5%;
   /* height: 1200px; */
   padding-top: 50px;
 }
@@ -121,5 +124,22 @@
 }
 
 #sugerencia a{
+  width: 100%;
+}
+
+.pu{
+  float: left;
+  display: flex;
+  justify-content: center;
+  width: 20%;
+}
+
+.pu a{
+  margin: 10%;
+  width: 80%;
+  height: 100%;
+}
+
+.pu img{
   width: 100%;
 }

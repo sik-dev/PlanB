@@ -140,7 +140,6 @@
 
 .pu{
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   padding: 20px 0;
 }
@@ -148,6 +147,16 @@
 .pu iframe{
   width: 80%;
   height: 100%;
+}
+
+.pu a{
+  margin: 10%;
+  width: 80%;
+  height: 100%;
+}
+
+.pu img{
+  width: 100%;
 }
 
 .imgP{

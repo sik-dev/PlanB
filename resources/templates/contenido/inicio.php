@@ -53,6 +53,14 @@
 ?>
 <script type="text/javascript" src="JS/sugerencias.js"></script>
 <link rel="stylesheet" href="/css/inicio.css">
+<div class="pu">
+  <!-- <a href="inicio.php">
+    <iframe src="publicidades.php" frameborder="1" scrolling="no"></iframe>
+  </a> -->
+  <a href="#">
+    <img src="imgs/p/publi_1.jpg" alt="">
+  </a>
+</div>
 <div class="fondo">
    <div class="inicio">
       <form method="post" action="inicio.php">
@@ -103,4 +111,12 @@
         <?php }?>
       </div>
    </div>
+</div>
+<div class="pu">
+  <!-- <a href="inicio.php">
+    <iframe src="publicidades.php" frameborder="1" scrolling="no"></iframe>
+  </a> -->
+  <a href="#">
+    <img src="imgs/p/publi_8.jpg" alt="">
+  </a>
 </div>
