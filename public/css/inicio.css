@@ -65,7 +65,8 @@
   overflow: hidden;
   margin: 0 10px;
   margin-bottom: 30px;
-  background-color: hsla(160.5, 76.2%, 19.8%, 0.1)
+  background-color: hsla(160.5, 76.2%, 19.8%, 0.1);
+  position: relative;
 }
 .viaje>a>img{
   width: 100%;
@@ -85,6 +86,14 @@
 }
 .favoritos{
   width: 80px;
+}
+.puntuacion{
+
+}
+.rellena:before{
+   content: "\2605";
+   color: gold;
+   position: absolute;
 }
 
 .fondo{

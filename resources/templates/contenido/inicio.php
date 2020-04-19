@@ -88,7 +88,19 @@
         <?php foreach ($datos as $fila) { ?>
             <div class="viaje">
                <h2><?=$fila['viaje']->getCiudadDestino()?></h2>
-               <h4><?=$fila['viaje']->getDescripcion()?></h4>
+               <div class="puntuacion">
+                 <?php for($i=1; $i <= 5; $i++) { ?>
+                   <?php if ($fila['media'] >= $i) { ?>
+                     <span class='rellena'>☆</span>
+                   <?php }else{ ?>
+                     <span>☆</span>
+                   <?php } ?>
+                 <?php } ?>
+               </div>
+               <p>Media del viaje: <?=$fila['media']?></p>
+               <br>
+
+               <p><?=$fila['viaje']->getDescripcion()?></p>
                <a href="viaje.php?id=<?=$fila['viaje']->getId()?>">
                 <img id='mejoresValorados' src="imgs/<?=$fila['viaje']->getIdUser()."/".$fila['viaje']->getFoto()?>" alt="">
                </a>
@@ -96,7 +108,6 @@
                   <p>Nº de dias: <?=$fila['diasViaje']?></p>
                   <p>Precio: <?=$fila['viaje']->getPrecio()?>&euro;</p>
                   <p>Transporte: <?=$fila['viaje']->getTransporte()?></p>
-                  <p>Media del viaje: <?=$fila['media']?></p>
                </div>
             </div>
          <?php } ?>

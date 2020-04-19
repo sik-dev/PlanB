@@ -8,10 +8,11 @@ Son necesarias las variables
 
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title><?=$titulo?></title>
+    <link rel="icon" href="/logos_proyecto/logo.ico">
     <!-- <link rel="shortcut icon" href="<?php //"$ROOT/public/logos_proyecto/logo1.png"?>" type="image/png" /> -->
     <!--<link rel="stylesheet" href="/css/pure.css">-->
   </head>

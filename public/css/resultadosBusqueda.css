@@ -89,3 +89,13 @@
   height: 1200px;
   padding-top: 50px;
 }
+
+
+.puntuacion{
+
+}
+.rellena:before{
+   content: "\2605";
+   color: gold;
+   position: absolute;
+}

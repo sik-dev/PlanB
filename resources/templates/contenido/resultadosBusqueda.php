@@ -74,20 +74,31 @@
             <h1>Viaje no encontrado</h1>
          <?php  }else{ ?>
             <a href="aventura.php">Aventura</a>
-            <h1>Mejores Valorados</h1>
+            <h1>Resultados de busqueda</h1>
 
             <div class="mejorValorados">
                <?php foreach ($datos as $fila) { ?>
                   <div class="viaje">
                      <h2><?=$fila['viaje']->getCiudadDestino()?></h2>
-                     <h4><?=$fila['viaje']->getDescripcion()?></h4>
+                     <div class="puntuacion">
+                       <?php for($i=1; $i <= 5; $i++) { ?>
+                         <?php if ($fila['media'] >= $i) { ?>
+                           <span class='rellena'>☆</span>
+                         <?php }else{ ?>
+                           <span>☆</span>
+                         <?php } ?>
+                       <?php } ?>
+                     </div>
+                     <p>Media del viaje: <?=$fila['media']?></p>
+                     <br>
+
+                     <p><?=$fila['viaje']->getDescripcion()?></p>
                      <a href="viaje.php?id=<?=$fila['viaje']->getId()?>">
                       <img id='mejoresValorados' src="imgs/<?=$fila['viaje']->getIdUser().'/'.$fila['viaje']->getFoto()?>" alt="">
                      </a>
                      <div class="datos">
-                        <p>Precio: <?=$fila['viaje']->getPrecio()?></p>
                         <p>Nº de Dias: <?=$fila['diasViaje']?></p>
-                        <p>Puntuación: <?=$fila['media']?></p>
+                        <p>Precio: <?=$fila['viaje']->getPrecio()?> &euro;</p>
                         <p>Transporte: <?=$fila['viaje']->getTransporte()?></p>
                         <!-- <p>Media del viaje: <?=$fila['media']?></p> -->
                      </div>
