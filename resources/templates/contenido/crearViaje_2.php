@@ -22,6 +22,7 @@ if (count($_POST) > 0) {
   $fotoItiNuevaRuta = "$ROOT/public/imgs/$id/$fotoItiFullName";
 
   if ($errores == null) {
+    /* print_r($_POST); */
     $info['fotoIti'] = $fotoItiFullName;
 
     /* MOVER IMAGEN A LA CARPETA DE IMAGENES DEL USUARIO */
@@ -40,7 +41,7 @@ if (count($_POST) > 0) {
 
     $paramItinerario = [$info['local'],
                         $info['alojamiento'],
-                        $info['titulo'],
+                        
                         $info['manana'],
                         $info['tarde'],
                         $info['noche'],
@@ -56,48 +57,51 @@ if (count($_POST) > 0) {
   }
 }
 ?>
+<script src="JS/addItinerarios.js"></script>
 <link rel="stylesheet" href="/css/crearViaje_2.css">
 <div class="insertViaje">
   <form action="crearViaje_2.php?id=<?=$id?>" method="post" enctype="multipart/form-data">
+    <div class="itinerario">
+      <h1>Dia 1</h1>
+      <!-- FOTO DEL ITINERARIO -->
+      <input type="file" name="fotoIti"><br>
+      <?php if( isset($errores['fotoIti'])) { ?>
+        <br><span class='error'><?=$errores['fotoIti']?></span><br>
+      <?php } ?>
 
-    <!-- FOTO DEL ITINERARIO -->
-    <input type="file" name="fotoIti"><br>
-    <?php if( isset($errores['fotoIti'])) { ?>
-      <br><span class='error'><?=$errores['fotoIti']?></span><br>
-    <?php } ?>
+      <!-- LOCAL -->
+      <input type="text" name="local" value="<?=$info['local']?>" placeholder="localizacion">
+      <?php if( isset($errores['local'])) { ?>
+        <span class='error'><?=$errores['local']?></span>
+      <?php } ?>
+      <br>
 
-    <!-- LOCAL -->
-    <input type="text" name="local" value="<?=$info['local']?>" placeholder="localizacion">
-    <?php if( isset($errores['local'])) { ?>
-      <span class='error'><?=$errores['local']?></span>
-    <?php } ?>
-    <br>
+      <!-- TITULO DEL ITINERARIO -->
+      <!-- <input type="text" name="titulo" value="<?php //echo $info['titulo'] ?>" placeholder="titulo del itinerario">
+      <?php //if( isset($errores['titulo'])) { ?>
+          <br><span class='error'><?php//echo $errores['titulo']?></span><br>
+      <?php //} ?> -->
 
-    <!-- TITULO DEL ITINERARIO -->
-    <input type="text" name="titulo" value="<?=$info['titulo']?>" placeholder="titulo del itinerario">
-    <?php if( isset($errores['titulo'])) { ?>
-        <br><span class='error'><?=$errores['titulo']?></span><br>
-    <?php } ?>
+      <!-- MAÑANA -->
+      <?php if( isset($errores['manana'])) { ?>
+          <br><span class='error'><?=$errores['manana']?></span><br>
+      <?php } ?>
+      <textarea name="manana" cols="60" rows="3" placeholder="mañana"><?=$info['manana']?></textarea><br>
 
-    <!-- MAÑANA -->
-    <?php if( isset($errores['manana'])) { ?>
-        <br><span class='error'><?=$errores['manana']?></span><br>
-    <?php } ?>
-    <textarea name="manana" cols="60" rows="3" placeholder="mañana"><?=$info['manana']?></textarea><br>
+      <!-- TARDE -->
+      <?php if( isset($errores['tarde'])) { ?>
+          <br><span class='error'><?=$errores['tarde']?></span><br>
+      <?php } ?>
+      <textarea name="tarde" cols="60" rows="3" placeholder="tarde"><?=$info['tarde']?></textarea><br>
 
-    <!-- TARDE -->
-    <?php if( isset($errores['tarde'])) { ?>
-        <br><span class='error'><?=$errores['tarde']?></span><br>
-    <?php } ?>
-    <textarea name="tarde" cols="60" rows="3" placeholder="tarde"><?=$info['tarde']?></textarea><br>
-
-    <!-- NOCHE -->
-    <?php if( isset($errores['noche'])) { ?>
-      <br><span class='error'><?=$errores['noche']?></span><br>
-    <?php } ?>
-    <textarea name="noche" cols="60" rows="3" placeholder="noche"><?=$info['noche']?></textarea><br>
-
+      <!-- NOCHE -->
+      <?php if( isset($errores['noche'])) { ?>
+        <br><span class='error'><?=$errores['noche']?></span><br>
+      <?php } ?>
+      <textarea name="noche" cols="60" rows="3" placeholder="noche"><?=$info['noche']?></textarea><br>
+    </div>
     <button type="submit" name="anterior" value="true">Anterior</button>
     <button type="submit">Enviar</button>
+    <button type="submit" name="addItinerario">Añadir itinerario</button>
   </form>
 </div>

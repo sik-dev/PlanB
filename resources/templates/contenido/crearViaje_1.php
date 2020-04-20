@@ -17,7 +17,7 @@ $info = ['pais_origen' => '',
          'desc' => '',
          'local' => '',
          'alojamiento' => '',
-         'titulo' => '',
+         /* 'titulo' => '', */
          'manana' => '',
          'tarde' => '',
          'noche' => '',
@@ -40,7 +40,7 @@ if (count($_POST) > 0) {
     $fotoNuevaRuta = "$ROOT/public/imgs/$id/$fotoFullName";
 
     /* MOVER IMAGEN A LA CARPETA DE IMAGENES DEL USUARIO */
-    moverFoto($_FILES['foto']['tmp_name'], $fotoNuevaRuta);
+    /* moverFoto($_FILES['foto']['tmp_name'], $fotoNuevaRuta); */
 
     $_SESSION['viaje'] = $info;
 

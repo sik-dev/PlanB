@@ -23,7 +23,7 @@ class ItinerarioManager implements IDWESEntidadManager
     $db->ejecuta("INSERT INTO itinerario
                     (localizacion, alojamiento,
                     manana, tarde, noche, id_viaje)
-                  VALUES(?, ?, ?, ?, ?, ?, ?)",
+                  VALUES(?, ?, ?, ?, ?, ?)",
                   $campos[0]);
   }
 
