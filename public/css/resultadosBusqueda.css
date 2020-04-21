@@ -57,7 +57,7 @@
 }
 .viaje{
   width: calc(33% - 20px);
-  height: 460px;
+  height: 580px;
   float: left;
   overflow: hidden;
   margin: 0 10px;
@@ -98,4 +98,44 @@
    content: "\2605";
    color: gold;
    position: absolute;
+}
+
+
+.oculto{
+  display: none
+}
+
+/****************     ETIQUETAS   **/
+.etiquetas span{
+  background-image: url('../logos_proyecto/sprite_etiquetas.png');
+  width: 72px;
+  height: 72px;
+  display: inline-block;
+}
+.Aventuras{
+  background-position: 0px;
+}
+.Cultural{
+  background-position: -73px;
+}
+.Religioso{
+  background-position: -140px;
+}
+.Romántico{
+  background-position: -202px;
+}
+.Amigos{
+  background-position: -272px;
+}
+.Gastronómico{
+  background-position: -342px;
+}
+.Relax{
+  background-position: -416px;
+}
+.Fiesta{
+  background-position: -489px;
+}
+.LowCost{
+  background-position: -559px;
 }

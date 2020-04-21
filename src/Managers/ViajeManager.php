@@ -109,8 +109,8 @@ class ViajeManager implements IDWESEntidadManager{
                   $where ?
                   GROUP BY valoracion.id_viaje
                   ORDER BY media DESC
-                  LIMIT 6",
-                  $datos[1]);
+                  LIMIT ?, ?",
+                  $datos[1], $datos[2], $datos[3]);
     //return $db->obtenDatos();
     return self::map($db -> obtenDatos());
   }

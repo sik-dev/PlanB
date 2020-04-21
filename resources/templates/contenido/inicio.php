@@ -1,7 +1,9 @@
 <?php
 
-  $filtrosBusqueda = ['País', 'Ciudad', 'Número de días'];
-  $filtrosValue= ['viaje.pais_destino', 'viaje.ciudad_destino', 'diasViaje'];
+  $filtrosBusqueda = ['País', 'Ciudad', 'Número de días', 'Tipo de viaje'];
+  $filtrosValue = ['viaje.pais_destino', 'viaje.ciudad_destino', 'diasViaje', 'etiquetas'];
+
+  $etiquetasSelect = ['Aventura', 'Cultural', 'Romántico', 'Relax', 'Gastronómico', 'Con amig@s', 'LowCost', 'Fiesta', 'Religioso'];
 
   $filtro = '';
   $buscador = '';
@@ -11,6 +13,7 @@
 
   $num_viajes = 6;
   $page = 1;
+
 
   if( count($_POST) > 0) {
     if( isset($_POST['filtro']) && $_POST['filtro'] != ''){
@@ -55,6 +58,7 @@
 
 ?>
 <script type="text/javascript" src="JS/sugerencias.js"></script>
+<script type="text/javascript" src="JS/buscador.js"></script>
 <link rel="stylesheet" href="/css/inicio.css">
 <div class="pu">
   <!-- <a href="inicio.php">
@@ -67,13 +71,20 @@
 <div class="fondo">
    <div class="inicio">
       <form method="post" action="inicio.php">
-        <select name="filtro">
+        <select id="filtro" name="filtro">
           <option disabled selected value="">Elige una opción</option>
           <?php for ($i= 0; $i < count($filtrosBusqueda); $i++) {?>
             <option value="<?=$filtrosValue[$i]?>" <?=($filtro == $filtrosValue[$i])?'selected':''?>><?=$filtrosBusqueda[$i]?></option>
           <?php } ?>
         </select>
-        <input type="text" name='buscador' value="<?=$buscador?>" placeholder="    ¿Qué quieres buscar?">
+        <input id="buscador" type="text" name='buscador' value="<?=$buscador?>" placeholder="    ¿Qué quieres buscar?">
+        <select id="buscadorEtiquetas" name="buscador" class="oculto">
+          <option disabled selected>Elige una opción</option>
+          <?php for ($i= 0; $i < count($etiquetasSelect); $i++) {?>
+            <option value="<?=$etiquetasSelect[$i]?>"><?=$etiquetasSelect[$i]?></option>
+          <?php } ?>
+        </select>
+
         <input type="submit" name='buscar' value='buscar'>
 
         <?php if( isset($errores['filtro']) && $errores['filtro'] == true) { ?>
