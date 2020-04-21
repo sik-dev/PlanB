@@ -116,7 +116,8 @@ const app = (function (){
 
       if(reg.id_user == idUser){  //si tu has escrito el comentario, puedes borrarlo
         let div3 = document.createElement('div');
-        let borrar = document.createElement('p');
+        let borrar = document.createElement('img');
+        borrar.src = '/logos_proyecto/basura.png';
         borrar.textContent = 'Borrar comentario';
         borrar.dataset.id = reg.id;
         borrar.classList.add('borrarComentario');

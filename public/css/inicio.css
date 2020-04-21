@@ -4,7 +4,6 @@
 
 .inicio{
   font-family: 'Sriracha', cursive;
-  width: 90%;
   margin: auto;
 }
 .inicio>form{
@@ -53,14 +52,14 @@
 .mejorValorados{
   width: 100%;
   margin-top: 30px;
-  background-color: var(--colorOpacidad);
+  /*background-color: var(--colorOpacidad);*/
   display: grid;
   grid-template: repeat(2, 1fr) / repeat(3, 1fr);
 }
 .viaje{
   /* width: calc(33% - 20px); */
   /* width: auto; */
-  height: 460px;
+  height: 580px;
   float: left;
   overflow: hidden;
   margin: 0 10px;
@@ -151,4 +150,40 @@
 
 .pu img{
   width: 100%;
+}
+
+
+/****************     ETIQUETAS   **/
+.etiquetas span{
+  background-image: url('../logos_proyecto/sprite_viajes.png');
+  width: 72px;
+  height: 72px;
+  display: inline-block;
+}
+.Aventuras{
+  background-position: 0px 0px;
+}
+.Cultural{
+  background-position: -73px 0px;
+}
+.Religioso{
+  background-position: 145px 0px;
+}
+.Romántico{
+  background-position: -202px 0px;
+}
+.Amigos{
+  background-position: -272px 0px;
+}
+.Gastronómico{
+  background-position: -331px 0px;
+}
+.Relax{
+  background-position: -402px 0px;
+}
+.Fiesta{
+  background-position: -478px 0px;
+}
+.LowCost{
+  background-position: -548px 0px;
 }

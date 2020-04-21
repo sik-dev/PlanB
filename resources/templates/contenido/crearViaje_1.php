@@ -11,7 +11,7 @@ echo "</pre>";
 $errores = [];
 $arrayAlojamiento = ['Hotel', 'Apartamento', 'Hostal', 'Vivienda propia', 'Ninguna'];
 $arrayTransporte = ['Coche', 'Avión', 'Autobus', 'Barco', 'Tren'];
-$etiquetas = ['Aventuras', 'Cultural', 'Religioso', 'Romántico', 'Con amig@s', 'Gastronómico', 'Relax', 'Fiesta', 'Low cost'];
+$etiquetas = ['Aventuras', 'Cultural', 'Religioso', 'Romántico', 'Con amig@s', 'Gastronómico', 'Relax', 'Fiesta', 'LowCost'];
 
 $info = ['pais_origen' => '',
          'ciudad_origen' => '',
@@ -76,6 +76,7 @@ if (count($_POST) > 0) {
     <!-- DESCRIPCION DEL VIAJE -->
     <br>
     <label for="desc">Describe tu viaje</label>
+    <br>
     <textarea name="desc" id="desc" cols="60" rows="8"><?=$info['desc']?></textarea><br>
     <?php if( isset($errores['desc'])) { ?>
       <span class='error'><?=$errores['desc']?></span><br>

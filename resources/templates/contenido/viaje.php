@@ -2,6 +2,7 @@
   /* global $ROOT; */
   $comentario = '';
   $dibujaEstrella = false;
+  $etiquetas = [];
 
   if ( isset($_GET['id']) ){
     $id = $_GET['id'];
@@ -30,10 +31,9 @@
 
   $viajeFavorito = FavoritosManager::getBy($_SESSION['id']);
 
-/*   print_r('<pre>');
-  print_r($viajeFavorito);
-  print_r($id);
-  print_r('</pre>'); */
+
+  //Convertir cadena de etiquetas a un Array
+  $etiquetas = explode('/', $datos['viaje']->getEtiquetas());
 
 /*
   foreach ($viajeFavorito as $fila) {
@@ -70,6 +70,12 @@
           <img class="fotoSmall"src="imgs/<?=$datosPerfil->getId().'/'.$datosPerfil->getFoto()?>" data-idUserViaje="<?=$datos['viaje']->getIdUser()?>">
         </a>
       </p>
+      <div class="etiquetas">
+        <p>Etiquetas del viaje:</p>
+        <?php foreach ($etiquetas as $valor) {?>
+          <span class="<?=($valor =='Con amig@s')?'Amigos':$valor ?>" title="<?=$valor?>" alt='<?=$valor?>'></span>
+        <?php } ?>
+      </div>
       <br><br>
     </div>
   </div>

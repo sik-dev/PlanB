@@ -80,3 +80,8 @@
 .tusViajes{
   height: 480px;
 }
+.borrarViaje{
+  font-size: 1em;
+  width: 30px;
+  cursor: pointer;
+}

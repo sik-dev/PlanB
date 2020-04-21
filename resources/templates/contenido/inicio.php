@@ -6,6 +6,8 @@
   $filtro = '';
   $buscador = '';
   $errores = [];
+  $etiquetas = [];
+  $contador = 0;
 
   $num_viajes = 6;
   $page = 1;
@@ -38,11 +40,12 @@
   $total_viajes = ViajeManager::getAll();
   /* $datos = ViajeManager::getViajes(); */
 
-  /*
-  echo "<pre>";
-  print_r($datos);
-  echo "</pre>";
-  */
+
+  //Convertir cadena de etiquetas a un Array
+  for ($i = 0; $i < count($datos); $i++) {
+    $etiquetas[$i] = explode('/', $datos[$i]['viaje']->getEtiquetas());
+  }
+
 
   if (is_int($total_viajes / $num_viajes)) {
     $num_paginas = $total_viajes / $num_viajes;
@@ -109,6 +112,12 @@
                   <p>Precio: <?=$fila['viaje']->getPrecio()?>&euro;</p>
                   <p>Transporte: <?=$fila['viaje']->getTransporte()?></p>
                </div>
+               <div class="etiquetas">
+                 <?php foreach ($etiquetas[$contador] as $valor) {?>
+                   <span class="<?=($valor =='Con amig@s')?'Amigos':$valor ?>" title="<?=$valor?>" alt='<?=$valor?>'></span>
+                 <?php } ?>
+               </div>
+               <?php $contador++ ?>
             </div>
          <?php } ?>
       </div>

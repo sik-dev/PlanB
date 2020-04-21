@@ -21,7 +21,9 @@
          <div class="datos">
            <p>Precio: <?=$fila['viaje']->getPrecio()?></p>
            <p>Transporte: <?=$fila['viaje']->getTransporte()?></p>
-           <a href="borrarViaje.php?id_viaje=<?=$fila['viaje']->getId()?>&id_user=<?=$_SESSION['id']?>">Borrar viaje</a>
+           <a href="borrarViaje.php?id_viaje=<?=$fila['viaje']->getId()?>&id_user=<?=$_SESSION['id']?>">
+             <img src="/logos_proyecto/basura.png" alt="Borrar viaje" class="borrarViaje">
+           </a>
          </div>
        </div>
      <?php } ?>
