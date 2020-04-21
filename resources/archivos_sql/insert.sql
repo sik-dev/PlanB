@@ -17,7 +17,7 @@ INSERT INTO viaje (pais_origen, ciudad_origen, pais_destino, ciudad_destino, fot
   ('España', 'Madrid', 'España', 'Santander, Bilbao, Burgos', 'santander.jpg',120, 'Coche', 'Viaje turistico por el Norte de España: Santander, Bilbao y Burgos', 'Aventuras/Con amig@s', 2),
   ('España', 'Valencia', 'España', 'Sevilla', 'sevilla.jpg', 180, 'Ave', 'Viaje a Sevilla', 'Cultural/Religioso', 3),
   ('España', 'Madrid', 'España', 'Segovia', 'segovia.jpg', 50, 'Coche', 'Viaje express a Segovia', 'Gastronómico/LowCost',4),
-  ('España', 'Madrid', 'Italia', 'Roma', 'roma.jpg',300, 'Avion', 'Viaje a Roma, museos y cultura', 'Cultural/Rómantico', 1),
+  ('España', 'Madrid', 'Italia', 'Roma', 'roma.jpg',300, 'Avion', 'Viaje a Roma, museos y cultura', 'Cultural/Romántico', 1),
   ('España', 'Madrid', 'España', 'Toledo', 'toledo.jpg',35, 'Coche', 'Viaje a Toledo', 'LowCost',2),
   ('España', 'Madrid', 'España', 'Barcelona', 'barcelona2.jpg',150, 'Autobus', '2 dias en Barcelona', 'Fiesta/Con amig@s',3),
   ('España', 'Salamanca', 'Portugal', 'Lisboa', 'lisboa.jpg',225, 'Coche', '3 dias en Lisboa', 'Romántico/Relax',4),

@@ -35,6 +35,10 @@
   //Convertir cadena de etiquetas a un Array
   $etiquetas = explode('/', $datos['viaje']->getEtiquetas());
 
+  echo '<pre>';
+  print_r($etiquetas);
+  echo '</pre>';
+
 /*
   foreach ($viajeFavorito as $fila) {
     if ($fila->getIdViaje() == $id ) $agregaAFavorito = true;
@@ -73,7 +77,7 @@
       <div class="etiquetas">
         <p>Etiquetas del viaje:</p>
         <?php foreach ($etiquetas as $valor) {?>
-          <span class="<?=($valor =='Con amig@s')?'Amigos':$valor ?>" title="<?=$valor?>" alt='<?=$valor?>'></span>
+          <span class="<?=($valor =='Con amig@s')?'Amigos':$valor?>" title="<?=$valor?>" alt='<?=$valor?>'></span>
         <?php } ?>
       </div>
       <br><br>

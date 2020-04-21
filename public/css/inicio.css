@@ -155,35 +155,35 @@
 
 /****************     ETIQUETAS   **/
 .etiquetas span{
-  background-image: url('../logos_proyecto/sprite_viajes.png');
+  background-image: url('../logos_proyecto/sprite_etiquetas.png');
   width: 72px;
   height: 72px;
   display: inline-block;
 }
 .Aventuras{
-  background-position: 0px 0px;
+  background-position: 0px;
 }
 .Cultural{
-  background-position: -73px 0px;
+  background-position: -73px;
 }
 .Religioso{
-  background-position: 145px 0px;
+  background-position: 145px;
 }
 .Romántico{
-  background-position: -202px 0px;
+  background-position: -202px;
 }
 .Amigos{
-  background-position: -272px 0px;
+  background-position: -272px;
 }
 .Gastronómico{
-  background-position: -331px 0px;
+  background-position: -342px;
 }
 .Relax{
-  background-position: -402px 0px;
+  background-position: -416px;
 }
 .Fiesta{
-  background-position: -478px 0px;
+  background-position: -489px;
 }
 .LowCost{
-  background-position: -548px 0px;
+  background-position: -559px;
 }
