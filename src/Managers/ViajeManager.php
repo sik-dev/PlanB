@@ -5,18 +5,19 @@ class ViajeManager implements IDWESEntidadManager{
   private static function map($datos)
   {
     return array_map(function($fila){
-      return 
+      return
       [
         'viaje' => new Viaje(
-          $fila['id'], 
-          $fila['pais_origen'], 
-          $fila['ciudad_origen'], 
-          $fila['pais_destino'], 
-          $fila['ciudad_destino'], 
+          $fila['id'],
+          $fila['pais_origen'],
+          $fila['ciudad_origen'],
+          $fila['pais_destino'],
+          $fila['ciudad_destino'],
           $fila['foto'],
           $fila['precio'],
           $fila['transporte'],
           $fila['descripcion'],
+          $fila['etiquetas'],
           $fila['id_user']
         ),
         'media' => $fila['media'],
@@ -72,8 +73,8 @@ class ViajeManager implements IDWESEntidadManager{
 
     $db->ejecuta("SELECT viaje.*,
                           round( avg(valoracion.puntuacion), 2) media,
-                         (SELECT count(itinerario.id) 
-                         FROM itinerario 
+                         (SELECT count(itinerario.id)
+                         FROM itinerario
                          WHERE itinerario.id_viaje = viaje.id) as diasViaje
                   FROM viaje LEFT JOIN valoracion
                   ON viaje.id = valoracion.id_viaje
@@ -88,8 +89,8 @@ class ViajeManager implements IDWESEntidadManager{
 
   public static function getWhere(...$datos)
   {
-    $diasViaje = '(SELECT count(itinerario.id) 
-                  FROM itinerario 
+    $diasViaje = '(SELECT count(itinerario.id)
+                  FROM itinerario
                   WHERE itinerario.id_viaje = viaje.id)';
 
     if (!is_numeric($datos[1])){
@@ -108,7 +109,7 @@ class ViajeManager implements IDWESEntidadManager{
                   $where ?
                   GROUP BY valoracion.id_viaje
                   ORDER BY media DESC
-                  LIMIT 6", 
+                  LIMIT 6",
                   $datos[1]);
     //return $db->obtenDatos();
     return self::map($db -> obtenDatos());
@@ -127,7 +128,7 @@ class ViajeManager implements IDWESEntidadManager{
                   OR pais_destino LIKE ?
                   LIMIT 5",
                   ["%$sugerencia%", "%$sugerencia%"]);
-    
+
     return $db->obtenDatos();
   }
 
@@ -168,13 +169,13 @@ class ViajeManager implements IDWESEntidadManager{
     $db = DWESBaseDatos::obtenerInstancia();
     $db->ejecuta("SELECT viaje.*,
                     round( avg(valoracion.puntuacion), 2) media,
-                    (SELECT count(itinerario.id) 
-                    FROM itinerario 
+                    (SELECT count(itinerario.id)
+                    FROM itinerario
                     WHERE itinerario.id_viaje = viaje.id) as diasViaje
                   FROM viaje INNER JOIN valoracion
                   ON viaje.id = valoracion.id_viaje
                   WHERE viaje.id = ?
-                  GROUP BY valoracion.id_viaje", 
+                  GROUP BY valoracion.id_viaje",
                   $id);
     //return $db->obtenDatos();
     return self::map($db -> obtenDatos())[0];
@@ -190,8 +191,8 @@ class ViajeManager implements IDWESEntidadManager{
     $db = DWESBaseDatos::obtenerInstancia();
     $db->ejecuta("INSERT INTO viaje
                     (pais_origen, ciudad_origen, pais_destino,
-                    ciudad_destino, foto, precio, transporte, descripcion, id_user)
-                    VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                    ciudad_destino, foto, precio, transporte, descripcion, etiquetas, id_user)
+                    VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
                     , $campos[0]);
     /* print_r('<pre>');
     print_r($campos);

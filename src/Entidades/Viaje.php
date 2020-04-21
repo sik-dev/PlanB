@@ -11,18 +11,20 @@ class Viaje
   private $precio;
   private $transporte;
   private $descripcion;
+  private $etiquetas;
   private $idUser;
 
   function __construct(
-    $id, 
-    $paisOrigen, 
-    $ciudadOrigen, 
-    $paisDestino, 
-    $ciudadDestino, 
-    $foto, 
+    $id,
+    $paisOrigen,
+    $ciudadOrigen,
+    $paisDestino,
+    $ciudadDestino,
+    $foto,
     $precio,
     $transporte,
     $descripcion,
+    $etiquetas,
     $idUser
   )
   {
@@ -35,6 +37,7 @@ class Viaje
     $this->precio = $precio;
     $this->transporte = $transporte;
     $this->descripcion = $descripcion;
+    $this->etiquetas = $etiquetas;
     $this->idUser = $idUser;
   }
 
@@ -126,6 +129,15 @@ class Viaje
   public function setDescripcion($descripcion)
   {
     $this->descripcion = $descripcion;
+  }
+  public function getEtiquetas()
+  {
+    return $this->etiquetas;
+  }
+
+  public function setEtiquetas($etiquetas)
+  {
+    $this->etiquetas = $etiquetas;
   }
 
   public function getIdUser()

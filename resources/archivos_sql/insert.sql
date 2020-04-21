@@ -11,20 +11,20 @@ INSERT INTO usuario (descripcion,email, pass, nombre, pais, foto, mediaGlobal, r
 ;
 
 /*VIAJE*/
-INSERT INTO viaje (pais_origen, ciudad_origen, pais_destino, ciudad_destino, foto, precio, transporte, descripcion, id_user)
+INSERT INTO viaje (pais_origen, ciudad_origen, pais_destino, ciudad_destino, foto, precio, transporte, descripcion, etiquetas, id_user)
  VALUES
-  ('España', 'Madrid', 'España', 'Barcelona', 'barcelona1.jpg',200, 'Avion', 'Viaje express a Barcelona',1),
-  ('España', 'Madrid', 'España', 'Santander, Bilbao, Burgos', 'santander.jpg',120, 'Coche', 'Viaje turistico por el Norte de España: Santander, Bilbao y Burgos',2),
-  ('España', 'Valencia', 'España', 'Sevilla', 'sevilla.jpg', 180, 'Ave', 'Viaje a Sevilla',3),
-  ('España', 'Madrid', 'España', 'Segovia', 'segovia.jpg', 50, 'Coche', 'Viaje express a Segovia',4),
-  ('España', 'Madrid', 'Italia', 'Roma', 'roma.jpg',300, 'Avion', 'Viaje a Roma, museos y cultura',1),
-  ('España', 'Madrid', 'España', 'Toledo', 'toledo.jpg',35, 'Coche', 'Viaje a Toledo',2),
-  ('España', 'Madrid', 'España', 'Barcelona', 'barcelona2.jpg',150, 'Autobus', '2 dias en Barcelona',3),
-  ('España', 'Salamanca', 'Portugal', 'Lisboa', 'lisboa.jpg',225, 'Coche', '3 dias en Lisboa',4),
-  ('España', 'Madrid', 'España', 'Granada', 'granada.jpg',140, 'Autobus', 'Viaje turistico a Granada',1),
-  ('España', 'Madrid', 'Francia', 'Paris', 'paris.jpg',340, 'Avion', 'Viaje romantico a Paris',2),
-  ('España', 'Madrid', 'Argentina', 'Buenos Aires, Iguazú y Ushuaia', 'argentina.jpg', 1460, 'Avion', 'Viaje de aventura por Argentina',5),
-  ('España', 'Madrid', 'Japón', 'Tokio, Osaka y Kioto', 'japon.jpg', 1735, 'Avion', 'Viaje de aventura por Japon',5)
+  ('España', 'Madrid', 'España', 'Barcelona', 'barcelona1.jpg',200, 'Avion', 'Viaje express a Barcelona', 'Gastronómico/Con amig@s',1),
+  ('España', 'Madrid', 'España', 'Santander, Bilbao, Burgos', 'santander.jpg',120, 'Coche', 'Viaje turistico por el Norte de España: Santander, Bilbao y Burgos', 'Aventuras/Con amig@s', 2),
+  ('España', 'Valencia', 'España', 'Sevilla', 'sevilla.jpg', 180, 'Ave', 'Viaje a Sevilla', 'Cultural/Religioso', 3),
+  ('España', 'Madrid', 'España', 'Segovia', 'segovia.jpg', 50, 'Coche', 'Viaje express a Segovia', 'Gastronómico/Low cost',4),
+  ('España', 'Madrid', 'Italia', 'Roma', 'roma.jpg',300, 'Avion', 'Viaje a Roma, museos y cultura', 'Cultural/Rómantico', 1),
+  ('España', 'Madrid', 'España', 'Toledo', 'toledo.jpg',35, 'Coche', 'Viaje a Toledo', 'Low cost',2),
+  ('España', 'Madrid', 'España', 'Barcelona', 'barcelona2.jpg',150, 'Autobus', '2 dias en Barcelona', 'Fiesta/Con amig@s',3),
+  ('España', 'Salamanca', 'Portugal', 'Lisboa', 'lisboa.jpg',225, 'Coche', '3 dias en Lisboa', 'Romántico/Relax',4),
+  ('España', 'Madrid', 'España', 'Granada', 'granada.jpg',140, 'Autobus', 'Viaje turistico a Granada', 'Low Cost/Romántico/Religioso', 1),
+  ('España', 'Madrid', 'Francia', 'Paris', 'paris.jpg',340, 'Avion', 'Viaje romantico a Paris', 'Romántico', 2),
+  ('España', 'Madrid', 'Argentina', 'Buenos Aires, Iguazú y Ushuaia', 'argentina.jpg', 1460, 'Avion', 'Viaje de aventura por Argentina', 'Aventuras/Con amig@s/Cultural', 5),
+  ('España', 'Madrid', 'Japón', 'Tokio, Osaka y Kioto', 'japon.jpg', 1735, 'Avion', 'Viaje de aventura por Japon', 'Aventuras/Gastronómico/Con amig@s', 5)
 ;
 
 /*ITINERARIO*/

@@ -76,4 +76,8 @@
 
     return rand(10000, 90000);
   }
+
+  function fusionarEtiquetas($array){
+    return implode('/', $array);
+  }
 ?>

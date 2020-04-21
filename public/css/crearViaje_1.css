@@ -13,3 +13,11 @@
    margin: 10%;
    height: 545px;
 }
+
+.etiquetas{
+  display: flex;
+  flex-wrap: wrap;
+}
+.etiqueta{
+  flex: 1 0 33%;
+}

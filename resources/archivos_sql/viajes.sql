@@ -50,9 +50,10 @@ CREATE TABLE viaje(
     pais_destino VARCHAR(50) NOT NULL,
     ciudad_destino VARCHAR(50) NOT NULL,
     foto VARCHAR(50),
-    precio FLOAT ,
+    precio FLOAT,
     transporte VARCHAR(30),
     descripcion VARCHAR(200),
+    etiquetas VARCHAR(200),
     id_user INT NOT NULL,
     FOREIGN KEY (id_user) REFERENCES usuario(id) ON DELETE CASCADE
 );

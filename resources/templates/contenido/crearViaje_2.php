@@ -12,7 +12,7 @@ if (count($_POST) > 0) {
 
   gestionaErrores($_POST, $info, $errores);
 
-  if ($_POST['anterior']) {
+  if ( isset($_POST['anterior']) && $_POST['anterior'] == true ) {
     $_SESSION['viaje'] = $info;
     header('Location: crearViaje_1.php');
   }
@@ -35,6 +35,7 @@ if (count($_POST) > 0) {
                     $info['precio'],
                     $info['transporte'],
                     $info['desc'],
+                    $info['etiquetasFormateadas'],
                     $id
                   ];
 
@@ -43,7 +44,7 @@ if (count($_POST) > 0) {
                         $info['titulo'],
                         $info['manana'],
                         $info['tarde'],
-                        $info['noche'],
+                        $info['noche']
                         ];
 
     $paramFoto = [$info['fotoIti']];
