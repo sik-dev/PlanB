@@ -8,8 +8,8 @@ class ItinerarioManager implements IDWESEntidadManager
   public static function getBy($id)//id del viaje
   {
     $db = DWESBaseDatos::obtenerInstancia();
-    $db->ejecuta("SELECT * FROM itinerario 
-                  WHERE id_viaje = ?", 
+    $db->ejecuta("SELECT * FROM itinerario
+                  WHERE id_viaje = ?",
                   $id);
     return $db->obtenDatos();
   }
@@ -21,9 +21,9 @@ class ItinerarioManager implements IDWESEntidadManager
     print_r('</pre>'); */
     $db = DWESBaseDatos::obtenerInstancia();
     $db->ejecuta("INSERT INTO itinerario
-                    (localizacion, alojamiento, titulo,
+                    (localizacion, alojamiento,
                     manana, tarde, noche, id_viaje)
-                  VALUES(?, ?, ?, ?, ?, ?, ?)", 
+                  VALUES(?, ?, ?, ?, ?, ?)",
                   $campos[0]);
   }
 

@@ -5,27 +5,24 @@ class Itinerario
   private $id;
   private $localizacion;
   private $alojamiento;
-  private $titulo;
   private $manana;
   private $tarde;
   private $noche;
   private $idViaje;
 
   function __construct(
-    $id, 
-    $localizacion, 
-    $alojamiento, 
-    $titulo, 
-    $manana, 
-    $tarde, 
-    $noche, 
+    $id,
+    $localizacion,
+    $alojamiento,
+    $manana,
+    $tarde,
+    $noche,
     $idViaje
   )
   {
     $this->id = $id;
     $this->localizacion = $localizacion;
     $this->alojamiento = $alojamiento;
-    $this->titulo = $titulo;
     $this->manana = $manana;
     $this->tarde = $tarde;
     $this->noche = $noche;
@@ -60,16 +57,6 @@ class Itinerario
   public function setAlojamiento($alojamiento)
   {
     $this->alojamiento = $alojamiento;
-  }
-
-  public function getTitulo()
-  {
-    return $this->titulo;
-  }
-
-  public function setTitulo($titulo)
-  {
-    $this->titulo = $titulo;
   }
 
   public function getManana()

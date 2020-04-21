@@ -61,8 +61,7 @@ CREATE TABLE viaje(
 CREATE TABLE itinerario(
     id INT NOT NULL auto_increment PRIMARY KEY,
     localizacion VARCHAR(50) NOT NULL,
-    alojamiento VARCHAR(50) ,
-    titulo VARCHAR(50),
+    alojamiento VARCHAR(50),
     manana VARCHAR(200),
     tarde VARCHAR(200),
     noche VARCHAR(200),
