@@ -1,5 +1,10 @@
 <?php
 
+/* if (isset($_GET['rellenar']) && !empty($_GET['rellenar'])) {
+  echo $obj = json_encode($_POST);
+  exit;
+} */
+
 if( !$_SESSION['autentificado'] ){
   header('Location: login.php');
   exit;
@@ -7,8 +12,15 @@ if( !$_SESSION['autentificado'] ){
 
 $errores = [];
 $info = $_SESSION['viaje'];
+/* print_r($_GET);
+print_r($_POST); */
 
 if (count($_POST) > 0) {
+
+  /* if (isset($_POST['rellenar']) && !empty($_POST['rellenar'])) {
+    $obj = json_encode($_POST);
+    echo $obj;
+  } */
 
   gestionaErrores($_POST, $info, $errores);
 
@@ -18,14 +30,18 @@ if (count($_POST) > 0) {
   }
 
   /* COMPROBAR ERRORES DE IMAGEN */
-  $fotoItiFullName = gestionaFoto('fotoIti', $errores);
-  $fotoItiNuevaRuta = "$ROOT/public/imgs/$id/$fotoItiFullName";
+  $imgFullName = gestionaFoto('img', $errores);
+  $imgNuevaRuta = "$ROOT/public/imgs/$id/$fotoItiFullName";
 
   if ($errores == null) {
-    /* print_r($_POST); */
-    $info['fotoIti'] = $fotoItiFullName;
+    /* print_r('<pre>');
+    print_r($_POST);
+    print_r($_FILES);
+    print_r('</pre>'); */
+    $info['img'] = $fotoItiFullName;
 
     /* MOVER IMAGEN A LA CARPETA DE IMAGENES DEL USUARIO */
+    //cambiar el mover foto para varias fotos
     moverFoto($_FILES['fotoIti']['tmp_name'], $fotoItiNuevaRuta);
 
     $paramViaje = [ $info['pais_origen'],
@@ -65,9 +81,9 @@ if (count($_POST) > 0) {
     <div class="itinerario">
       <h1>Dia 1</h1>
       <!-- FOTO DEL ITINERARIO -->
-      <input type="file" name="fotoIti"><br>
-      <?php if( isset($errores['fotoIti'])) { ?>
-        <br><span class='error'><?=$errores['fotoIti']?></span><br>
+      <input type="file" name="img"><br>
+      <?php if( isset($errores['img'])) { ?>
+        <br><span class='error'><?=$errores['img']?></span><br>
       <?php } ?>
 
       <!-- LOCAL -->
@@ -76,12 +92,6 @@ if (count($_POST) > 0) {
         <span class='error'><?=$errores['local']?></span>
       <?php } ?>
       <br>
-
-      <!-- TITULO DEL ITINERARIO -->
-      <!-- <input type="text" name="titulo" value="<?php //echo $info['titulo'] ?>" placeholder="titulo del itinerario">
-      <?php //if( isset($errores['titulo'])) { ?>
-          <br><span class='error'><?php//echo $errores['titulo']?></span><br>
-      <?php //} ?> -->
 
       <!-- MAÑANA -->
       <?php if( isset($errores['manana'])) { ?>

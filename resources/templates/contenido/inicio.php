@@ -1,7 +1,7 @@
 <?php
 
-  $filtrosBusqueda = ['País', 'Ciudad', 'Número de días', 'Tipo de viaje'];
-  $filtrosValue = ['viaje.pais_destino', 'viaje.ciudad_destino', 'diasViaje', 'etiquetas'];
+  $filtrosBusqueda = ['País', 'Ciudad', 'Tipo de viaje'];
+  $filtrosValue = ['viaje.pais_destino', 'viaje.ciudad_destino', 'etiquetas'];
 
   $etiquetasSelect = ['Aventura', 'Cultural', 'Romántico', 'Relax', 'Gastronómico', 'Con amig@s', 'LowCost', 'Fiesta', 'Religioso'];
 

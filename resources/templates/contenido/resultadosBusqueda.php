@@ -2,8 +2,8 @@
   //print_r($_POST);
   //print_r($_GET);
 
-  $filtrosBusqueda = ['País', 'Ciudad', 'Número de días', 'Tipo de viaje'];
-  $filtrosValue = ['viaje.pais_destino', 'viaje.ciudad_destino', 'diasViaje', 'etiquetas'];
+  $filtrosBusqueda = ['País', 'Ciudad', 'Tipo de viaje'];
+  $filtrosValue = ['viaje.pais_destino', 'viaje.ciudad_destino', 'etiquetas'];
 
   $etiquetasSelect = ['Aventura', 'Cultural', 'Romántico', 'Relax', 'Gastronómico', 'Con amig@s', 'LowCost', 'Fiesta', 'Religioso'];
 
@@ -43,8 +43,8 @@
   }
 
   //Por si en numero de dias meten una cadena, entonces seria 0
-  if(   isset($filtro) && $filtro == 'diasViaje' &&
-        isset($buscador) && !is_numeric($buscador)
+  if( isset($filtro) && $filtro == 'diasViaje' &&
+      isset($buscador) && !is_numeric($buscador)
     ){
     $buscador = 0;
   }
@@ -66,15 +66,6 @@
     $num_paginas = (int) (count($datos) / $num_viajes) + 1;
   }
 
-
-/*   if ( $filtro == 'viaje.pais_destino'){
-    $datos = ViajesManager::getViajesWherePais('%'.$buscador.'%');
-  }elseif ($filtro == 'viaje.ciudad_destino') {
-    $datos = ViajesManager::getViajesWhereCiudad('%'.$buscador.'%');
-  }elseif ($filtro == 'numDias') {
-    $datos = ViajesManager::getViajesNumDias($buscador);
-  } */
-
   /*
   print_r('<pre>');
   print_r($datos);
@@ -84,10 +75,16 @@
   */
 
 ?>
-<link rel="stylesheet" href="/css/resultadosBusqueda.css">
+<link rel="stylesheet" href="/css/Inicio.css">
+<script type="text/javascript" src="JS/sugerencias.js"></script>
 <script type="text/javascript" src="JS/buscador.js"></script>
+<div class="pu">
+  <a href="#">
+    <img src="imgs/p/publi_1.jpg" alt="">
+  </a>
+</div>
 <div class="fondo">
-   <div class="resultadosBusqueda">
+   <!-- <div class="resultadosBusqueda"> -->
       <div class="inicio">
          <form method="post" action="resultadosBusqueda.php">
             <select id="filtro" name="filtro">
@@ -166,5 +163,10 @@
            <?php }?>
          </div>
       </div>
-   </div>
+   <!-- </div> -->
+</div>
+<div class="pu">
+  <a href="#">
+    <img src="imgs/p/publi_1.jpg" alt="">
+  </a>
 </div>

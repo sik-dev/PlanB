@@ -8,7 +8,7 @@
 <!-- <div class="imgP">
   <img src="/imgs/publicidades/publi_1.jpg" alt="">
 </div> -->
-<!-- <?=$ROOT?>/public/ -->
+
 <script>
 
   document.addEventListener('DOMContentLoaded', publicidades);

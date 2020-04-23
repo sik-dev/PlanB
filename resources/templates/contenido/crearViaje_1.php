@@ -4,9 +4,9 @@ if( !$_SESSION['autentificado'] ){
   header('Location: login.php');
   exit;
 }
-echo "<pre>";
+/* echo "<pre>";
 print_r($_POST);
-echo "</pre>";
+echo "</pre>"; */
 
 $errores = [];
 $arrayAlojamiento = ['Hotel', 'Apartamento', 'Hostal', 'Vivienda propia', 'Ninguna'];
@@ -32,10 +32,10 @@ $info = ['pais_origen' => '',
          'fotoIti' => ''
       ];
 
-if (isset($_SESSION['viaje'])) {
+/* if (isset($_SESSION['viaje'])) {
   $info = $_SESSION['viaje'];
   $info['anterior'] = false;
-}
+} */
 
 if (count($_POST) > 0) {
   gestionaErrores($_POST, $info, $errores);
@@ -48,17 +48,31 @@ if (count($_POST) > 0) {
     $fotoNuevaRuta = "$ROOT/public/imgs/$id/$fotoFullName";
 
     /* MOVER IMAGEN A LA CARPETA DE IMAGENES DEL USUARIO */
-    /* moverFoto($_FILES['foto']['tmp_name'], $fotoNuevaRuta); */
+    moverFoto($_FILES['foto']['tmp_name'], $fotoNuevaRuta);
 
     $info['etiquetasFormateadas'] = fusionarEtiquetas($_POST['etiquetas']);
 
-    $_SESSION['viaje'] = $info;
+    /* $_SESSION['viaje'] = $info; */
 
-    echo "<pre>";
+    $paramViaje = [ $info['pais_origen'],
+                    $info['ciudad_origen'],
+                    $info['pais_destino'],
+                    $info['ciudad_destino'],
+                    $info['foto'],
+                    $info['precio'],
+                    $info['transporte'],
+                    $info['desc'],
+                    $info['etiquetasFormateadas'],
+                    $id
+                  ];
+
+    $id_viaje = ViajeManager::insert($paramViaje);
+    /* echo "<pre>";
     print_r($info);
-    echo "</pre>";
+    echo "</pre>"; */
 
-    header("Location: crearViaje_2.php?id=$id");
+    /* header("Location: crearViaje_2.php?id=$id"); */
+    header("Location: viaje.php?id=$id_viaje");
     die();
   }
 }
@@ -167,6 +181,7 @@ if (count($_POST) > 0) {
 
     <br>
 
-    <button type="submit">Siguiente</button>
+    <!-- <button type="submit">Siguiente</button> -->
+    <button type="submit">Enviar</button>
   </form>
 </div>

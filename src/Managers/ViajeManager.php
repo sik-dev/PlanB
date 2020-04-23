@@ -194,16 +194,18 @@ class ViajeManager implements IDWESEntidadManager{
                     ciudad_destino, foto, precio, transporte, descripcion, etiquetas, id_user)
                     VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
                     , $campos[0]);
-    /* print_r('<pre>');
+    /* 
+    print_r('<pre>');
     print_r($campos);
-    print_r('</pre>'); */
-    $id_viaje = $db->getLastId();
-    array_push($campos[1], $id_viaje);
+    print_r('</pre>'); 
+    */
+    return /* $id_viaje =  */$db->getLastId();
+    /* array_push($campos[1], $id_viaje);
     ValoracionManager::insert(0, end($campos[0]), $id_viaje);
     ItinerarioManager::insert($campos[1]);
 
     array_push($campos[2], $db->getLastId());
-    FotosItinerarioManager::insert($campos[2]);
+    FotosItinerarioManager::insert($campos[2]); */
   }
 
   public static function update($id, ...$campos){
