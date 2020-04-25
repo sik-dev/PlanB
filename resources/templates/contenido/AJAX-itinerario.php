@@ -34,18 +34,6 @@ if (count($_POST) > 0) {
     //cambiar el mover foto para varias fotos
     /* moverFoto($_FILES['fotoIti']['tmp_name'], $fotoItiNuevaRuta);
 
-    $paramViaje = [ $info['pais_origen'],
-                    $info['ciudad_origen'],
-                    $info['pais_destino'],
-                    $info['ciudad_destino'],
-                    $info['foto'],
-                    $info['precio'],
-                    $info['transporte'],
-                    $info['desc'],
-                    $info['etiquetasFormateadas'],
-                    $id
-                  ];
-
     $paramItinerario = [$info['local'],
                         $info['alojamiento'],
                         

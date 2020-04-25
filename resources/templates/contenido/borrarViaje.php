@@ -11,8 +11,13 @@ if( isset($_GET['id_user']) && $_GET['id_user'] != null &&
   ){
   $idViaje = $_GET['id_viaje'];
   $idUser = $_GET['id_user'];
-  $datosViaje = ViajeManager::getById($idViaje)['viaje'];
-
+  
+  if (ItinerarioManager::getBy($idViaje)) {
+    $datosViaje = ViajeManager::getById($idViaje)['viaje'];
+  }else{
+    $datosViaje = ViajeManager::getById($idViaje, true)['viaje'];
+  }
+  
   //Si el viaje es del usuario lo borra
   if( $datosViaje->getIdUser() == $idUser){
     ViajeManager::delete($idViaje);

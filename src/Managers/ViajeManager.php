@@ -165,21 +165,26 @@ class ViajeManager implements IDWESEntidadManager{
     return self::map($db -> obtenDatos());
   }
 
-  public static function getById($id){
+  public static function getById($id, $sinItinerario = false){
     $db = DWESBaseDatos::obtenerInstancia();
+    $diasViaje = "";
+
+    if (!$sinItinerario) {
+      $diasViaje = ", (SELECT count(itinerario.id)FROM itinerario WHERE itinerario.id_viaje = viaje.id) as diasViaje";
+    }
+
     $db->ejecuta("SELECT viaje.*,
-                    round( avg(valoracion.puntuacion), 2) media,
-                    (SELECT count(itinerario.id)
-                    FROM itinerario
-                    WHERE itinerario.id_viaje = viaje.id) as diasViaje
+                    round( avg(valoracion.puntuacion), 2) media 
+                    $diasViaje
                   FROM viaje INNER JOIN valoracion
                   ON viaje.id = valoracion.id_viaje
                   WHERE viaje.id = ?
                   GROUP BY valoracion.id_viaje",
                   $id);
-    //return $db->obtenDatos();
+                  
     return self::map($db -> obtenDatos())[0];
   }
+
   /* public static function getViajesID($id){
     $db = DWESBaseDatos::obtenerInstancia();
     $db->ejecuta("SELECT * FROM viaje WHERE id = ?", $id);
@@ -191,17 +196,21 @@ class ViajeManager implements IDWESEntidadManager{
     $db = DWESBaseDatos::obtenerInstancia();
     $db->ejecuta("INSERT INTO viaje
                     (pais_origen, ciudad_origen, pais_destino,
-                    ciudad_destino, foto, precio, transporte, descripcion, etiquetas, id_user)
-                    VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                    ciudad_destino, foto, precio, transporte, 
+                    descripcion, etiquetas, id_user)
+                  VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
                     , $campos[0]);
     /* 
     print_r('<pre>');
     print_r($campos);
     print_r('</pre>'); 
     */
-    return /* $id_viaje =  */$db->getLastId();
-    /* array_push($campos[1], $id_viaje);
+    $id_viaje = $db->getLastId();
     ValoracionManager::insert(0, end($campos[0]), $id_viaje);
+
+    return $id_viaje;
+    /* array_push($campos[1], $id_viaje);
+    
     ItinerarioManager::insert($campos[1]);
 
     array_push($campos[2], $db->getLastId());

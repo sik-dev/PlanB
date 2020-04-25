@@ -66,10 +66,12 @@ if (count($_POST) > 0) {
                     $id
                   ];
 
-    $id_viaje = ViajeManager::insert($paramViaje);
     /* echo "<pre>";
-    print_r($info);
+    print_r($paramViaje);
     echo "</pre>"; */
+
+    $id_viaje = ViajeManager::insert($paramViaje);
+    
 
     /* header("Location: crearViaje_2.php?id=$id"); */
     header("Location: viaje.php?id=$id_viaje");

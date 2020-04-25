@@ -11,8 +11,18 @@ const app = (function (){
   const URL_COMENTARIOS = '/AJAX-obtenComentarios.php?id=';
   const URL_COMENTARIOS_ADD_REMOVE = '/comentarios.php?';
   const URL_INSERTA_VALORACION = '/AJAX-insertaValoracion.php?';
+  const botonModificar = document.getElementById('modificar');
+  
 
   function iniciar(){
+    if (botonModificar) {
+      botonModificar.addEventListener('click', function (e) {
+        const divItinerario = document.getElementsByClassName('itinerario')[0];
+        /* const divItinerario = document.getElementsByClassName('itinerario')[0]; */
+        /* console.log(e.target); */
+        mostrarBotones(divItinerario);
+      });
+    }
     pedirJSON(URL_VIAJE + idViaje, gestinaDatosViaje);
 
     const perfil = document.getElementById('perfil');
@@ -25,6 +35,26 @@ const app = (function (){
 
     gestionaFormulario();
     eventoPuntuacion();
+  }
+
+  function mostrarBotones(divItinerario) {
+    /* console.log(divItinerario.querySelector('h2')); */
+    if(!document.getElementById('agregarItinerario')){
+      const h2 = divItinerario.querySelector('h2');
+      const boton = document.createElement('button');
+      const text = document.createTextNode('+');
+
+      boton.appendChild(text);
+      boton.id = 'agregarItinerario';
+      boton.style.float = 'right';
+      boton.addEventListener('click', function(e){ addFormItinerario(e) });
+      h2.appendChild(boton);
+    }
+  }
+
+  function addFormItinerario(e) {
+    /* console.log('funcionaiti'); */
+    console.log(e.target);
   }
 
   function gestinaDatosComentarios(datos){
