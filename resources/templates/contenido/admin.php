@@ -10,7 +10,7 @@
        $rutaImgProfile = (explode('.', $user->getFoto())[0] == 'profileDefault'? $user->getFoto():$user->getId().'/'.$user->getFoto());
 
        $usuarios = UsuarioManager::getAll();
-       $viajes = ViajeManager::getAllTest(0, 1000);
+       $viajes = ViajeManager::getAllTestAdmin();
 
      //SINO AL INICIO
      }else{
@@ -35,47 +35,80 @@
   </div>
   <h2 id="h2Usuarios">Usuarios</h2>
   <div class="usuarios">
+    <table border="1px">
+      <thead>
+        <tr>
+          <th>Foto</th>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Descripción</th>
+          <th>País</th>
+          <th>Media Global</th>
+          <th>Rol</th>
+          <th>Borrar Usuario</th>
+        </tr>
+      </thead>
+      <tbody>
     <?php foreach ($usuarios as $fila) { ?>
-      <div class="user">
-        <div class="datosFoto">
+      <tr>
+        <td>
           <img id=fotoPerfilUser src="imgs/<?=$fila['id']?>/<?=$fila['foto']?>" alt="">
-          <h4><?=$fila['nombre']?></h4>
-          <p>ID: <?=$fila['id']?></p>
-        </div>
-        <div class="datos">
-          <p>Email: <?=$fila['email']?></p>
-          <p>Descripción: <?=$fila['descripcion']?></p>
-          <p>País: <?=$fila['pais']?></p>
-          <p>Media global: <?=$fila['mediaGlobal']?></p>
-          <p>Rol: <?=$fila['rol']?></p>
-        </div>
-        <div class="borrar">
-          <a href="borrarUsuario_ADMIN.php?id=<?=$fila['id']?>"><img id="basura" src="/logos_proyecto/basura.png" alt=""></a>
-        </div>
-      </div>
+        </td>
+        <td><?=$fila['id']?></td>
+        <td><?=$fila['nombre']?></td>
+        <td><?=$fila['email']?></td>
+        <td><?=$fila['descripcion']?></td>
+        <td><?=$fila['pais']?></td>
+        <td><?=$fila['mediaGlobal']?></td>
+        <td><?=$fila['rol']?></td>
+        <td>
+          <a href="borrarUsuario_ADMIN.php?id=<?=$fila['id']?>"><img id="basura" src="/logos_proyecto/basura.png" alt="Borrar usuario"></a>
+        </td>
+      </tr>
     <?php } ?>
+    </tbody>
+    </table>
   </div>
   <h2 id="h2Viajes">Viajes</h2>
   <div class="viajes">
-    <?php foreach ($viajes as $fila) { ?>
-      <div class="viaje">
-        <div class="viajeFoto">
-          <img src="imgs/<?=$fila['viaje']->getIdUser()?>/<?=$fila['viaje']->getFoto()?>" alt="">
-          <h4><?=$fila['viaje']->getCiudadDestino()?></h4>
-          <p><?=$fila['viaje']->getPaisDestino()?></p>
-          <p>ID: <?=$fila['viaje']->getId()?></p>
-        </div>
-        <div class="viajeDatos">
-          <p>País origen: <?=$fila['viaje']->getPaisOrigen()?></p>
-          <p>Ciudad Origen: <?=$fila['viaje']->getCiudadOrigen()?></p>
-          <p>Media: <?=$fila['media']?></p>
-          <p>Nº de días: <?=$fila['diasViaje']?></p>
-          <a href="perfilPublico.php?id_user=<?=$fila['viaje']->getIdUser()?>"><p>Usuario: <?=$fila['viaje']->getIdUser()?></p></a>
-        </div>
-        <div class="borrar">
-          <a href="borrarViaje_ADMIN.php?id=<?=$fila['viaje']->getId()?>"><img id="basura" src="/logos_proyecto/basura.png" alt=""></a>
-        </div>
-      </div>
-    <?php } ?>
+    <table border="1px">
+      <thead>
+        <tr>
+          <th>Foto</th>
+          <th>ID</th>
+          <th>Ciudad Destino</th>
+          <th>Pais Destino</th>
+          <th>Ciudad Origen</th>
+          <th>Pais Origen</th>
+          <th>Media Global</th>
+          <th>Nº de días</th>
+          <th>Transporte</th>
+          <th>Usuario</th>
+          <th>Borrar Viaje</th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php foreach ($viajes as $fila) { ?>
+        <tr>
+          <td>
+            <img id='fotoViaje' src="imgs/<?=$fila['viaje']->getIdUser()?>/<?=$fila['viaje']->getFoto()?>" alt="">
+          </td>
+          <td><?=$fila['viaje']->getId()?></td>
+          <td><?=$fila['viaje']->getCiudadDestino()?></td>
+          <td><?=$fila['viaje']->getPaisDestino()?></td>
+          <td><?=$fila['viaje']->getCiudadOrigen()?></td>
+          <td><?=$fila['viaje']->getPaisOrigen()?></td>
+          <td><?=$fila['media']?></td>
+          <td><?=$fila['diasViaje']?></td>
+          <td><?=$fila['viaje']->getTransporte()?></td>
+          <td><?=$fila['viaje']->getIdUser()?></td>
+          <td>
+            <a href="borrarViaje_ADMIN.php?id=<?=$fila['viaje']->getId()?>"><img id="basura" src="/logos_proyecto/basura.png" alt="Borrar Viaje"></a>
+          </td>
+        </tr>
+      <?php } ?>
+      </tbody>
+    </table>
   </div>
 <div>

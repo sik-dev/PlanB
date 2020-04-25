@@ -17,10 +17,7 @@
 
 /*USUARIOS  */
 .usuarios{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 420px);
-  justify-content: center;
-  margin: 10px;
+
 }
 
 .user{
@@ -37,16 +34,14 @@
 #h2Usuarios,
 #h2Viajes{
   font-size: 2.5em;
-  margin-left: 40px;
+  margin-top: 40px;
+  text-align: center;
 }
 
 
 /* VIAJES*/
 .viajes{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 420px);
-  justify-content: center;
-  margin: 10px;
+
 }
 .viaje{
   display: flex;
@@ -64,14 +59,26 @@
   text-align: center;
 }
 
+table{
+  margin: 0 auto;
+}
+td{
+  padding: 15px;
+  text-align: center;
+}
 
 #basura{
-  width: 50px;
+  width: 30px;
   cursor: pointer;
 }
 
 #fotoPerfilUser{
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 60px;
+  height: 60px;
+}
+#fotoViaje{
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
 }
