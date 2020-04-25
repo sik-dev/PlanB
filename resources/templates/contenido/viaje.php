@@ -47,11 +47,9 @@
 <div class="contenedor">
   <?php if(count($datos) > 0) {?>
   <div class="datosUsuario">
-    <?php if ($_SESSION['autentificado'] == 1){ ?>
-      <div id='estrella'>
-          <img class="favoritos" src="logos_proyecto/star_vacia.png">
-      </div>
-    <?php } ?>
+    <div id='estrella'>
+        <img class="favoritos" src="logos_proyecto/star_vacia.png">
+    </div>
     <h1><?=$datos['viaje']->getCiudadDestino()?></h1>
     <div class="puntuacion">
       <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
@@ -93,14 +91,12 @@
   </div>
   <div class="comentarios">
     <h2>Comentarios</h2>
-    <?php if(isset($_SESSION['autentificado']) && $_SESSION['autentificado'] == true) { ?>
-      <form>
-        <textarea name="comentario" rows="8" cols="80" placeholder="Añade un comentario"></textarea>
-        <br>
-        <input type="text" name="id_viaje" value="<?=$id?>" hidden>
-        <button>Enviar</button>
-      </form>
-    <?php } ?>
+    <form>
+      <textarea name="comentario" rows="8" cols="80" placeholder="Añade un comentario"></textarea>
+      <br>
+      <input type="text" name="id_viaje" value="<?=$id?>" hidden>
+      <button>Enviar</button>
+    </form>
   </div>
   <?php }else{ ?>
     <div class="noEncontrado">
