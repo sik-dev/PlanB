@@ -150,6 +150,23 @@ class ViajeManager implements IDWESEntidadManager{
     return self::map($db -> obtenDatos());
   }
 
+  public static function getAllTestAdmin()
+  {
+    $db = DWESBaseDatos::obtenerInstancia();
+    $db->ejecuta("SELECT viaje.*,
+                         round( avg(valoracion.puntuacion), 2) media,
+                         (SELECT count(itinerario.id)
+                         FROM itinerario
+                         WHERE itinerario.id_viaje = viaje.id) as diasViaje
+                  FROM viaje INNER JOIN valoracion
+                  ON viaje.id = valoracion.id_viaje
+                  GROUP BY valoracion.id_viaje
+                  ORDER BY viaje.id ASC
+                  "
+                );
+
+    return self::map($db -> obtenDatos());
+  }
   public static function getAll()
   {
     $db = DWESBaseDatos::obtenerInstancia();
@@ -200,10 +217,10 @@ class ViajeManager implements IDWESEntidadManager{
                     descripcion, etiquetas, id_user)
                   VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
                     , $campos[0]);
-    /* 
+    /*
     print_r('<pre>');
     print_r($campos);
-    print_r('</pre>'); 
+    print_r('</pre>');
     */
     $id_viaje = $db->getLastId();
     ValoracionManager::insert(0, end($campos[0]), $id_viaje);

@@ -205,3 +205,64 @@
 .LowCost{
   background-position: -559px;
 }
+
+
+
+/******************* MODAL  */
+#modal{
+  display: grid;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: hsla(0, 0%, 0%, 0.7);
+}
+#modal *{
+    font-family: 'Sriracha', cursive;
+    font-size: 1em;
+}
+#modal div{
+  max-width: 400px;
+  min-width: 200px;
+  max-height: 100vh;
+  /*min-height: 200px;*/
+  padding: 2em;
+  background-color: white;
+  position: relative;
+  border-radius: 5%;
+  height: 215px;
+  width: 280px;
+  animation: fadeIn 400ms;
+}
+#modal p:first-of-type{
+  text-align: center;
+  border-bottom: 1px solid black;
+  font-size: 1.2em;
+  margin-top: -20px;
+}
+#modal p{
+  margin-bottom: 20px;
+  text-align: justify;
+}
+#modal button{
+  margin: 20px auto;
+  width: calc(50% - 10px);
+  margin: 5px;
+  border-radius: 10%;
+  cursor: pointer;
+}
+#modal button:hover{
+  background-color: var(--colorPrincipal);
+  color: white;
+}
+
+#btn-cerrar{
+  position: absolute;
+  bottom: 3px;
+  right: 4px;
+  width: 30px;
+  cursor: pointer;
+}

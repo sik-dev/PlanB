@@ -1,5 +1,6 @@
 const app = (function (){
   'use strict';
+
   let datosViaje = null;
   let datosItinerario = null;
   let numDia = 1;
@@ -28,8 +29,9 @@ const app = (function (){
     const perfil = document.getElementById('perfil');
     if(perfil){
       idUser = document.getElementById('perfil').dataset.id;                 //cogemos el ID de usuario si se ha logueado
-      eventoFavoritos();
     }
+    eventoFavoritos();
+
     pedirJSON(URL_FAVORITOS + idUser, gestinaDatosFavoritos);
     pedirJSON(URL_COMENTARIOS + idViaje, gestinaDatosComentarios);
 
@@ -108,10 +110,64 @@ const app = (function (){
         if(idUser){
           peticionAJAX(`${URL_INSERTA_VALORACION}id_user=${idUser}&id_viaje=${idViaje}&puntuacion=${puntuacion}`, gestionaDatosValoracion);
         }else{
-          alert('Tienes que loguearte para puntuar');
+          crearModalLogin();
         }
       }
     });
+  }
+  function crearModalLogin(){
+
+    creaEstructuraModal();
+
+    function creaEstructuraModal(){
+      const div = document.createElement('div');
+      div.id = 'modal';
+      const div2 = document.createElement('div');
+
+      const pTitulo = document.createElement('p');
+      pTitulo.textContent = `Tienes que registrarte:`;
+      const p = document.createElement('p');
+      p.textContent = `Inicia sesión o registrate como un nuevo usuario.`;
+      const aLogin = document.createElement('a');
+      aLogin.href = `login.php?redirect=viaje.php?id=${idViaje}`;
+      const aRegistro = document.createElement('a');
+      aRegistro.href = `formulario.php?redirect=viaje.php?id=${idViaje}`;
+      const btnLogin = document.createElement('button');
+      btnLogin.textContent = 'Login';
+      const btnRegistro = document.createElement('button');
+      btnRegistro.textContent = 'Registrate';
+      const cerrar = document.createElement('img');
+      cerrar.src = '../logos_proyecto/close.png';
+      cerrar.id = 'btn-cerrar';
+
+      div.addEventListener('click', cerrarModal);
+      cerrar.addEventListener('click', cerrarModal);
+
+      aLogin.appendChild(btnLogin);
+      aLogin.appendChild(btnLogin);
+      aRegistro.appendChild(btnRegistro);
+      div2.appendChild(pTitulo);
+      div2.appendChild(p);
+      div2.appendChild(aLogin);
+      div2.appendChild(aRegistro);
+      div2.appendChild(cerrar);
+      div.appendChild(div2);
+
+      monstrarModal(div);
+    }
+
+    function monstrarModal(modal){
+      document.body.appendChild(modal);
+    }
+
+    function cerrarModal(e){
+      let ele = e.target;
+      //closet
+      if(ele !== e.currentTarget) return;    //si no son lo mismo , sale
+
+      if(ele.tagName === 'IMG') ele = ele.parentNode.parentNode;    //si es un boton, quiero quitar al padre de tu padre
+          document.body.removeChild(ele);
+    }
   }
 
   function gestionaDatosValoracion(datos){
@@ -173,9 +229,15 @@ const app = (function (){
     function validarFormulario(e) {
       //console.dir(e.target);
       e.preventDefault();
-      const textarea = document.querySelector('.comentarios form textarea');
-      peticionAJAX(URL_COMENTARIOS_ADD_REMOVE + 'añadir_comentario=true&texto=' + textarea.value + '&id_user=' + idUser + '&id_viaje=' +idViaje, gestionaAddRemoveComentario);
-      textarea.value = '';
+
+      if(idUser){
+        const textarea = document.querySelector('.comentarios form textarea');
+        peticionAJAX(URL_COMENTARIOS_ADD_REMOVE + 'añadir_comentario=true&texto=' + textarea.value + '&id_user=' + idUser + '&id_viaje=' +idViaje, gestionaAddRemoveComentario);
+        textarea.value = '';
+      }else{
+        crearModalLogin();
+      }
+
     }
   }
   function borrarComentario(e){
@@ -295,12 +357,17 @@ const app = (function (){
     const URL = '/favoritos.php?';
     const img = document.querySelector('#estrella img');
     img.addEventListener('click', function(e){
-      if(img.src.slice(37) == 'star_rellena.png'){    //Quitar favorito
-        peticionAJAX(URL + 'quitar_favorito=true&id_viaje=' + idViaje + '&id_user=' + idUser, quitarFavoritos);
+      if(idUser){
+        if(img.src.slice(37) == 'star_rellena.png'){    //Quitar favorito
+          peticionAJAX(URL + 'quitar_favorito=true&id_viaje=' + idViaje + '&id_user=' + idUser, quitarFavoritos);
+        }
+        if(img.src.slice(37) == 'star_vacia.png'){      //añadir favorito
+          peticionAJAX(URL + 'añadir_favorito=true&id_viaje=' + idViaje + '&id_user=' + idUser, addFavoritos);
+        }
+      }else{
+        crearModalLogin();
       }
-      if(img.src.slice(37) == 'star_vacia.png'){      //añadir favorito
-        peticionAJAX(URL + 'añadir_favorito=true&id_viaje=' + idViaje + '&id_user=' + idUser, addFavoritos);
-      }
+
     });
   }
 

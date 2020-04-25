@@ -40,8 +40,15 @@ $descripcion = '';
 $fotoDefault = "profileDefault.png";
 $acepta = false;
 $errores = [];
+$redirect = 'inicio.php';
+
+if( isset($_GET['redirect']) && $_GET['redirect'] != '' ){
+  $redirect = $_GET['redirect'];
+}
 
 if(count($_POST)>0){
+  $redirect = $_POST['redirect'];
+
   if(isset($_POST['nombre']) && $_POST['nombre'] != ""){
     $nombre = clear_input($_POST['nombre']);
   }else{
@@ -95,7 +102,7 @@ if(count($_POST)>0){
 
     $_SESSION['id'] = $id;
 
-    header("Location:inicio.php");
+    header("Location: $redirect");
     die();
   }
 }
@@ -140,6 +147,7 @@ if(count($_POST)>0){
      <input type="password" name="passR" value="" placeholder="repite la contraseña"><br>
      <input type="checkbox" id='terminos' name="terminos" value="aceptar" <?=($acepta)?'checked':''?>>
      <label for='terminos'>acepta los terminos y condiciones</label> <br>
+     <input type="text" name="redirect" value="<?=$redirect?>" hidden>
      <?php if (isset($errores['terminos'])): ?>
         <span class='error'><?=$errores['terminos']?></span><br>
      <?php endif; ?>

@@ -2,9 +2,15 @@
 
  $errores = [];
  $info = ['nombre' =>'', 'pass'=>''];
+ $redirect = 'inicio.php';
+
+ if( isset($_GET['redirect']) && $_GET['redirect'] != '' ){
+   $redirect = $_GET['redirect'];
+ }
 
  if ( count($_POST) > 0) {
    gestionaErrores($_POST, $info, $errores);
+   $redirect = $_POST['redirect'];
 
    if ( $errores == null ) {
      $datos = UsuarioManager::autentificado($info['nombre']);
@@ -21,8 +27,7 @@
         CookieManager::insert($token, $id);
          setcookie('recuerdame', $token, time()+(24*60*60*7));  //se establece la cookie de recuerdame
        }
-
-       header("Location: inicio.php");
+       header("Location: $redirect");
        die();
      }else{
        $errores['db'] = 'El usuario o la contraseña no estan registrados';
@@ -44,12 +49,13 @@
        <br><span class='error'><?=$errores['pass']?></span><br>
      <?php } ?>
      <br>
+     <input type="text" name="redirect" value="<?=$redirect?>" hidden>
      <label for="recuerdame">Recuerdame</label> <input type="checkbox" name="recuerdame" value="true" id="recuerdame">
      <br>
      <a href="password.php" id="olvidadoContraseña">¿Has olvidado tu contraseña?</a>
      <br>
      <input type="submit" name="enviar" value="Enviar">
-      <a href="formulario.php">Registrate</a>
+      <a href="formulario.php?redirect=<?=$redirect?>">Registrate</a>
       <?php if( isset($errores['db'])) { ?>
         <br><br><span class='error'><?=$errores['db']?></span><br>
       <?php } ?>
