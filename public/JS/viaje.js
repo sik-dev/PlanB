@@ -94,22 +94,33 @@ const app = (function (){
       div.id = 'modal';
       const div2 = document.createElement('div');
 
+      const pTitulo = document.createElement('p');
+      pTitulo.textContent = `Tienes que registrarte:`;
       const p = document.createElement('p');
-      p.textContent = 'Tienes que registrarte';
-      const a = document.createElement('a');
-      a.href = `login.php?redirect=viaje.php?id=${idViaje}`;
+      p.textContent = `Inicia sesión o registrate como un nuevo usuario.`;
+      const aLogin = document.createElement('a');
+      aLogin.href = `login.php?redirect=viaje.php?id=${idViaje}`;
+      const aRegistro = document.createElement('a');
+      aRegistro.href = `formulario.php?redirect=viaje.php?id=${idViaje}`;
       const btnLogin = document.createElement('button');
       btnLogin.textContent = 'Login';
-      const btnCerrar = document.createElement('button');
-      btnCerrar.textContent = 'Cerrar';
+      const btnRegistro = document.createElement('button');
+      btnRegistro.textContent = 'Registrate';
+      const cerrar = document.createElement('img');
+      cerrar.src = '../logos_proyecto/close.png';
+      cerrar.id = 'btn-cerrar';
 
       div.addEventListener('click', cerrarModal);
-      btnCerrar.addEventListener('click', cerrarModal);
+      cerrar.addEventListener('click', cerrarModal);
 
-      a.appendChild(btnLogin);
+      aLogin.appendChild(btnLogin);
+      aLogin.appendChild(btnLogin);
+      aRegistro.appendChild(btnRegistro);
+      div2.appendChild(pTitulo);
       div2.appendChild(p);
-      div2.appendChild(a);
-      div2.appendChild(btnCerrar);
+      div2.appendChild(aLogin);
+      div2.appendChild(aRegistro);
+      div2.appendChild(cerrar);
       div.appendChild(div2);
 
       monstrarModal(div);
@@ -124,7 +135,7 @@ const app = (function (){
       //closet
       if(ele !== e.currentTarget) return;    //si no son lo mismo , sale
 
-      if(ele.tagName === 'BUTTON') ele = ele.parentNode.parentNode;    //si es un boton, quiero quitar al padre de tu padre
+      if(ele.tagName === 'IMG') ele = ele.parentNode.parentNode;    //si es un boton, quiero quitar al padre de tu padre
           document.body.removeChild(ele);
     }
   }
