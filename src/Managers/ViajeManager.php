@@ -217,11 +217,7 @@ class ViajeManager implements IDWESEntidadManager{
                     descripcion, etiquetas, id_user)
                   VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
                     , $campos[0]);
-    /*
-    print_r('<pre>');
-    print_r($campos);
-    print_r('</pre>');
-    */
+
     $id_viaje = $db->getLastId();
     ValoracionManager::insert(0, end($campos[0]), $id_viaje);
 

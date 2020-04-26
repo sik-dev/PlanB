@@ -88,7 +88,13 @@
    color: gold;
 }
 
+.desaparecer{
+  display: none;
+}
 
+/* .aparecer{
+  display: inline-block;
+} */
 
 .comentarios{
   margin: 10%;

@@ -42,9 +42,10 @@
     return $data;
   }
 
-  function gestionaErrores($post, &$info, &$errores){
+  function gestionaErrores($post, &$info, &$errores)
+  {
     foreach($post as $key=>$value){
-        if ( isset($post[$key]) && $value != '' ){
+        if ( isset($post[$key]) && $value !== '' ){
           $info[$key] = clear_input($value);
         } else{
           $errores[$key] = "ERROR ".strtoupper($key);
@@ -52,7 +53,17 @@
     }
   }
 
-  function gestionaFoto($foto, &$errores){
+  function compruebaIsset($array, &$errores)
+  {
+    foreach($array as $value){
+      if (!isset($_POST[$value])){
+        $errores[$value] = "ERROR ".strtoupper($value);
+      }
+    }
+  }
+
+  function gestionaFoto($foto, &$errores)
+  {
     $typeExt = ['image/jpg', 'image/jpeg', 'image/png'];
     $file = $_FILES[$foto];
     $fileName = explode('.', strtolower($file['name']));

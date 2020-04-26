@@ -9,9 +9,10 @@ print_r($_POST);
 echo "</pre>"; */
 
 $errores = [];
-$arrayAlojamiento = ['Hotel', 'Apartamento', 'Hostal', 'Vivienda propia', 'Ninguna'];
+$paramViaje = [];
 $arrayTransporte = ['Coche', 'Avión', 'Autobus', 'Barco', 'Tren'];
 $etiquetas = ['Aventuras', 'Cultural', 'Religioso', 'Romántico', 'Con amig@s', 'Gastronómico', 'Relax', 'Fiesta', 'LowCost'];
+$comprobarEtiquetas = ['transporte', 'etiquetas'];
 
 $info = ['pais_origen' => '',
          'ciudad_origen' => '',
@@ -20,16 +21,8 @@ $info = ['pais_origen' => '',
          'foto' => '',
          'precio' => '',
          'transporte' => '',
-         'etiquetas[]' => '',
-         'etiquetasFormateadas' => '',
          'desc' => '',
-         'local' => '',
-         'alojamiento' => '',
-         /* 'titulo' => '', */
-         'manana' => '',
-         'tarde' => '',
-         'noche' => '',
-         'fotoIti' => ''
+         'etiquetas' => ''
       ];
 
 /* if (isset($_SESSION['viaje'])) {
@@ -39,41 +32,38 @@ $info = ['pais_origen' => '',
 
 if (count($_POST) > 0) {
   gestionaErrores($_POST, $info, $errores);
+  compruebaIsset($comprobarEtiquetas, $errores);
 
-  /* COMPROBAR ERRORES DE IMAGEN */
+  /* COMPROBAR ERRORES DE IMAGEN Y
+    DEVOLVER EL NOMBRE DE LA IMAGEN*/
   $fotoFullName = gestionaFoto('foto', $errores);
+
+  /* echo "<pre>";
+  print_r($errores);
+  echo "</pre>"; */
+
+  /* echo "<pre>";
+  print_r($info);
+  echo "</pre>"; */
 
   if ($errores == null) {
     $info['foto'] = $fotoFullName;
     $fotoNuevaRuta = "$ROOT/public/imgs/$id/$fotoFullName";
 
-    /* MOVER IMAGEN A LA CARPETA DE IMAGENES DEL USUARIO */
-    moverFoto($_FILES['foto']['tmp_name'], $fotoNuevaRuta);
+    /* juntar todas las etiquetas en un string */
+    $info['etiquetas'] = fusionarEtiquetas($_POST['etiquetas']);
 
-    $info['etiquetasFormateadas'] = fusionarEtiquetas($_POST['etiquetas']);
-
-    /* $_SESSION['viaje'] = $info; */
-
-    $paramViaje = [ $info['pais_origen'],
-                    $info['ciudad_origen'],
-                    $info['pais_destino'],
-                    $info['ciudad_destino'],
-                    $info['foto'],
-                    $info['precio'],
-                    $info['transporte'],
-                    $info['desc'],
-                    $info['etiquetasFormateadas'],
-                    $id
-                  ];
-
-    /* echo "<pre>";
-    print_r($paramViaje);
-    echo "</pre>"; */
+    /* rellenar el array paramViaje */
+    foreach($info as $value){
+      array_push($paramViaje, $value);
+    }
+    array_push($paramViaje, $id);
 
     $id_viaje = ViajeManager::insert($paramViaje);
-    
 
-    /* header("Location: crearViaje_2.php?id=$id"); */
+    /* MOVER IMAGEN A LA CARPETA DE IMAGENES DEL USUARIO */
+    moverFoto($_FILES['foto']['tmp_name'], $fotoNuevaRuta);
+    
     header("Location: viaje.php?id=$id_viaje");
     die();
   }
@@ -96,19 +86,6 @@ if (count($_POST) > 0) {
     <textarea name="desc" id="desc" cols="60" rows="8"><?=$info['desc']?></textarea><br>
     <?php if( isset($errores['desc'])) { ?>
       <span class='error'><?=$errores['desc']?></span><br>
-    <?php } ?>
-    <br>
-
-    <!-- ALOJAMIENTO -->
-    <label for="alojamiento">Alojamiento</label>
-    <select id="alojamiento" name="alojamiento">
-      <option value="" disabled selected>Elige un tipo de alojamiento</option>
-        <?php foreach ($arrayAlojamiento as $valor) { ?>
-          <option value="<?=$valor?>" <?=($info['alojamiento'] == $valor)?'selected':''?>><?=$valor?></option>
-        <?php } ?>
-    </select>
-    <?php if( isset($errores['alojamiento'])) { ?>
-      <span class='error'><?=$errores['alojamiento']?></span>
     <?php } ?>
     <br>
 
@@ -172,18 +149,21 @@ if (count($_POST) > 0) {
     <div class="etiquetas">
       <?php foreach ($etiquetas as $valor) { ?>
         <div class="etiqueta">
-          <input type="checkbox" id="<?=$valor?>" name="etiquetas[]" value="<?=$valor?>">
+          <input type="checkbox" id="<?=$valor?>" name="etiquetas[]" value="<?=$valor?>"
+            <?php foreach ($_POST['etiquetas'] as $value) {
+              if ($value === $valor) {?>
+                <?='checked'?>
+            <?php }
+            }?>
+          >
           <label for='<?=$valor?>'> <?=$valor?></label>
         </div>
       <?php } ?>
-      <?php if( isset($errores['etiquetas[]'])) { ?>
-        <span class='error'><?=$errores['etiquetas[]']?></span>
+      <?php if( isset($errores['etiquetas'])) { ?>
+        <span class='error'><?=$errores['etiquetas']?></span>
       <?php } ?>
     </div>
-
     <br>
-
-    <!-- <button type="submit">Siguiente</button> -->
     <button type="submit">Enviar</button>
   </form>
 </div>

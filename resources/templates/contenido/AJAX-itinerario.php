@@ -3,25 +3,21 @@
 
 $errores = [];
 $info = $_SESSION['viaje'];
-print_r($_GET);
-print_r($_POST);
+/* print_r($_GET); */
+
+/* print_r('<pre>'); */
+/* print_r(json_encode($_POST['itinerario'], JSON_UNESCAPED_UNICODE)); */
+/* print_r('</pre>'); */
+/* $obj = json_encode($nuevoArray, JSON_UNESCAPED_UNICODE); */
+$obj = json_encode($_POST['itinerario']);
+echo $obj;
 if (count($_POST) > 0) {
 
-  /* if (isset($_POST['rellenar']) && !empty($_POST['rellenar'])) {
-    $obj = json_encode($_POST);
-    echo $obj;
-  } */
-
-  gestionaErrores($_POST, $info, $errores);
-
-  if ( isset($_POST['anterior']) && $_POST['anterior'] == true ) {
-    $_SESSION['viaje'] = $info;
-    header('Location: crearViaje_1.php');
-  }
+  /* gestionaErrores($_POST, $info, $errores); */
 
   /* COMPROBAR ERRORES DE IMAGEN */
-  $imgFullName = gestionaFoto('img', $errores);
-  $imgNuevaRuta = "$ROOT/public/imgs/$id/$fotoItiFullName";
+/*   $imgFullName = gestionaFoto('img', $errores);
+  $imgNuevaRuta = "$ROOT/public/imgs/$id/$fotoItiFullName"; */
 
   if ($errores == null) {
     /* print_r('<pre>');
@@ -52,7 +48,7 @@ if (count($_POST) > 0) {
   }
 }
 
-if( isset($_GET['id_user']) && !empty($_GET['id_user']) &&
+/* if( isset($_GET['id_user']) && !empty($_GET['id_user']) &&
     isset($_GET['id_viaje']) && !empty($_GET['id_viaje']) &&
     isset($_GET['puntuacion']) && !empty($_GET['puntuacion'])
   ) {
@@ -75,6 +71,6 @@ if( isset($_GET['id_user']) && !empty($_GET['id_user']) &&
   echo $nuevaMedia;
 }else{
   echo 'ERROR';
-}
+} */
 
 ?>

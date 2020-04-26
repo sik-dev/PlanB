@@ -3,6 +3,7 @@
 $comentario = '';
 $dibujaEstrella = false;
 $etiquetas = [];
+$arrayAlojamiento = ['Hotel', 'Apartamento', 'Hostal', 'Vivienda propia', 'Ninguna'];
 
 /* print_r($id); */
 if ( isset($_GET['id']) ){
@@ -38,6 +39,8 @@ foreach ($viajeFavorito as $fila) {
 print_r(!$idsIguales); */
 ?>
 <link rel="stylesheet" href="/css/viaje.css">
+<!-- <link rel="stylesheet" href="/css/crearViaje_2.css"> -->
+<script src="JS/addItinerarios.js"></script>
 <?php if ($id === $datos['viaje']->getIdUser()) {?>
   <button id="modificar">Modificar Viaje</button>
 <?php }?>
@@ -78,7 +81,7 @@ print_r(!$idsIguales); */
     </div>
   </div>
   <div class="itinerario">
-    <h2>Itinerario<!-- <button>+</button> --></h2>
+    <h2>Itinerario</h2>
     <ul>
       <?php foreach ($datosItinerario as $fila){ ?>
         <li data-dia='<?=$contador?>'>
@@ -87,6 +90,66 @@ print_r(!$idsIguales); */
       <?php } ?>
     </ul>
     <div id="itinerarioDias">
+    </div>
+    <div class="insertViaje desaparecer">
+      <form action="viaje.php" method="post" enctype="multipart/form-data">
+        <div class="itinerario">
+          <!-- <h1>Dia 1</h1> -->
+          <!-- FOTO DEL ITINERARIO -->
+          <input type="file" name="img[]" multiple><br>
+          <?php if( isset($errores['img'])) { ?>
+            <br><span class='error'><?=$errores['img']?></span><br>
+          <?php } ?>
+
+          <!-- ALOJAMIENTO -->
+          <label for="alojamiento">Alojamiento</label>
+          <select id="alojamiento" name="alojamiento">
+            <option value="" disabled selected>Elige un tipo de alojamiento</option>
+              <?php foreach ($arrayAlojamiento as $valor) { ?>
+                <option value="<?=$valor?>" <?=($info['alojamiento'] == $valor)?'selected':''?>><?=$valor?></option>
+              <?php } ?>
+          </select>
+          <?php if( isset($errores['alojamiento'])) { ?>
+            <span class='error'><?=$errores['alojamiento']?></span>
+          <?php } ?>
+          <br>
+
+          <!-- LOCAL -->
+          <label for="local">Ciudad</label>
+          <input id="local" type="text" name="local" value="<?=$info['local']?>">
+          <?php if( isset($errores['local'])) { ?>
+            <span class='error'><?=$errores['local']?></span>
+          <?php } ?>
+          <br>
+
+          <fieldset>
+            <legend>Describe tu dia</legend>
+            <!-- MAÑANA -->
+            <?php if( isset($errores['manana'])) { ?>
+                <br><span class='error'><?=$errores['manana']?></span><br>
+            <?php } ?>
+            <label for="manana">Mañana:</label>
+            <textarea id="manana" name="manana" cols="60" rows="3"><?=$info['manana']?></textarea><br>
+
+            <!-- TARDE -->
+            <?php if( isset($errores['tarde'])) { ?>
+                <br><span class='error'><?=$errores['tarde']?></span><br>
+            <?php } ?>
+            <label for="tarde">Tarde:</label>
+            <textarea id="tarde" name="tarde" cols="60" rows="3"><?=$info['tarde']?></textarea><br>
+
+            <!-- NOCHE -->
+            <?php if( isset($errores['noche'])) { ?>
+              <br><span class='error'><?=$errores['noche']?></span><br>
+            <?php } ?>
+            <label for="noche">Noche:</label>
+            <textarea id="noche" name="noche" cols="60" rows="3"><?=$info['noche']?></textarea><br>
+          </fieldset>
+          <button type="submit">Añadir</button>
+          <!-- quizas luego borrar el value de cancelar-->
+          <button type="submit" value="cancelar">Cancelar</button>
+        </div>
+      </form>
     </div>
   </div>
   <div class="comentarios">
