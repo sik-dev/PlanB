@@ -29,7 +29,7 @@ Estructura de un proyecto completo web
 En PlanB ejecutar el script crearDB.sql
 ```
 # desde la ruta raíz
-$ mysql -u root -p < resources\archivos_sql\crearDB.sql
+$ mysql -u root -p < resources/archivos_sql/crearDB.sql
 ```
 Esto creará :
 - El usuario **viajes** con contraseña **viajes** 
