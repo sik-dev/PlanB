@@ -1,24 +1,21 @@
 const insertItinerario = (function () {
+  'use strict';
+
   const URL_ITINERARIO = '/AJAX-itinerario.php';
   document.addEventListener('DOMContentLoaded', main);
-  
-  /* const URL_ITINERARIO = '/crearViaje_2.php?rellenar=true'; */
 
   function main() {
-    const itinerario = document.getElementsByClassName('itinerario');
+    /* const itinerario = document.getElementsByClassName('itinerario'); */
     const botonModificar = document.getElementById('modificar');
     if (botonModificar) {
       botonModificar.addEventListener('click', function (e) {
         const divItinerario = document.getElementsByClassName('itinerario')[0];
-        /* const divItinerario = document.getElementsByClassName('itinerario')[0]; */
-        /* console.log(e.target); */
         mostrarBotones(divItinerario);
       });
     }
   }
 
   function mostrarBotones(divItinerario) {
-    /* console.log(divItinerario.querySelector('h2')); */
     if(!document.getElementById('agregarItinerario')){
       const h2 = divItinerario.querySelector('h2');
       const boton = document.createElement('button');
@@ -27,24 +24,24 @@ const insertItinerario = (function () {
       boton.appendChild(text);
       boton.id = 'agregarItinerario';
       boton.style.float = 'right';
-      boton.addEventListener('click', function(e){ mostrarFormItinerario(e) });
+      boton.addEventListener('click', mostrarFormItinerario);
       h2.appendChild(boton);
     }
+    
   }
 
   function mostrarFormItinerario(e) {
-    const divFormItinerario = document.getElementsByClassName('insertViaje')[0];
+    /* console.log(e.target); */
+    const divFormItinerario = document.getElementsByClassName('insertItinerario')[0];
     divFormItinerario.classList.remove('desaparecer');
+    const divItinerario = divFormItinerario.nextElementSibling;
     const botones = divFormItinerario.querySelectorAll('button');
     const botonAñadir = botones[0];
     const botonCancelar = botones[1];
-    const divItinerario = divFormItinerario.nextElementSibling;
 
     if (divItinerario) {
       divItinerario.classList.add('desaparecer');
     }
-    /* divFormItinerario.nextElementSibling.classList.add('desaparecer'); */
-    /* console.log(divFormItinerario.nextElementSibling.id); */
 
     botonAñadir.addEventListener('click', function (e) {
       e.preventDefault();
@@ -63,7 +60,7 @@ const insertItinerario = (function () {
         'tarde' : document.getElementById('tarde').value,
         'noche' : document.getElementById('noche').value
       }; */
-      const imgs = document.querySelector("[type='file']");
+      /* const imgs = document.querySelector("[type='file']");
       const Itinerario = [
         document.querySelector("[type='file']").files,
         document.getElementById('alojamiento').value,
@@ -71,10 +68,11 @@ const insertItinerario = (function () {
         document.getElementById('manana').value,
         document.getElementById('tarde').value,
         document.getElementById('noche').value
-      ];
-      console.dir(imgs);
-
-      pedirJSON(URL_ITINERARIO, exito, 'itinerario=' + Itinerario);
+      ]; */
+      /* console.dir(imgs);
+      console.log(e.target.parentNode); */
+      /* 'itinerario=' + Itinerario */
+      pedirJSON(URL_ITINERARIO, exito, new FormData(e.target.parentNode));
       /* console.dir(imgs.files);
       console.log(alojamiento);
       console.log(local);
@@ -89,7 +87,7 @@ const insertItinerario = (function () {
     });
   }
 
-  function exito() {
+  function exito(datos) {
     console.log('funciona');
   }
   /* function llenarItinerario(datos) {
@@ -98,19 +96,20 @@ const insertItinerario = (function () {
 
   function pedirJSON(uri, exito, param){
     const xhr = new XMLHttpRequest();
-
+    console.log(this);
     xhr.onload = function (){
       if (this.status === 200) {
-        console.dir(this.responseText);
-        console.dir(JSON.parse(this.responseText));
-        /* (this.responseText == '')?exito(this.responseText):exito(JSON.parse(this.responseText)); */
+        /* console.dir(this.responseText);
+        console.dir(JSON.parse(this.responseText)); */
+        /* datos = JSON.parse(this.responseText); */
+        console.log(JSON.parse(this.responseText));
+        /* exito(datos); */
       }else {
         console.error(`Error: ${this.status} ${this.statusText}`);
       }
     }
 
     xhr.open('POST', uri);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send(param);
   }
   

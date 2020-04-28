@@ -9,7 +9,7 @@ $info = $_SESSION['viaje'];
 /* print_r(json_encode($_POST['itinerario'], JSON_UNESCAPED_UNICODE)); */
 /* print_r('</pre>'); */
 /* $obj = json_encode($nuevoArray, JSON_UNESCAPED_UNICODE); */
-$obj = json_encode($_POST['itinerario']);
+$obj = json_encode($_FILES);
 echo $obj;
 if (count($_POST) > 0) {
 

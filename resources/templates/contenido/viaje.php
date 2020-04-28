@@ -91,9 +91,9 @@ print_r(!$idsIguales); */
     </ul>
     <div id="itinerarioDias">
     </div>
-    <div class="insertViaje desaparecer">
+    <div class="insertItinerario desaparecer">
       <form action="viaje.php" method="post" enctype="multipart/form-data">
-        <div class="itinerario">
+        <!-- <div class="itinerario"> -->
           <!-- <h1>Dia 1</h1> -->
           <!-- FOTO DEL ITINERARIO -->
           <input type="file" name="img[]" multiple><br>
@@ -148,7 +148,7 @@ print_r(!$idsIguales); */
           <button type="submit">Añadir</button>
           <!-- quizas luego borrar el value de cancelar-->
           <button type="submit" value="cancelar">Cancelar</button>
-        </div>
+        <!-- </div> -->
       </form>
     </div>
   </div>

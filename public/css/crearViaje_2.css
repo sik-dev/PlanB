@@ -2,14 +2,14 @@
 @import url('reset.css');
 @import url('root.css');
 
-.insertViaje{
+.insertItinerario{
   font-family: 'Sriracha', cursive;
    width: 40%;
    margin:0 auto;
    background-color: rgb(252, 249, 239);
 }
 
-.insertViaje>form{
+.insertItinerario>form{
    margin: 10%;
    height: 545px;
 }

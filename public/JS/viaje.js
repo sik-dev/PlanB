@@ -295,11 +295,15 @@ const app = (function (){
 
   function pintaDia(){
     const divItinerario = document.querySelector('.itinerario');
-
+    const divItinerarioDias = document.getElementById('itinerarioDias');/* 
     if(divItinerario.children[3].firstChild){   //si ya tiene contenido, lo vaciamos para poner un nuevo dia
       divItinerario.children[3].innerHTML = '';
-    }
+    } */
 
+    if(divItinerarioDias.firstChild){   //si ya tiene contenido, lo vaciamos para poner un nuevo dia
+      divItinerarioDias.innerHTML = '';
+    }
+    
     const datos = datosItinerario[numDia -1];
     const div = document.getElementById('itinerarioDias');
 
