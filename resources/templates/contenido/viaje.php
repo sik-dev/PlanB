@@ -58,7 +58,7 @@ print_r(!$idsIguales); */
     <h2>País: <?=$datos['viaje']->getPaisDestino()?></h2>
     <h4>Origen: <?=$datos['viaje']->getCiudadOrigen()?></h4>
     <h4><?=$datos['viaje']->getDescripcion()?></h4>
-    <img src="imgs/<?=$datos['viaje']->getIdUser().'/'.$datos['viaje']->getFoto()?>">
+    <img id='fotoViaje' class="cursor" src="imgs/<?=$datos['viaje']->getIdUser().'/'.$datos['viaje']->getFoto()?>">
     <div class="datos">
       <p>Precio: <?=$datos['viaje']->getPrecio()?>&euro;</p>
       <p>Nº de Dias: <?=count($datosItinerario)?></p>
@@ -70,7 +70,7 @@ print_r(!$idsIguales); */
           </a>
         </p>
       <?php //}?>
-      
+
       <div class="etiquetas">
         <p>Etiquetas del viaje:</p>
         <?php foreach ($etiquetas as $valor) {?>

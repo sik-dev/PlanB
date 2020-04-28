@@ -16,6 +16,10 @@
   font-weight: bold;
 }
 
+.cursor{
+  cursor: pointer;
+}
+
 
 /**** ANIAMCIONES */
 @keyframes fadeIn {

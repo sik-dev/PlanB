@@ -214,7 +214,7 @@
 
 
 
-/******************* MODAL  */
+/******************* MODAL LOGIN  */
 #modal{
   display: grid;
   position: fixed;
@@ -269,6 +269,43 @@
   position: absolute;
   bottom: 3px;
   right: 4px;
+  width: 30px;
+  cursor: pointer;
+}
+
+
+/******************* MODAL FOTO  */
+#modalFoto{
+  display: grid;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: hsla(0, 0%, 0%, 0.7);
+}
+#modalFoto div{
+  max-height: 100vh;
+  /*min-height: 200px;*/
+  padding: 2em;
+  background-color: white;
+  position: relative;
+  border-radius: 3%;
+  height: 650px;
+  width: 1110px;
+  animation: fadeIn 400ms;
+}
+#modalFoto img:first-of-type{
+  height: 576px;
+  width: 1024px;
+  border-radius: 2%;
+}
+#btn-cerrarFoto{
+  position: absolute;
+  bottom: 11px;
+  right: 26px;
   width: 30px;
   cursor: pointer;
 }

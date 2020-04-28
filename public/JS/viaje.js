@@ -14,7 +14,7 @@ const app = (function (){
   const URL_INSERTA_VALORACION = '/AJAX-insertaValoracion.php?';
   /* const URL_ITINERARIO = '/AJAX-itinerario.php';
   const botonModificar = document.getElementById('modificar'); */
-  
+
 
   function iniciar(){
     pedirJSON(URL_VIAJE + idViaje, gestinaDatosViaje);
@@ -30,6 +30,9 @@ const app = (function (){
 
     gestionaFormulario();
     eventoPuntuacion();
+
+    const imgViaje = document.getElementById('fotoViaje');
+    imgViaje.addEventListener('click', crearModalFoto);
   }
 
   function gestinaDatosComentarios(datos){
@@ -123,6 +126,50 @@ const app = (function (){
       div2.appendChild(p);
       div2.appendChild(aLogin);
       div2.appendChild(aRegistro);
+      div2.appendChild(cerrar);
+      div.appendChild(div2);
+
+      monstrarModal(div);
+    }
+
+    function monstrarModal(modal){
+      document.body.appendChild(modal);
+    }
+
+    function cerrarModal(e){
+      let ele = e.target;
+      //closet
+      if(ele !== e.currentTarget) return;    //si no son lo mismo , sale
+
+      if(ele.tagName === 'IMG') ele = ele.parentNode.parentNode;    //si es un boton, quiero quitar al padre de tu padre
+          document.body.removeChild(ele);
+    }
+  }
+  function crearModalFoto(e){
+
+    const element = e.target;
+
+    creaEstructuraModal(element);
+
+    function creaEstructuraModal(element){
+
+      console.dir(element);
+
+      const div = document.createElement('div');
+      div.id = 'modalFoto';
+      const div2 = document.createElement('div');
+
+      const img = document.createElement('img');
+      img.src = element.src;
+
+      const cerrar = document.createElement('img');
+      cerrar.src = '../logos_proyecto/close.png';
+      cerrar.id = 'btn-cerrarFoto';
+
+      div.addEventListener('click', cerrarModal);
+      cerrar.addEventListener('click', cerrarModal);
+
+      div2.appendChild(img);
       div2.appendChild(cerrar);
       div.appendChild(div2);
 
@@ -249,8 +296,8 @@ const app = (function (){
   function pintaDia(){
     const divItinerario = document.querySelector('.itinerario');
 
-    if(divItinerario.children[2].firstChild){   //si ya tiene contenido, lo vaciamos para poner un nuevo dia
-      divItinerario.children[2].innerHTML = '';
+    if(divItinerario.children[3].firstChild){   //si ya tiene contenido, lo vaciamos para poner un nuevo dia
+      divItinerario.children[3].innerHTML = '';
     }
 
     const datos = datosItinerario[numDia -1];
@@ -292,6 +339,8 @@ const app = (function (){
     const numUserViaje = document.querySelector('.fotoSmall');
     fotoDia.src = `imgs/${numUserViaje.dataset.iduserviaje}/${datos.foto}`;
     fotoDia.id = 'fotoDia';
+    fotoDia.classList.add('cursor');
+    fotoDia.addEventListener('click', crearModalFoto);
 
     div.appendChild(fotoDia);
     divItinerario.appendChild(div);
