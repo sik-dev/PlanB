@@ -45,72 +45,40 @@ const insertItinerario = (function () {
 
     botonAñadir.addEventListener('click', function (e) {
       e.preventDefault();
-      /* const imgs = document.querySelector("[type='file']");
-      const alojamiento = document.getElementById('alojamiento').value;
-      const local = document.getElementById('local').value;
-      const manana = document.getElementById('manana').value;
-      const tarde = document.getElementById('tarde').value;
-      const noche = document.getElementById('noche').value; */
-
-      /* const Itinerario = {
-        'imgs': document.querySelector("[type='file']").files,
-        'alojamiento' : document.getElementById('alojamiento').value,
-        'local' : document.getElementById('local').value,
-        'manana' : document.getElementById('manana').value,
-        'tarde' : document.getElementById('tarde').value,
-        'noche' : document.getElementById('noche').value
-      }; */
-      /* const imgs = document.querySelector("[type='file']");
-      const Itinerario = [
-        document.querySelector("[type='file']").files,
-        document.getElementById('alojamiento').value,
-        document.getElementById('local').value,
-        document.getElementById('manana').value,
-        document.getElementById('tarde').value,
-        document.getElementById('noche').value
-      ]; */
-      /* console.dir(imgs);
-      console.log(e.target.parentNode); */
-      /* 'itinerario=' + Itinerario */
-      pedirJSON(URL_ITINERARIO, exito, new FormData(e.target.parentNode));
-      /* console.dir(imgs.files);
-      console.log(alojamiento);
-      console.log(local);
-      console.log(manana);
-      console.log(tarde);
-      console.log(noche); */
-      /* console.dir(imgs); */
+      pedirJSON(URL_ITINERARIO, redireccionar, e.target.parentNode);
     });
 
+    //TODO
     botonCancelar.addEventListener('click', function (e) {
       e.preventDefault();
     });
   }
 
-  function exito(datos) {
-    console.log('funciona');
+  function redireccionar(datos, form) {
+    const idViaje = form.children[1].value;
+    
+    for (const key in datos) {
+      if (!datos[key].toLowerCase().includes('error')) {
+        window.location.href = `viaje.php?id=${idViaje}`;  
+      }
+    }
   }
-  /* function llenarItinerario(datos) {
-    console.log(datos);
-  } */
 
-  function pedirJSON(uri, exito, param){
+
+  function pedirJSON(uri, exito, form){
     const xhr = new XMLHttpRequest();
-    console.log(this);
     xhr.onload = function (){
       if (this.status === 200) {
-        /* console.dir(this.responseText);
-        console.dir(JSON.parse(this.responseText)); */
-        /* datos = JSON.parse(this.responseText); */
-        console.log(JSON.parse(this.responseText));
-        /* exito(datos); */
+        /* let datos = JSON.parse(this.responseText);
+        if(datos){exito(datos, form)}  */ 
+        exito(JSON.parse(this.responseText), form);
       }else {
         console.error(`Error: ${this.status} ${this.statusText}`);
       }
     }
 
     xhr.open('POST', uri);
-    xhr.send(param);
+    xhr.send(new FormData(form));
   }
   
   /* return {iniciar:main}; */

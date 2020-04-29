@@ -66,25 +66,39 @@
   {
     $typeExt = ['image/jpg', 'image/jpeg', 'image/png'];
     $file = $_FILES[$foto];
-    $fileName = explode('.', strtolower($file['name']));
-    $imgName = $fileName[0];
-    $imgExt = $fileName[1];
-    $imgTmpName = $file['tmp_name'];
-    $imgSize = $file['size'];
 
-    if ($file['error'] === 0 && in_array($file['type'], $typeExt) && $file != NULL) {
-        return str_replace(" ", "_",  $imgName) ."_". uniqid('', true) .".".$imgExt;
+    if (is_array($file['name'])) {
+      $allNames = "";
+
+      for ($i = 0; $i < count($file['name']); $i++) { 
+        $fileName = explode('.', strtolower($file['name'][$i]));
+        $imgName = $fileName[0];
+        $imgExt = $fileName[1];
+        /* $imgSize = $file['size']; */
+
+        if ($file['error'][$i] === 0 && in_array($file['type'][$i], $typeExt) && $file != NULL) {
+          $allNames .= str_replace([" ", ";"], "_", $imgName) ."_". uniqid('', true) .".".$imgExt.";";
+        }else{
+          $errores[$foto] = "ERROR ".strtoupper($foto);
+        }
+      }
+
+      return $allNames;
     }else{
+      $fileName = explode('.', strtolower($file['name']));
+      $imgName = $fileName[0];
+      $imgExt = $fileName[1];
+      /* $imgSize = $file['size']; */
+  
+      if ($file['error'] === 0 && in_array($file['type'], $typeExt) && $file != NULL) {
+        return str_replace(" ", "_", $imgName) ."_". uniqid('', true) .".".$imgExt;
+      }else{
         $errores[$foto] = "ERROR ".strtoupper($foto);
+      }
     }
   }
 
-  function moverFoto($nombreFoto, $rutaFoto){
-    move_uploaded_file($nombreFoto, $rutaFoto);
-  }
-
   function getToken(){
-
     return rand(10000, 90000);
   }
 

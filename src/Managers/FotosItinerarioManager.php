@@ -5,7 +5,8 @@ class FotosItinerarioManager implements IDWESEntidadManager
   public static function getAll(){
   }
 
-  public static function getBy($id){
+  public static function getBy($id)
+  {
     $db = DWESBaseDatos::obtenerInstancia();
     $db->ejecuta("SELECT ruta from fotosIT
                   WHERE id_itinerario = ?",
@@ -15,13 +16,10 @@ class FotosItinerarioManager implements IDWESEntidadManager
 
   public static function insert(...$campos)
   {
-    print_r('<pre>');
-    print_r($campos);
-    print_r('</pre>');
     $db = DWESBaseDatos::obtenerInstancia();
     $db->ejecuta("INSERT INTO fotosIT (ruta, id_itinerario)
                   VALUES(?, ?)",
-                  $campos[0]);
+                  $campos);
   }
 
   public static function update($id, ...$campos){

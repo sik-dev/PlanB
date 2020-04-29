@@ -175,10 +175,10 @@ class ViajeManager implements IDWESEntidadManager{
     return $db->obtenDatos()[0]['numViajes'];
   }
 
-  public static function getBy($id){
+  public static function getBy($id)
+  {
     $db = DWESBaseDatos::obtenerInstancia();
     $db->ejecuta("SELECT * FROM viaje WHERE id_user = ?", $id);
-    //return $db->obtenDatos();
     return self::map($db -> obtenDatos());
   }
 
@@ -202,12 +202,6 @@ class ViajeManager implements IDWESEntidadManager{
     return self::map($db -> obtenDatos())[0];
   }
 
-  /* public static function getViajesID($id){
-    $db = DWESBaseDatos::obtenerInstancia();
-    $db->ejecuta("SELECT * FROM viaje WHERE id = ?", $id);
-    return $db->obtenDatos();
-  } */
-
   public static function insert(...$campos)
   {
     $db = DWESBaseDatos::obtenerInstancia();
@@ -222,12 +216,6 @@ class ViajeManager implements IDWESEntidadManager{
     ValoracionManager::insert(0, end($campos[0]), $id_viaje);
 
     return $id_viaje;
-    /* array_push($campos[1], $id_viaje);
-    
-    ItinerarioManager::insert($campos[1]);
-
-    array_push($campos[2], $db->getLastId());
-    FotosItinerarioManager::insert($campos[2]); */
   }
 
   public static function update($id, ...$campos){

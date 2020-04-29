@@ -93,62 +93,44 @@ print_r(!$idsIguales); */
     </div>
     <div class="insertItinerario desaparecer">
       <form action="viaje.php" method="post" enctype="multipart/form-data">
-        <!-- <div class="itinerario"> -->
-          <!-- <h1>Dia 1</h1> -->
-          <!-- FOTO DEL ITINERARIO -->
-          <input type="file" name="img[]" multiple><br>
-          <?php if( isset($errores['img'])) { ?>
-            <br><span class='error'><?=$errores['img']?></span><br>
-          <?php } ?>
+        <input type="hidden" name="idUser" value="<?=$datos['viaje']->getIdUser()?>">
+        <input type="hidden" name="idViaje" value="<?=$id_viaje?>">
+        <input type="file" name="fotos[]" multiple><br>
 
-          <!-- ALOJAMIENTO -->
-          <label for="alojamiento">Alojamiento</label>
-          <select id="alojamiento" name="alojamiento">
-            <option value="" disabled selected>Elige un tipo de alojamiento</option>
-              <?php foreach ($arrayAlojamiento as $valor) { ?>
-                <option value="<?=$valor?>" <?=($info['alojamiento'] == $valor)?'selected':''?>><?=$valor?></option>
-              <?php } ?>
-          </select>
-          <?php if( isset($errores['alojamiento'])) { ?>
-            <span class='error'><?=$errores['alojamiento']?></span>
-          <?php } ?>
-          <br>
-
-          <!-- LOCAL -->
-          <label for="local">Ciudad</label>
-          <input id="local" type="text" name="local" value="<?=$info['local']?>">
-          <?php if( isset($errores['local'])) { ?>
-            <span class='error'><?=$errores['local']?></span>
-          <?php } ?>
-          <br>
-
-          <fieldset>
-            <legend>Describe tu dia</legend>
-            <!-- MAÑANA -->
-            <?php if( isset($errores['manana'])) { ?>
-                <br><span class='error'><?=$errores['manana']?></span><br>
+        <!-- ALOJAMIENTO -->
+        <label for="alojamiento">Alojamiento</label>
+        <select id="alojamiento" name="alojamiento">
+          <option value="" disabled selected>Elige un tipo de alojamiento</option>
+            <?php foreach ($arrayAlojamiento as $valor) { ?>
+              <option value="<?=$valor?>" <?=($info['alojamiento'] == $valor)?'selected':''?>><?=$valor?></option>
             <?php } ?>
-            <label for="manana">Mañana:</label>
-            <textarea id="manana" name="manana" cols="60" rows="3"><?=$info['manana']?></textarea><br>
+        </select>
+        <br>
 
-            <!-- TARDE -->
-            <?php if( isset($errores['tarde'])) { ?>
-                <br><span class='error'><?=$errores['tarde']?></span><br>
-            <?php } ?>
-            <label for="tarde">Tarde:</label>
-            <textarea id="tarde" name="tarde" cols="60" rows="3"><?=$info['tarde']?></textarea><br>
+        <!-- LOCAL -->
+        <label for="local">Ciudad</label>
+        <input id="local" type="text" name="local" value="<?=$info['local']?>">
+        <br>
 
-            <!-- NOCHE -->
-            <?php if( isset($errores['noche'])) { ?>
-              <br><span class='error'><?=$errores['noche']?></span><br>
-            <?php } ?>
-            <label for="noche">Noche:</label>
-            <textarea id="noche" name="noche" cols="60" rows="3"><?=$info['noche']?></textarea><br>
-          </fieldset>
-          <button type="submit">Añadir</button>
-          <!-- quizas luego borrar el value de cancelar-->
-          <button type="submit" value="cancelar">Cancelar</button>
-        <!-- </div> -->
+        <fieldset>
+          <legend>Describe tu dia</legend>
+          <!-- MAÑANA -->
+          <label for="manana">Mañana:</label><br>
+          <textarea id="manana" name="manana" cols="40" rows="2"><?=$info['manana']?></textarea><br>
+
+          <!-- TARDE -->
+          <label for="tarde">Tarde:</label><br>
+          <textarea id="tarde" name="tarde" cols="40" rows="2"><?=$info['tarde']?></textarea><br>
+
+          <!-- NOCHE -->
+          <?php if( isset($errores['noche'])) { ?>
+            <br><span class='error'><?=$errores['noche']?></span><br>
+          <?php } ?>
+          <label for="noche">Noche:</label><br>
+          <textarea id="noche" name="noche" cols="40" rows="2"><?=$info['noche']?></textarea><br>
+        </fieldset>
+        <button type="submit">Añadir</button>
+        <button type="submit">Cancelar</button>
       </form>
     </div>
   </div>

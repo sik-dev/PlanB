@@ -25,11 +25,18 @@ class ItinerarioManager implements IDWESEntidadManager
                     manana, tarde, noche, id_viaje)
                   VALUES(?, ?, ?, ?, ?, ?)",
                   $campos[0]);
+    $idItinerario = $db->getLastId();
+
+    foreach ($campos[1] as $value) {
+      array_push($value, $idItinerario);
+      FotosItinerarioManager::insert($value, $idItinerario);
+    }
   }
 
   public static function update($id, ...$campos){
   }
 
   public static function delete($id){
+    
   }
 }

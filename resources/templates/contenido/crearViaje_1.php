@@ -5,7 +5,7 @@ if( !$_SESSION['autentificado'] ){
   exit;
 }
 /* echo "<pre>";
-print_r($_POST);
+print_r($_FILES);
 echo "</pre>"; */
 
 $errores = [];
@@ -25,28 +25,15 @@ $info = ['pais_origen' => '',
          'etiquetas' => ''
       ];
 
-/* if (isset($_SESSION['viaje'])) {
-  $info = $_SESSION['viaje'];
-  $info['anterior'] = false;
-} */
-
 if (count($_POST) > 0) {
   gestionaErrores($_POST, $info, $errores);
   compruebaIsset($comprobarEtiquetas, $errores);
 
-  /* COMPROBAR ERRORES DE IMAGEN Y
-    DEVOLVER EL NOMBRE DE LA IMAGEN*/
+  /* COMPROBAR ERRORES DE IMAGEN Y DEVOLVER EL NOMBRE DE LA IMAGEN*/  
   $fotoFullName = gestionaFoto('foto', $errores);
 
-  /* echo "<pre>";
-  print_r($errores);
-  echo "</pre>"; */
-
-  /* echo "<pre>";
-  print_r($info);
-  echo "</pre>"; */
-
   if ($errores == null) {
+
     $info['foto'] = $fotoFullName;
     $fotoNuevaRuta = "$ROOT/public/imgs/$id/$fotoFullName";
 
@@ -62,7 +49,8 @@ if (count($_POST) > 0) {
     $id_viaje = ViajeManager::insert($paramViaje);
 
     /* MOVER IMAGEN A LA CARPETA DE IMAGENES DEL USUARIO */
-    moverFoto($_FILES['foto']['tmp_name'], $fotoNuevaRuta);
+    $imgTmpName = $_FILES['foto']['tmp_name'];
+    move_uploaded_file($imgTmpName, $fotoNuevaRuta);
     
     header("Location: viaje.php?id=$id_viaje");
     die();

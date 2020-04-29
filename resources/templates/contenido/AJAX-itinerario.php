@@ -1,76 +1,58 @@
 <?php
-//error_reporting(0);
 
 $errores = [];
-$info = $_SESSION['viaje'];
-/* print_r($_GET); */
+$info = [
+  'local' => '',
+  'alojamiento' => '',
+  'manana' => '',
+  'tarde' => '',
+  'noche' => '',
+  'idViaje' => ''
+];
+$idUser = $_POST['idUser'];
+$comprobarEtiquetas = ['alojamiento'];
 
-/* print_r('<pre>'); */
-/* print_r(json_encode($_POST['itinerario'], JSON_UNESCAPED_UNICODE)); */
-/* print_r('</pre>'); */
-/* $obj = json_encode($nuevoArray, JSON_UNESCAPED_UNICODE); */
-$obj = json_encode($_FILES);
-echo $obj;
 if (count($_POST) > 0) {
 
-  /* gestionaErrores($_POST, $info, $errores); */
+  gestionaErrores($_POST, $info, $errores);
+  compruebaIsset($comprobarEtiquetas, $errores);
 
-  /* COMPROBAR ERRORES DE IMAGEN */
-/*   $imgFullName = gestionaFoto('img', $errores);
-  $imgNuevaRuta = "$ROOT/public/imgs/$id/$fotoItiFullName"; */
+  /* COMPROBAR ERRORES DE IMAGEN/ES Y DEVOLVER EL NOMBRE/S DE LA IMAGEN/ES*/
+  $fotoFullName = gestionaFoto('fotos', $errores);
 
-  if ($errores == null) {
-    /* print_r('<pre>');
-    print_r($_POST);
-    print_r($_FILES);
-    print_r('</pre>'); */
-    /* $info['img'] = $fotoItiFullName; */
+  if (count($errores) > 0) {
+    $obj = json_encode($errores);
+    echo $obj;
+  }else{
+    /* rellenar el array paramItinerario */
+    $paramItinerario = [
+      $info['local'],
+      $info['alojamiento'],
+      $info['manana'],
+      $info['tarde'],
+      $info['noche'],
+      $info['idViaje']
+    ];
 
+    /* array nombres de las imagenes */
+    $fotosNames = explode(';', $fotoFullName);
+    array_pop($fotosNames);
+
+    ItinerarioManager::insert($paramItinerario, $fotosNames);
+    
     /* MOVER IMAGEN A LA CARPETA DE IMAGENES DEL USUARIO */
-    //cambiar el mover foto para varias fotos
-    /* moverFoto($_FILES['fotoIti']['tmp_name'], $fotoItiNuevaRuta);
+    $imgTmpName = $_FILES['fotos']['tmp_name'];
+    for ($i = 0; $i < count($imgTmpName); $i++) {
+      move_uploaded_file($imgTmpName[$i], "$ROOT/public/imgs/$idUser/$fotosNames[$i]");
+    }
 
-    $paramItinerario = [$info['local'],
-                        $info['alojamiento'],
-                        
-                        $info['manana'],
-                        $info['tarde'],
-                        $info['noche']
-                        ];
+    $obj = json_encode($info);
+    echo $obj;
 
-    $paramFoto = [$info['fotoIti']];
-
-    ViajeManager::insert($paramViaje, $paramItinerario, $paramFoto);
-
-    header("Location: inicio.php");
-    $_SESSION['viaje'] = NULL;
+    /* $idViaje = $info['idViaje'];
+    header("Location: viaje.php?id=$idViaje");
     die(); */
   }
 }
-
-/* if( isset($_GET['id_user']) && !empty($_GET['id_user']) &&
-    isset($_GET['id_viaje']) && !empty($_GET['id_viaje']) &&
-    isset($_GET['puntuacion']) && !empty($_GET['puntuacion'])
-  ) {
-
-  $id_user = intval($_GET['id_user']);
-  $id_viaje = intval($_GET['id_viaje']);
-  $puntuacion = intval($_GET['puntuacion']);
-
-
-
-  //se borra la valoracion de ese Usuario a ese viaje si la hubiera
-  ValoracionManager::delete([$id_user, $id_viaje]);
-
-  //se inserta la valoracion
-  ValoracionManager::insert($puntuacion, $id_user, $id_viaje);
-
-
-  $nuevaMedia = ValoracionManager::getMediaViaje($id_viaje)[0]['media'];
-
-  echo $nuevaMedia;
-}else{
-  echo 'ERROR';
-} */
 
 ?>
