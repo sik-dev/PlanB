@@ -2,10 +2,10 @@ const insertItinerario = (function () {
   'use strict';
 
   const URL_ITINERARIO = '/AJAX-itinerario.php';
+  let idViaje;
   document.addEventListener('DOMContentLoaded', main);
 
   function main() {
-    /* const itinerario = document.getElementsByClassName('itinerario'); */
     const botonModificar = document.getElementById('modificar');
     if (botonModificar) {
       botonModificar.addEventListener('click', function (e) {
@@ -38,6 +38,7 @@ const insertItinerario = (function () {
     const botones = divFormItinerario.querySelectorAll('button');
     const botonAñadir = botones[0];
     const botonCancelar = botones[1];
+    idViaje = divFormItinerario.querySelector("[name='idViaje']").value;
 
     if (divItinerario) {
       divItinerario.classList.add('desaparecer');
@@ -48,15 +49,13 @@ const insertItinerario = (function () {
       pedirJSON(URL_ITINERARIO, redireccionar, e.target.parentNode);
     });
 
-    //TODO
     botonCancelar.addEventListener('click', function (e) {
       e.preventDefault();
+      window.location.href = `viaje.php?id=${idViaje}`;
     });
   }
 
-  function redireccionar(datos, form) {
-    const idViaje = form.children[1].value;
-    
+  function redireccionar(datos) {
     for (const key in datos) {
       if (!datos[key].toLowerCase().includes('error')) {
         window.location.href = `viaje.php?id=${idViaje}`;  
@@ -71,7 +70,7 @@ const insertItinerario = (function () {
       if (this.status === 200) {
         /* let datos = JSON.parse(this.responseText);
         if(datos){exito(datos, form)}  */ 
-        exito(JSON.parse(this.responseText), form);
+        exito(JSON.parse(this.responseText));
       }else {
         console.error(`Error: ${this.status} ${this.statusText}`);
       }

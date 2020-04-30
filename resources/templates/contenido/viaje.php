@@ -5,7 +5,7 @@ $dibujaEstrella = false;
 $etiquetas = [];
 $arrayAlojamiento = ['Hotel', 'Apartamento', 'Hostal', 'Vivienda propia', 'Ninguna'];
 
-/* print_r($id); */
+
 if ( isset($_GET['id']) ){
   $id_viaje = $_GET['id'];
   $viajeEnviado = true;
@@ -20,6 +20,11 @@ if (isset($_POST['comentario']) && $_POST['comentario'] != null) {
 */
 
 $datos = ViajeManager::getById($id_viaje);
+if ($datos === null) {
+  http_response_code(404);
+  header("Location: page404.php");
+}
+/* print_r(http_response_code()); */
 $datosPerfil = UsuarioManager::getBy($datos['viaje']->getIdUser());
 $datosItinerario = ItinerarioManager::getBy($id_viaje);
 $comentarios = ComentarioManager::getBy($id_viaje);

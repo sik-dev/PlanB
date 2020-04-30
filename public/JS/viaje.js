@@ -12,9 +12,6 @@ const app = (function (){
   const URL_COMENTARIOS = '/AJAX-obtenComentarios.php?id=';
   const URL_COMENTARIOS_ADD_REMOVE = '/comentarios.php?';
   const URL_INSERTA_VALORACION = '/AJAX-insertaValoracion.php?';
-  /* const URL_ITINERARIO = '/AJAX-itinerario.php';
-  const botonModificar = document.getElementById('modificar'); */
-
 
   function iniciar(){
     pedirJSON(URL_VIAJE + idViaje, gestinaDatosViaje);
