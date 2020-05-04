@@ -1,6 +1,6 @@
 <?php
 
-if (preg_match('/\.(?:css|js|ico|png|jpg|jpeg|gif)$/', $_SERVER["REQUEST_URI"])){
+if (preg_match('/\.(?:css|js|ico|png|jpg|jpeg|gif|ttf|otf)$/', $_SERVER["REQUEST_URI"])){
     return false;    // servir la petición tal cual es.
 
 }else { //si es un fichero php

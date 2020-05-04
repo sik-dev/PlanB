@@ -1,1 +1,31 @@
 @import url('https://fonts.googleapis.com/css?family=Sriracha&display=swap');
+
+@font-face {
+    font-family: 'Hardome';
+    src: url('../Fonts/Hardome.ttf');
+}
+
+@font-face {
+    font-family: 'Krinkes';
+    src: url('../Fonts/KrinkesDecorPERSONAL.ttf');
+}
+
+@font-face {
+    font-family: 'KrinkesRegular';
+    src: url('../Fonts/KrinkesRegularPERSONAL.ttf');
+}
+
+@font-face {
+    font-family: 'Sunflower';
+    src: url('../Fonts/MADE Sunflower PERSONAL USE.otf');
+}
+
+@font-face {
+    font-family: 'Quicken';
+    src: url('../Fonts/Quicken Demo.ttf');
+}
+
+@font-face {
+    font-family: 'Rockhead';
+    src: url('../Fonts/RockheadNow.otf');
+}
