@@ -96,16 +96,15 @@
       </button>
     </div>
 
+    <div class='errores'>
+      <?php if( isset($errores['filtro']) && $errores['filtro'] == true) { ?>
+      <br><span class="error">Debes selecionar un filtro</span>
+      <?php } ?>
 
-    <?php if( isset($errores['filtro']) && $errores['filtro'] == true) { ?>
-    <br><span class="error">Debes selecionar un filtro</span>
-    <?php } ?>
-
-    <?php if( isset($errores['buscador']) && $errores['buscador'] == true) { ?>
-    <br><span class="error">Debes escribir algo en la busqueda</span>
-    <?php } ?>
-
-
+      <?php if( isset($errores['buscador']) && $errores['buscador'] == true) { ?>
+      <br><span class="error">Debes escribir algo en la busqueda</span>
+      <?php } ?>
+    </div>
 
   </form>
 
@@ -116,33 +115,35 @@
 
       <?php foreach ($datos as $fila) { ?>
         <div class='tarjeta'>
-          <div class="puntuacion">
-            <?php for($i=1; $i <= 5; $i++) { ?>
-              <?php if ($fila['media'] >= $i) { ?>
-                <span class='rellena'>☆</span>
-              <?php }else{ ?>
-                <span>☆</span>
-              <?php } ?>
-            <?php } ?>
-            <span><?=$fila['media']?></span>
-          </div>
-
           <a href="viaje.php?id=<?=$fila['viaje']->getId()?>">
-            <img src="imgs/<?=$fila['viaje']->getIdUser()."/".$fila['viaje']->getFoto()?>" alt="">
-          </a>
-          <h3><?=$fila['viaje']->getCiudadDestino()?></h3>
-          <div>
-            <div class="datos">
-                <p><?=($fila['diasViaje'] > 1)?  $fila['diasViaje']." días" : $fila['diasViaje']." día" ?></p>
-                <p><?=$fila['viaje']->getPrecio()?> &euro;</p>
-            </div>
-            <div class="etiquetas">
-              <?php foreach ($etiquetas[$contador] as $valor) {?>
-                <span class="<?=($valor =='Con amig@s')?'Amigos':$valor ?>" title="<?=$valor?>" alt='<?=$valor?>'></span>
+            <div class="puntuacion">
+              <?php for($i=1; $i <= 5; $i++) { ?>
+                <?php if ($fila['media'] >= $i) { ?>
+                  <span class='rellena'>☆</span>
+                <?php }else{ ?>
+                  <span>☆</span>
+                <?php } ?>
               <?php } ?>
+              <span><?=$fila['media']?></span>
             </div>
-            <?php $contador++ ?>
-          </div>
+
+          
+            <img src="imgs/<?=$fila['viaje']->getIdUser()."/".$fila['viaje']->getFoto()?>" alt="">
+          
+            <h3><?=$fila['viaje']->getCiudadDestino()?></h3>
+            <div>
+              <div class="datos">
+                  <p><?=($fila['diasViaje'] > 1)?  $fila['diasViaje']." días" : $fila['diasViaje']." día" ?></p>
+                  <p><?=$fila['viaje']->getPrecio()?> &euro;</p>
+              </div>
+              <div class="etiquetas">
+                <?php foreach ($etiquetas[$contador] as $valor) {?>
+                  <span class="<?=($valor =='Con amig@s')?'Amigos':$valor ?>" title="<?=$valor?>" alt='<?=$valor?>'></span>
+                <?php } ?>
+              </div>
+              <?php $contador++ ?>
+            </div>
+          </a>
         </div>
       <?php } ?>
 

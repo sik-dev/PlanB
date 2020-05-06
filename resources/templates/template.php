@@ -11,6 +11,7 @@ Son necesarias las variables
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=$titulo?></title>
     <link rel="icon" href="/logos_proyecto/logo.ico">
     <!-- <link rel="shortcut icon" href="<?php //"$ROOT/public/logos_proyecto/logo1.png"?>" type="image/png" /> -->

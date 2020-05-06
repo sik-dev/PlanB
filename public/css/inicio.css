@@ -124,6 +124,11 @@
     font-size: 1.2em;
 }
 
+.tarjeta a {
+    color: black;
+    text-decoration: none;
+}
+
 .tarjeta h3 {
     position: absolute;
     left: 0px;
@@ -135,7 +140,7 @@
     background: linear-gradient(to top, transparent 0%, var(--transparenteTarjeta) 30%);
 }
 
-.tarjeta>div:last-of-type {
+.tarjeta>a>div:last-of-type {
     display: flex;
     position: absolute;
     left: 0px;
@@ -147,7 +152,7 @@
     height: 58px;
 }
 
-.tarjeta>div:last-of-type>div {
+.tarjeta>a>div:last-of-type>div {
     padding: 5px;
 }
 
