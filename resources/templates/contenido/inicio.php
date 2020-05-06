@@ -13,7 +13,7 @@
 
   $num_viajes = 6;
   $page = 1;
-
+  $imgRandom = mt_rand(9, 18);
 
   if( count($_POST) > 0) {
     if( isset($_POST['filtro']) && $_POST['filtro'] != ''){
@@ -60,14 +60,6 @@
 <script type="text/javascript" src="JS/sugerencias.js"></script>
 <script type="text/javascript" src="JS/buscador.js"></script>
 <link rel="stylesheet" href="/css/inicio.css">
-<div class="pu">
-  <!-- <a href="inicio.php">
-    <iframe src="publicidades.php" frameborder="1" scrolling="no"></iframe>
-  </a> -->
-  <a href="#">
-    <img src="imgs/p/publi_1.jpg" alt="">
-  </a>
-</div>
 <div class="fondo">
    <div class="inicio">
       <form method="post" action="inicio.php">
@@ -132,6 +124,7 @@
             </div>
          <?php } ?>
       </div>
+      
       <div class="paginacion">
         <?php for($pagina = 1;$pagina <= $num_paginas; $pagina++){?>
           <?php if($pagina == $page){?>
@@ -141,13 +134,10 @@
           <?php }?>
         <?php }?>
       </div>
+      <div class="pu">
+        <a href="#">
+          <img src="imgs/p/publi_<?=$imgRandom?>.jpg" alt="">
+        </a>
+      </div>
    </div>
-</div>
-<div class="pu">
-  <!-- <a href="inicio.php">
-    <iframe src="publicidades.php" frameborder="1" scrolling="no"></iframe>
-  </a> -->
-  <a href="#">
-    <img src="imgs/p/publi_8.jpg" alt="">
-  </a>
 </div>

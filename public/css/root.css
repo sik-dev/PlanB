@@ -1,6 +1,6 @@
 :root{
   /*--colorPrincipal:rgb(88, 248, 160);*/
-  --colorPrincipal:#527e7a;
+  --colorPrincipal:#C2F4FD;
   --colorOpacidad: rgba(175, 172, 172, 0.288);
   --colorHover:#85dcd4;
   --colorBotonAventura:#CE3D3D;
@@ -9,6 +9,10 @@
   --colorFondoLogin:rgba(166, 251, 204, 0.19);
   --colorAgregar:#8CA4FC;
   --colorFondo: #FFF;
+  --textNav1: 20px;
+  --textNav2: 14px;
+  --colorTextNav: #6D8A8F;
+  --borderMenu: #D3A46D;
 }
 
 .error{

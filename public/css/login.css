@@ -4,10 +4,11 @@
 
 .login{
   font-family: 'Sriracha', cursive;
-  margin: 84.5px auto;
+  margin: 100px 25%;
   text-align: center;
   width: 50%;
-  height: 530px;
+  height: 557px;
+  float: left;
 }
 #olvidadoContraseña{
   font-size: 13px;

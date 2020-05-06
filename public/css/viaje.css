@@ -3,9 +3,11 @@
 @import url('root.css');
 
 .contenedor{
-  overflow: hidden;
+  /* overflow: hidden; */
   font-family: 'Sriracha', cursive;
-  background-size: 1920px;
+  float: left;
+  /* background-size: 1920px; */
+  width: 100%;
   padding: 40px 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
