@@ -12,6 +12,7 @@
     background-size: cover;
     display: flex;
     align-items: flex-end;
+    width: 100vw;
 }
 
 .imagen h1 {

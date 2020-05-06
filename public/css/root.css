@@ -13,6 +13,10 @@
   --textNav2: 14px;
   --colorTextNav: #6D8A8F;
   --borderMenu: #D3A46D;
+  --colorBotonAventuraTransparente: rgba(207, 83, 83, 0.603);
+  --colorTransparenteAzul: rgba(238, 244, 245, 0.5);
+  --colorAzulClaro: #C2F4FD;
+  --transparenteTarjeta: rgba(241, 218, 218, 0.774);
 }
 
 .error {

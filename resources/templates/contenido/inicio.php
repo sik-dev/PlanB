@@ -60,28 +60,6 @@
 <script type="text/javascript" src="JS/sugerencias.js"></script>
 <script type="text/javascript" src="JS/buscador.js"></script>
 <link rel="stylesheet" href="/css/inicio.css">
-<div class="fondo">
-   <div class="inicio">
-      <form method="post" action="inicio.php">
-        <select id="filtro" name="filtro">
-          <option disabled selected value="">Elige una opción</option>
-          <?php for ($i= 0; $i < count($filtrosBusqueda); $i++) {?>
-            <option value="<?=$filtrosValue[$i]?>" <?=($filtro == $filtrosValue[$i])?'selected':''?>><?=$filtrosBusqueda[$i]?></option>
-          <?php } ?>
-        </select>
-        <input id="buscador" type="text" name='buscador' value="<?=$buscador?>" placeholder="    ¿Qué quieres buscar?">
-        <select id="buscadorEtiquetas" name="buscador" class="oculto">
-          <option disabled selected>Elige una opción</option>
-          <?php for ($i= 0; $i < count($etiquetasSelect); $i++) {?>
-            <option value="<?=$etiquetasSelect[$i]?>"><?=$etiquetasSelect[$i]?></option>
-          <?php } ?>
-        </select>
-
-        <input type="submit" name='buscar' value='buscar'>
-
-        <?php if( isset($errores['filtro']) && $errores['filtro'] == true) { ?>
-        <br><span class="error">Debes selecionar un filtro</span>
-        <?php } ?>
 
 
 <div class="inicio">
