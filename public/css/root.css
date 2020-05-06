@@ -1,32 +1,53 @@
-:root{
-  /*--colorPrincipal:rgb(88, 248, 160);*/
-  --colorPrincipal:#527e7a;
-  --colorOpacidad: rgba(175, 172, 172, 0.288);
-  --colorHover:#85dcd4;
-  --colorBotonAventura:#CE3D3D;
-  --colorFondoAventura:#568884c7;
-  --colorFondoForm:#c4c4c4;
-  --colorFondoLogin:rgba(166, 251, 204, 0.19);
-  --colorAgregar:#8CA4FC;
-  --colorFondo: #FFF;
+:root {
+    /*--colorPrincipal:rgb(88, 248, 160);*/
+    --colorPrincipal: #9DC5CC;
+    --colorOpacidad: rgba(175, 172, 172, 0.288);
+    --colorHover: #85dcd4;
+    --colorBotonAventura: #CE3D3D;
+    --colorBotonAventuraTransparente: rgba(207, 83, 83, 0.603);
+    --colorFondoAventura: #568884c7;
+    --colorFondoForm: #c4c4c4;
+    --colorFondoLogin: rgba(166, 251, 204, 0.19);
+    --colorAgregar: #8CA4FC;
+    --colorFondo: #FFF;
+    --colorTransparenteAzul: rgba(238, 244, 245, 0.5);
+    --colorAzulClaro: #C2F4FD;
+    --transparenteTarjeta: rgba(241, 218, 218, 0.774);
 }
 
-.error{
-  color:red;
-  font-weight: bold;
+.error {
+    color: red;
+    font-weight: bold;
 }
 
-.cursor{
-  cursor: pointer;
+.cursor {
+    cursor: pointer;
+}
+
+* {
+    font-family: 'Sunflower';
+    font-weight: 200;
 }
 
 
-/**** ANIAMCIONES */
+/**** ANIMACIONES */
+
 @keyframes fadeIn {
-  from{
-    opacity: 0%
-  }
-  to{
-    opacity: 100%;
-  }
+    from {
+        opacity: 0%
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0%;
+        font-size: 0px;
+    }
+    to {
+        opacity: 100%;
+        font-size: 4em;
+    }
 }

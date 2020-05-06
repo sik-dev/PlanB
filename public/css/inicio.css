@@ -1,195 +1,336 @@
 @import url('fonts.css');
 @import url('reset.css');
 @import url('root.css');
-
-.inicio{
-  font-family: 'Sriracha', cursive;
-  margin: auto;
-}
-.inicio>form{
-  margin: auto;
-  text-align: center;
-  padding: 1em;
-  background-color: var(--colorPrincipal);
-  border-radius: 50px;
-  border-color:1px solid var(--colorHover);
-}
-.inicio>form>select{
-  height:  4em;
-  width: 11em;
-  border-radius: 50px;
-  padding: 0 10px;
-  border-color:1px solid var(--colorHover);
-}
-.inicio>form>input:nth-of-type(1){
-  width: 30em;
-  height:  4em;
-  padding: 0 20px;
-  border-radius: 50px;
-
-}
-.inicio>form>input:nth-of-type(2){
-  height:  4em;
-  width: 6em;
-  border-radius: 50px;
-}
-.inicio>form>input:nth-of-type(2):hover{
-  background-color: var(--colorHover);
-  color: white;
+.inicio {
+    font-family: 'Sriracha', cursive;
+    margin: auto;
 }
 
-.inicio>a:first-of-type{
-  text-decoration: none;
-  float: right;
-  background-color: var(--colorBotonAventura);
-  padding: 1em;
-  border-radius: 50px;
-  color:white;
-}
-.inicio>h3{
-  margin-top: 30%;
-}
-.mejorValorados{
-  width: 100%;
-  margin-top: 30px;
-  /*background-color: var(--colorOpacidad);*/
-  display: grid;
-  grid-template: repeat(2, 1fr) / repeat(3, 1fr);
-}
-.viaje{
-  /* width: calc(33% - 20px); */
-  /* width: auto; */
-  height: 580px;
-  float: left;
-  overflow: hidden;
-  margin: 0 10px;
-  margin-bottom: 30px;
-  background-color: hsla(160.5, 76.2%, 19.8%, 0.1);
-  position: relative;
-}
-.viaje>a>img{
-  width: 100%;
-  height: 200px;
-}
-.viaje>h4{
-  height: 60px;
-}
-.viaje>h2{
-  height: 60px;
-}
-.inicio>h1{
-  margin-top: 60px;
-}
-.datos>p{
-  margin: 5px 0;
-}
-.favoritos{
-  width: 80px;
-}
-.puntuacion{
-
-}
-.rellena:before{
-   content: "\2605";
-   color: gold;
-   position: absolute;
+.imagen {
+    background-image: url('../logos_proyecto/Viaje_Fondo-1920x720.png');
+    height: 320px;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
 }
 
-.fondo{
-  float: left;
-  background-size: 1920px;
-  width: 55%;
-  margin: 0 2.5%;
-  /* height: 1200px; */
-  padding-top: 50px;
+.imagen h1 {
+    background: linear-gradient(to bottom, transparent 0%, var(--colorTransparenteAzul) 30%);
+    width: 100%;
+    text-align: center;
+    height: 2.5em;
+    font-family: 'Hardome';
+    font-weight: 300;
+    text-shadow: 2px 2px #c8eef5;
+    user-select: none;
+    animation: fadeIn 400ms;
 }
 
-.paginacion{
-  display: flex;
-  width: 100%;
-  /* margin: 0 auto; */
-  text-align: center;
-  justify-content: center;
+
+/****** BUSCADOR */
+
+.inicio>form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    margin-top: 40px;
+    font-size: 1.4em;
 }
 
-.paginacion > a{
-  float: left;
-  padding: 10px 20px;
-  color: black;
-  text-decoration: none;
-  font-size: 1.2em;
+.inicio>form * {
+    margin-bottom: 20px;
 }
 
-#sugerencia{
-  width: 23em;
-  margin: 0 auto;
-  background-color: white;
-  border-radius: 0 0 50px 50px;
+.inicio>form div {
+    display: flex;
+    flex-direction: column;
 }
 
-#sugerencia ul{
-  list-style: none;
+#filtro,
+#buscador {
+    background-color: var(--colorPrincipal);
 }
 
-#sugerencia a{
-  width: 100%;
+#fitro option:hover {
+    background-color: var(--colorTransparenteAzul)
 }
 
-.pu{
-  float: left;
-  display: flex;
-  justify-content: center;
-  width: 20%;
+#buscar {
+    background-color: var(--colorPrincipal);
+    padding: 8px;
+    width: 10em;
 }
 
-.pu a{
-  margin: 10%;
-  width: 80%;
-  height: 100%;
+#buscar:hover {
+    background-color: var(--colorAzulClaro);
 }
 
-.pu img{
-  width: 100%;
+.inicio>form>div:nth-of-type(3) {
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
+}
+
+#aventura {
+    background-color: var(--colorBotonAventura);
+    padding: 8px;
+    width: 10em;
+}
+
+#aventura a {
+    color: black;
+}
+
+#aventura:hover {
+    background-color: var(--colorBotonAventuraTransparente);
+}
+
+.inicio>h3 {
+    margin-top: 30%;
+}
+
+
+/********************** TARJETAS   */
+
+.mejorValorados {
+    margin: auto;
+    width: 80%;
+}
+
+.mejorValorados h2 {
+    text-align: center;
+    font-family: 'KrinkesRegular';
+    font-size: 3em;
+    margin-bottom: 40px;
+}
+
+.tarjeta {
+    position: relative;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-bottom: 80px;
+    animation: fadeIn 400ms;
+}
+
+.puntuacion span {
+    font-size: 1.5em;
+}
+
+.puntuacion span:last-of-type {
+    font-size: 1.2em;
+}
+
+.tarjeta h3 {
+    position: absolute;
+    left: 0px;
+    top: 30px;
+    width: 100%;
+    padding: 17px;
+    padding-top: 5px;
+    font-size: 1.5em;
+    background: linear-gradient(to top, transparent 0%, var(--transparenteTarjeta) 30%);
+}
+
+.tarjeta>div:last-of-type {
+    display: flex;
+    position: absolute;
+    left: 0px;
+    bottom: 4px;
+    background: linear-gradient(to bottom, transparent 0%, var(--transparenteTarjeta) 30%);
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 58px;
+}
+
+.tarjeta>div:last-of-type>div {
+    padding: 5px;
+}
+
+.tarjeta img {
+    width: 100%;
+}
+
+.rellena:before {
+    content: "\2605";
+    color: gold;
+    position: absolute;
+}
+
+.paginacion {
+    display: flex;
+    width: 100%;
+    /* margin: 0 auto; */
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.paginacion>a {
+    float: left;
+    padding: 10px 20px;
+    color: black;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+#sugerencia {
+    width: 23em;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 0 0 50px 50px;
+}
+
+#sugerencia ul {
+    list-style: none;
+}
+
+#sugerencia a {
+    width: 100%;
+}
+
+.pu {
+    float: left;
+    display: flex;
+    justify-content: center;
+    width: 20%;
+}
+
+.pu a {
+    margin: 10%;
+    width: 80%;
+    height: 100%;
+}
+
+.pu img {
+    width: 100%;
 }
 
 
 /****************     ETIQUETAS   **/
-.etiquetas span{
-  background-image: url('../logos_proyecto/sprite_etiquetas.png');
-  width: 72px;
-  height: 72px;
-  display: inline-block;
+
+.etiquetas span {
+    background-image: url('../logos_proyecto/sprite_etiquetas_pequeño.png');
+    width: 45px;
+    height: 41px;
+    display: inline-block;
 }
-.Aventuras{
-  background-position: 0px;
+
+.Aventuras {
+    background-position: -9px;
 }
-.Cultural{
-  background-position: -73px;
+
+.Cultural {
+    background-position: -56px;
 }
-.Religioso{
-  background-position: 145px;
+
+.Religioso {
+    background-position: -96px;
 }
-.Romántico{
-  background-position: -202px;
+
+.Romántico {
+    background-position: -138px;
 }
-.Amigos{
-  background-position: -272px;
+
+.Amigos {
+    background-position: -187px;
 }
-.Gastronómico{
-  background-position: -342px;
+
+.Gastronómico {
+    background-position: -229px;
 }
-.Relax{
-  background-position: -416px;
+
+.Relax {
+    background-position: -273px;
 }
-.Fiesta{
-  background-position: -489px;
+
+.Fiesta {
+    background-position: -318px;
 }
-.LowCost{
-  background-position: -559px;
+
+.LowCost {
+    background-position: -361px;
+}
+
+.oculto {
+    display: none
 }
 
 
+/************** TABLET */
 
-.oculto{
-  display: none
+@media screen and (min-width: 40.5em) {
+    /* TARJETAS GRID */
+    .mejorValorados {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .mejorValorados h2 {
+        grid-column: 1 / 3;
+    }
+    .tarjeta {
+        width: 75%;
+    }
+    .mejorValorados h2 {
+        font-size: 4em;
+    }
+    .tarjeta>a>img {
+        height: 185px;
+    }
+    .tarjeta>div:last-of-type {
+        left: 0px;
+        bottom: 4px;
+    }
+}
+
+
+/************* Desktop*/
+
+@media screen and (min-width: 60.5em) {
+    /* TARJETAS GRID */
+    .mejorValorados {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .mejorValorados h2 {
+        grid-column: 1 / 4;
+    }
+    .tarjeta>a>img {
+        height: 200px;
+    }
+    /* BUSCADOR*/
+    .inicio>form {
+        flex-direction: row;
+        width: 70%;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin: 80px auto;
+    }
+    .inicio>form>div:nth-of-type(1),
+    .inicio>form>div:nth-of-type(2) {
+        width: 25%;
+    }
+    #buscar {
+        margin-right: 35px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .imagen {
+        height: 350px;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .imagen {
+        height: 400px;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .imagen {
+        height: 500px;
+    }
 }
