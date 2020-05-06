@@ -2,72 +2,169 @@
 @import url('reset.css');
 @import url('root.css');
 
+/* header, header *{
+  outline: 1px red solid;
+} */
+
 header{
   font-family: 'Sriracha', cursive;
-  background-color: var(--colorPrincipal);
-  height:  10em;
-  padding-top: 1em;
-  background-image: url('../logos_proyecto/viajes.jpg');
-  background-size: 1920px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-}
-header > div:nth-of-type(1){
+  width: 100%;
+  float: left;
   display: flex;
-  align-items: center;
-}
-a{
-  text-decoration: none;
-}
-nav{
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-nav > a{
-  margin-right: 30px;
-}
-
-header>nav>a:nth-of-type(n+ 2){
-  background-color: var(--colorPrincipal);
-  color: white;
-  padding: 0.5em;
-}
-header>nav>a:nth-of-type(n+ 2):hover{
-  background-color: var(--colorHover);
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 #logo{
-  width: 100px;
-  margin-left: 20px;
-  user-select: none;
+  flex: 0 0 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logo a{
+  flex-basis: 75%;
+  max-width: 100px;
+  display: flex;
+}
+
+#logo img{
+  width: 100%;
+  max-width: 100px;
+}
+
+header > label{
+  flex: 0 0 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header > label > img{
+  width: 50%;
+}
+
+#nombre{
+  display: none;
+}
+
+header a{
+  text-decoration: none;
+  color: var(--colorTextNav);
+}
+
+#menu, nav{
+  display: none;
+}
+
+#menu:checked ~ nav{
+  flex-basis: 100%;
+  display: flex;
+  font-family: 'KrinkesRegular';
+  font-size: var(--textNav1);
+  /* background-color: var(--colorPrincipal); */
+}
+
+nav > ul{
+  list-style: none;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+nav > ul > li{
+  flex-basis: 100%;
+  border-bottom: solid 2px var(--borderMenu);
+}
+
+nav > ul > li:first-of-type{
+  border-top: solid 2px var(--borderMenu);
+}
+
+nav > ul a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav > ul a > img{
+  margin: 5px;
 }
 
 .favoritos2{
-  width: 20px;
-}
-
-header>div>h1, header>div>h3 {
-  text-align: center;
-  margin: auto;
-  user-select: none;
+  width: 23px;
 }
 
 #admin{
   color: red;
-  font-size: 2em;
-  margin-left: 20px
 }
 
 
 /******* @media screen and (min-width: 40.5em) **********/
 @media screen and (min-width: 40.5em){
+  
+  header{
+    flex-wrap: nowrap;
+  }
 
+  header label{
+    display: none;
+  }
+
+  nav{
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 1.5%;
+    font-size: var(--textNav2);
+  }
+
+  nav > ul{
+    flex: 0 0 auto;
+    display: inline-block;
+    text-align: center;
+    margin-right: 25px;
+  }
+
+  nav > ul > li:first-of-type{
+    border: none;
+  }
+
+  nav > ul > li{
+    float: left;
+    border: none;
+    margin: 5px;
+  }
+  
 }
 
 
 /******* @media screen and (min-width: 60.5em) **********/
 @media screen and (min-width: 60.5em){
+  
+  header{
+    justify-content: space-evenly;
+  }
+  
+  #logo{
+    flex: 0 0 15%;
+    max-width: 200px;
+  }
 
+  #nombre{
+    flex: 0 0 20%;
+    max-width: 250px;
+    display: inline-block;
+  }
+
+
+
+  /* parte del nombre */
+/* header>div>h1, header>div>h3 {
+  text-align: center;
+  margin: auto;
+  user-select: none;
+} */
 }

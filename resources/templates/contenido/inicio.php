@@ -13,7 +13,7 @@
 
   $num_viajes = 6;
   $page = 1;
-
+  $imgRandom = mt_rand(9, 18);
 
   if( count($_POST) > 0) {
     if( isset($_POST['filtro']) && $_POST['filtro'] != ''){
@@ -60,13 +60,35 @@
 <script type="text/javascript" src="JS/sugerencias.js"></script>
 <script type="text/javascript" src="JS/buscador.js"></script>
 <link rel="stylesheet" href="/css/inicio.css">
+<div class="fondo">
+   <div class="inicio">
+      <form method="post" action="inicio.php">
+        <select id="filtro" name="filtro">
+          <option disabled selected value="">Elige una opción</option>
+          <?php for ($i= 0; $i < count($filtrosBusqueda); $i++) {?>
+            <option value="<?=$filtrosValue[$i]?>" <?=($filtro == $filtrosValue[$i])?'selected':''?>><?=$filtrosBusqueda[$i]?></option>
+          <?php } ?>
+        </select>
+        <input id="buscador" type="text" name='buscador' value="<?=$buscador?>" placeholder="    ¿Qué quieres buscar?">
+        <select id="buscadorEtiquetas" name="buscador" class="oculto">
+          <option disabled selected>Elige una opción</option>
+          <?php for ($i= 0; $i < count($etiquetasSelect); $i++) {?>
+            <option value="<?=$etiquetasSelect[$i]?>"><?=$etiquetasSelect[$i]?></option>
+          <?php } ?>
+        </select>
+
+        <input type="submit" name='buscar' value='buscar'>
+
+        <?php if( isset($errores['filtro']) && $errores['filtro'] == true) { ?>
+        <br><span class="error">Debes selecionar un filtro</span>
+        <?php } ?>
 
 
 <div class="inicio">
 
   <div class="imagen">
     <h1>Todos los destinos al alcance de tu mano</h1>
-    
+
   </div>
 
   <form method="post" action="inicio.php">
@@ -90,7 +112,7 @@
       </select>
     </div>
     <div>
-      <input id='buscar' type="submit" name='buscar' value='Buscar'>    
+      <input id='buscar' type="submit" name='buscar' value='Buscar'>
       <button id='aventura'>
         <a href="aventura.php">Aventura</a>
       </button>
@@ -113,7 +135,7 @@
   <div class="mejorValorados">
     <h2>Mejores Valorados</h2>
 
-  
+
       <?php foreach ($datos as $fila) { ?>
         <div class='tarjeta'>
           <div class="puntuacion">
@@ -126,7 +148,7 @@
             <?php } ?>
             <span><?=$fila['media']?></span>
           </div>
-        
+
           <a href="viaje.php?id=<?=$fila['viaje']->getId()?>">
             <img src="imgs/<?=$fila['viaje']->getIdUser()."/".$fila['viaje']->getFoto()?>" alt="">
           </a>
@@ -145,7 +167,7 @@
           </div>
         </div>
       <?php } ?>
-    
+
   </div>
   <div class="paginacion">
     <?php for($pagina = 1;$pagina <= $num_paginas; $pagina++){?>

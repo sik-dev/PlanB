@@ -41,24 +41,34 @@ if(isset($_COOKIE['recuerdame'])){
 ?>
 <link rel="stylesheet" href="/css/header.css">
 <header>
-  <div class="">
-    <a href="inicio.php"><img id='logo' src="logos_proyecto/logo1.png" alt=""></a>
-    <?php if( isset($datosUsuario) && $datosUsuario->getRol() === 'ADMIN') {?>
-        <a href="admin.php" id="admin">ADMIN</a>
-    <?php } ?>
+  <div id="logo">
+    <a href="inicio.php">
+      <img src="logos_proyecto/logo1.png" alt="logo Plan B">
+    </a>
   </div>
-  <div class="">
+  <div id="nombre">
     <h1>PLAN B</h1>
     <h3>Red social de viajes</h3>
   </div>
+  <label for="menu"><img src="logos_proyecto/menu.png" alt="menu"></label>
+  <input id="menu" type="checkbox">
   <nav>
-  <?php if( isset($_SESSION['autentificado']) && $_SESSION['autentificado'] == true ){ ?>
-      <a href="crearViaje_1.php?id=<?=$_SESSION['id']?>">Subir viaje</a>
-      <a href="perfil.php" data-id=<?=$_SESSION['id']?> id="perfil">Perfil</a>
-      <a href="listaFavoritos.php?id=<?=$_SESSION['id']?>"><img class="favoritos2"src="/logos_proyecto/star_rellena.png"></a>
-      <a href="inicio.php?cerrarSesion=true">Cerrar sesion</a>
-   <?php }elseif($uri != '/login.php'){ ?>
-    <a href="login.php">Login</a>
-   <?php }?>
-   </nav>
+    <ul>
+      <li><a href="inicio.php">Inicio</a></li>
+      <!-- <li><a href="quienesSomos.php">Sobre nosotros</a></li> -->
+
+      <?php if( isset($datosUsuario) && $datosUsuario->getRol() === 'ADMIN') {?>
+        <li><a href="admin.php" id="admin">ADMIN</a></li>
+      <?php } ?>
+
+      <?php if( isset($_SESSION['autentificado']) && $_SESSION['autentificado'] == true ){ ?>
+        <li><a href="crearViaje_1.php?id=<?=$_SESSION['id']?>">Subir viaje</a></li>
+        <li><a href="perfil.php" data-id=<?=$_SESSION['id']?> id="perfil">Perfil</a></li>
+        <li><a href="listaFavoritos.php?id=<?=$_SESSION['id']?>">Favoritos<img class="favoritos2"src="/logos_proyecto/avion_dibujo_vacio.png"></a></li>
+        <li><a href="inicio.php?cerrarSesion=true">Cerrar sesion</a></li>
+      <?php }elseif($uri != '/login.php'){ ?>
+        <li><a href="login.php">Login</a></li>
+      <?php }?>
+    </ul>
+  </nav>
 </header>
