@@ -1,12 +1,78 @@
 @import url('fonts.css');
 @import url('reset.css');
 @import url('root.css');
-
-.borrarViaje{
-  font-family: 'Sriracha', cursive;
-  height: 560px;
-  margin: auto;
-  width: 80%;
-  text-align: center;
-  margin-top: 40px;
+.imagen {
+    background-image: url('../logos_proyecto/avion 2.jpg');
+    height: 320px;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    width: 100vw;
+    max-width: 1838px;
 }
+
+.imagen h1 {
+    background: linear-gradient(to bottom, transparent 6%, var(--colorTransparenteAzul) 76%);
+    width: 100%;
+    text-align: center;
+    height: 2.5em;
+    font-family: 'Hardome';
+    font-weight: 300;
+    text-shadow: 2px 2px #c8eef5;
+    user-select: none;
+    animation: fadeIn 400ms;
+}
+
+.contenedor {
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.borrarViaje h2 {
+    text-align: center;
+    font-family: 'KrinkesRegular';
+    font-size: 3em;
+    margin: 60px;
+}
+
+.borrarViaje a {
+    text-decoration: none;
+    background-color: var(--colorPrincipal);
+    color: black;
+    padding: 8px;
+    border: 1px solid var(--colorTextNav);
+    text-align: center;
+    width: 160px;
+}
+
+.borrarViaje div a:hover {
+    background-color: var(--colorAgregar);
+}
+
+
+/************** TABLET */
+
+@media screen and (min-width: 40.5em) {
+    /**/
+}
+
+
+/************* Desktop*/
+
+@media screen and (min-width: 60.5em) {
+    .imagen {
+        height: 350px;
+        background-position: 0px -89px;
+    }
+}
+
+
+/*
+@media screen and (min-width: 1700px) {
+  .imagen {
+      height: 500px;
+  }
+}
+*/

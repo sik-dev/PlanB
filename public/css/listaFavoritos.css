@@ -13,10 +13,11 @@
     display: flex;
     align-items: flex-end;
     width: 100vw;
+    max-width: 1838px;
 }
 
 .imagen h1 {
-    background: linear-gradient(to bottom, transparent 0%, var(--colorTransparenteAzul) 30%);
+    background: linear-gradient(to bottom, transparent 6%, var(--colorTransparenteAzul) 76%);
     width: 100%;
     text-align: center;
     height: 2.5em;
@@ -196,16 +197,17 @@
         left: 0px;
         bottom: 140px;
     }
-}
-
-@media screen and (min-width: 1500px) {
     .imagen {
-        height: 400px;
+        height: 350px;
+        background-position: 0px -89px;
     }
 }
 
+
+/*
 @media screen and (min-width: 1700px) {
     .imagen {
         height: 500px;
     }
 }
+*/
