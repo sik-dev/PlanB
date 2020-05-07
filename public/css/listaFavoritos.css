@@ -175,7 +175,7 @@
     .tarjeta>a>img {
         height: 185px;
     }
-    .contenedor .tarjeta>div:last-of-type {
+    .tarjeta>a>div:last-of-type {
         left: 0px;
         bottom: 154px;
     }
@@ -191,6 +191,10 @@
     }
     .tarjeta>a>img {
         height: 200px;
+    }
+    .tarjeta>a>div:last-of-type {
+        left: 0px;
+        bottom: 140px;
     }
 }
 
