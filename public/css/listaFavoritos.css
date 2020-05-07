@@ -1,56 +1,207 @@
 @import url('fonts.css');
 @import url('reset.css');
 @import url('root.css');
-
-.listaFavoritos{
-  font-family: 'Sriracha', cursive;
-  margin: auto;
-  width: 80%;
-  height:auto;
-  min-width: 600px;
-}
-.listaFavoritos h1{
-  text-align: center;
-  margin: 30px auto;
-
-}
-.listaFavoritos  img{
-  width: 300px;
-}
-.listaFavoritos .datosUsuario{
-  margin-left: 0;
-}
-.listaFavoritos .contenedor *{
-  margin: auto;
-}
-.listaFavoritos .viaje{
-  margin: 10px;
-  height: 600px
-}
-.listaFavoritos .viaje h2:nth-of-type(2){
-  height: 4em
-}
-#noViajes{
-  height: 550px;
+.listaFavoritos {
+    font-family: 'Sriracha', cursive;
+    margin: auto;
 }
 
+.imagen {
+    background-image: url('../logos_proyecto/avion 2.jpg');
+    height: 320px;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    width: 100vw;
+}
 
-.viaje{
-  width: calc(33% - 20px);
-  height: 460px;
-  float: left;
-  overflow: hidden;
-  margin: 0 10px;
-  margin-bottom: 30px;
-  background-color: hsla(160.5, 76.2%, 19.8%, 0.1)
+.imagen h1 {
+    background: linear-gradient(to bottom, transparent 0%, var(--colorTransparenteAzul) 30%);
+    width: 100%;
+    text-align: center;
+    height: 2.5em;
+    font-family: 'Hardome';
+    font-weight: 300;
+    text-shadow: 2px 2px #c8eef5;
+    user-select: none;
+    animation: fadeIn 400ms;
 }
-.viaje>a>img{
-  width: 100%;
-  height: 200px;
+
+#noViajes {
+    height: 550px;
 }
-.viaje>h4{
-  height: 60px;
+
+.listaFavoritos>h2:nth-of-type(1) {
+    text-align: center;
+    font-family: 'KrinkesRegular';
+    font-size: 3em;
+    margin: 60px;
 }
-.viaje>h2{
-  height: 60px;
+
+
+/********************** TARJETAS   */
+
+.contenedor {
+    margin: auto;
+    width: 80%;
+    min-height: 450px;
+}
+
+.tarjeta {
+    position: relative;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-bottom: 80px;
+    animation: fadeIn 400ms;
+}
+
+.puntuacion span {
+    font-size: 1.5em;
+}
+
+.puntuacion span:last-of-type {
+    font-size: 1.2em;
+}
+
+.tarjeta a {
+    color: black;
+    text-decoration: none;
+}
+
+.tarjeta h3 {
+    position: absolute;
+    left: 0px;
+    top: 30px;
+    width: 100%;
+    padding: 17px;
+    padding-top: 5px;
+    font-size: 1.5em;
+    background: linear-gradient(to top, transparent 0%, var(--transparenteTarjeta) 30%);
+}
+
+.tarjeta>a>div:last-of-type {
+    display: flex;
+    position: absolute;
+    left: 0px;
+    bottom: 4px;
+    background: linear-gradient(to bottom, transparent 0%, var(--transparenteTarjeta) 30%);
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 58px;
+}
+
+.tarjeta>a>div:last-of-type>div {
+    padding: 5px;
+}
+
+.tarjeta img {
+    width: 100%;
+}
+
+.rellena:before {
+    content: "\2605";
+    color: gold;
+    position: absolute;
+}
+
+
+/****************  ETIQUETAS */
+
+.etiquetas span {
+    background-image: url('../logos_proyecto/sprite_etiquetas_pequeño.png');
+    width: 45px;
+    height: 41px;
+    display: inline-block;
+}
+
+.Aventuras {
+    background-position: -9px;
+}
+
+.Cultural {
+    background-position: -56px;
+}
+
+.Religioso {
+    background-position: -96px;
+}
+
+.Romántico {
+    background-position: -138px;
+}
+
+.Amigos {
+    background-position: -187px;
+}
+
+.Gastronómico {
+    background-position: -229px;
+}
+
+.Relax {
+    background-position: -273px;
+}
+
+.Fiesta {
+    background-position: -318px;
+}
+
+.LowCost {
+    background-position: -361px;
+}
+
+.oculto {
+    display: none
+}
+
+
+/************** TABLET */
+
+@media screen and (min-width: 40.5em) {
+    /* TARJETAS GRID */
+    .contenedor {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .tarjeta {
+        width: 75%;
+    }
+    .mejorValorados h2 {
+        font-size: 4em;
+    }
+    .tarjeta>a>img {
+        height: 185px;
+    }
+    .contenedor .tarjeta>div:last-of-type {
+        left: 0px;
+        bottom: 154px;
+    }
+}
+
+
+/************* Desktop*/
+
+@media screen and (min-width: 60.5em) {
+    /* TARJETAS GRID */
+    .contenedor {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .tarjeta>a>img {
+        height: 200px;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .imagen {
+        height: 400px;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .imagen {
+        height: 500px;
+    }
 }

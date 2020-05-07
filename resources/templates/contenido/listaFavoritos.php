@@ -4,6 +4,9 @@
     exit;
   }
 
+  $contador = 0;
+  $etiquetas = [];
+
   //$listaFavoritos = ViajesManager::getFavoritoWhereUser($_SESSION['id']);
   $listaFavorito = FavoritosManager::getBy($_SESSION['id']);
 /*   print_r($listaFavorito);
@@ -13,50 +16,64 @@
     return ViajeManager::getById($lista->getIdViaje());
   }, $listaFavorito);
 
-/*   print_r('<pre>');
-  print_r($favoritos);
-  print_r('</pre>'); */
-/*   for ($i=0; $i < count($listaFavoritos); $i++) {
-    $favoritos[$i] = ViajesManager::getViajesID($listaFavoritos[$i]['id_viaje'])[0];
+
+  for ($i = 0; $i < count($favoritos); $i++) {
+    $etiquetas[$i] = explode('/', $favoritos[$i]['viaje']->getEtiquetas());
   }
 
-  for ($j=0; $j < count($favoritos); $j++) {
-    $favoritos[$j]['id_user'] = ViajesManager::getInfoUsers($favoritos[$j]['id_user'])[0];
-  } */
-
-  
-/*   echo "<pre>";
-  print_r($favoritos);
-  echo "</pre>"; */
  
 ?>
 <link rel="stylesheet" href="/css/listaFavoritos.css">
-<div class="listaFavoritos">
-  <?php if($favoritos == null) { ?>
-    <h1 id='noViajes'>Todavía no tienes ningún viaje en favoritos</h1>
-  <?php }else{ ?>
-    <h1>Mis Viajes Favoritos:</h1>
-    <div class="contenedor">
-    <?php foreach ($favoritos as $fila) { ?>
-      <div class="viaje">
-      <h2>País: <?=$fila['viaje']->getPaisDestino()?></h2>
-      <h2>Destino: <?=$fila['viaje']->getCiudadDestino()?></h2>
-      <h4>Origen: <?=$fila['viaje']->getCiudadOrigen()?></h4>
-      <h4><?=$fila['viaje']->getDescripcion()?></h4>
-      <a href="viaje.php?id=<?=$fila['viaje']->getId()?>">
-        <img src="imgs/<?=$fila['viaje']->getIdUser().'/'.$fila['viaje']->getFoto()?>" alt="">
-      </a>
-      <div class="datos">
-        <p>Precio: <?=$fila['viaje']->getPrecio()?></p>
-        <p>Transporte: <?=$fila['viaje']->getTransporte()?></p>
-        <p>Publicado por: 
-          <a href="perfilPublico.php?id_user=<?=$fila['viaje']->getIdUser()?>">
-            <?=UsuarioManager::getNombre($fila['viaje']->getIdUser())?>
-          </a>
-        </p>
-      </div>
-    </div>
-    <?php } ?>
+
+<div class="listaFavoritos"> 
+
+  <div class="imagen">
+    <h1>Todos los destinos al alcance de tu mano</h1>
   </div>
+
+  <?php if($favoritos == null) { ?>
+    <h2 id='noViajes'>Todavía no tienes ningún viaje en favoritos</h2>
+  <?php }else{ ?>
+    <h2>Mis Viajes Favoritos:</h2>
+
+    <div class="contenedor">
+
+      <?php foreach ($favoritos as $fila) { ?>
+        <div class='tarjeta'>
+          <a href="viaje.php?id=<?=$fila['viaje']->getId()?>">
+            <div class="puntuacion">
+              <?php for($i=1; $i <= 5; $i++) { ?>
+                <?php if ($fila['media'] >= $i) { ?>
+                  <span class='rellena'>☆</span>
+                <?php }else{ ?>
+                  <span>☆</span>
+                <?php } ?>
+              <?php } ?>
+              <span><?=$fila['media']?></span>
+            </div>
+
+          
+            <img src="imgs/<?=$fila['viaje']->getIdUser()."/".$fila['viaje']->getFoto()?>" alt="">
+          
+            <h3><?=$fila['viaje']->getCiudadDestino()?></h3>
+            <div>
+              <div class="datos">
+                  <p><?=($fila['diasViaje'] > 1)?  $fila['diasViaje']." días" : $fila['diasViaje']." día" ?></p>
+                  <p><?=$fila['viaje']->getPrecio()?> &euro;</p>
+              </div>
+              <div class="etiquetas">
+                <?php foreach ($etiquetas[$contador] as $valor) {?>
+                  <span class="<?=($valor =='Con amig@s')?'Amigos':$valor ?>" title="<?=$valor?>" alt='<?=$valor?>'></span>
+                <?php } ?>
+              </div>
+              <?php $contador++ ?>
+            </div>
+          </a>
+        </div>
+      <?php } ?>
+
+    </div>
+
   <?php }?>
+
 </div>
