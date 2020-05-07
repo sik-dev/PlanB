@@ -52,19 +52,27 @@ print_r(!$idsIguales); */
 <div class="contenedor">
   <?php if(count($datos) > 0) {?>
   <div class="datosUsuario">
-    <div id='estrella'>
-        <img class="favoritos" src="logos_proyecto/star_vacia.png">
+    <div id="titulo">
+      <h1><?=$datos['viaje']->getCiudadDestino()?></h1>
+      <div id='estrella'>
+        <img class="favoritos" src="logos_proyecto/avion_dibujo_vacio.png">
+      </div>
+      <div class="puntuacion">
+        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+        <span id="mediaViaje"><?=$datos['media']?><span>
+      </div>
+      <!-- <p>Puntuación: </p> -->
+      <a href="perfilPublico.php?id_user=<?=$datos['viaje']->getIdUser()?>">
+        <img class="fotoSmall"src="imgs/<?=$datosPerfil->getId().'/'.$datosPerfil->getFoto()?>" data-idUserViaje="<?=$datos['viaje']->getIdUser()?>">
+      </a>
     </div>
-    <h1><?=$datos['viaje']->getCiudadDestino()?></h1>
-    <div class="puntuacion">
-      <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+    <div id="imgViaje">
+      <img id='fotoViaje' class="cursor" src="imgs/<?=$datos['viaje']->getIdUser().'/'.$datos['viaje']->getFoto()?>">
     </div>
-    <p>Puntuación: <span id="mediaViaje"><?=$datos['media']?><span></p>
-    <h2>País: <?=$datos['viaje']->getPaisDestino()?></h2>
-    <h4>Origen: <?=$datos['viaje']->getCiudadOrigen()?></h4>
-    <h4><?=$datos['viaje']->getDescripcion()?></h4>
-    <img id='fotoViaje' class="cursor" src="imgs/<?=$datos['viaje']->getIdUser().'/'.$datos['viaje']->getFoto()?>">
     <div class="datos">
+      <h4><?=$datos['viaje']->getDescripcion()?></h4>
+      <h2>País: <?=$datos['viaje']->getPaisDestino()?></h2>
+      <h4>Origen: <?=$datos['viaje']->getCiudadOrigen()?></h4>
       <p>Precio: <?=$datos['viaje']->getPrecio()?>&euro;</p>
       <p>Nº de Dias: <?=count($datosItinerario)?></p>
       <p>Transporte: <?=$datos['viaje']->getTransporte()?></p>
@@ -82,7 +90,7 @@ print_r(!$idsIguales); */
           <span class="<?=($valor =='Con amig@s')?'Amigos':$valor?>" title="<?=$valor?>" alt='<?=$valor?>'></span>
         <?php } ?>
       </div>
-      <br><br>
+      <!-- <br><br> -->
     </div>
   </div>
   <div class="itinerario">

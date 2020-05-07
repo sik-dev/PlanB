@@ -66,7 +66,6 @@
 
   <div class="imagen">
     <h1>Todos los destinos al alcance de tu mano</h1>
-
   </div>
 
   <form method="post" action="inicio.php">
@@ -157,4 +156,5 @@
       <?php }?>
     <?php }?>
   </div>
+  
 </div>

@@ -178,7 +178,19 @@ class ViajeManager implements IDWESEntidadManager{
   public static function getBy($id)
   {
     $db = DWESBaseDatos::obtenerInstancia();
-    $db->ejecuta("SELECT * FROM viaje WHERE id_user = ?", $id);
+    $db->ejecuta("SELECT viaje.*,
+                          round( avg(valoracion.puntuacion), 2) media,
+                          (SELECT count(itinerario.id)
+                          FROM itinerario
+                          WHERE itinerario.id_viaje = viaje.id) as diasViaje
+                      FROM viaje INNER JOIN valoracion
+                      ON viaje.id = valoracion.id_viaje
+                      WHERE viaje.id_user = $id
+                      GROUP BY valoracion.id_viaje
+                      ORDER BY media DESC");
+  
+  
+  
     return self::map($db -> obtenDatos());
   }
 

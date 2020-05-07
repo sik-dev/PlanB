@@ -33,12 +33,21 @@ if( isset($_GET['id_user']) && $_GET['id_user'] != null &&
 //print_r($_GET);
 
 ?>
+
 <link rel="stylesheet" href="/css/borrarViaje.css">
 <div class="borrarViaje">
-  <?php if ($viajeBorrado) { ?>
-    <h2>Viaje Borrado con existo</h2>
-  <?php }else{ ?>
-    <h2>No ha sido posible borrar el viaje, vuelva a intentarlo</h2>
-  <?php } ?>
-  <a href="tusViajes.php">Volver tus viajes</a>
+
+  <div class="imagen">
+    <h1>Todos los destinos al alcance de tu mano</h1>
+  </div>
+  
+  <div class='contenedor'>
+    <?php if ($viajeBorrado) { ?>
+      <h2>Viaje Borrado con existo</h2>
+    <?php }else{ ?>
+      <h2>No ha sido posible borrar el viaje, vuelva a intentarlo</h2>
+    <?php } ?>
+    <a href="tusViajes.php">Volver tus viajes</a>
+  </div>
+
 </div>

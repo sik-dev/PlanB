@@ -2,6 +2,10 @@
 @import url('reset.css');
 @import url('root.css');
 
+.contenedor, .contenedor *{
+  outline: 1px red solid;
+}
+
 .contenedor{
   /* overflow: hidden; */
   font-family: 'Sriracha', cursive;
@@ -12,37 +16,55 @@
   width: 100%;
   padding: 40px 0px;
   display: flex;
+  flex-wrap: wrap;
 
   /* grid-template-columns: 1fr 1fr; */
 }
 
-.contenedor h1,
+.datosUsuario, .itinerario, .comentarios,
+#titulo, #imgViaje, .datos{
+  display: flex;
+  flex-basis: 100%;
+}
+
+#titulo, #imgViaje, .datos{
+  flex-wrap: wrap;
+}
+
+#titulo > h1, #estrella{
+  flex-basis: 100%;
+}
+
+#imgViaje > img{
+  width: 100%;
+}
+/* .contenedor h1,
 .contenedor h2{
   border-bottom: 2px solid black;
-}
+} */
 
-.contenedor .datosUsuario h2{
+/* .contenedor .datosUsuario h2{
   border-bottom: 0px;
-}
+} */
 
-.datosUsuario{
+/* .datosUsuario{
   margin: 0 10%;
   background-color: var(--colorOpacidad);
   position: relative;
-}
-.datosUsuario>img{
+} */
+/* .datosUsuario>img{
   width: 600px;
-}
-.datosUsuario>a{
+} */
+/* .datosUsuario>a{
   text-transform: uppercase;
   text-decoration: none;
   font-weight: bold;
-}
-.datosUsuario *, .itinerario *{
+} */
+/* .datosUsuario *, .itinerario *{
   padding: 5px;
   margin-top: 5px;
-}
-.itinerario{
+} */
+/* .itinerario{
   margin: 0 10%;
   background-color: var(--colorOpacidad);
 }
@@ -69,7 +91,7 @@
 #fotoDia{
   width: 600px;
 
-}
+} */
 /************************** PUNTUACION */
 .puntuacion span{
   cursor: pointer;
