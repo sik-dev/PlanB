@@ -13,7 +13,7 @@
 
   $num_viajes = 6;
   $page = 1;
-  $imgRandom = mt_rand(9, 18);
+  /* $imgRandom = mt_rand(9, 18); */
 
   if( count($_POST) > 0) {
     if( isset($_POST['filtro']) && $_POST['filtro'] != ''){

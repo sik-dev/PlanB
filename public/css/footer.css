@@ -6,9 +6,9 @@ footer{
   font-family: 'Sriracha', cursive;
   background-color: var(--colorPrincipal);
   width: 100%;
-  height:  5em;
+  height: 5em;
   text-align: center;
-  float: left;
+  /* float: left; */
   padding-top: 1em;
   clear: both;
   display: flex;

@@ -3,7 +3,7 @@
 @import url('root.css');
 .inicio {
     font-family: 'Sriracha', cursive;
-    margin: auto;
+    margin: 100px auto 10px;
 }
 
 .imagen {
