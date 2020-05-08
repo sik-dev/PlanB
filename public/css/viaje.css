@@ -2,42 +2,187 @@
 @import url('reset.css');
 @import url('root.css');
 
-.contenedor, .contenedor *{
+/* .datosUsuario, .datosUsuario *{
   outline: 1px red solid;
-}
+} */
 
 .contenedor{
-  /* overflow: hidden; */
   font-family: 'Sriracha', cursive;
-  float: left;
-  /* background-size: 1920px; */
   margin: 100px auto 10px;
-  /* padding: 40px auto; */
   width: 100%;
-  padding: 40px 0px;
   display: flex;
   flex-wrap: wrap;
-
-  /* grid-template-columns: 1fr 1fr; */
 }
 
-.datosUsuario, .itinerario, .comentarios,
-#titulo, #imgViaje, .datos{
+.desaparecer{
+  display: none;
+}
+
+.datosUsuario,
+.itinerario,
+.comentarios,
+.pu{
+  flex: 0 0 100%;
   display: flex;
-  flex-basis: 100%;
-}
-
-#titulo, #imgViaje, .datos{
   flex-wrap: wrap;
 }
 
-#titulo > h1, #estrella{
-  flex-basis: 100%;
+/******* DATOS DE USUARIO **********/
+#titulo,
+#imgViaje,
+.datos{
+  flex: 0 0 100%;
+}
+
+#titulo{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#titulo > h1{
+  flex: 0 0 35%;
+}
+
+#titulo > h1,
+.puntuacion,
+.puntuacion > span:last-of-type{
+  margin-left: 30px;
+}
+
+#estrella{
+  flex: 0 0 90px;
+}
+
+#estrella > img{
+  width: 50px;
+  height: 50px;
+  transform: rotate(-25deg);
+}
+
+.puntuacion{
+  flex: 0 0 50%;
+  cursor: pointer;
+  font-size: 2em;
+}
+
+#titulo > a{
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.fotoSmall{
+  width: var(--imgPerfil);;
+  height: var(--imgPerfil);;
+  margin: 10px;
+  border-radius: 50%;
+}
+
+#imgViaje{
+  display: flex;
+  background-color: var(--fondoViaje);
 }
 
 #imgViaje > img{
+  width: 90%;
+  margin: 5%;
+}
+
+.datos{
+  padding: 0 25%;
+}
+
+/******* ITINERARIO **********/
+.itinerario > h2{
+  flex-basis: 100%;
+  text-align: center;
+  background-color: var(--colorPrincipal);
+}
+
+.itinerario > ul,
+.insertItinerario,
+#itinerarioDias{
+  margin: 0 25%;
+}
+
+.itinerario > ul{
+  flex-basis: 100%;
+  list-style: none;
+  text-align: center;
+}
+
+/******* COMENTARIOS **********/
+.comentarios{
+  justify-content: center;
+}
+
+.comentario,
+.comentarios > form{
+  margin: 0 10%;
+}
+
+.comentarios > h2{
+  flex-basis: 100%;
+  text-align: center;
+  background-color: var(--colorPrincipal);
+}
+
+.comentario{
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.comentario > a{
+  flex: 0 0 20%;
+}
+
+.comentario > div:nth-of-type(1){
+  flex: 1 0 40%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.comentario > div:nth-of-type(1) > p,
+.comentario > div:nth-of-type(1) > span{
+  flex: 0 0 100%;
+}
+
+.comentario > div:nth-of-type(1) > p{
+  align-self: flex-end;
+}
+
+.comentario > div:nth-of-type(2){
+  flex: 0 0 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.borrarComentario{
+  width: 40px;
+}
+
+
+.comentarios > form{
+  margin-top: 50px;
+}
+
+.comentarios > form > textarea{
   width: 100%;
 }
+
+/******* PUBLICICIDAD **********/
+.pu > a{
+  flex-basis: 100%;
+}
+
+.pu > a > img{
+  width: 70%;
+  margin: 8% 15%;
+}
+
 /* .contenedor h1,
 .contenedor h2{
   border-bottom: 2px solid black;
@@ -93,7 +238,7 @@
 
 } */
 /************************** PUNTUACION */
-.puntuacion span{
+/* .puntuacion span{
   cursor: pointer;
   font-size: 2em;
 }
@@ -115,17 +260,9 @@
    content: "\2605";
    position: absolute;
    color: gold;
-}
-
-.desaparecer{
-  display: none;
-}
-
-/* .aparecer{
-  display: inline-block;
 } */
 
-.comentarios{
+/* .comentarios{
   margin: 10%;
 }
 .comentario{
@@ -201,7 +338,7 @@
 
 .imgP img{
   width: 100%;
-}
+} */
 
 
 

@@ -17,6 +17,8 @@
     --colorTransparenteAzul: rgba(238, 244, 245, 0.5);
     --colorAzulClaro: #C2F4FD;
     --transparenteTarjeta: rgba(241, 218, 218, 0.774);
+    --fondoViaje: rgba(255, 199, 134, 0.47);
+    --imgPerfil: 70px;
 }
 
 .error {

@@ -5,6 +5,7 @@ $dibujaEstrella = false;
 $etiquetas = [];
 $arrayAlojamiento = ['Hotel', 'Apartamento', 'Hostal', 'Vivienda propia', 'Ninguna'];
 
+$imgRandom = mt_rand(2, 18);
 
 if ( isset($_GET['id']) ){
   $id_viaje = $_GET['id'];
@@ -61,7 +62,6 @@ print_r(!$idsIguales); */
         <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
         <span id="mediaViaje"><?=$datos['media']?><span>
       </div>
-      <!-- <p>Puntuación: </p> -->
       <a href="perfilPublico.php?id_user=<?=$datos['viaje']->getIdUser()?>">
         <img class="fotoSmall"src="imgs/<?=$datosPerfil->getId().'/'.$datosPerfil->getFoto()?>" data-idUserViaje="<?=$datos['viaje']->getIdUser()?>">
       </a>
@@ -76,14 +76,6 @@ print_r(!$idsIguales); */
       <p>Precio: <?=$datos['viaje']->getPrecio()?>&euro;</p>
       <p>Nº de Dias: <?=count($datosItinerario)?></p>
       <p>Transporte: <?=$datos['viaje']->getTransporte()?></p>
-      <?php //if ($id !== $datos['viaje']->getIdUser()) {?>
-        <p>Publicado por:
-          <a href="perfilPublico.php?id_user=<?=$datos['viaje']->getIdUser()?>">
-            <img class="fotoSmall"src="imgs/<?=$datosPerfil->getId().'/'.$datosPerfil->getFoto()?>" data-idUserViaje="<?=$datos['viaje']->getIdUser()?>">
-          </a>
-        </p>
-      <?php //}?>
-
       <div class="etiquetas">
         <p>Etiquetas del viaje:</p>
         <?php foreach ($etiquetas as $valor) {?>
@@ -162,11 +154,8 @@ print_r(!$idsIguales); */
     </div>
   <?php }?>
   <div class="pu">
-    <!-- <a href="inicio.php">
-      <iframe src="publicidades.php" frameborder="1" scrolling="no"></iframe>
-    </a> -->
     <a href="#">
-      <img src="imgs/p/publi_2.jpg" alt="">
+      <img src="imgs/p/publi_<?=$imgRandom?>.jpg" alt="">
     </a>
   </div>
 </div>
