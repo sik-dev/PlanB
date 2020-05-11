@@ -1,6 +1,7 @@
 :root {
     /*--colorPrincipal:rgb(88, 248, 160);*/
     --colorPrincipal: #C2F4FD;
+    --colorFooter: rgb(132, 209, 223);
     --colorOpacidad: rgba(175, 172, 172, 0.288);
     --colorHover: #85dcd4;
     --colorBotonAventura: #CE3D3D;

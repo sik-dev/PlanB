@@ -14,6 +14,7 @@
     align-items: flex-end;
     width: 100vw;
     max-width: 1838px;
+    min-width: 420px;
 }
 
 .imagen h1 {
@@ -315,6 +316,15 @@
 
 .oculto {
     display: none
+}
+
+
+/******* Titulo de la foto si es mas muy pequeño  */
+
+@media screen and (max-width: 520px) {
+    .imagen h1 {
+        font-size: 1.5em;
+    }
 }
 
 

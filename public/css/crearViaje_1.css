@@ -1,22 +1,23 @@
 @import url('fonts.css');
 @import url('reset.css');
 @import url('root.css');
-
-.insertViaje{
-  font-family: 'Sriracha', cursive;
-   width: 40%;
-   margin:0 auto;
-   background-color: rgb(252, 249, 239);
+.insertViaje {
+    font-family: 'Sriracha', cursive;
+    width: 40%;
+    margin: 0 auto;
+    background-color: rgb(252, 249, 239);
 }
 
-.insertViaje>form{
-   height: 745px;
+.insertViaje>form {
+    height: 745px;
+    margin-top: 150px;
 }
 
-.etiquetas{
-  display: flex;
-  flex-wrap: wrap;
+.etiquetas {
+    display: flex;
+    flex-wrap: wrap;
 }
-.etiqueta{
-  flex: 1 0 33%;
+
+.etiqueta {
+    flex: 1 0 33%;
 }

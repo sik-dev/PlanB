@@ -1,16 +1,75 @@
 @import url('fonts.css');
 @import url('reset.css');
 @import url('root.css');
+.quienesSomos {}
 
-.quienesSomos{
-  font-family: 'Sriracha', cursive;
-  width: 400px;
-  margin: 0 auto;
-  margin-top: 100px;
-  height: 530px;
+p {
+    text-align: justify;
+    margin-bottom: 20px;
+    font-weight: 100;
 }
-#fotoPerfil{
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
+
+.imagen {
+    background-image: url('../logos_proyecto/avion 3.jpg');
+    height: 320px;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    width: 100vw;
+    /*max-width: 1838px;*/
+    min-width: 420px;
+}
+
+.texto {
+    width: 70%;
+    margin: 70px auto;
+}
+
+h2 {
+    font-family: 'KrinkesRegular';
+    font-size: 4em;
+    width: 70%;
+    margin: 70px auto;
+}
+
+.imagen h1 {
+    background: linear-gradient(to bottom, transparent 6%, var(--colorTransparenteAzul) 76%);
+    width: 100%;
+    text-align: center;
+    height: 2.5em;
+    font-family: 'Hardome';
+    font-weight: 300;
+    text-shadow: 2px 2px #c8eef5;
+    user-select: none;
+    animation: fadeIn 400ms;
+}
+
+
+/******* Titulo de la foto si es mas muy pequeño  */
+
+@media screen and (max-width: 520px) {
+    .imagen h1 {
+        font-size: 1.5em;
+    }
+}
+
+
+/************** TABLET */
+
+@media screen and (min-width: 40.5em) {}
+
+
+/************* Desktop*/
+
+@media screen and (min-width: 60.5em) {
+    .imagen {
+        height: 350px;
+        background-position: 0px -89px;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .imagen {
+        height: 500px;
+    }
 }
