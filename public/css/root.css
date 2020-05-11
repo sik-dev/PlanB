@@ -17,6 +17,7 @@
     --colorTransparenteAzul: rgba(238, 244, 245, 0.5);
     --colorAzulClaro: #C2F4FD;
     --transparenteTarjeta: rgba(241, 218, 218, 0.774);
+    --aventuraHover: rgb(238, 158, 66);
 }
 
 .error {
