@@ -6,73 +6,78 @@
   outline: 1px red solid;
 } */
 
-header{
-  font-family: 'Sriracha', cursive;
-  width: 100%;
-  min-height: 100px;
-  position: fixed;
-  top: 0;
-  z-index: 1;
-  background-color: white;
-  border-bottom: solid 2px var(--borderMenu);
-  
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+header {
+    font-family: 'Sriracha', cursive;
+    width: 100%;
+    min-height: 100px;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+    border-bottom: solid 2px var(--borderMenu);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-header a{
-  text-decoration: none;
-  color: var(--colorTextNav);
+header a {
+    text-decoration: none;
+    color: var(--colorTextNav);
 }
+
 
 /******* LOGO **********/
-#logo{
-  flex: 0 0 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+#logo {
+    flex: 0 0 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#logo a{
-  flex-basis: 75%;
-  max-width: 100px;
-  display: flex;
+#logo a {
+    flex-basis: 75%;
+    max-width: 100px;
+    display: flex;
 }
 
-#logo img{
-  width: 100%;
+#logo img {
+    width: 100%;
 }
 
-#menu, nav, #nombre{
-  display: none;
+#menu,
+nav,
+#nombre {
+    display: none;
 }
 
-#nombre > h1, 
-#nombre > h3{
-  font-family: 'Rockhead';
+#nombre>h1,
+#nombre>h3 {
+    font-family: 'Rockhead';
 }
+
 
 /******* MENU **********/
-header > label{
-  flex: 0 0 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+header>label {
+    flex: 0 0 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-header > label > img{
-  width: 50px;
+header>label>img {
+    width: 50px;
 }
 
-#menu:checked ~ nav{
-  flex-basis: 100%;
-  display: flex;
-  font-size: var(--textNav1);
-  /* background-color: var(--colorPrincipal); */
+#menu:checked~nav {
+    flex-basis: 100%;
+    display: flex;
+    font-size: var(--textNav1);
+    /* background-color: var(--colorPrincipal); */
 }
 
-nav > ul {
+nav>ul {
     list-style: none;
     flex: 1;
     display: flex;
@@ -80,20 +85,20 @@ nav > ul {
     flex-wrap: wrap;
 }
 
-nav > ul > li{
-  flex-basis: 100%;
-  border-top: solid 2px var(--borderMenu);
+nav>ul>li {
+    flex-basis: 100%;
+    border-top: solid 2px var(--borderMenu);
 }
 
-nav > ul a{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Sunflower';
+nav>ul a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Sunflower';
 }
 
-nav > ul a > img{
-  margin: 0 5px;
+nav>ul a>img {
+    margin: 0 5px;
 }
 
 .favoritos2 {
@@ -104,60 +109,55 @@ nav > ul a > img{
     color: red;
 }
 
+
 /******* @media screen and (min-width: 40.5em) **********/
-@media screen and (min-width: 40.5em){
 
-  header{
-    flex-wrap: nowrap;
-  }
-
-  header label{
-    display: none;
-  }
-
-  #menu:checked ~ nav, nav{
-    flex: 1 0 auto;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin: 0px 40px;
-    font-size: var(--textNav2);
-  }
-
-  nav > ul{
-    flex: 0 0 auto;
-    display: inline;
-    text-align: center;
-  }
-
-  nav > ul > li{
-    float: left;
-    border: none;
-    margin: 10px;
-  }  
+@media screen and (min-width: 40.5em) {
+    header {
+        flex-wrap: nowrap;
+    }
+    header label {
+        display: none;
+    }
+    #menu:checked~nav,
+    nav {
+        flex: 1 0 auto;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 0px 40px;
+        font-size: var(--textNav2);
+    }
+    nav>ul {
+        flex: 0 0 auto;
+        display: inline;
+        text-align: center;
+    }
+    nav>ul>li {
+        float: left;
+        border: none;
+        margin: 10px;
+    }
 }
+
 
 /******* @media screen and (min-width: 60.5em) **********/
-@media screen and (min-width: 60.5em){
-  
-  #logo{
-    flex: 0 0 15%;
-    max-width: 150px;
-  }
 
-  #nombre{
-    flex: 0 0 20%;
-    max-width: 150px;
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  #nombre > h1 {
-    align-self: flex-end;
-  }
-
-  #nombre > h3 {
-    align-self: flex-start;
-  }
+@media screen and (min-width: 60.5em) {
+    #logo {
+        flex: 0 0 15%;
+        max-width: 150px;
+    }
+    #nombre {
+        flex: 0 0 20%;
+        max-width: 150px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #nombre>h1 {
+        align-self: flex-end;
+    }
+    #nombre>h3 {
+        align-self: flex-start;
+    }
 }
-

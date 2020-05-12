@@ -1,16 +1,15 @@
 @import url('fonts.css');
 @import url('reset.css');
 @import url('root.css');
-.login {}
+.error404 {}
 
 .imagen {
-    background-image: url('../logos_proyecto/avion 3.jpg');
+    background-image: url('../logos_proyecto/avion.jpg');
     height: 320px;
     background-size: cover;
     display: flex;
     align-items: flex-end;
     width: 100vw;
-    max-width: 1838px;
     min-width: 420px;
 }
 
@@ -26,70 +25,31 @@
     animation: fadeIn 400ms;
 }
 
-form {
-    width: 45%;
-    display: flex;
-    flex-direction: column;
-    margin: 100px auto;
-}
-
-form * {
-    margin-bottom: 10px;
-}
-
-form input {
-    width: 100%;
-}
-
-form div:nth-of-type(2) {
-    margin-bottom: 35px;
-}
-
-form div:nth-of-type(3) {
+.texto {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-form div:nth-of-type(3)>div {
-    display: flex;
-    align-items: center;
+.texto * {
+    margin-bottom: 18.5px;
 }
 
-form #recuerdame {
-    width: 30px;
+.texto h1 {
+    font-size: 3em;
+    font-family: 'Rockhead';
+    margin-top: 50px;
 }
 
-form .botones {
-    display: flex;
-    justify-content: space-around;
+.texto p {
+    font-size: 1.5em;
+    font-family: 'Hardome';
 }
 
-form .botones * {
-    width: 50%;
-    cursor: pointer;
-    margin: 10px;
-}
-
-form .botones input {
+.texto a {
     margin-bottom: 100px;
     text-decoration: none;
-    background-color: var(--colorFondo);
-    color: black;
-    padding: 8px;
-    border: 1px solid var(--colorTextNav);
-    text-align: center;
-    width: 160px;
-}
-
-form .botones input:hover {
     background-color: var(--colorPrincipal);
-}
-
-form .botones a {
-    margin-bottom: 100px;
-    text-decoration: none;
-    background-color: var(--colorFondo);
     color: black;
     padding: 8px;
     border: 1px solid var(--colorTextNav);
@@ -97,14 +57,8 @@ form .botones a {
     width: 160px;
 }
 
-form .botones a:hover {
+.texto a:hover {
     background-color: var(--colorAgregar);
-}
-
-#olvidadoContraseña {
-    font-size: 13px;
-    text-decoration: none;
-    color: var(--colorAzulOscuro);
 }
 
 
@@ -128,13 +82,6 @@ form .botones a:hover {
     .imagen {
         height: 350px;
         background-position: 0px -89px;
-    }
-    form {
-        width: 35%;
-    }
-    form div:nth-of-type(3) {
-        flex-direction: row;
-        justify-content: space-between;
     }
 }
 
