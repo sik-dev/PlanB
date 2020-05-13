@@ -75,7 +75,7 @@
   */
 
 ?>
-<link rel="stylesheet" href="/css/inicio.css">
+<link rel="stylesheet" href="/css/resultadosBusqueda.css">
 <script type="text/javascript" src="JS/sugerencias.js"></script>
 <script type="text/javascript" src="JS/buscador.js"></script>
 
