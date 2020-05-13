@@ -19,6 +19,8 @@
     --transparenteTarjeta: rgba(241, 218, 218, 0.774);
     --fondoViaje: rgba(255, 199, 134, 0.47);
     --imgPerfil: 70px;
+    --fondoTextarea: #E3E3E3;
+    --mainHeight: calc(90vh - 100px);
 }
 
 .error {

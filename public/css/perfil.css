@@ -4,17 +4,36 @@
 
 .fondoPerfil{
   font-family: 'Sriracha', cursive;
-  background-size: 1920px;
-  height: 1000px;
+  height: 90vh;
   padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .perfil{
+  flex-basis: 60%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.perfil > *{
+  flex-basis: 100%;
   text-align: center;
+  margin: 5px;
 }
 
 #fotoPerfil{
   border-radius: 50%;
-  width: 150px;
+  max-width: 150px;
   height: 150px;
+}
+
+.perfil > a{
+  margin: 10px;
+  text-decoration: none;
+  color: var(--colorTextNav);
 }

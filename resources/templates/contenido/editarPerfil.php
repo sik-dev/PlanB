@@ -133,51 +133,63 @@
   }
 ?>
 <link rel="stylesheet" href="/css/editarPerfil.css">
- <div class="editarPerfil">
-   <form class="" action="editarPerfil.php?id=<?=$id?>" method="post" enctype="multipart/form-data">
-     <!-- CAMBIAR FOTO DE PERFIL -->
-     <input type="file" name="foto">
-     <?php if( isset($errores['foto'])) { ?>
-      <span class='error'><?=$errores['foto']?></span><br>
-     <?php } ?>
-     <button type="submit" name="cambiarFoto" value="true"> Cambiar foto</button><br>
+<div class="editarPerfil">
+  <h1>Edita tu perfil</h1>
+  <form action="editarPerfil.php?id=<?=$id?>" method="post" enctype="multipart/form-data">
+    <!-- CAMBIAR FOTO DE PERFIL -->
+    <fieldset>
+      <legend>Cambiar foto de perfil</legend>
 
-
-     <input type="text" name="nombre" value="<?=$nombre?>" placeholder="introduce tu nombre"><br>
-     <?php if (isset($errores['nombre'])): ?>
-        <span class='error'><?=$errores['nombre']?></span><br>
-     <?php endif; ?>
-
-
-     <input type="email" name="correo" value="<?=$correo?>" placeholder="introduce un correo valido"><br>
-
-     <?php if (isset($errores['correo'])): ?>
-        <span class='error'><?=$errores['correo']?></span><br>
-     <?php endif; ?>
-
-     <select class="" name="pais">
-       <option disabled selected value="">Elige un país</option>
-       <?php foreach ($paises as $valor) {?>
-            <option value="<?=$valor?>" <?=($pais == $valor)?'selected':''?>><?=$valor?></option>
+      <input type="file" name="foto">
+      <?php if( isset($errores['foto'])) { ?>
+        <span class='error'><?=$errores['foto']?></span><br>
       <?php } ?>
-     </select>
+      <button type="submit" name="cambiarFoto" value="true"> Cambiar foto</button>
+    </fieldset>
+    
+    <fieldset>
+      <legend>Cambiar información de perfil</legend>
 
-     <?php if (isset($errores['pais'])): ?>
-         <br><span class='error'><?=$errores['pais']?></span>
-     <?php endif; ?>
-     <br>
+      <label for="name">Introduce tu nombre: </label>
+      <input id="name" type="text" name="nombre" value="<?=$nombre?>"><br>
+      <?php if (isset($errores['nombre'])): ?>
+          <span class='error'><?=$errores['nombre']?></span><br>
+      <?php endif; ?>
 
-     <textarea name="descripcion" placeholder="Cuentano algo sobre ti" rows="8" cols="80"><?=$descripcion?></textarea>
-     <?php if (isset($errores['descripcion'])): ?>
-         <br><span class='error'><?=$errores['descripcion']?></span>
-     <?php endif; ?>
+      <label for="correo">Introduce tu nuevo correo: </label>
+      <input id="correo" type="email" name="correo" value="<?=$correo?>"><br>
+      <?php if (isset($errores['correo'])): ?>
+          <span class='error'><?=$errores['correo']?></span><br>
+      <?php endif; ?>
 
-     <input type="password" name="pass" value="<?=$pass?>" placeholder="introduce una contraseña valida"><br>
-     <?php if (isset($errores['pass'])): ?>
-        <span class='error'><?=$errores['pass']?></span><br>
-     <?php endif; ?>
-     <input type="password" name="passR" value="<?=$pass?>" placeholder="repite la contraseña"><br>
-     <button type="submit">Enviar</button><br>
+      <label for="pais">País: </label>
+      <select id="pais" name="pais">
+        <option disabled selected value="">Elige un país</option>
+        <?php foreach ($paises as $valor) {?>
+              <option value="<?=$valor?>" <?=($pais == $valor)?'selected':''?>><?=$valor?></option>
+        <?php } ?>
+      </select>
+      <?php if (isset($errores['pais'])): ?>
+          <br><span class='error'><?=$errores['pais']?></span>
+      <?php endif; ?>
+      <br>
 
-   </form>
- </div>
+      <label for="pass">Introduce una nueva contraseña: </label>
+      <input id="pass" type="password" name="pass" value="<?php //$pass?>"><br>
+      <?php if (isset($errores['pass'])): ?>
+          <span class='error'><?=$errores['pass']?></span><br>
+      <?php endif; ?>
+
+      <label for="passR">Repite la nueva contraseña: </label>
+      <input id="passR" type="password" name="passR" value="<?php //$pass?>"><br>
+
+      <label for="desc">Cuentanos algo sobre ti: </label>
+      <textarea id="desc" name="descripcion" rows="8" cols="80"><?=$descripcion?></textarea>
+      <?php if (isset($errores['descripcion'])): ?>
+          <br><span class='error'><?=$errores['descripcion']?></span>
+      <?php endif; ?>
+      
+      <button type="submit">Enviar</button><br>
+    </fieldset>
+  </form>
+</div>

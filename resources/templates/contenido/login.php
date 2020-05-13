@@ -37,27 +37,31 @@
 
 ?>
 <link rel="stylesheet" href="/css/login.css">
- <div class="login">
-   <form class="" action="login.php" method="post">
-     <input type="text" name="nombre" value="<?=$info['nombre']?>" placeholder="Introduce tu nombre">
-     <?php if( isset($errores['nombre'])) { ?>
-       <br><span class='error'><?=$errores['nombre']?></span><br>
-     <?php } ?>
-     <br>
-     <input type="password" name="pass" value="" placeholder="Introduce tu contraseña">
-     <?php if( isset($errores['pass'])) { ?>
-       <br><span class='error'><?=$errores['pass']?></span><br>
-     <?php } ?>
-     <br>
-     <input type="text" name="redirect" value="<?=$redirect?>" hidden>
-     <label for="recuerdame">Recuerdame</label> <input type="checkbox" name="recuerdame" value="true" id="recuerdame">
-     <br>
-     <a href="password.php" id="olvidadoContraseña">¿Has olvidado tu contraseña?</a>
-     <br>
-     <input type="submit" name="enviar" value="Enviar">
-      <a href="formulario.php?redirect=<?=$redirect?>">Registrate</a>
-      <?php if( isset($errores['db'])) { ?>
-        <br><br><span class='error'><?=$errores['db']?></span><br>
-      <?php } ?>
-   </form>
- </div>
+<div class="login">
+  <h1>Inicia sesión en Plan B</h1>
+  <form action="login.php" method="post">
+    <label for="name">Introduce tu nombre: </label>
+    <input id="name" type="text" name="nombre" value="<?=$info['nombre']?>">
+    <?php if( isset($errores['nombre'])) { ?>
+      <br><span class='error'><?=$errores['nombre']?></span><br>
+    <?php } ?>
+
+    <label for="pass">Introduce tu contraseña: </label>
+    <input id="pass" type="password" name="pass" value="">
+    <?php if( isset($errores['pass'])) { ?>
+      <br><span class='error'><?=$errores['pass']?></span><br>
+    <?php } ?>
+
+    <input type="text" name="redirect" value="<?=$redirect?>" hidden>
+    <label for="recuerdame">Recuerdame</label>
+    <input type="checkbox" name="recuerdame" value="true" id="recuerdame">
+    
+    <input type="submit" name="enviar" value="Iniciar sesión">
+    <?php if( isset($errores['db'])) { ?>
+      <br><br><span class='error'><?=$errores['db']?></span><br>
+    <?php } ?>
+
+    <a href="password.php" id="olvidadoContraseña">¿Has olvidado tu contraseña?</a>
+    <a href="formulario.php?redirect=<?=$redirect?>">Registrate</a>
+  </form>
+</div>

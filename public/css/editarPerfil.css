@@ -4,15 +4,86 @@
 
 .editarPerfil{
   font-family: 'Sriracha', cursive;
-  width: 50%;
-  margin: 0 auto;
+  width: 100%;
   margin-top: 100px;
-  height: 530px;
+  min-height: var(--mainHeight);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
-.editarPerfil>form{
-  width: 25%;
-  margin: auto;
+
+.editarPerfil > h1{
+  flex-basis: 100%;
+  text-align: center;
+  background-color: var(--colorPrincipal);
+  /* padding: 10px; */
 }
-.editarPerfil>form>textarea{
-  width: 260px;
+
+.editarPerfil > form{
+  border: var(--borderMenu) .5px solid;
+  border-radius: 2px;
+  background-color: var(--fondoViaje);
+
+  flex-basis: 60%;
+  max-width: 500px;
+  align-self: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.editarPerfil > form > fieldset{
+  margin: 10px;
+  border: none;
+  border-top: var(--borderMenu) 2px solid;
+  /* border-left: none;
+  border-right: none; */
+  padding: 0 10px;
+
+  flex: 1 0 327px;
+  display: flex;
+  justify-content: center;
+}
+
+.editarPerfil > form > fieldset > legend{
+  padding: 0 5px;
+}
+
+.editarPerfil > form > fieldset:first-of-type > input{
+  margin: 20px 0;
+}
+
+.editarPerfil > form > fieldset > label,
+.editarPerfil > form > fieldset > input,
+.editarPerfil > form > fieldset > select{
+  flex: 0 0 50%;
+}
+
+.editarPerfil > form > fieldset > textarea{
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.editarPerfil > form > fieldset > input,
+.editarPerfil > form > fieldset > select,
+.editarPerfil > form > fieldset > textarea{
+  background-color: var(--fondoTextarea);
+}
+
+.editarPerfil > form > fieldset > button{
+  width: 110px;
+  height: 25px;
+  margin-right: 80%;
+  background-color: var(--fondoTextarea);
+  border: #0001 1.5px solid;
+  border-radius: 2px;
+}
+
+@media screen and (min-width: 40.5em){
+  .editarPerfil > form > fieldset > input:not([type="file"]),
+  .editarPerfil > form > fieldset > select{
+    width: 250px;
+  }
 }

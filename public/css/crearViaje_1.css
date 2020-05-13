@@ -4,19 +4,77 @@
 
 .insertViaje{
   font-family: 'Sriracha', cursive;
-   width: 40%;
-   margin:0 auto;
-   background-color: rgb(252, 249, 239);
+  width: 100%;
+  margin-top: 100px;
+  min-height: var(--mainHeight);
+
+  display: grid;
+  justify-items: center;
+  grid-template: 100px auto/ 100%;
 }
 
-.insertViaje>form{
-   height: 745px;
+.insertViaje > h1{
+  grid-area: 1 / 1 / 2 / -1;
+  align-self: center;
+  width: 100%;
+  text-align: center;
+  background-color: var(--colorPrincipal);
 }
 
-.etiquetas{
+.insertViaje > form{
+  grid-area: 2 / 1 / -1 / -1;
+  width: 80%;
+  min-width: 365px;
+  max-width: 500px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: var(--fondoViaje);
+  border: var(--borderMenu) .5px solid;
+  border-radius: 2px;
+
   display: flex;
   flex-wrap: wrap;
 }
+
+.insertViaje > form > label,
+.insertViaje > form > input,
+.insertViaje > form > select{
+  flex-basis: 50%;
+  margin: 10px 0;
+}
+
+.insertViaje > form > input/* :not([type="file"]) */,
+.insertViaje > form > select{
+  background-color: var(--fondoTextarea);
+}
+
+.insertViaje > form > textarea{
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: var(--fondoTextarea);
+}
+
+.insertViaje > form > label:last-of-type{
+  flex-basis: 100%;
+}
+
+.etiquetas{
+  /* flex-basis: 100%; */
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
 .etiqueta{
-  flex: 1 0 33%;
+  flex: 0 0 33%;
+  font-size: 12px;
+}
+
+.insertViaje > form > button{
+  margin: 10px 0;
+  flex-basis: 70px;
+  max-width: 100px;
+  background-color: var(--fondoTextarea);
+  border: #0001 1.5px solid;
+  border-radius: 2px;
 }

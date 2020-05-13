@@ -16,7 +16,7 @@
 <div class="fondoPerfil">
   <div class="perfil">
     <h1>Perfil Privado</h1>
-    <br><br>
+    <!-- <br><br> -->
     <img id=fotoPerfil src="imgs/<?=$rutaImgProfile?>" alt="">
     <h2>Nombre: <?=$user->getNombre()?></h2>
     <h4>Email: <?=$user->getEmail()?></h4>
@@ -24,11 +24,10 @@
     <h4>Descripción: <br><?=$user->getDescripcion()?> </h4>
     <h4>Media Global: <?=$user->getMedia()?></h4>
     <a href="crearViaje_1.php?id=<?=$user->getId()?>">nuevo viaje</a>
-    <br>
+    <!-- <br> -->
     <a href="tusViajes.php?id=<?=$user->getId()?>">tus viajes</a>
-    <br>
-    <br>
+    <!-- <br>
+    <br> -->
     <a href="editarPerfil.php?id=<?=$user->getId()?>">Editar Perfil</a>
-
   </div>
-<div>
+</div>
