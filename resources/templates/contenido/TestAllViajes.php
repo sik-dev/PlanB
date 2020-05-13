@@ -1,13 +1,18 @@
 <?php
-  $num_viajes = 6;
-  $page = 1;
 
-  $filtrosBusqueda = ['País', 'Ciudad', 'Número de días'];
-  $filtrosValue= ['viaje.pais_destino', 'viaje.ciudad_destino', 'diasViaje'];
+$filtrosBusqueda = ['País', 'Ciudad', 'Número de días', 'Tipo de viaje'];
+$filtrosValue = ['viaje.pais_destino', 'viaje.ciudad_destino', 'diasViaje', 'etiquetas'];
 
-  $filtro = '';
-  $buscador = '';
-  $errores = [];
+$etiquetasSelect = ['Aventura', 'Cultural', 'Romántico', 'Relax', 'Gastronómico', 'Con amig@s', 'LowCost', 'Fiesta', 'Religioso'];
+
+$filtro = '';
+$buscador = '';
+$errores = [];
+$etiquetas = [];
+$contador = 0;
+
+$num_viajes = 6;
+$page = 1;
 
   if( count($_POST) > 0) {
     if( isset($_POST['filtro']) && $_POST['filtro'] != ''){
@@ -39,6 +44,13 @@
   print_r($viajes);
   echo "</pre>"; */
 
+   //Convertir cadena de etiquetas a un Array
+   for ($i = 0; $i < count($viajes); $i++) {
+    $etiquetas[$i] = explode('/', $viajes[$i]['viaje']->getEtiquetas());
+  }
+
+
+
   if (is_int($total_viajes / $num_viajes)) {
     $num_paginas = $total_viajes / $num_viajes;
   }else{
@@ -47,47 +59,102 @@
   
 ?>
 <script type="text/javascript" src="JS/sugerencias.js"></script>
+<script type="text/javascript" src="JS/buscador.js"></script>
 <link rel="stylesheet" href="/css/inicio.css">
+
 <div class="inicio">
+
+  <div class="imagen">
+    <h1>Todos los destinos al alcance de tu mano</h1>
+  </div>
+
   <form method="post" action="inicio.php">
-    <select name="filtro">
-      <option disabled selected value="">Elige una opción</option>
-      <?php for ($i= 0; $i < count($filtrosBusqueda); $i++) {?>
-            <option value="<?=$filtrosValue[$i]?>" <?=($filtro == $filtrosValue[$i])?'selected':''?>><?=$filtrosBusqueda[$i]?></option>
+    <div>
+      <label for="filtro">Filtro</label>
+      <select id="filtro" name="filtro">
+        <option disabled selected value="">Elige una opción</option>
+        <?php for ($i= 0; $i < count($filtrosBusqueda); $i++) {?>
+          <option value="<?=$filtrosValue[$i]?>" <?=($filtro == $filtrosValue[$i])?'selected':''?>><?=$filtrosBusqueda[$i]?></option>
+        <?php } ?>
+      </select>
+    </div>
+    <div>
+      <label for="buscador">Buscador</label>
+      <input id="buscador" type="text" name='buscador' value="<?=$buscador?>" placeholder="    ¿Qué quieres buscar?">
+      <select id="buscadorEtiquetas" name="buscador" class="oculto">
+        <option disabled selected>Elige una opción</option>
+        <?php for ($i= 0; $i < count($etiquetasSelect); $i++) {?>
+          <option value="<?=$etiquetasSelect[$i]?>"><?=$etiquetasSelect[$i]?></option>
+        <?php } ?>
+      </select>
+    </div>
+    <div>
+      <input id='buscar' type="submit" name='buscar' value='Buscar'>
+      <button id='aventura'>
+        <a href="aventura.php">Aventura</a>
+      </button>
+    </div>
+
+    <div class='errores'>
+      <?php if( isset($errores['filtro']) && $errores['filtro'] == true) { ?>
+      <br><span class="error">Debes selecionar un filtro</span>
       <?php } ?>
-    </select>
-    <input type="text" name='buscador' value="<?=$buscador?>" placeholder="    ¿Qué quieres buscar?">
-    <input type="submit" name='buscar' value='buscar'>
-    <?php if( isset($errores['filtro']) && $errores['filtro'] == true) { ?>
-    <br><span class="error">Debes selecionar un filtro</span>
-    <?php } ?>
-    <?php if( isset($errores['buscador']) && $errores['buscador'] == true) { ?>
-    <br><span class="error">Debes escribir algo en la busqueda</span>
-    <?php } ?>
+
+      <?php if( isset($errores['buscador']) && $errores['buscador'] == true) { ?>
+      <br><span class="error">Debes escribir algo en la busqueda</span>
+      <?php } ?>
+    </div>
+
   </form>
-  <a href="aventura.php">Aventura</a>
-  <h1>Mejores Valorados</h1>
+
 
   <div class="mejorValorados">
-    <?php foreach ($viajes as $fila) { ?>
-      <div class="viaje">
-        <h2><?=$fila['viaje']->getCiudadDestino()?></h2>
-        <h4><?=$fila['viaje']->getDescripcion()?></h4>
-        <a href="viaje.php?id=<?=$fila['viaje']->getId()?>">
-        <img id='mejoresValorados' src="imgs/<?=$fila['viaje']->getIdUser()."/".$fila['viaje']->getFoto()?>" alt="">
-        </a>
-        <div class="datos">
-          <p>Precio: <?=$fila['viaje']->getPrecio()?></p>
-          <p>Transporte: <?=$fila['viaje']->getTransporte()?></p>
-          <p>Media del viaje: <?=$fila['media']?></p>
-          <p>Nº de dias: <?=$fila['diasViaje']?></p>
+    <h2>Todos los viajes</h2>
+
+
+      <?php foreach ($viajes as $fila) { ?>
+        <div class='tarjeta'>
+          <a href="viaje.php?id=<?=$fila['viaje']->getId()?>">
+            <div class="puntuacion">
+              <?php for($i=1; $i <= 5; $i++) { ?>
+                <?php if ($fila['media'] >= $i) { ?>
+                  <span class='rellena'>☆</span>
+                <?php }else{ ?>
+                  <span>☆</span>
+                <?php } ?>
+              <?php } ?>
+              <span><?=$fila['media']?></span>
+            </div>
+
+          
+            <img src="imgs/<?=$fila['viaje']->getIdUser()."/".$fila['viaje']->getFoto()?>" alt="">
+          
+            <h3><?=$fila['viaje']->getCiudadDestino()?></h3>
+            <div>
+              <div class="datos">
+                  <p><?=($fila['diasViaje'] > 1)?  $fila['diasViaje']." días" : $fila['diasViaje']." día" ?></p>
+                  <p><?=$fila['viaje']->getPrecio()?> &euro;</p>
+              </div>
+              <div class="etiquetas">
+                <?php foreach ($etiquetas[$contador] as $valor) {?>
+                  <span class="<?=($valor =='Con amig@s')?'Amigos':$valor ?>" title="<?=$valor?>" alt='<?=$valor?>'></span>
+                <?php } ?>
+              </div>
+              <?php $contador++ ?>
+            </div>
+          </a>
         </div>
-      </div>
-    <?php } ?>
+      <?php } ?>
+
   </div>
   <div class="paginacion">
     <?php for($pagina = 1;$pagina <= $num_paginas; $pagina++){?>
-        <a href="TestAllViajes.php?page=<?=$pagina?>"><?=$pagina?></a>
+      <?php if($pagina == $page){?>
+        <a href="inicio.php?page=<?=$pagina?>"><u><?=$pagina?></u></a>
+      <?php }else{?>
+        <a href="inicio.php?page=<?=$pagina?>"><?=$pagina?></a>
+      <?php }?>
     <?php }?>
   </div>
+  
 </div>

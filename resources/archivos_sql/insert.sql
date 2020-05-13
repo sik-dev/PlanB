@@ -3,11 +3,11 @@
 /* contraseña: 1234*/
 INSERT INTO usuario (descripcion,email, pass, nombre, pais, foto, mediaGlobal, rol)
  VALUES
-  ('soy una persona muy aventurera', 'jorge_lacasta@hotmail.com', '$2y$10$MohhVfbQPLo78ahT2topReJJCrD52w3JbkuWW6WP.2EZLVpgdjih6', 'jorge', 'España', 'kurt-cobain.jpg',3, 'ADMIN'),
-  ('soy una persona muy aventurera', 'joan@joan.es', '$2y$10$MohhVfbQPLo78ahT2topReJJCrD52w3JbkuWW6WP.2EZLVpgdjih6', 'joan', 'España', 'messi.jpg',5, 'ADMIN'),
-  ('soy una persona muy aventurera', 'adriansanzperez.94@gmail.com', '$2y$10$MohhVfbQPLo78ahT2topReJJCrD52w3JbkuWW6WP.2EZLVpgdjih6', 'adrian', 'España', 'brad.jpg',4, 'ADMIN'),
-  ('soy una persona muy aventurera', 'maria@maria.es', '$2y$10$MohhVfbQPLo78ahT2topReJJCrD52w3JbkuWW6WP.2EZLVpgdjih6', 'maria', 'España', 'maria.jpg', 2, 'USER'),
-  ('soy una persona muy aventurera', 'sonia@sonia.es', '$2y$10$MohhVfbQPLo78ahT2topReJJCrD52w3JbkuWW6WP.2EZLVpgdjih6', 'sonia', 'España', 'sonia.jpg', 4.2, 'USER')
+  ('Soy una persona muy aventurera, me gusta viajer por el Europa sobre todo. Me encantan los viajes culturales.', 'jorge_lacasta@hotmail.com', '$2y$10$MohhVfbQPLo78ahT2topReJJCrD52w3JbkuWW6WP.2EZLVpgdjih6', 'Jorge', 'España', 'kurt-cobain.jpg',3, 'ADMIN'),
+  ('Me gusta ir de viaje con mis amigos, los viajes que más me gustan son ir a la playa.', 'joan@joan.es', '$2y$10$MohhVfbQPLo78ahT2topReJJCrD52w3JbkuWW6WP.2EZLVpgdjih6', 'Joan', 'España', 'messi.jpg',5, 'ADMIN'),
+  ('Los viajes que suele hacer son viajes dentro de España. Me gusta ir de viaje con mis amigos y buscar mucha fiesta.', 'adriansanzperez.94@gmail.com', '$2y$10$MohhVfbQPLo78ahT2topReJJCrD52w3JbkuWW6WP.2EZLVpgdjih6', 'Adrian', 'España', 'brad.jpg',4, 'ADMIN'),
+  ('Me gusta mucho los viajes románticos y de relax. Dentro de poco me gustaría ir a decubrir américa latina.', 'maria@maria.es', '$2y$10$MohhVfbQPLo78ahT2topReJJCrD52w3JbkuWW6WP.2EZLVpgdjih6', 'Donna', 'Italia', 'maria.jpg', 2, 'USER'),
+  ('Llevo viajando por todo el mundo desde los 10 años. Me encantan los viajes gastronómicos y vivir aventuras.', 'sonia@sonia.es', '$2y$10$MohhVfbQPLo78ahT2topReJJCrD52w3JbkuWW6WP.2EZLVpgdjih6', 'Amelie', 'Francia', 'sonia.jpg', 4.2, 'USER')
 ;
 
 /*VIAJE*/

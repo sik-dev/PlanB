@@ -1,6 +1,7 @@
 :root {
     /*--colorPrincipal:rgb(88, 248, 160);*/
     --colorPrincipal: #C2F4FD;
+    --colorFooter: rgb(132, 209, 223);
     --colorOpacidad: rgba(175, 172, 172, 0.288);
     --colorHover: #85dcd4;
     --colorBotonAventura: #CE3D3D;
@@ -16,11 +17,13 @@
     --colorBotonAventuraTransparente: rgba(207, 83, 83, 0.603);
     --colorTransparenteAzul: rgba(238, 244, 245, 0.5);
     --colorAzulClaro: #C2F4FD;
+    --colorAzulOscuro: rgb(3, 31, 107);
     --transparenteTarjeta: rgba(241, 218, 218, 0.774);
     --fondoViaje: rgba(255, 199, 134, 0.47);
     --imgPerfil: 70px;
     --fondoTextarea: #E3E3E3;
     --mainHeight: calc(90vh - 100px);
+    --aventuraHover: rgb(238, 158, 66);
 }
 
 .error {

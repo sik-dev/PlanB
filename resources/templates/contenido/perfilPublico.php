@@ -1,9 +1,7 @@
 <?php
 
-// ha mirar en viajesmanager
-/* if(isset($_GET['id_user'])){
-    $id=$_GET['id_user'];
-} */
+$contador = 0;
+$etiquetas = [];
 
 //$datosUser = ViajesManager::getInfoUsers($_GET['id_user'])[0];
 //$datosViaje = ViajesManager::getViajeUsers($_GET['id_user']);
@@ -12,39 +10,81 @@ $datosViaje = ViajeManager::getByUser($datosUser->getId());
 $rutaImgProfile = (explode('.',$datosUser->getFoto())[0] == 'profileDefault'? $datosUser->getFoto():$datosUser->getId().'/'.$datosUser->getFoto());
 //$numDatos = count($datosUser);
 
-/* echo "<pre>";
+for ($i = 0; $i < count($datosViaje); $i++) {
+  $etiquetas[$i] = explode('/', $datosViaje[$i]['viaje']->getEtiquetas());
+}
+
+/*
+echo "<pre>";
 print_r($datosUser);
 print_r($datosViaje);
-echo "</pre>"; */
+print_r($etiquetas);
+echo "</pre>";
+*/
 
 ?>
 <link rel="stylesheet" href="/css/perfilPublico.css">
-<div class="fondoPerfilPublico">
-  <div class="perfilPublic">
-    <h1>Perfil Publico</h1>
-    <br><br>
-    <img src="imgs/<?=$rutaImgProfile?>" alt="">
-    <h2>Nombre: <?=$datosUser->getNombre()?></h2>
-    <h3>Descripción:</h3>
-    <p><?=$datosUser->getDescripcion()?></p>
-    <h4>País: <?=$datosUser->getPais()?></h4>
-    <h4>Media Global: <?=$datosUser->getMedia()?></h4>
+
+<div class="perfilPublico">
+
+  <div class="imagen">
+    <h1>Todos los destinos al alcance de tu mano</h1>
   </div>
-  <div class="mejorValoradosPerfilPublic">
-    <h2>Sus viajes: </h2>
-    <?php foreach ($datosViaje as $fila) { ?>
-      <div class="viaje">
-        <h2><?=$fila['viaje']->getCiudadDestino()?></h2>
-        <h4><?=$fila['viaje']->getDescripcion()?></h4>
-        <a href="viaje.php?id=<?=$fila['viaje']->getId()?>">
-          <img id='mejoresValorados' src="imgs/<?=$fila['viaje']->getIdUser().'/'.$fila['viaje']->getFoto()?>" alt="">
-        </a>
-        <div class="datos">
-          <p>Precio: <?=$fila['viaje']->getPrecio()?></p>
-          <p>Transporte: <?=$fila['viaje']->getTransporte()?></p>
-          <p>Media del viaje: <?=$fila['media']?></p>
+
+  <div class='contenedorGlobal'>
+    <div class="datosUser">
+      <h2><?=$datosUser->getNombre()?></h2>
+      <img src="imgs/<?=$rutaImgProfile?>" alt="">
+      <p><?=$datosUser->getDescripcion()?></p>
+      <p><?=$datosUser->getPais()?></p>
+      <p>Media Global: <?=$datosUser->getMedia()?></p>
+    </div>
+    
+    <div class="contenedor">
+      <h2>Sus viajes: </h2>
+
+      <?php if ( count($datosViaje) > 0 ) { ?>
+        <?php foreach ($datosViaje as $fila) { ?>
+            <div class='tarjeta'>
+              <a href="viaje.php?id=<?=$fila['viaje']->getId()?>">
+                <div class="puntuacion">
+                  <?php for($i=1; $i <= 5; $i++) { ?>
+                    <?php if ($fila['media'] >= $i) { ?>
+                      <span class='rellena'>☆</span>
+                    <?php }else{ ?>
+                      <span>☆</span>
+                    <?php } ?>
+                  <?php } ?>
+                  <span><?=$fila['media']?></span>
+                </div>
+
+              
+                <img src="imgs/<?=$fila['viaje']->getIdUser()."/".$fila['viaje']->getFoto()?>" alt="">
+              
+                <h3><?=$fila['viaje']->getCiudadDestino()?></h3>
+                <div>
+                  <div class="datos">
+                      <p><?=($fila['diasViaje'] > 1)?  $fila['diasViaje']." días" : $fila['diasViaje']." día" ?></p>
+                      <p><?=$fila['viaje']->getPrecio()?> &euro;</p>
+                  </div>
+                  <div class="etiquetas">
+                    <?php foreach ($etiquetas[$contador] as $valor) {?>
+                      <span class="<?=($valor =='Con amig@s')?'Amigos':$valor ?>" title="<?=$valor?>" alt='<?=$valor?>'></span>
+                    <?php } ?>
+                  </div>
+                  <?php $contador++ ?>
+                </div>
+              </a>
+            </div>
+        <?php } ?>
+      <?php } else { ?>
+        <div class='noViaje'>
+          <p>Este usuario aún no ha subido ningún viaje</p>
         </div>
-      </div>
-    <?php } ?>
+      <?php } ?>
+  
+    </div>
   </div>
+
+  
 </div>

@@ -29,9 +29,8 @@
     <h1>Área de Administración</h1>
     <br><br>
     <img id=fotoPerfil src="imgs/<?=$rutaImgProfile?>" alt="">
-    <h2>Nombre: <?=$user->getNombre()?></h2>
-    <h4>Email: <?=$user->getEmail()?></h4>
-    <h4>País: <?=$user->getPais()?></h4>
+    <h2><?=$user->getNombre()?></h2>
+    <h4><?=$user->getEmail()?></h4>
   </div>
   <h2 id="h2Usuarios">Usuarios</h2>
   <div class="usuarios">
@@ -53,7 +52,9 @@
     <?php foreach ($usuarios as $fila) { ?>
       <tr>
         <td>
-          <img id=fotoPerfilUser src="imgs/<?=$fila['id']?>/<?=$fila['foto']?>" alt="">
+          <a href="/perfilPublico.php?id_user=<?=$fila['id']?>">
+            <img id=fotoPerfilUser src="imgs/<?=$fila['id']?>/<?=$fila['foto']?>" alt="">
+          </a>
         </td>
         <td><?=$fila['id']?></td>
         <td><?=$fila['nombre']?></td>
@@ -92,7 +93,9 @@
       <?php foreach ($viajes as $fila) { ?>
         <tr>
           <td>
-            <img id='fotoViaje' src="imgs/<?=$fila['viaje']->getIdUser()?>/<?=$fila['viaje']->getFoto()?>" alt="">
+            <a href="/viaje.php?id=<?=$fila['viaje']->getId()?>">
+              <img id='fotoViaje' src="imgs/<?=$fila['viaje']->getIdUser()?>/<?=$fila['viaje']->getFoto()?>" alt="">
+            </a>
           </td>
           <td><?=$fila['viaje']->getId()?></td>
           <td><?=$fila['viaje']->getCiudadDestino()?></td>

@@ -1,84 +1,108 @@
 @import url('fonts.css');
 @import url('reset.css');
 @import url('root.css');
+.contenedor {
+    font-family: 'Sunflower';
+}
 
+#fotoPerfil {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
 
-.contenedor{
-  font-family: 'Sriracha', cursive;
+.perfil {
+    text-align: center;
+    margin-top: 130px;
+    margin-bottom: 100px;
 }
-#fotoPerfil{
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
+
+.perfil h1 {
+    font-family: 'Hardome';
 }
-.perfil{
-  text-align: center;
-}
+
 
 /*USUARIOS  */
-.usuarios{
 
+.usuarios {
+    width: 80%;
+    margin: 50px auto;
+    margin-bottom: 120px;
 }
 
-.user{
-  display: flex;
-  align-items: center;
-  margin: 20px
+.user {
+    display: flex;
+    align-items: center;
+    margin: 20px
 }
-.datosFoto{
-  text-align: center;
+
+.datosFoto {
+    text-align: center;
 }
-.datos{
-  margin-left: 20px
+
+.datos {
+    margin-left: 20px
 }
+
 #h2Usuarios,
-#h2Viajes{
-  font-size: 2.5em;
-  margin-top: 40px;
-  text-align: center;
+#h2Viajes {
+    font-size: 3.5em;
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+    font-family: 'KrinkesRegular';
+    border-bottom: solid 2px var(--borderMenu);
+    width: 70%;
 }
 
 
 /* VIAJES*/
-.viajes{
 
-}
-.viaje{
-  display: flex;
-  align-items: center;
-  margin: 20px
-}
-.viajeFoto{
-  text-align: center;
-}
-.viajeFoto img{
-  width: 150px;
-  height: 150px;
-}
-.viajeDatos{
-  text-align: center;
+.viajes {
+    margin: 50px auto;
 }
 
-table{
-  margin: 0 auto;
-}
-td{
-  padding: 15px;
-  text-align: center;
+.viaje {
+    display: flex;
+    align-items: center;
+    margin: 20px
 }
 
-#basura{
-  width: 30px;
-  cursor: pointer;
+.viajeFoto {
+    text-align: center;
 }
 
-#fotoPerfilUser{
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
+.viajeFoto img {
+    width: 150px;
+    height: 150px;
 }
-#fotoViaje{
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
+
+.viajeDatos {
+    text-align: center;
+}
+
+table {
+    margin: 0 auto;
+}
+
+td {
+    padding: 15px;
+    text-align: center;
+}
+
+#basura {
+    width: 30px;
+    cursor: pointer;
+}
+
+#fotoPerfilUser {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+#fotoViaje {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
 }

@@ -10,7 +10,7 @@
 
   display: grid;
   justify-items: center;
-  grid-template: 100px auto/ 100%;
+  grid-template: 40px auto/ 100%;
 }
 
 .insertViaje > h1{
@@ -27,7 +27,7 @@
   min-width: 365px;
   max-width: 500px;
   padding: 20px;
-  margin-bottom: 20px;
+  margin: 20px 0;
   background-color: var(--fondoViaje);
   border: var(--borderMenu) .5px solid;
   border-radius: 2px;
@@ -43,7 +43,7 @@
   margin: 10px 0;
 }
 
-.insertViaje > form > input/* :not([type="file"]) */,
+.insertViaje > form > input,
 .insertViaje > form > select{
   background-color: var(--fondoTextarea);
 }
@@ -59,7 +59,6 @@
 }
 
 .etiquetas{
-  /* flex-basis: 100%; */
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 10px;
@@ -77,4 +76,8 @@
   background-color: var(--fondoTextarea);
   border: #0001 1.5px solid;
   border-radius: 2px;
+}
+
+.etiqueta {
+    flex: 1 0 33%;
 }

@@ -112,12 +112,10 @@
 .fotoSmall{
   width: var(--imgPerfil);
   height: var(--imgPerfil);
-  /* margin: 10px; */
   border-radius: 50%;
 }
 
 #imgViaje{
-  /* display: flex; */
   background-color: var(--fondoViaje);
 }
 
@@ -174,7 +172,6 @@
 
 .itinerario > ul > li{
   margin: 10px 20%;
-  /* background-color: var(--colorPrincipal); */
   border: var(--colorPrincipal) 2px solid;
   border-radius: 2px;
 }

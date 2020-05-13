@@ -1,35 +1,20 @@
 @import url('fonts.css');
 @import url('reset.css');
 @import url('root.css');
-.quienesSomos {}
-
-p {
-    text-align: justify;
-    margin-bottom: 20px;
-    font-weight: 100;
+.error404 {
+    width: 100%;
+    height: var(--mainHeight);
+    margin-top: 100px;
 }
 
 .imagen {
-    background-image: url('../logos_proyecto/avion 3.jpg');
+    background-image: url('../logos_proyecto/avion.jpg');
     height: 320px;
     background-size: cover;
     display: flex;
     align-items: flex-end;
     width: 100vw;
-    /*max-width: 1838px;*/
     min-width: 420px;
-}
-
-.texto {
-    width: 70%;
-    margin: 70px auto;
-}
-
-h2 {
-    font-family: 'KrinkesRegular';
-    font-size: 4em;
-    width: 70%;
-    margin: 70px auto;
 }
 
 .imagen h1 {
@@ -42,6 +27,42 @@ h2 {
     text-shadow: 2px 2px #c8eef5;
     user-select: none;
     animation: fadeIn 400ms;
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.texto * {
+    margin-bottom: 18.5px;
+}
+
+.texto h1 {
+    font-size: 3em;
+    font-family: 'Rockhead';
+    margin-top: 50px;
+}
+
+.texto p {
+    font-size: 1.5em;
+    font-family: 'Hardome';
+}
+
+.texto a {
+    margin-bottom: 100px;
+    text-decoration: none;
+    background-color: var(--colorPrincipal);
+    color: black;
+    padding: 8px;
+    border: 1px solid var(--colorTextNav);
+    text-align: center;
+    width: 160px;
+}
+
+.texto a:hover {
+    background-color: var(--colorAgregar);
 }
 
 

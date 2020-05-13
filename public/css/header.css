@@ -2,10 +2,6 @@
 @import url('reset.css');
 @import url('root.css');
 
-/* header, header *{
-  outline: 1px red solid;
-} */
-
 header{
   font-family: 'Sriracha', cursive;
   width: 100%;
@@ -24,7 +20,6 @@ header{
 header a{
   text-decoration: none;
   color: var(--colorTextNav);
-  
 }
 
 /******* LOGO **********/
@@ -36,45 +31,49 @@ header a{
   align-items: center;
 }
 
-#logo a{
-  flex-basis: 75%;
-  max-width: 100px;
-  display: flex;
+#logo a {
+    flex-basis: 75%;
+    max-width: 100px;
+    display: flex;
 }
 
-#logo img{
-  width: 100%;
+#logo img {
+    width: 100%;
 }
 
-#menu, nav, #nombre{
-  display: none;
+#menu,
+nav,
+#nombre {
+    display: none;
 }
 
-#nombre > h1, 
-#nombre > h3{
-  font-family: 'Rockhead';
+#nombre>h1,
+#nombre>h3 {
+    font-family: 'Rockhead';
 }
+
 
 /******* MENU **********/
-header > label{
-  flex: 0 0 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+header>label {
+    flex: 0 0 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-header > label > img{
-  width: 50px;
+header>label>img {
+    width: 50px;
 }
 
-#menu:checked ~ nav{
-  flex-basis: 100%;
-  display: flex;
-  font-size: var(--textNav1);
-  /* background-color: var(--colorPrincipal); */
+#menu:checked~nav {
+    flex-basis: 100%;
+    display: flex;
+    font-size: var(--textNav1);
+    /* background-color: var(--colorPrincipal); */
 }
 
-nav > ul {
+nav>ul {
     list-style: none;
     flex: 1;
     display: flex;
@@ -82,20 +81,20 @@ nav > ul {
     flex-wrap: wrap;
 }
 
-nav > ul > li{
-  flex-basis: 100%;
-  border-top: solid 2px var(--borderMenu);
+nav>ul>li {
+    flex-basis: 100%;
+    border-top: solid 2px var(--borderMenu);
 }
 
-nav > ul a{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Sunflower';
+nav>ul a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Sunflower';
 }
 
-nav > ul a > img{
-  margin: 0 5px;
+nav>ul a>img {
+    margin: 0 5px;
 }
 
 .favoritos2 {
@@ -116,7 +115,8 @@ nav > ul a > img{
     display: none;
   }
 
-  #menu:checked ~ nav, nav{
+  #menu:checked ~ nav,
+  nav{
     flex: 1 0 auto;
     display: flex;
     justify-content: flex-end;
@@ -132,10 +132,10 @@ nav > ul a > img{
   }
 
   nav > ul > li{
-    float: left;
-    border: none;
-    margin: 10px;
-  }  
+      float: left;
+      border: none;
+      margin: 10px;
+  }
 }
 
 /******* @media screen and (min-width: 60.5em) **********/
@@ -156,8 +156,7 @@ nav > ul a > img{
     align-self: flex-end;
   }
 
-  #nombre > h3 {
+  #nombre > h3{
     align-self: flex-start;
   }
 }
-
