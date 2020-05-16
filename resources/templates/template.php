@@ -16,6 +16,7 @@ Son necesarias las variables
     <link rel="icon" href="/logos_proyecto/logo.ico">
     <!-- <link rel="shortcut icon" href="<?php //"$ROOT/public/logos_proyecto/logo1.png"?>" type="image/png" /> -->
     <!--<link rel="stylesheet" href="/css/pure.css">-->
+    <script type="text/javascript" src="JS/scroll.js"></script>
   </head>
   <body>
     <?php
@@ -23,5 +24,15 @@ Son necesarias las variables
         require("$ROOT/resources/templates/contenido$ruta_contenido");
         require("$ROOT/resources/templates/footer.php");
      ?>
+
+    <button class='scroll'>
+        <svg class="icon" viewBox="0 0 16 16">
+            <title>Flecha</title>
+            <g stroke-width="1" stroke="currentColor">
+                <polyline fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="15.5,11.5 8,4 0.5,11.5 ">
+                </polyline>
+            </g>
+        </svg>
+    </button>
   </body>
 </html>

@@ -35,6 +35,23 @@
     cursor: pointer;
 }
 
+.scroll {
+    position: fixed;
+    right: 40px;
+    bottom: 60px;
+    width: 50px;
+    display: none;
+    cursor: pointer;
+}
+
+.scroll:hover {
+    background-color: var(--colorHover);
+}
+
+.visible {
+    display: block;
+}
+
 * {
     font-family: 'Sunflower';
     font-weight: 200;
