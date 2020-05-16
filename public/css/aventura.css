@@ -1,40 +1,242 @@
 @import url('fonts.css');
 @import url('reset.css');
 @import url('root.css');
+.aventura {}
 
-.mainAventura{
-   font-family: 'Sriracha', cursive;
-   float: left;
-   margin:10% 30%;
-   width: 40%;
-   padding: 3.6%;
-   background-color: var(--colorFondoAventura);
-   border-radius: 30px;
+.imagen {
+    background-image: url('../logos_proyecto/aventura2.jpg');
+    height: 320px;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    width: 100vw;
+    max-width: 1838px;
+    min-width: 420px;
+    background-position: 0px 40px;
 }
 
-.mainAventura>a>img{
-   float: left;
-   width: 220px;
-   height: 150px;
+.imagen h1 {
+    background: linear-gradient(to bottom, transparent 0%, var(--colorTransparenteAzul) 30%);
+    width: 100%;
+    text-align: center;
+    height: 2.5em;
+    font-family: 'Hardome';
+    font-weight: 300;
+    text-shadow: 2px 2px #c8eef5;
+    user-select: none;
+    animation: fadeIn 400ms;
 }
 
-.mainAventura>div{
-   float: left;
-   width: 330px;
-   height: 150px;
-   margin-left: 8%;
+h2 {
+    text-align: center;
+    font-family: 'KrinkesRegular';
+    font-size: 3em;
+    margin-bottom: 40px;
+    margin-top: 50px;
 }
 
-.mainAventura>div>h3{
-   margin-bottom: 5%;
+#texto {
+    text-align: center;
+    margin: 0px 30px;
 }
 
-#a-aventura{
-   float: right;
-   background-color: var(--colorBotonAventura);
-   padding: .7em;
-   margin-top: 5%;
-   border-radius: 40px;
-   color:white;
-   text-decoration: none;
+.contenedor {
+    width: 70%;
+    margin: 60px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    padding: 1em;
+    cursor: pointer;
+    background-color: var(--colorAzulClaro);
+}
+
+button:hover {
+    background-color: var(--colorAzulOscuro);
+    color: white;
+}
+
+
+/********************** TARJETAS   */
+
+.tarjeta {
+    position: relative;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-bottom: 80px;
+    animation: fadeIn 400ms;
+}
+
+.puntuacion span {
+    font-size: 1.5em;
+}
+
+.puntuacion span:last-of-type {
+    font-size: 1.2em;
+}
+
+.tarjeta a {
+    color: black;
+    text-decoration: none;
+}
+
+.tarjeta h3 {
+    position: absolute;
+    left: 0px;
+    top: 30px;
+    width: 100%;
+    padding: 17px;
+    padding-top: 5px;
+    font-size: 1.5em;
+    background: linear-gradient(to top, transparent 0%, var(--transparenteTarjeta) 30%);
+}
+
+.tarjeta>a>div:last-of-type {
+    display: flex;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background: linear-gradient(to bottom, transparent 0%, var(--transparenteTarjeta) 30%);
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 58px;
+    order: 4;
+}
+
+.tarjeta>a>div:last-of-type>div {
+    padding: 5px;
+}
+
+.tarjeta>a {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.tarjeta img {
+    width: 100%;
+    display: block;
+    transition: all 0.3s;
+    transform-origin: 50% 5%;
+}
+
+.h3Random {
+    bottom: 0px;
+}
+
+
+/**** HOVER TARJETA */
+
+.tarjeta img:hover {
+    transform: scale(1.05);
+    transform-origin: 50% 5%;
+}
+
+.rellena:before {
+    content: "\2605";
+    color: gold;
+    position: absolute;
+}
+
+
+/****************     ETIQUETAS   **/
+
+.etiquetas span {
+    background-image: url('../logos_proyecto/sprite_etiquetas_pequeño.png');
+    width: 45px;
+    height: 41px;
+    display: inline-block;
+}
+
+.Aventuras {
+    background-position: -9px;
+}
+
+.Cultural {
+    background-position: -56px;
+}
+
+.Religioso {
+    background-position: -96px;
+}
+
+.Romántico {
+    background-position: -138px;
+}
+
+.Amigos {
+    background-position: -187px;
+}
+
+.Gastronómico {
+    background-position: -229px;
+}
+
+.Relax {
+    background-position: -273px;
+}
+
+.Fiesta {
+    background-position: -318px;
+}
+
+.LowCost {
+    background-position: -361px;
+}
+
+.oculto {
+    display: none
+}
+
+
+/******* Titulo de la foto si es mas muy pequeño  */
+
+@media screen and (max-width: 520px) {
+    .imagen h1 {
+        font-size: 1.5em;
+    }
+}
+
+
+/************** TABLET */
+
+@media screen and (min-width: 40.5em) {
+    .tarjeta {
+        width: 80%;
+    }
+    .tarjeta>a>img {
+        height: 240px;
+    }
+    .imagen {
+        background-position: 0px -120px;
+        height: 350px;
+    }
+}
+
+
+/************* Desktop*/
+
+@media screen and (min-width: 60.5em) {
+    .tarjeta {
+        width: 65%;
+    }
+    .tarjeta>a>img {
+        height: 340px;
+    }
+    .imagen {
+        background-position: 0px 0px;
+        height: 450px;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .imagen {
+        height: 500px;
+        background-position: 0px -150px;
+    }
 }

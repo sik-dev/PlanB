@@ -1,21 +1,28 @@
 <?php
-   $datos = ViajeManager::getViajes();
-   $aventura = $datos[mt_rand(0, count($datos)-1)];
-/*    print_r('<pre>');
-   print_r($aventura);
-   print_r('</pre>'); */
+
+
 ?>
 <link rel="stylesheet" href="/css/aventura.css">
-<div class="mainAventura">
-   <a href="viaje.php?id=<?=$aventura['viaje']->getId()?>">
-    <img src="imgs/<?=$aventura['viaje']->getIdUser().'/'.$aventura['viaje']->getFoto()?>" alt="">
-   </a>
-   <div>
-      <h3><?=$aventura['viaje']->getDescripcion()?></h3>
-      <p>Nº de dias: <?=$aventura['diasViaje']?></p>
-      <p>Precio: <?=$aventura['viaje']->getPrecio()?></p>
-      <p>Transporte: <?=$aventura['viaje']->getTransporte()?></p>
-      <p>Media del viaje: <?=$aventura['media']?></p>
+<script type="text/javascript" src="JS/aventura.js"></script>
+
+
+<div class='aventura'>
+
+   <div class="imagen">
+    <h1>Todos los destinos al alcance de tu mano</h1>
    </div>
-   <a id='a-aventura' href="aventura.php">Aventura</a>
+
+  <h2>A la aventura !!!</h2>
+  <p id='texto'>Pulsa en el boton de la aventura para obtener un viaje aleatorio.</p>
+
+
+  <div class='contenedor'>
+     <div class='tarjeta'>
+     
+     </div>
+     <button>Aventura</button>
+  </div>
+
+
+
 </div>
