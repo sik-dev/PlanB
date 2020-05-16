@@ -96,9 +96,6 @@ function sacarDatos($datos, $sugerencia)
 {
   $sugerencias = [];
   foreach($datos as $dato){
-    /* if (stripos($dato, $sugerencia)) {
-      array_push($sugerencias, $dato);
-    } */
     if (startsWith($dato, $sugerencia)) {
       array_push($sugerencias, $dato);
     }
@@ -110,22 +107,22 @@ function sacarDatos($datos, $sugerencia)
   return $sugerencias;
 }
 
+function enviarJSON($sugerencias)
+{
+  $obj = json_encode($sugerencias);
+  echo $obj;
+}
+
 if(isset($_POST['suggest']) && !empty($_POST['suggest'])) {  
   $sugerencia = $_POST['suggest'];
-  $sugerencias = [];
-  if (!empty($sugerencia = $_POST['suggest'])) {
-    if(strpos($_POST['opcion'], 'ciudad')){
-      $sugerencias = sacarDatos($ciudades, $sugerencia);
-    }else if(strpos($_POST['opcion'], 'pais')){
-      $sugerencias = sacarDatos($paises, $sugerencia);
-    }
-    $obj = json_encode($sugerencias);
-    echo $obj;
-  }
 
-  /* $datos = ViajeManager::getAllNames($sugerencia);
-  $obj = json_encode($datos);
-  echo $obj; */
- }
+  if (!empty($sugerencia)) {
+    if(strpos($_POST['opcion'], 'ciudad')){
+      enviarJSON(sacarDatos($ciudades, $sugerencia));
+    }else if(strpos($_POST['opcion'], 'pais')){
+      enviarJSON(sacarDatos($paises, $sugerencia));
+    }
+  }
+}
 
 ?>

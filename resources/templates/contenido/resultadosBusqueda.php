@@ -2,8 +2,8 @@
   //print_r($_POST);
   //print_r($_GET);
 
-  $filtrosBusqueda = ['País', 'Ciudad', 'Tipo de viaje'];
-  $filtrosValue = ['viaje.pais_destino', 'viaje.ciudad_destino', 'etiquetas'];
+  $filtrosBusqueda = ['País', 'Ciudad', 'Número de días','Tipo de viaje'];
+  $filtrosValue = ['viaje.pais_destino', 'viaje.ciudad_destino', 'diasViaje', 'etiquetas'];
 
   $etiquetasSelect = ['Aventura', 'Cultural', 'Romántico', 'Relax', 'Gastronómico', 'Con amig@s', 'LowCost', 'Fiesta', 'Religioso'];
 

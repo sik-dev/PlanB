@@ -45,14 +45,13 @@ foreach ($viajeFavorito as $fila) {
 print_r(!$idsIguales); */
 ?>
 <link rel="stylesheet" href="/css/viaje.css">
-<!-- <link rel="stylesheet" href="/css/crearViaje_2.css"> -->
 <script src="JS/addItinerarios.js"></script>
 <div class="contenedor">
   <?php if(count($datos) > 0) {?>
   <div class="datosUsuario">
     <div id="titulo">
       <h1><?=$datos['viaje']->getCiudadDestino()?></h1>
-      <div id='estrella'>
+      <div id='avion'>
         <img class="favoritos" src="logos_proyecto/avion_dibujo_vacio.png">
       </div>
       <?php if ($id === $datos['viaje']->getIdUser()) {?>
