@@ -16,7 +16,7 @@ const app_aventura = (function() {
             const scroll = window.scrollY || document.documentElement.scrollTo; //documentElement  = HTML        cualquiera de las dos te da la distancia, depende del navegador usa una u otra
 
             if (boton.classList.contains('visible') && scroll > distanciaScroll) return; //para no hacer tantas peticiones, cuando ya aparezca el boton no se mete dentro y si esta arriba si entra
-            console.log('scrolling....');
+            //console.log('scrolling....');
 
             (scroll > distanciaScroll) ? boton.classList.add('visible'): boton.classList.remove('visible');
 

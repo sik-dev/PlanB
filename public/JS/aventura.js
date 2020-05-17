@@ -1,4 +1,4 @@
-const app_aventura = (function() {
+const aventura = (function() {
     document.addEventListener('DOMContentLoaded', main);
 
     let viajes;
