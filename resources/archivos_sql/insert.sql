@@ -35,8 +35,8 @@ INSERT INTO viaje (pais_origen, ciudad_origen, pais_destino, ciudad_destino, fot
   ('España', 'Barcelona', 'EEUU', 'New York', 'newyork.jpg', 1750, 'Avión', 'Descubriendo Nueva York', 'Cultural/Romántico', 7),
   ('España', 'Madrid', 'Rusia', 'San Petersburgo', 'SanPetersburgo.jpg', 1750, 'Avión', 'Descubriendo San Petersburgo', 'Religioso/Cultural', 8),
   ('España', 'Madrid', 'Alemania', 'Berlín', 'berlin.jpg', 450, 'Avión', 'Descubriendo Berlín', 'Gastronómico/LowCost', 9),
-  ('España', 'Madrid', 'Portugal', 'Oporto', 'oporto.jpg', 216, 'Tren', 'Descubriendo Oporto', 'Aventura/LowCost', 10),
-  ('Francia', 'Paris', 'Turquía', 'Estambul', 'estambul.jpg', 389, 'Avión', 'Descubriendo Estambul', 'Aventura/Cultural', 5),
+  ('España', 'Madrid', 'Portugal', 'Oporto', 'oporto.jpg', 216, 'Tren', 'Descubriendo Oporto', 'Aventuras/LowCost', 10),
+  ('Francia', 'Paris', 'Turquía', 'Estambul', 'estambul.jpg', 389, 'Avión', 'Descubriendo Estambul', 'Aventuras/Cultural', 5),
   ('España', 'Barcelona', 'Italia', 'Milán, Florencia y Venecia', 'florencia.jpg', 645, 'Avión', 'Norte de Italia', 'Cultural', 6),
   ('España', 'Madrid', 'Egipto', 'El Cairo', 'egipto.jpg', 845, 'Avión', 'Descubriendo Egipto', 'Cultural/Aventuras', 8),
   ('España', 'Córdoba', 'España', 'Madrid', 'madrid.jpg', 102, 'Coche', 'Viaje cultural por Madrid', 'Cultural', 4),
@@ -326,7 +326,12 @@ INSERT INTO valoracion (puntuacion, id_user, id_viaje)
   (5, 4, 25),
   (2, 6, 25),
   (4, 5, 25),
-  (1, 1, 25)
+  (1, 1, 25),
+  (2, 1, 26),
+  (1, 4, 26),
+  (5, 6, 27),
+  (3, 8, 27),
+  (4, 9, 27)
 ;
 
 /*FAVORITOS*/

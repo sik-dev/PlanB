@@ -101,8 +101,8 @@ function sacarDatos($datos, $sugerencia)
     }
   }
 
-  if (count($sugerencias) > 5) {
-    array_splice($sugerencias, 5);
+  if (count($sugerencias) > 4) {
+    array_splice($sugerencias, 4);
   }
   return $sugerencias;
 }

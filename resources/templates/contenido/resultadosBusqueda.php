@@ -48,10 +48,12 @@
     ){
     $buscador = 0;
   }
+  
 
   if(count($errores) == 0){
       $offset = ($page - 1) * $num_viajes;
       $datos = ViajeManager::getWhere($filtro, $buscador, $offset, $num_viajes);
+      $total_viajes = ViajeManager::getWhere($filtro, $buscador, 0, 99999999);
   }
 
 
@@ -60,19 +62,20 @@
     $etiquetas[$i] = explode('/', $datos[$i]['viaje']->getEtiquetas());
   }
 
-  if (is_int(count($datos) / $num_viajes)) {
-    $num_paginas = count($datos) / $num_viajes;
+  if (is_int(count($total_viajes) / $num_viajes)) {
+    $num_paginas = count($total_viajes) / $num_viajes;
   }else{
-    $num_paginas = (int) (count($datos) / $num_viajes) + 1;
+    $num_paginas = (int) (count($total_viajes) / $num_viajes) + 1;
   }
 
   /*
   print_r('<pre>');
-  print_r($datos);
+  print_r($total_viajes);
   print_r('</pre>');
   print_r($filtro);
   print_r($buscador);
   */
+  
 
 ?>
 <link rel="stylesheet" href="/css/resultadosBusqueda.css">
@@ -174,9 +177,9 @@
   <div class="paginacion">
     <?php for($pagina = 1;$pagina <= $num_paginas; $pagina++){?>
       <?php if($pagina == $page){?>
-        <a href="inicio.php?page=<?=$pagina?>"><u><?=$pagina?></u></a>
+        <a href="resultadosBusqueda.php?page=<?=$pagina?>&filtro=<?=$filtro?>&buscador=<?=$buscador?>"><u><?=$pagina?></u></a>
       <?php }else{?>
-        <a href="inicio.php?page=<?=$pagina?>"><?=$pagina?></a>
+        <a href="resultadosBusqueda.php?page=<?=$pagina?>&filtro=<?=$filtro?>&buscador=<?=$buscador?>"><?=$pagina?></a>
       <?php }?>
     <?php }?>
   </div>

@@ -58,12 +58,12 @@ const aventura = (function() {
                 }
                 mediaViaje = parseInt(viajes[numRandom].media);
 
-                for (let i = 0; i < mediaViaje; i++) {
+                for (let i = 1; i <= 5; i++) {
                     let span = document.createElement('span');
+                    span.textContent = '☆';
                     if (mediaViaje >= i) {
                         span.classList.add('rellena');
                     }
-                    span.textContent = '☆';
                     puntuacion.appendChild(span);
                 }
                 let span = document.createElement('span');
