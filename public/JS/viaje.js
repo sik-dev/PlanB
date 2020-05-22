@@ -276,6 +276,7 @@ const app = (function() {
     }
 
     function gestinaDatosViaje(datos) {
+        /* console.log(datos); */
         datosViaje = datos.datosViaje;
         datosItinerario = datos.datosItinerario;
 
@@ -306,15 +307,15 @@ const app = (function() {
         }
 
         const datos = datosItinerario[numDia - 1];
-        const div = document.getElementById('itinerarioDias');
+        /* const div = document.getElementById('itinerarioDias'); */
 
         const localizacion = document.createElement('p');
         localizacion.textContent = 'Localización: ' + datos.localizacion;
         const alojamiento = document.createElement('p');
         alojamiento.textContent = 'Alojamiento: ' + datos.alojamiento;
 
-        div.appendChild(localizacion);
-        div.appendChild(alojamiento);
+        divItinerarioDias.appendChild(localizacion);
+        divItinerarioDias.appendChild(alojamiento);
 
         const itinerario = document.createElement('div');
 
@@ -337,20 +338,56 @@ const app = (function() {
         itinerario.appendChild(tarde);
         itinerario.appendChild(nocheTitulo);
         itinerario.appendChild(noche);
+        divItinerarioDias.appendChild(itinerario);
 
-        div.appendChild(itinerario);
+        const fotos = datos.fotos;
+        const divFotos = document.createElement('div');
+        const divImgs = document.createElement('div');
+        const divImgSelect = document.createElement('div');
+        const idUserViaje = document.querySelector('.fotoSmall').dataset.iduserviaje;
+        let fotoDia;
+        let divImg;
 
-        const fotoDia = document.createElement('img');
-        const numUserViaje = document.querySelector('.fotoSmall');
-        fotoDia.src = `imgs/${numUserViaje.dataset.iduserviaje}/${datos.foto}`;
-        fotoDia.id = 'fotoDia';
+        /* rellenar el div con todas las imagenes del dia */
+        console.log(divImgs.style.width);
+        fotos.forEach(foto => {
+            fotoDia = document.createElement('img');
+            fotoDia.src = `imgs/${idUserViaje}/${foto.ruta}`;
+
+            divImg = document.createElement('div');
+            divImg.classList.add('miniFoto');
+            divImg.addEventListener('click', fotoSeleccionada);
+            divImg.appendChild(fotoDia);
+            divImgs.appendChild(divImg);
+        });
+        divImgs.id = 'fotos';
+
+        /* primera imagen seleccionada */
+        fotoDia = document.createElement('img');
+        fotoDia.src = `imgs/${idUserViaje}/${fotos[0].ruta}`;
+        fotoDia.id = 'fotoDiaSel';
         fotoDia.classList.add('cursor');
         fotoDia.addEventListener('click', crearModalFoto);
+        divImgSelect.appendChild(fotoDia);
+        divImgSelect.id = 'fotoSeleccionada';
 
-        div.appendChild(fotoDia);
-        divItinerario.appendChild(div);
+        divFotos.id = 'fotosItinerario';
+        divFotos.appendChild(divImgSelect);
+        divFotos.appendChild(divImgs);
+
+        divItinerarioDias.appendChild(divFotos);
+        divItinerario.appendChild(divItinerarioDias);
 
         diaSeleccionado();
+    }
+
+    function fotoSeleccionada(){
+        const src = 'imgs'+ this.firstChild.src.split('imgs')[1];
+        const fotoDia = document.getElementById('fotoDiaSel');
+        /* const nuevaFotoSeleccionada = document.cloneNode() */
+        fotoDia.src = src;
+/*         console.log(fotoDia);
+        console.log(src); */
     }
 
     function diaSeleccionado() {
@@ -450,6 +487,7 @@ const app = (function() {
         xhr.addEventListener('readystatechange', function(e) {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
+                    /* console.log(JSON.parse(xhr.responseText)); */
                     exito(JSON.parse(xhr.responseText));
                 } else {
                     console.error(`Error: ${xhr.status} ${xhr.statusText}`);

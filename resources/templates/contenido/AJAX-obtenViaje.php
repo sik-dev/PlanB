@@ -6,8 +6,6 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
     $id = $_GET['id'];
     $datos = ViajeManager::getById($id);
     $datosItinerario = ItinerarioManager::getBy($id);
-    //print_r(json_encode([$datos, $datosItinerario]));
-    //$obj = json_encode([$datos, $datosItinerario));
 
     /*
     echo "<pre>";
@@ -16,7 +14,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
     echo "</pre>";
     */
     for ($i=0; $i < count($datosItinerario); $i++) {
-      $datosItinerario[$i]['foto'] = FotosItinerarioManager::getBy($datosItinerario[$i]['id'])[0]['ruta'];
+      $datosItinerario[$i]['fotos'] = FotosItinerarioManager::getBy($datosItinerario[$i]['id']);
     }
     $array = [
       'datosViaje'=>$datos,
