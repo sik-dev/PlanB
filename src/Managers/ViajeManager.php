@@ -100,6 +100,8 @@ class ViajeManager implements IDWESEntidadManager{
       $where = "WHERE $diasViaje =";
     }
 
+    $order = "ORDER BY $datos[4] $datos[5]";
+
     $db = DWESBaseDatos::obtenerInstancia();
     $db->ejecuta("SELECT viaje.*,
                           round( avg(valoracion.puntuacion), 2) media,
@@ -108,7 +110,7 @@ class ViajeManager implements IDWESEntidadManager{
                   ON viaje.id = valoracion.id_viaje
                   $where ?
                   GROUP BY valoracion.id_viaje
-                  ORDER BY media DESC
+                  $order
                   LIMIT ?, ?",
                   $datos[1], $datos[2], $datos[3]);
     //return $db->obtenDatos();
@@ -132,7 +134,7 @@ class ViajeManager implements IDWESEntidadManager{
     return $db->obtenDatos();
   }
 
-  public static function getAllTest($offset, $limit)
+  public static function getAllTest($offset, $limit, $order = 'media', $dir = 'DESC')
   {
     $db = DWESBaseDatos::obtenerInstancia();
     $db->ejecuta("SELECT viaje.*,
@@ -143,7 +145,7 @@ class ViajeManager implements IDWESEntidadManager{
                   FROM viaje INNER JOIN valoracion
                   ON viaje.id = valoracion.id_viaje
                   GROUP BY valoracion.id_viaje
-                  ORDER BY media DESC
+                  ORDER BY $order $dir
                   LIMIT $offset, $limit"
                 );
 

@@ -13,6 +13,9 @@
   $etiquetas = [];
   $contador = 0;
 
+  $order = 'media';
+  $dir = 'DESC';
+
   $num_viajes = 6;
   $page = 1;
 
@@ -25,6 +28,12 @@
     }
     if (isset($_GET['page']) && ($_GET['page']) != '') {
       $page = $_GET['page'];
+    }
+    if (isset($_GET['order']) && ($_GET['order']) != '') {
+      $order= $_GET['order'];
+    }
+    if (isset($_GET['dir']) && ($_GET['dir']) != '') {
+      $dir= $_GET['dir'];
     }
   }
 
@@ -52,8 +61,8 @@
 
   if(count($errores) == 0){
       $offset = ($page - 1) * $num_viajes;
-      $datos = ViajeManager::getWhere($filtro, $buscador, $offset, $num_viajes);
-      $total_viajes = ViajeManager::getWhere($filtro, $buscador, 0, 99999999);
+      $datos = ViajeManager::getWhere($filtro, $buscador, $offset, $num_viajes, $order, $dir);
+      $total_viajes = ViajeManager::getWhere($filtro, $buscador, 0, 99999999, $order, $dir);
   }
 
 
@@ -135,6 +144,32 @@
     <?php  }else{ ?>
         <h2>Resultados de busqueda</h2>
 
+        <div class='opcionesBusqueda'>
+          <div>
+            <p>Nombre</p>
+            <a href="resultadosBusqueda.php?page=1&order=viaje.ciudad_destino&dir=ASC&filtro=<?=$filtro?>&buscador=<?=$buscador?>"></a>
+            <a href="resultadosBusqueda.php?page=1&order=viaje.ciudad_destino&dir=DESC&filtro=<?=$filtro?>&buscador=<?=$buscador?>"></a>
+          </div>
+          <div>
+            <p>Valoración</p>
+            <a href="resultadosBusqueda.php?page=1&order=media&dir=ASC&filtro=<?=$filtro?>&buscador=<?=$buscador?>"></a>
+            <a href="resultadosBusqueda.php?page=1&order=media&dir=DESC&filtro=<?=$filtro?>&buscador=<?=$buscador?>"></a>
+          </div>
+          <div>
+            <p>Nº de días</p>
+            <a href="resultadosBusqueda.php?page=1&order=diasViaje&dir=ASC&filtro=<?=$filtro?>&buscador=<?=$buscador?>"></a>
+            <a href="resultadosBusqueda.php?page=1&order=diasViaje&dir=DESC&filtro=<?=$filtro?>&buscador=<?=$buscador?>"></a>
+          </div>
+          <div>
+            <p>Precio</p>
+            <a href="resultadosBusqueda.php?page=1&order=viaje.precio&dir=ASC&filtro=<?=$filtro?>&buscador=<?=$buscador?>"></a>
+            <a href="resultadosBusqueda.php?page=1&order=viaje.precio&dir=DESC&filtro=<?=$filtro?>&buscador=<?=$buscador?>"></a>
+          </div>
+      
+        
+        </div>
+
+
         <?php foreach ($datos as $fila) { ?>
           <div class='tarjeta'>
             <a href="viaje.php?id=<?=$fila['viaje']->getId()?>">
@@ -177,9 +212,9 @@
   <div class="paginacion">
     <?php for($pagina = 1;$pagina <= $num_paginas; $pagina++){?>
       <?php if($pagina == $page){?>
-        <a href="resultadosBusqueda.php?page=<?=$pagina?>&filtro=<?=$filtro?>&buscador=<?=$buscador?>"><u><?=$pagina?></u></a>
+        <a href="resultadosBusqueda.php?page=<?=$pagina?>&filtro=<?=$filtro?>&buscador=<?=$buscador?>&order=<?=$order?>&dir=<?=$dir?>"><u><?=$pagina?></u></a>
       <?php }else{?>
-        <a href="resultadosBusqueda.php?page=<?=$pagina?>&filtro=<?=$filtro?>&buscador=<?=$buscador?>"><?=$pagina?></a>
+        <a href="resultadosBusqueda.php?page=<?=$pagina?>&filtro=<?=$filtro?>&buscador=<?=$buscador?>&order=<?=$order?>&dir=<?=$dir?>"><?=$pagina?></a>
       <?php }?>
     <?php }?>
   </div>

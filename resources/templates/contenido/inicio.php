@@ -11,6 +11,9 @@
   $etiquetas = [];
   $contador = 0;
 
+  $order = 'media';
+  $dir = 'DESC';
+
   $num_viajes = 6;
   $page = 1;
   /* $imgRandom = mt_rand(9, 18); */
@@ -37,9 +40,15 @@
   if (isset($_GET['page']) && ($_GET['page']) != '') {
     $page = $_GET['page'];
   }
+  if (isset($_GET['order']) && ($_GET['order']) != '') {
+    $order= $_GET['order'];
+  }
+  if (isset($_GET['dir']) && ($_GET['dir']) != '') {
+    $dir= $_GET['dir'];
+  }
 
   $offset = ($page - 1) * $num_viajes;
-  $datos = ViajeManager::getAllTest($offset, $num_viajes);
+  $datos = ViajeManager::getAllTest($offset, $num_viajes, $order, $dir);
   $total_viajes = ViajeManager::getAll();
   /* $datos = ViajeManager::getViajes(); */
 
@@ -111,6 +120,31 @@
   <div class="mejorValorados">
     <h2>Mejores Valorados</h2>
 
+    <div class='opcionesBusqueda'>
+        <div>
+          <p>Nombre</p>
+          <a href="inicio.php?page=1&order=viaje.ciudad_destino&dir=ASC" class='flechaArriba'></a>
+          <a href="inicio.php?page=1&order=viaje.ciudad_destino&dir=DESC" class='flechaArriba'></a>
+        </div>
+        <div>
+          <p>Valoración</p>
+          <a href="inicio.php?page=1&order=media&dir=ASC" class='flechaArriba'></a>
+          <a href="inicio.php?page=1&order=media&dir=DESC" class='flechaArriba'></a>
+        </div>
+        <div>
+          <p>Nº de días</p>
+          <a href="inicio.php?page=1&order=diasViaje&dir=ASC" class='flechaArriba'></a>
+          <a href="inicio.php?page=1&order=diasViaje&dir=DESC" class='flechaArriba'></a>
+        </div>
+        <div>
+          <p>Precio</p>
+          <a href="inicio.php?page=1&order=viaje.precio&dir=ASC" class='flechaArriba'></a>
+          <a href="inicio.php?page=1&order=viaje.precio&dir=DESC" class='flechaArriba'></a>
+        </div>
+        
+        
+    </div>
+
 
       <?php foreach ($datos as $fila) { ?>
         <div class='tarjeta'>
@@ -150,9 +184,9 @@
   <div class="paginacion">
     <?php for($pagina = 1;$pagina <= $num_paginas; $pagina++){?>
       <?php if($pagina == $page){?>
-        <a href="inicio.php?page=<?=$pagina?>"><u><?=$pagina?></u></a>
+        <a href="inicio.php?page=<?=$pagina?>&order=<?=$order?>&dir=<?=$dir?>"><u><?=$pagina?></u></a>
       <?php }else{?>
-        <a href="inicio.php?page=<?=$pagina?>"><?=$pagina?></a>
+        <a href="inicio.php?page=<?=$pagina?>&order=<?=$order?>&dir=<?=$dir?>"><?=$pagina?></a>
       <?php }?>
     <?php }?>
   </div>
