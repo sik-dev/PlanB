@@ -123,23 +123,23 @@
     <div class='opcionesBusqueda'>
         <div>
           <p>Nombre</p>
-          <a href="inicio.php?page=1&order=viaje.ciudad_destino&dir=ASC" class='flechaArriba'></a>
-          <a href="inicio.php?page=1&order=viaje.ciudad_destino&dir=DESC" class='flechaArriba'></a>
+          <a href="inicio.php?page=1&order=viaje.ciudad_destino&dir=ASC" class='flechaArriba'>↑</a>
+          <a href="inicio.php?page=1&order=viaje.ciudad_destino&dir=DESC" class='flechaArriba'>↓</a>
         </div>
         <div>
           <p>Valoración</p>
-          <a href="inicio.php?page=1&order=media&dir=ASC" class='flechaArriba'></a>
-          <a href="inicio.php?page=1&order=media&dir=DESC" class='flechaArriba'></a>
+          <a href="inicio.php?page=1&order=media&dir=ASC">↑</a>
+          <a href="inicio.php?page=1&order=media&dir=DESC">↓</a>
         </div>
         <div>
           <p>Nº de días</p>
-          <a href="inicio.php?page=1&order=diasViaje&dir=ASC" class='flechaArriba'></a>
-          <a href="inicio.php?page=1&order=diasViaje&dir=DESC" class='flechaArriba'></a>
+          <a href="inicio.php?page=1&order=diasViaje&dir=ASC">↑</a>
+          <a href="inicio.php?page=1&order=diasViaje&dir=DESC">↓</a>
         </div>
         <div>
           <p>Precio</p>
-          <a href="inicio.php?page=1&order=viaje.precio&dir=ASC" class='flechaArriba'></a>
-          <a href="inicio.php?page=1&order=viaje.precio&dir=DESC" class='flechaArriba'></a>
+          <a href="inicio.php?page=1&order=viaje.precio&dir=ASC">↑</a>
+          <a href="inicio.php?page=1&order=viaje.precio&dir=DESC">↓</a>
         </div>
         
         

@@ -214,36 +214,27 @@
 
 .opcionesBusqueda {
     display: flex;
-    margin: auto;
+    /* margin: auto; */
     margin-bottom: 30px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .opcionesBusqueda>div {
     display: flex;
-    width: 25%;
-}
-
-.opcionesBusqueda>div * {
-    margin: 15px;
+    width: 42%;
+    align-items: center;
 }
 
 .opcionesBusqueda>div>p {
-    width: 6em
+    width: 120px;
 }
 
 .opcionesBusqueda div>a {
-    background-image: url('../logos_proyecto/flecha.png');
-    width: 32px;
-    height: 22px;
-    display: block;
-    background-size: 40%;
-    background-position: center;
-    margin-right: 24px;
-}
-
-.opcionesBusqueda div>a:nth-of-type(2) {
-    transform: rotate(180deg);
-    transform-origin: 0px 11px;
+    text-decoration: none;
+    color: black;
+    font-size: 2em;
+    padding: 0.2em;
 }
 
 .opcionesBusqueda div>a:hover {
@@ -390,6 +381,15 @@
     .tarjeta>a>img {
         height: 185px;
     }
+    /*OPCIONES BUSQUEDA*/
+    .opcionesBusqueda {
+        flex-direction: row;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .opcionesBusqueda>div>p {
+        width: 90px;
+    }
 }
 
 
@@ -441,6 +441,10 @@
     }
     #sugerencia ul li a {
         font-size: 0.6em;
+    }
+    .opcionesBusqueda {
+        margin-left: 60px;
+        margin-right: 0px;
     }
 }
 
