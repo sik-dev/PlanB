@@ -39,9 +39,9 @@ if ( count($_POST) > 0) {
     $mail->SMTPDebug  = 0;
     $mail->SMTPAuth   = TRUE;
     $mail->SMTPSecure = "tls";
-    $mail->Port       = 587;                        //puerto
-    $mail->Host       = $datosEmail['server'];           //servid  or
-    $mail->Username   = $datosEmail['correo'];      //tu correo
+    $mail->Port       = 587;                             //puerto
+    $mail->Host       = $datosEmail['server'];           //servidor
+    $mail->Username   = $datosEmail['correo'];            //tu correo
     $mail->Password   = $datosEmail['pass'];              //contraseña
 
     $http = 'http://localhost:9000/';
@@ -83,8 +83,13 @@ if ( count($_POST) > 0) {
 ?>
 <link rel="stylesheet" href="/css/password.css">
 <div class="password">
+
+  <div class="imagen">
+    <h1>Todos los destinos al alcance de tu mano</h1>
+  </div>
+
   <?php if( isset($respuesta) && $respuesta != null) { ?>
-    <h4><?=$respuesta?></h4>
+    <h4 class='respuesta'><?=$respuesta?></h4>
   <?php }else{ ?>
     <form action="password.php" method="post">
       <label for="email">Introduce tu correo</label>

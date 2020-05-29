@@ -5,6 +5,7 @@
     width: 100%;
     height: var(--mainHeight);
     margin-top: 100px;
+    margin-bottom: 120px;
 }
 
 .imagen {
@@ -15,6 +16,7 @@
     align-items: flex-end;
     width: 100vw;
     min-width: 420px;
+    background-position: center;
 }
 
 .imagen h1 {
@@ -83,6 +85,9 @@
 /************* Desktop*/
 
 @media screen and (min-width: 60.5em) {
+    .error404 {
+        margin-bottom: 150px;
+    }
     .imagen {
         height: 350px;
         background-position: 0px -89px;

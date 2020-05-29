@@ -21,7 +21,7 @@
        $_SESSION['id'] = $id;
 
        //RECUERDAME
-       if( $_POST['recuerdame'] == true ){
+       if( isset($_POST['recuerdame']) && $_POST['recuerdame'] == true ){
          $token = getToken();                                    //generamos un token y lo convertimos a hash
          //ViajesManager::insertCookieSesion([$token, $id]);       //insertamos el token en la base de datos
         CookieManager::insert($token, $id);
@@ -78,7 +78,7 @@
         <label for="name">Nombre</label>
         <input type="text" id='name' name="nombre" value="<?=$info['nombre']?>" placeholder="Introduce tu nombre">
         <?php if( isset($errores['nombre'])) { ?>
-          <br><span class='error'><?=$errores['nombre']?></span><br>
+          <br><span class='error'>Debes introducir un nombre</span><br>
         <?php } ?>
      </div>
 
@@ -87,7 +87,7 @@
         <br>
         <input type="password" id='password' name="pass" value="" placeholder="Introduce tu contraseña">
         <?php if( isset($errores['pass'])) { ?>
-          <br><span class='error'><?=$errores['pass']?></span><br>
+          <br><span class='error'>Debes introducir una contraseña</span><br>
         <?php } ?>
      </div>
 
@@ -105,10 +105,10 @@
      <div class='botones'>
         <input type="submit" name="enviar" value="Enviar">
         <a href="formulario.php?redirect=<?=$redirect?>">Registrate</a>
-        <?php if( isset($errores['db'])) { ?>
-          <br><br><span class='error'><?=$errores['db']?></span><br>
-        <?php } ?>
      </div>
+     <?php if( isset($errores['db'])) { ?>
+          <br><span class='error'><?=$errores['db']?></span><br>
+      <?php } ?>
    
    </form>
 
