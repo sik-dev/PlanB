@@ -1,18 +1,136 @@
 @import url('fonts.css');
 @import url('reset.css');
 @import url('root.css');
+.formulario {}
 
-.formulario{
-  font-family: 'Sriracha', cursive;
-  width: 60%;
-  margin: 0 auto;
-  margin-top: 100px;
-  height: 530px;
+.imagen {
+    background-image: url('../logos_proyecto/avion\ 3.jpg');
+    height: 320px;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    width: 100vw;
+    /*max-width: 1838px;*/
+    min-width: 420px;
 }
-.formulario>form{
-  width: 27%;
-  margin: auto;
+
+.imagen h1 {
+    background: linear-gradient(to bottom, transparent 0%, var(--colorTransparenteAzul) 30%);
+    width: 100%;
+    text-align: center;
+    height: 2.5em;
+    font-family: 'Hardome';
+    font-weight: 300;
+    text-shadow: 2px 2px #c8eef5;
+    user-select: none;
+    animation: fadeIn 400ms;
 }
-input{
-  margin-top: 10px;
+
+.formulario h2 {
+    text-align: center;
+    font-family: 'KrinkesRegular';
+    font-size: 3em;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+
+/* FORMULARIO*/
+
+.formulario>form {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    font-size: 1.4em;
+}
+
+.formulario>form>label {
+    font-size: 0.6em;
+}
+
+.formulario>form>input,
+.formulario>form>select,
+.formulario>form>textarea {
+    margin-bottom: 20px;
+}
+
+.formulario>form>.terminos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.55em;
+    margin-bottom: 20px;
+}
+
+.error {
+    margin-bottom: 15px;
+}
+
+#enviar {
+    padding: 4px;
+    align-self: center;
+    width: 9em;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+#enviar:hover {
+    background-image: url('../logos_proyecto/cloud.gif');
+    background-position: center;
+}
+
+
+/******* Titulo de la foto si es mas muy pequeño  */
+
+@media screen and (max-width: 520px) {
+    .imagen h1 {
+        font-size: 1.5em;
+    }
+}
+
+
+/************** TABLET */
+
+@media screen and (min-width: 40.5em) {
+    .formulario h2 {
+        font-size: 4em;
+    }
+    .formulario>form>label {
+        font-size: 0.8em;
+    }
+    .formulario>form>.terminos {
+        font-size: 0.7em;
+    }
+    #enviar {
+        width: 14em;
+        padding: 6px;
+    }
+}
+
+
+/************* Desktop*/
+
+@media screen and (min-width: 60.5em) {
+    .formulario>form {
+        width: 30%;
+    }
+    .formulario>form>.terminos {
+        justify-content: space-evenly;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .imagen {
+        height: 350px;
+        background-position: 0px -89px;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .imagen {
+        height: 400px;
+    }
 }

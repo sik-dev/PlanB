@@ -100,7 +100,7 @@
     <div>
       <input id='buscar' type="submit" name='buscar' value='Buscar'>
       <button id='aventura'>
-        <a href="aventura.php">Aventura</a>
+        <a href="aventura.php" id='aventura'>Aventura</a>
       </button>
     </div>
 
@@ -192,3 +192,4 @@
   </div>
   
 </div>
+

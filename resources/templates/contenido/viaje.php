@@ -10,6 +10,7 @@ $imgRandom = mt_rand(2, 18);
 if ( isset($_GET['id']) ){
   $id_viaje = $_GET['id'];
   $viajeEnviado = true;
+  setcookie("viajeId", $id_viaje, time()+3600); 
 }
 /*
 if (isset($_POST['comentario']) && $_POST['comentario'] != null) {

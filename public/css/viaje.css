@@ -6,650 +6,679 @@
   outline: 1px red solid;
 } */
 
-.contenedor{
-  font-family: 'Sriracha', cursive;
-  margin: 100px 0 10px;
-  width: 100%;
-
-  display: flex;
-  flex-wrap: wrap;
+.contenedor {
+    font-family: 'Sriracha', cursive;
+    margin: 100px 0 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .datosUsuario,
 .itinerario,
 .comentarios,
-.pu{
-  flex: 0 0 100%;
-  display: flex;
-  flex-wrap: wrap;
+.pu {
+    flex: 0 0 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
+
 
 /******* DATOS DE USUARIO **********/
+
 #titulo,
 #imgViaje,
-.datos{
-  flex: 0 0 100%;
+.datos {
+    flex: 0 0 100%;
 }
 
-#titulo{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  padding: 10px 0;
+#titulo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
 }
 
-#titulo > h1{
-  flex: 0 0 50%;
+#titulo>h1 {
+    flex: 0 0 50%;
 }
 
-#avion{
-  flex: 0 0 90px;
-  display: flex;
-  justify-content: center;
+#avion {
+    flex: 0 0 90px;
+    display: flex;
+    justify-content: center;
 }
 
-#avion > img{
-  width: 50px;
-  height: 50px;
-  transform: rotate(-25deg);
+#avion>img {
+    width: 50px;
+    height: 50px;
+    transform: rotate(-25deg);
 }
 
-#modificar{
-  flex-basis: 100%;
-  max-width: 400px;
-  height: 30px;
-  margin: 20px;
-  align-self: center;
-  background-color: var(--fondoTextarea);
-  border: #0001 1.5px solid;
-  border-radius: 2px;
-  /* order: 1; */
+#modificar {
+    flex-basis: 100%;
+    max-width: 400px;
+    height: 30px;
+    margin: 20px;
+    align-self: center;
+    background-color: var(--fondoTextarea);
+    border: #0001 1.5px solid;
+    border-radius: 2px;
+    /* order: 1; */
 }
 
-.puntuacion{
-  flex: 0 0 60%;
-  font-size: 30px;
-  display: flex;
+.puntuacion {
+    flex: 0 0 60%;
+    font-size: 30px;
+    display: flex;
 }
 
-.puntuacion > div{
-  unicode-bidi: bidi-override;
-  direction: rtl;
-  cursor: pointer;
-  width: 130px;
+.puntuacion>div {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    cursor: pointer;
+    width: 130px;
 }
 
-.puntuacion > div > span:hover:before,
-.puntuacion > div > span:hover ~ span:before {
-  content: "\2605";
-  position: absolute;
-  color: gold;
+.puntuacion>div>span:hover:before,
+.puntuacion>div>span:hover~span:before {
+    content: "\2605";
+    position: absolute;
+    color: gold;
 }
 
-#mediaViaje{
-  margin: 0 10px;
+#mediaViaje {
+    margin: 0 10px;
 }
 
 #mediaViaje,
-.puntuacion > div{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.puntuacion>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#usuario{
-  flex: 0 0 auto;
-  display: flex;
-  justify-content: center;
+#usuario {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
 }
 
-#usuario > a{
-  width: var(--imgPerfil);
-  margin: 5px;
+#usuario>a {
+    width: var(--imgPerfil);
+    margin: 5px;
 }
 
-.fotoSmall{
-  width: var(--imgPerfil);
-  height: var(--imgPerfil);
-  border-radius: 50%;
+.fotoSmall {
+    width: var(--imgPerfil);
+    height: var(--imgPerfil);
+    border-radius: 50%;
 }
 
-#imgViaje{
-  background-color: var(--fondoViaje);
+#imgViaje {
+    background-color: var(--fondoViaje);
 }
 
-#imgViaje > img{
-  width: 90%;
-  margin: 5%;
+#imgViaje>img {
+    width: 90%;
+    margin: 5%;
 }
 
-.datos{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 35px;
+.datos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 35px;
 }
 
-.datos > *{
-  flex-basis: 60%;
+.datos>* {
+    flex-basis: 60%;
 }
 
-.datos > h3{
-  margin: 20px 0;
+.datos>h3 {
+    margin: 20px 0;
 }
 
-.datos > p{
-  margin-bottom: 5px;
+.datos>p {
+    margin-bottom: 5px;
 }
 
-.etiquetas{
-  margin: 20px 0;
+.etiquetas {
+    margin: 20px 0;
 }
+
 
 /******* ITINERARIO **********/
-.itinerario{
-  margin-bottom: 20px;
+
+.itinerario {
+    margin-bottom: 20px;
 }
 
-.itinerario > h2{
-  flex-basis: 100%;
-  background-color: var(--colorPrincipal);
-  display: flex;
-  justify-content: center;
+.itinerario>h2 {
+    flex-basis: 100%;
+    background-color: var(--colorPrincipal);
+    display: flex;
+    justify-content: center;
 }
 
-#agregarItinerario{
-  width: 20px;
-  margin: 0 10px;
+#agregarItinerario {
+    width: 20px;
+    margin: 0 10px;
 }
 
-.itinerario > ul{
-  flex-basis: 100%;
-  list-style: none;
-  text-align: center;
+.itinerario>ul {
+    flex-basis: 100%;
+    list-style: none;
+    text-align: center;
 }
 
-.itinerario > ul > li{
-  margin: 10px 20%;
-  border: var(--colorPrincipal) 2px solid;
-  border-radius: 2px;
+.itinerario>ul>li {
+    margin: 10px 20%;
+    border: var(--colorPrincipal) 2px solid;
+    border-radius: 2px;
 }
 
-.diaSeleccionado{
-  background-color: var(--colorPrincipal);
+.diaSeleccionado {
+    background-color: var(--colorPrincipal);
 }
 
-#itinerarioDias{
-  flex-basis: 100%;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+#itinerarioDias {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-#itinerarioDias > p,
-#itinerarioDias > div{
-  margin: 15px;
-  flex-basis: 60%;
+#itinerarioDias>p,
+#itinerarioDias>div {
+    margin: 15px;
+    flex-basis: 60%;
 }
 
-#itinerarioDias > div > p{
-  margin-bottom: 15px;
+#itinerarioDias>div>p {
+    margin-bottom: 15px;
 }
 
-#itinerarioDias > div > p:last-of-type{
-  margin-bottom: 0;
+#itinerarioDias>div>p:last-of-type {
+    margin-bottom: 0;
 }
 
-#fotosItinerario{
-  flex: 1;
-  background-color: var(--fondoViaje);
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+#fotosItinerario {
+    flex: 1;
+    background-color: var(--fondoViaje);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-#fotoSeleccionada{
-  margin: 0 auto;
-  flex-basis: 90%;
-  max-height: 400px;
-  text-align: center;
+#fotoSeleccionada {
+    margin: 0 auto;
+    flex-basis: 90%;
+    max-height: 400px;
+    text-align: center;
 }
 
-#fotoDiaSel{
-  width: 100%;
-  height: 100%;
-  padding: 30px;
+#fotoDiaSel {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
 }
 
-#fotos{
-  flex-basis: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: 15px 0;
+#fotos {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 15px 0;
 }
 
-.miniFoto{
-  width: 80px;
-  height: 80px;
-  margin: 10px;
-  border: 2px solid var(--borderMenu);
-
-  display: flex;
-  align-items: center;
+.miniFoto {
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    border: 2px solid var(--borderMenu);
+    display: flex;
+    align-items: center;
 }
 
-.miniFoto > img{
-  width: 100%;
-  max-height: 80px;
-  padding: 5px;
+.miniFoto>img {
+    width: 100%;
+    max-height: 80px;
+    padding: 5px;
 }
 
-.insertItinerario{
-  flex-basis: 100%;
-  display: flex;
-  justify-content: center;
+.insertItinerario {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-.insertItinerario > form{
-  flex-basis: 80%;
-  border: var(--borderMenu) .5px solid;
-  border-radius: 5px;
-  padding: 5%;
-  background-color: var(--fondoViaje);
+.insertItinerario>form {
+    flex-basis: 80%;
+    border: var(--borderMenu) .5px solid;
+    border-radius: 5px;
+    padding: 5%;
+    background-color: var(--fondoViaje);
 }
 
-.insertItinerario > form > div{
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
+.insertItinerario>form>div {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
 }
 
-.insertItinerario > form > div > label{
-  flex: 0 0 50%;
+.insertItinerario>form>div>label {
+    flex: 0 0 50%;
 }
 
-.insertItinerario > form > div > input,
-.insertItinerario > form > div > select{
-  flex: 0 0 50%;
+.insertItinerario>form>div>input,
+.insertItinerario>form>div>select {
+    flex: 0 0 50%;
 }
 
-.insertItinerario > form > fieldset{
-  border: var(--borderMenu) 2px solid;
-  border-left: none;
-  border-right: none;
-  margin: 10px -5%;
-  padding: 0 5%;
+.insertItinerario>form>fieldset {
+    border: var(--borderMenu) 2px solid;
+    border-left: none;
+    border-right: none;
+    margin: 10px -5%;
+    padding: 0 5%;
 }
 
-.insertItinerario > form > fieldset > legend{
-  margin: 0 10px 5px;
+.insertItinerario>form>fieldset>legend {
+    margin: 0 10px 5px;
 }
 
-.insertItinerario > form > fieldset > textarea{
-  background-color: var(--fondoTextarea);
-  margin-bottom: 10px;
-  width: 100%;
-  height: 80px;
+.insertItinerario>form>fieldset>textarea {
+    background-color: var(--fondoTextarea);
+    margin-bottom: 10px;
+    width: 100%;
+    height: 80px;
 }
 
-.insertItinerario > form > button{
-  background-color: var(--fondoTextarea);
-  width: 70px;
-  border-radius: 2px;
-  border: #0001 1.5px solid;
+.insertItinerario>form>button {
+    background-color: var(--fondoTextarea);
+    width: 70px;
+    border-radius: 2px;
+    border: #0001 1.5px solid;
 }
+
 
 /******* COMENTARIOS **********/
-.comentarios{
-  justify-content: center;
+
+.comentarios {
+    justify-content: center;
 }
 
 .comentario,
-.comentarios > form{
-  flex-basis: 70%;
+.comentarios>form {
+    flex-basis: 70%;
 }
 
-.comentarios > h2{
-  flex-basis: 100%;
-  text-align: center;
-  background-color: var(--colorPrincipal);
-  margin-bottom: 20px;
+.comentarios>h2 {
+    flex-basis: 100%;
+    text-align: center;
+    background-color: var(--colorPrincipal);
+    margin-bottom: 20px;
 }
 
-.comentario{
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+.comentario {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-.comentario > a{
-  flex: 0 0 20%;
+.comentario>a {
+    flex: 0 0 20%;
 }
 
-.comentario > div:nth-of-type(1){
-  flex: 1 0 40%;
-  display: flex;
-  flex-wrap: wrap;
+.comentario>div:nth-of-type(1) {
+    flex: 1 0 40%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.comentario > div:nth-of-type(1) > p,
-.comentario > div:nth-of-type(1) > span{
-  flex: 0 0 100%;
+.comentario>div:nth-of-type(1)>p,
+.comentario>div:nth-of-type(1)>span {
+    flex: 0 0 100%;
 }
 
-.comentario > div:nth-of-type(1) > span{
-  color: var(--colorTextNav);
+.comentario>div:nth-of-type(1)>span {
+    color: var(--colorTextNav);
 }
 
-.comentario > div:nth-of-type(2){
-  flex: 0 0 15%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+.comentario>div:nth-of-type(2) {
+    flex: 0 0 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
-.borrarComentario{
-  width: 40px;
+.borrarComentario {
+    width: 40px;
 }
 
-.comentarios > form{
-  margin-top: 20px;
+.comentarios>form {
+    margin-top: 20px;
 }
 
-.comentarios > form > textarea{
-  width: 100%;
-  background-color: var(--fondoTextarea);
+.comentarios>form>textarea {
+    width: 100%;
+    background-color: var(--fondoTextarea);
 }
 
-.comentarios > form > button{
-  background-color: var(--fondoTextarea);
-  border: #0001 1.5px solid;
-  border-radius: 2px;
-  width: 70px;
+.comentarios>form>button {
+    background-color: var(--fondoTextarea);
+    border: #0001 1.5px solid;
+    border-radius: 2px;
+    width: 70px;
 }
+
 
 /******* PUBLICICIDAD **********/
-.pu{
-  justify-content: center;
-  align-items: center;
+
+.pu {
+    justify-content: center;
+    align-items: center;
 }
 
-.pu > a{
-  flex-basis: 60%;
-  max-width: 700px;
+.pu>a {
+    flex-basis: 60%;
+    max-width: 700px;
 }
 
-.pu > a > img{
-  width: 100%;
-  margin: 8% 0;
+.pu>a>img {
+    width: 100%;
+    margin: 8% 0;
 }
+
 
 /****************     ETIQUETAS   **/
-.etiquetas span{
-  background-image: url('../logos_proyecto/sprite_etiquetas.png');
-  width: 72px;
-  height: 72px;
-  display: inline-block;
-}
-.Aventuras{
-  background-position: 0px;
-}
-.Cultural{
-  background-position: -73px;
-}
-.Religioso{
-  background-position: -140px;
-}
-.Romántico{
-  background-position: -202px;
-}
-.Amigos{
-  background-position: -272px;
-}
-.Gastronómico{
-  background-position: -342px;
-}
-.Relax{
-  background-position: -416px;
-}
-.Fiesta{
-  background-position: -489px;
-}
-.LowCost{
-  background-position: -559px;
+
+.etiquetas span {
+    background-image: url('../logos_proyecto/sprite_etiquetas.png');
+    width: 72px;
+    height: 72px;
+    display: inline-block;
 }
 
-/******************* MODAL LOGIN  */
-#modal{
-  display: grid;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  justify-content: center;
-  align-items: center;
-  background-color: hsla(0, 0%, 0%, 0.7);
+.Aventuras {
+    background-position: 0px;
 }
-#modal *{
+
+.Cultural {
+    background-position: -73px;
+}
+
+.Religioso {
+    background-position: -140px;
+}
+
+.Romántico {
+    background-position: -202px;
+}
+
+.Amigos {
+    background-position: -272px;
+}
+
+.Gastronómico {
+    background-position: -342px;
+}
+
+.Relax {
+    background-position: -416px;
+}
+
+.Fiesta {
+    background-position: -489px;
+}
+
+.LowCost {
+    background-position: -559px;
+}
+
+
+/******************* MODAL LOGIN  */
+
+#modal {
+    display: grid;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: hsla(0, 0%, 0%, 0.7);
+}
+
+#modal * {
     font-family: 'Sriracha', cursive;
     font-size: 1em;
 }
-#modal div{
-  max-width: 400px;
-  min-width: 200px;
-  max-height: 100vh;
-  /*min-height: 200px;*/
-  padding: 2em;
-  background-color: white;
-  position: relative;
-  border-radius: 5%;
-  height: 215px;
-  width: 280px;
-  animation: fadeIn 400ms;
-}
-#modal p:first-of-type{
-  text-align: center;
-  border-bottom: 1px solid black;
-  font-size: 1.2em;
-  margin-top: -20px;
-}
-#modal p{
-  margin-bottom: 20px;
-  text-align: justify;
-}
-#modal button{
-  margin: 20px auto;
-  width: calc(50% - 10px);
-  margin: 5px;
-  border-radius: 10%;
-  cursor: pointer;
-}
-#modal button:hover{
-  background-color: var(--colorPrincipal);
-  color: white;
+
+#modal div {
+    max-width: 400px;
+    min-width: 200px;
+    max-height: 100vh;
+    /*min-height: 200px;*/
+    padding: 2em;
+    background-color: white;
+    position: relative;
+    border-radius: 5%;
+    height: 215px;
+    width: 280px;
+    animation: fadeIn 400ms;
 }
 
-#btn-cerrar{
-  position: absolute;
-  bottom: 3px;
-  right: 4px;
-  width: 30px;
-  cursor: pointer;
+#modal p:first-of-type {
+    text-align: center;
+    border-bottom: 1px solid black;
+    font-size: 1.2em;
+    margin-top: -20px;
+}
+
+#modal p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+#modal button {
+    margin: 20px auto;
+    width: calc(50% - 10px);
+    margin: 5px;
+    border-radius: 10%;
+    cursor: pointer;
+}
+
+#modal button:hover {
+    background-color: var(--colorPrincipal);
+    color: white;
+}
+
+#btn-cerrar {
+    position: absolute;
+    bottom: 3px;
+    right: 4px;
+    width: 30px;
+    cursor: pointer;
 }
 
 
 /******************* MODAL FOTO  */
-#modalFoto{
-  display: grid;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  justify-content: center;
-  align-items: center;
-  background-color: hsla(0, 0%, 0%, 0.7);
-}
-#modalFoto div{
-  max-height: 100vh;
-  /*min-height: 200px;*/
-  padding: 2em;
-  background-color: white;
-  position: relative;
-  border-radius: 3%;
-  height: 650px;
-  width: 1110px;
-  animation: fadeIn 400ms;
-}
-#modalFoto img:first-of-type{
-  height: 576px;
-  width: 1024px;
-  border-radius: 2%;
-}
-#btn-cerrarFoto{
-  position: absolute;
-  bottom: 11px;
-  right: 26px;
-  width: 30px;
-  cursor: pointer;
-}
 
-.desaparecer{
-  display: none;
-}
-
-/******* @media screen and (min-width: 40.5em) **********/
-@media screen and (min-width: 40.5em){
-  #titulo > h1{
-    flex-basis: 60%;
-  }
-
-  #modificar{
-    order: 1;
-    margin: 20px 10%;
-  }
-
-  .itinerario > ul > li{
-    margin: 10px 30%;
-  }
-
-  #itinerarioDias > p,
-  #itinerarioDias > div:first-of-type{
-    margin: 15px 30%;
-  }
-
-  .insertItinerario > form{
-    flex-basis: 60%;
-  }
-
-  .insertItinerario > form > fieldset{
-    padding: 0 7%;
-  }
-
-  .insertItinerario > form > button{
-    width: 80px;
-  }
-
-  .comentario,
-  .comentarios > form{
-    flex-basis: 60%;
-  }
-
-  .desaparecer{
-    display: none;
-  }
-
-  #fotoSeleccionada{
-    max-height: 600px;
-  }
-
-  .miniFoto{
-    width: 90px;
-    height: 90px;
-  }
-}
-
-/******* @media screen and (min-width: 60.5em) **********/
-@media screen and (min-width: 60.5em){
-  #titulo {
-    justify-content: center;
-  }
-  
-  #titulo > h1{
-    flex-basis: 30%;
-  }
-
-  .puntuacion{
-    flex-basis: 60%;
-  }
-
-  #avion{
-    flex-basis: 50%;
-    justify-content: flex-start;
-  }
-
-  #usuario{
-    flex-basis: 20%;
-    justify-content: flex-start;
-  }
-
-  #imgViaje,
-  .datos{
-    flex: 0 0 50%;
-  }
-
-  #imgViaje{
-    display: flex;
+#modalFoto {
+    display: grid;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
     justify-content: center;
     align-items: center;
-  }
+    background-color: hsla(0, 0%, 0%, 0.7);
+}
 
-  .datos{
-    background-color: var(--fondoViaje);
-  }
+#modalFoto div {
+    max-height: 100vh;
+    /*min-height: 200px;*/
+    padding: 2em;
+    background-color: white;
+    position: relative;
+    border-radius: 3%;
+    width: 516px;
+    animation: fadeIn 400ms;
+}
 
-  .itinerario{
-    margin: 20px 0;
-  }
+#modalFoto img:first-of-type {
+    height: 345px;
+    width: 459px;
+    border-radius: 2%;
+}
 
-  .insertItinerario > form{
-    flex-basis: 40%;
-  }
+#btn-cerrarFoto {
+    position: absolute;
+    bottom: 11px;
+    right: 26px;
+    width: 30px;
+    cursor: pointer;
+}
 
-  .insertItinerario > form > fieldset{
-    padding: 0 10%;
-  }
-
-  .insertItinerario > form > button{
-    width: 90px;
-  }
-
-  #fotoSeleccionada{
-    max-height: 800px;
-  }
-
-  #fotoDiaSel{
-    width: 80%;
-    max-width: 1000px;
-    max-height: 800px;
-  }
-
-  #fotos{
-    flex-basis: 80%;
-  }
-
-  .comentario,
-  .comentarios > form{
-    flex-basis: 40%;
-    margin: 15px 10%;
-  }
-
-  .desaparecer{
+.desaparecer {
     display: none;
-  }
+}
+
+
+/******* @media screen and (min-width: 40.5em) **********/
+
+@media screen and (min-width: 40.5em) {
+    #titulo>h1 {
+        flex-basis: 60%;
+    }
+    #modificar {
+        order: 1;
+        margin: 20px 10%;
+    }
+    .itinerario>ul>li {
+        margin: 10px 30%;
+    }
+    #itinerarioDias>p,
+    #itinerarioDias>div:first-of-type {
+        margin: 15px 30%;
+    }
+    .insertItinerario>form {
+        flex-basis: 60%;
+    }
+    .insertItinerario>form>fieldset {
+        padding: 0 7%;
+    }
+    .insertItinerario>form>button {
+        width: 80px;
+    }
+    .comentario,
+    .comentarios>form {
+        flex-basis: 60%;
+    }
+    .desaparecer {
+        display: none;
+    }
+    #fotoSeleccionada {
+        max-height: 600px;
+    }
+    .miniFoto {
+        width: 90px;
+        height: 90px;
+    }
+    /*MODLA FOTO*/
+    #modalFoto div {
+        width: 882px;
+        height: 521px;
+    }
+    #modalFoto img:first-of-type {
+        height: 433px;
+        width: 803px;
+    }
+}
+
+
+/******* @media screen and (min-width: 60.5em) **********/
+
+@media screen and (min-width: 60.5em) {
+    #titulo {
+        justify-content: center;
+    }
+    #titulo>h1 {
+        flex-basis: 30%;
+    }
+    .puntuacion {
+        flex-basis: 60%;
+    }
+    #avion {
+        flex-basis: 50%;
+        justify-content: flex-start;
+    }
+    #usuario {
+        flex-basis: 20%;
+        justify-content: flex-start;
+    }
+    #imgViaje,
+    .datos {
+        flex: 0 0 50%;
+    }
+    #imgViaje {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .datos {
+        background-color: var(--fondoViaje);
+    }
+    .itinerario {
+        margin: 20px 0;
+    }
+    .insertItinerario>form {
+        flex-basis: 40%;
+    }
+    .insertItinerario>form>fieldset {
+        padding: 0 10%;
+    }
+    .insertItinerario>form>button {
+        width: 90px;
+    }
+    #fotoSeleccionada {
+        max-height: 800px;
+    }
+    #fotoDiaSel {
+        width: 80%;
+        max-width: 1000px;
+        max-height: 800px;
+    }
+    #fotos {
+        flex-basis: 80%;
+    }
+    .comentario,
+    .comentarios>form {
+        flex-basis: 40%;
+        margin: 15px 10%;
+    }
+    .desaparecer {
+        display: none;
+    }
+    #modalFoto img:first-of-type {
+        height: 576px;
+        width: 1024px;
+        border-radius: 2%;
+    }
+    /*MODAL FOTO*/
+    #modalFoto div {
+        height: 650px;
+        width: 1110px;
+    }
+    #modalFoto img:first-of-type {
+        height: 576px;
+        width: 1024px;
+    }
 }

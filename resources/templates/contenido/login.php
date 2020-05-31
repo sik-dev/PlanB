@@ -78,7 +78,7 @@
         <label for="name">Nombre</label>
         <input type="text" id='name' name="nombre" value="<?=$info['nombre']?>" placeholder="Introduce tu nombre">
         <?php if( isset($errores['nombre'])) { ?>
-          <br><span class='error'>Debes introducir un nombre</span><br>
+          <br><label for="name" class='error'>Debes introducir un nombre</label><br>
         <?php } ?>
      </div>
 
@@ -87,7 +87,7 @@
         <br>
         <input type="password" id='password' name="pass" value="" placeholder="Introduce tu contraseña">
         <?php if( isset($errores['pass'])) { ?>
-          <br><span class='error'>Debes introducir una contraseña</span><br>
+          <br><label for="password" class='error'>Debes introducir una contraseña</label><br>
         <?php } ?>
      </div>
 
