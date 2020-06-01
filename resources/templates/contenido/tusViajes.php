@@ -68,8 +68,8 @@
               <?php $contador++ ?>
             </div>
           </a>
-          <a href="borrarViaje.php?id_viaje=<?=$fila['viaje']->getId()?>&id_user=<?=$_SESSION['id']?>">
-             <img id='basura' src="/logos_proyecto/basura.png" alt="Borrar viaje" class="borrarViaje">
+          <a href="borrarViaje.php?id_viaje=<?=$fila['viaje']->getId()?>&id_user=<?=$_SESSION['id']?>" alt="Borrar viaje" title='Borrar viaje'>
+             <img id='basura' src="/logos_proyecto/basura.png" class="borrarViaje">
             </a>
         </div>
       <?php } ?>

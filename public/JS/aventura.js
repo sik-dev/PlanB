@@ -27,6 +27,7 @@ const aventura = (function() {
 
     function efecto() {
 
+
         var cuentaAtras = setInterval(function() { startTime() }, 300);
         var contador = 1;
         let numRandom = 0;
@@ -43,6 +44,11 @@ const aventura = (function() {
         const etiquetas = document.createElement('div');
 
         function startTime() {
+            if (contador == 1) {
+                const blanco = document.getElementsByClassName('blanco')[0];
+                blanco.style.display = 'none';
+            }
+
             if (contador == 15) {
 
                 clearInterval(cuentaAtras);

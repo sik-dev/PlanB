@@ -48,15 +48,15 @@ h2 {
     align-items: center;
 }
 
-button {
+.aventura button {
     padding: 1em;
     cursor: pointer;
-    background-color: var(--colorAzulClaro);
+    background-color: var(--colorPrincipalOpacidad);
 }
 
-button:hover {
-    background-color: var(--colorAzulOscuro);
-    color: white;
+.aventura button:hover {
+    background-image: url(../logos_proyecto/cloud.gif);
+    background-position: center;
 }
 
 
@@ -64,11 +64,11 @@ button:hover {
 
 .tarjeta {
     position: relative;
-    width: 85%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     animation: fadeIn 400ms;
 }
 
@@ -123,10 +123,17 @@ button:hover {
     display: block;
     transition: all 0.3s;
     transform-origin: 50% 5%;
+    height: 180px;
 }
 
 .h3Random {
     bottom: 0px;
+}
+
+.blanco {
+    width: 100%;
+    border: 2px solid gray;
+    height: 200px;
 }
 
 
@@ -216,6 +223,10 @@ button:hover {
         background-position: 0px -120px;
         height: 350px;
     }
+    .blanco {
+        width: 80%;
+        height: 240px;
+    }
 }
 
 
@@ -231,6 +242,10 @@ button:hover {
     .imagen {
         background-position: 0px 0px;
         height: 450px;
+    }
+    .blanco {
+        width: 65%;
+        height: 340px;
     }
 }
 

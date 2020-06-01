@@ -17,6 +17,7 @@
 
 
   <div class='contenedor'>
+     <div class='blanco'></div>
      <div class='tarjeta'>
      
      </div>

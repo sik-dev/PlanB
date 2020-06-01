@@ -140,11 +140,11 @@
     <fieldset>
       <legend>Cambiar foto de perfil</legend>
 
-      <input type="file" name="foto">
+      <input type="file" name="foto" accept="image/x-png,image/gif,image/jpeg">
       <?php if( isset($errores['foto'])) { ?>
         <span class='error'><?=$errores['foto']?></span><br>
       <?php } ?>
-      <button type="submit" name="cambiarFoto" value="true"> Cambiar foto</button>
+      <button id='cambiarFoto' type="submit" name="cambiarFoto" value="true"> Cambiar foto</button>
     </fieldset>
     
     <fieldset>
@@ -189,7 +189,7 @@
           <br><span class='error'><?=$errores['descripcion']?></span>
       <?php endif; ?>
       
-      <button type="submit">Enviar</button><br>
+      <button id='enviar' type="submit">Enviar</button><br>
     </fieldset>
   </form>
 </div>

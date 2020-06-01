@@ -99,9 +99,7 @@
     </div>
     <div>
       <input id='buscar' type="submit" name='buscar' value='Buscar'>
-      <button id='aventura'>
-        <a href="aventura.php" id='aventura'>Aventura</a>
-      </button>
+      <a href="aventura.php" id='aventura'>Aventura</a>
     </div>
 
     <div class='errores'>

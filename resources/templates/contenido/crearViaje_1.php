@@ -63,7 +63,7 @@ if (count($_POST) > 0) {
   <form action="crearViaje_1.php?id=<?=$id?>" method="post" enctype="multipart/form-data">
     <!-- IMAGEN DEL VIAJE -->
     Foto principal del viaje
-    <input type="file" name="foto"><br>
+    <input type="file" name="foto" accept="image/x-png,image/gif,image/jpeg"><br>
     <?php if( isset($errores['foto'])) { ?>
       <span class='error'><?=$errores['foto']?></span><br>
     <?php } ?>
@@ -142,6 +142,6 @@ if (count($_POST) > 0) {
       <?php } ?>
     </div>
 
-    <button type="submit">Enviar</button>
+    <button id='enviar' type="submit">Enviar</button>
   </form>
 </div>

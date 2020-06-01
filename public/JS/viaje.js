@@ -223,6 +223,8 @@ const app = (function() {
                 let div3 = document.createElement('div');
                 let borrar = document.createElement('img');
                 borrar.src = '/logos_proyecto/basura.png';
+                borrar.alt = 'Borrar comentario';
+                borrar.title = 'Borrar comentario';
                 borrar.textContent = 'Borrar comentario';
                 borrar.dataset.id = reg.id;
                 borrar.classList.add('borrarComentario');

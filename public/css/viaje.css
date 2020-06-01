@@ -594,12 +594,12 @@
     }
     /*MODLA FOTO*/
     #modalFoto div {
-        width: 882px;
-        height: 521px;
+        width: 680px;
+        height: 508px;
     }
     #modalFoto img:first-of-type {
-        height: 433px;
-        width: 803px;
+        height: 418px;
+        width: 618px;
     }
 }
 
@@ -680,5 +680,16 @@
     #modalFoto img:first-of-type {
         height: 576px;
         width: 1024px;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    /*MODAL FOTO*/
+    #modalFoto div {
+        width: 390px;
+    }
+    #modalFoto img:first-of-type {
+        height: 258px;
+        width: 340px;
     }
 }
