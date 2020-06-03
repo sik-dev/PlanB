@@ -68,7 +68,8 @@ if ( count($_POST) > 0) {
     //ENVIAR EMAIL
     $mail->MsgHTML($content);
     if(!$mail->Send()) {
-      $respuesta = 'Error al enviar correo para el cambio de contraseña a: '. $correo. "\nVuelva a intentarlo";
+      $respuesta = $mail->ErrorInfo;
+      //$respuesta = 'Error al enviar correo para el cambio de contraseña a: '. $correo. "\nVuelva a intentarlo";
 
     } else {
       TokenManager::delete($correo);

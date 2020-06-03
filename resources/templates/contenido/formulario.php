@@ -119,20 +119,20 @@ if(count($_POST)>0){
 
   <form class="" action="formulario.php" method="post" validate=false> 
 
-    <label for='nombre'>Nombre</label>
-    <input type="text" name="nombre" value="<?=$nombre?>" placeholder="Introduce tu nombre">
+    <label for='name'>Nombre</label>
+    <input type="text" id='name' name="nombre" value="<?=$nombre?>" placeholder="Introduce tu nombre">
     <?php if (isset($errores['nombre'])): ?>
         <label for='nombre' class='error'>Debes introducir un nombre</label>
     <?php endif; ?>
 
     <label for='correo'>Correo</label>
-    <input type="email" name="correo" value="<?=$correo?>" placeholder="Introduce un correo valido">
+    <input type="email" id='correo' name="correo" value="<?=$correo?>" placeholder="Introduce un correo valido">
     <?php if (isset($errores['correo'])): ?>
       <label for='correo' class='error'>Debes introducir un correo</label>
     <?php endif; ?>
 
     <label for='pais'>País</label>
-    <select class="" name="pais">
+    <select class="" id='pais' name="pais">
       <option disabled selected value="">Elige un país</option>
       <?php foreach ($paises as $valor) {?>
             <option value="<?=$valor?>" <?=($pais == $valor)?'selected':''?>><?=$valor?></option>
@@ -144,15 +144,15 @@ if(count($_POST)>0){
     <?php endif; ?>
  
     <label for='descripcion'>Descripción</label>
-    <textarea name="descripcion" placeholder="Cuentano algo sobre ti"  rows="4" cols="20"><?=$descripcion?></textarea>
+    <textarea name="descripcion" id='descripcion' placeholder="Cuentano algo sobre ti"  rows="4" cols="20"><?=$descripcion?></textarea>
     <?php if (isset($errores['descripcion'])): ?>
       <label for='descripcion' class='error'>Debes introducir una descripción</label>
     <?php endif; ?>
 
     <label for='password'>Contraseña</label>
-    <input type="password" name="pass" value="" 
+    <input type="password" id='password' name="pass" value="" 
       placeholder="Introduce una contraseña valida"
-      pattern="(?=.*\d.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$%&#@*\\\+\-?¿!¡])(?!.*\s).{5,10}"
+      pattern="(?=.*\d.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[;$%&#@*\\\+\-?¿!¡])(?!.*\s).{5,10}"
       title="Al menos un dijito, una letra mayúscula, un minuscula y caracter especial"
     >
     <?php if (isset($errores['pass'])): ?>
@@ -160,9 +160,9 @@ if(count($_POST)>0){
     <?php endif; ?>
 
     <label for='passR'>Repirte la contraseña</label>
-    <input type="password" name="passR" value="" 
+    <input type="password" id='passR' name="passR" value="" 
     placeholder="Repite la contraseña"
-    pattern="(?=.*\d.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$%&#@*\\\+\-?¿!¡])(?!.*\s).{5,10}"
+    pattern="(?=.*\d.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[;$%&#@*\\\+\-?¿!¡])(?!.*\s).{5,10}"
     title="Al menos un dijito, una letra mayúscula, un minuscula y caracter especial"
     >
     <div class='terminos'>
