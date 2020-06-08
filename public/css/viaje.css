@@ -48,6 +48,7 @@
     flex: 0 0 90px;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
 #avion>img {
@@ -495,8 +496,8 @@
 }
 
 #modal button:hover {
-    background-color: var(--colorPrincipal);
-    color: white;
+    background-image: url('../logos_proyecto/cloud.gif');
+    background-position: center;
 }
 
 #btn-cerrar {

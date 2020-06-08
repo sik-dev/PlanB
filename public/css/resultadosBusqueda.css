@@ -220,11 +220,11 @@
 /************* OPCIONES DE BUSQUEDA */
 
 .opcionesBusqueda {
-    display: flex;
-    /* margin: auto; */
-    margin-bottom: 30px;
+    display: none;
     flex-direction: column;
-    align-items: center;
+    width: 80%;
+    margin: 18px auto;
+    animation: 300ms fadeIn;
 }
 
 .opcionesBusqueda>div {
@@ -246,6 +246,41 @@
 
 .opcionesBusqueda div>a:hover {
     background-color: var(--colorHover);
+}
+
+#menuBusqueda {
+    display: none;
+}
+
+#menuBusqueda:checked~div {
+    display: flex;
+}
+
+#menuBusqueda:checked+p>label {
+    transform: rotate(180deg);
+}
+
+.mejorValorados>p>label {
+    display: block;
+    width: 1em;
+    transition: 200ms;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.mejorValorados>p {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.mejorValorados>p>label:after {
+    content: '>';
+    font-size: 2em;
+    transform: rotate(90deg);
+    display: block;
+    transform-origin: center;
 }
 
 
@@ -376,7 +411,8 @@
         grid-template-columns: 1fr 1fr;
     }
     .mejorValorados h2,
-    .opcionesBusqueda {
+    .opcionesBusqueda,
+    .mejorValorados>p {
         grid-column: 1 / 3;
     }
     .tarjeta {
@@ -394,11 +430,14 @@
     /*OPCIONES BUSQUEDA*/
     .opcionesBusqueda {
         flex-direction: row;
-        margin-left: 10px;
-        margin-right: 10px;
+        width: 92%;
+        margin: 10px auto;
     }
     .opcionesBusqueda>div>p {
         width: 90px;
+    }
+    .mejorValorados>p {
+        width: 92%;
     }
 }
 
@@ -411,7 +450,8 @@
         grid-template-columns: 1fr 1fr 1fr;
     }
     .mejorValorados h2,
-    .opcionesBusqueda {
+    .opcionesBusqueda,
+    .mejorValorados>p {
         grid-column: 1 / 4;
     }
     .tarjeta>a>img {
@@ -456,8 +496,13 @@
         bottom: 18px;
     }*/
     .opcionesBusqueda {
-        margin-left: 60px;
-        margin-right: 0px;
+        /*margin-left: 60px;
+        margin-right: 0px;*/
+        width: 80%;
+        margin: 20px auto;
+    }
+    .mejorValorados>p {
+        width: 95%;
     }
 }
 
