@@ -10,7 +10,7 @@
     display: flex;
     align-items: flex-end;
     width: 100vw;
-    max-width: 1838px;
+    /*max-width: 1838px;*/
     min-width: 420px;
     background-position: 0px 40px;
 }

@@ -117,7 +117,13 @@
 
   <div class="mejorValorados">
     <h2>Mejores Valorados</h2>
-
+    
+    
+   
+    <input type="checkbox" id="menuBusqueda">
+    <p>Filtrar resultados de busqueda:
+      <label for="menuBusqueda"></label>
+    </p>
     <div class='opcionesBusqueda'>
         <div>
           <p>Nombre</p>
