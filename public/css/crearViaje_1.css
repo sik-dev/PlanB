@@ -34,6 +34,7 @@
     border: var(--borderMenu) .5px solid;
     border-radius: 2px;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     margin: 90px auto;
 }
@@ -86,8 +87,16 @@
 
 #enviar {
     cursor: pointer;
+    align-self: center;
+    width: 6em;
+    flex-basis: 50px;
 }
 
 #enviar:hover {
     background-color: white;
+}
+
+.insertViaje>form>label>p {
+    font-size: 0.6em;
+    margin-top: 5px;
 }

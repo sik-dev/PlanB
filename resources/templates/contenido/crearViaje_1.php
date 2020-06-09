@@ -29,6 +29,10 @@ if (count($_POST) > 0) {
   gestionaErrores($_POST, $info, $errores);
   compruebaIsset($comprobarEtiquetas, $errores);
 
+  if( count($_POST['etiquetas']) < 0 || count($_POST['etiquetas']) > 3) {
+    $errores['etiquetas'] = 'ERROR ETIQUETAS';
+  }
+
   /* COMPROBAR ERRORES DE IMAGEN Y DEVOLVER EL NOMBRE DE LA IMAGEN*/  
   $fotoFullName = gestionaFoto('foto', $errores);
 
@@ -65,49 +69,49 @@ if (count($_POST) > 0) {
     Foto principal del viaje
     <input type="file" name="foto" accept="image/x-png,image/gif,image/jpeg"><br>
     <?php if( isset($errores['foto'])) { ?>
-      <span class='error'><?=$errores['foto']?></span><br>
+      <span class='error'>Debes insertar una foto del viaje.</span><br>
     <?php } ?>
 
     <!-- DESCRIPCION DEL VIAJE -->
     <label for="desc">Describe tu viaje: </label>
     <textarea name="desc" id="desc" cols="60" rows="8"><?=$info['desc']?></textarea>
     <?php if( isset($errores['desc'])) { ?>
-      <span class='error'><?=$errores['desc']?></span><br>
+      <span class='error'>Debes introducir una descripción del viaje.</span><br>
     <?php } ?>
 
     <!-- PAIS DE ORIGEN -->
     <label for="pais_origen">País de origen: </label>
     <input type="text" id="pais_origen" name="pais_origen" value="<?=$info['pais_origen']?>">
     <?php if( isset($errores['pais_origen'])) { ?>
-      <span class='error'><?=$errores['pais_origen']?></span>
+      <span class='error'>Debes introducir un país de origen.</span>
     <?php } ?>
 
     <!-- CIUDAD DE ORIGEN -->
     <label for="ciudad_origen">Ciudad de origen: </label>
     <input type="text" id="ciudad_origen" name="ciudad_origen" value="<?=$info['ciudad_origen']?>">
     <?php if( isset($errores['ciudad_origen'])) { ?>
-      <span class='error'><?=$errores['ciudad_origen']?></span>
+      <span class='error'>Debes introducir una ciudad de origen.</span>
     <?php } ?>
 
     <!-- PAIS DE DESTINO -->
     <label for="pais_destino">País de destino: </label>
     <input type="text" id="pais_destino" name="pais_destino" value="<?=$info['pais_destino']?>">
     <?php if( isset($errores['pais_destino'])) { ?>
-      <span class='error'><?=$errores['pais_destino']?></span>
+      <span class='error'>Debes introducir un país de destino.</span>
     <?php } ?>
 
     <!-- CIUDAD DE DESTINO -->
     <label for="ciudad_destino">Ciudad de destino: </label>
     <input type="text" id="ciudad_destino" name="ciudad_destino" value="<?=$info['ciudad_destino']?>">
     <?php if( isset($errores['ciudad_destino'])) { ?>
-      <span class='error'><?=$errores['ciudad_destino']?></span>
+      <span class='error'>Debes introducir una ciudad de destino.</span>
     <?php } ?>
 
     <!-- PRECIO DEL VIAJE-->
     <label for="precio">Precio: </label>
     <input type="number" id="precio" name="precio" value="<?=$info['precio']?>" min="1">
     <?php if( isset($errores['precio'])) { ?>
-      <span class='error'><?=$errores['precio']?></span>
+      <span class='error'>Debes introducir un precio.</span>
     <?php } ?>
 
     <!-- TRANSPORTE USADO PARA VIAJAR -->
@@ -119,11 +123,14 @@ if (count($_POST) > 0) {
         <?php } ?>
     </select>
     <?php if( isset($errores['transporte'])) { ?>
-      <span class='error'><?=$errores['transporte']?></span>
+      <span class='error'>Debes introducir un medio de transporte.</span>
     <?php } ?>
 
     <!-- ETIQUETAS-->
-    <label>Etiquetas</label>
+    <label>
+      Etiquetas
+      <p>(Mínimo 1, Máximo 3)</p>
+    </label>
     <div class="etiquetas">
       <?php foreach ($etiquetas as $valor) { ?>
         <div class="etiqueta">
@@ -138,10 +145,12 @@ if (count($_POST) > 0) {
         </div>
       <?php } ?>
       <?php if( isset($errores['etiquetas'])) { ?>
-        <span class='error'><?=$errores['etiquetas']?></span>
+        <span class='error'>Debes seleccionar mínimo una etiqueta y máximo tres.</span>
       <?php } ?>
     </div>
 
     <button id='enviar' type="submit">Enviar</button>
   </form>
 </div>
+
+
