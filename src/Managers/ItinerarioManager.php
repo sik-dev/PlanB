@@ -33,10 +33,24 @@ class ItinerarioManager implements IDWESEntidadManager
     }
   }
 
-  public static function update($id, ...$campos){
+  public static function update($id, ...$campos)
+  {
+    array_push($campos, $id);
+    $db = DWESBaseDatos::obtenerInstancia();
+    $db->ejecuta("UPDATE itinerario
+                  SET 
+                    localizacion = ?,
+                    alojamiento = ?,
+                    manana = ?,
+                    tarde = ?,
+                    noche = ?
+                  WHERE id = ?",
+                  $campos);
   }
 
-  public static function delete($id){
-    
+  public static function delete($id)
+  {
+    $db = DWESBaseDatos::obtenerInstancia();
+    $db->ejecuta("DELETE FROM itinerario WHERE id = ?",$id);
   }
 }

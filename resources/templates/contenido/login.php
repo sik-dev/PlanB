@@ -1,5 +1,10 @@
 <?php
 
+if( $_SESSION['autentificado'] == true ) {
+  header('Location: inicio.php');
+  exit;
+}
+
  $errores = [];
  $info = ['nombre' =>'', 'pass'=>''];
  $redirect = 'inicio.php';

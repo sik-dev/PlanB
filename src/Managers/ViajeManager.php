@@ -232,7 +232,21 @@ class ViajeManager implements IDWESEntidadManager{
     return $id_viaje;
   }
 
-  public static function update($id, ...$campos){
+  public static function update($id, ...$campos)
+  {
+    array_push($campos, $id);
+    $db = DWESBaseDatos::obtenerInstancia();
+    $db->ejecuta("UPDATE viaje
+                  SET 
+                    foto = ?,
+                    pais_destino = ?,
+                    ciudad_destino = ?,
+                    precio = ?,
+                    transporte = ?,
+                    descripcion = ?,
+                    etiquetas = ?
+                  WHERE id = ?",
+                  $campos);
   }
 
   /*Borrado de viaje*/

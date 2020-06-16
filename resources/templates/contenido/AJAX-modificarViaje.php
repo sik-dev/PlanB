@@ -48,10 +48,6 @@ if (count($_POST) > 0) {
 
     $obj = json_encode($info);
     echo $obj;
-
-    /* $idViaje = $info['idViaje'];
-    header("Location: viaje.php?id=$idViaje");
-    die(); */
   }
 }
 

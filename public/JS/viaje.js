@@ -112,7 +112,7 @@ const app = (function() {
             btnRegistro.textContent = 'Registrate';
             const cerrar = document.createElement('img');
             cerrar.src = '../logos_proyecto/close.png';
-            cerrar.id = 'btn-cerrar';
+            cerrar.classList.add('btn-cerrar');
 
             div.addEventListener('click', cerrarModal);
             cerrar.addEventListener('click', cerrarModal);
@@ -276,7 +276,6 @@ const app = (function() {
     }
 
     function gestinaDatosViaje(datos) {
-        /* console.log(datos); */
         datosViaje = datos.datosViaje;
         datosItinerario = datos.datosItinerario;
 
@@ -296,15 +295,19 @@ const app = (function() {
 
     function pintaDia() {
         const divItinerario = document.querySelector('.itinerario');
-        const divItinerarioDias = document.getElementById('itinerarioDias');
-        /* 
-            if(divItinerario.children[3].firstChild){   //si ya tiene contenido, lo vaciamos para poner un nuevo dia
-              divItinerario.children[3].innerHTML = '';
-            } */
+        const divItinerarioDias = document.getElementsByClassName('itinerarioDias')[0];
+        const divFormItinerario = document.querySelector('.insertItinerario');
+
+        //cuando se estee insertando un nuevo itinerario
+        //y se haga click en un dia desaparezca el formulario
+        divFormItinerario.classList.add('desaparecer');
+        divItinerarioDias.classList.remove('desaparecer');
 
         if (divItinerarioDias.firstChild) { //si ya tiene contenido, lo vaciamos para poner un nuevo dia
             divItinerarioDias.innerHTML = '';
         }
+
+        
 
         const datos = datosItinerario[numDia - 1];
         /* const div = document.getElementById('itinerarioDias'); */
@@ -349,7 +352,6 @@ const app = (function() {
         let divImg;
 
         /* rellenar el div con todas las imagenes del dia */
-        console.log(divImgs.style.width);
         fotos.forEach(foto => {
             fotoDia = document.createElement('img');
             fotoDia.src = `imgs/${idUserViaje}/${foto.ruta}`;

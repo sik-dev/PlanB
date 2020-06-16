@@ -45,7 +45,7 @@ foreach ($viajeFavorito as $fila) {
 print_r(!$idsIguales); */
 ?>
 <link rel="stylesheet" href="/css/viaje.css">
-<script src="JS/addItinerarios.js"></script>
+<script src="JS/modificarViaje.js"></script>
 <div class="contenedor">
   <?php if(count($datos) > 0) {?>
   <div class="datosUsuario">
@@ -55,7 +55,7 @@ print_r(!$idsIguales); */
         <img class="favoritos" src="logos_proyecto/avion_dibujo_vacio.png">
       </div>
       <?php if ($id === $datos['viaje']->getIdUser()) {?>
-        <button id="modificar">Modificar Viaje</button>
+        <button id="botonModificarViaje">Modificar Viaje</button>
       <?php }?>
       <div class="puntuacion">
         <div>
@@ -89,14 +89,17 @@ print_r(!$idsIguales); */
   </div>
   <div class="itinerario">
     <h2>Itinerario</h2>
+    <?php if ($id === $datos['viaje']->getIdUser()) {?>
+      <button id="modificarItinerario">Modificar Itinerario</button>
+    <?php }?>
     <ul>
       <?php foreach ($datosItinerario as $fila){ ?>
         <li data-dia='<?=$contador?>'>
-          <p>Día <?=$contador++?></p>
+          <p data-id-itinerario = '<?=$fila['id']?>'>Día <?=$contador++?></p>
         </li>
       <?php } ?>
     </ul>
-    <div id="itinerarioDias">
+    <div class="itinerarioDias">
     </div>
     <div class="insertItinerario desaparecer">
       <form action="viaje.php" method="post" enctype="multipart/form-data">
