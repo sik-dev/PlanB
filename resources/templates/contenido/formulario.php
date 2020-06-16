@@ -110,48 +110,71 @@ if(count($_POST)>0){
  ?>
  <link rel="stylesheet" href="/css/formulario.css">
  <div class="formulario">
-   <form class="" action="formulario.php" method="post">
-     <input type="text" name="nombre" value="<?=$nombre?>" placeholder="introduce tu nombre"><br>
-     <?php if (isset($errores['nombre'])): ?>
-        <span class='error'><?=$errores['nombre']?></span><br>
-     <?php endif; ?>
 
+  <div class="imagen">
+    <h1>Todos los destinos al alcance de tu mano</h1>
+  </div>
 
-     <input type="email" name="correo" value="<?=$correo?>" placeholder="introduce un correo valido"><br>
+  <h2>Regístrate</h2>
 
-     <?php if (isset($errores['correo'])): ?>
-        <span class='error'><?=$errores['correo']?></span><br>
-     <?php endif; ?>
+  <form class="" action="formulario.php" method="post" validate=false> 
 
-     <select class="" name="pais">
-       <option disabled selected value="">Elige un país</option>
-       <?php foreach ($paises as $valor) {?>
+    <label for='name'>Nombre</label>
+    <input type="text" id='name' name="nombre" value="<?=$nombre?>" placeholder="Introduce tu nombre">
+    <?php if (isset($errores['nombre'])): ?>
+        <label for='nombre' class='error'>Debes introducir un nombre</label>
+    <?php endif; ?>
+
+    <label for='correo'>Correo</label>
+    <input type="email" id='correo' name="correo" value="<?=$correo?>" placeholder="Introduce un correo valido">
+    <?php if (isset($errores['correo'])): ?>
+      <label for='correo' class='error'>Debes introducir un correo</label>
+    <?php endif; ?>
+
+    <label for='pais'>País</label>
+    <select class="" id='pais' name="pais">
+      <option disabled selected value="">Elige un país</option>
+      <?php foreach ($paises as $valor) {?>
             <option value="<?=$valor?>" <?=($pais == $valor)?'selected':''?>><?=$valor?></option>
       <?php } ?>
-     </select>
+    </select>
 
-     <?php if (isset($errores['pais'])): ?>
-         <br><span class='error'><?=$errores['pais']?></span>
-     <?php endif; ?>
-     <br>
+    <?php if (isset($errores['pais'])): ?>
+      <label for='pais' class='error'>Debes introducir un país</label>
+    <?php endif; ?>
+ 
+    <label for='descripcion'>Descripción</label>
+    <textarea name="descripcion" id='descripcion' placeholder="Cuentano algo sobre ti"  rows="4" cols="20"><?=$descripcion?></textarea>
+    <?php if (isset($errores['descripcion'])): ?>
+      <label for='descripcion' class='error'>Debes introducir una descripción</label>
+    <?php endif; ?>
 
-     <textarea name="descripcion" placeholder="Cuentano algo sobre ti"  rows="4" cols="20"><?=$descripcion?></textarea>
-     <?php if (isset($errores['descripcion'])): ?>
-         <br><span class='error'><?=$errores['descripcion']?></span>
-     <?php endif; ?>
+    <label for='password'>Contraseña</label>
+    <input type="password" id='password' name="pass" value="" 
+      placeholder="Introduce una contraseña valida"
+      pattern="(?=.*\d.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[;$%&#@*\\\+\-?¿!¡])(?!.*\s).{5,10}"
+      title="Al menos un dijito, una letra mayúscula, un minuscula y caracter especial"
+    >
+    <?php if (isset($errores['pass'])): ?>
+      <label for='pass' class='error'>Debes introducir una contraseña</label>
+    <?php endif; ?>
 
-     <input type="password" name="pass" value="" placeholder="introduce una contraseña valida"><br>
-     <?php if (isset($errores['pass'])): ?>
-        <span class='error'><?=$errores['pass']?></span><br>
-     <?php endif; ?>
-     <input type="password" name="passR" value="" placeholder="repite la contraseña"><br>
-     <input type="checkbox" id='terminos' name="terminos" value="aceptar" <?=($acepta)?'checked':''?>>
-     <label for='terminos'>acepta los terminos y condiciones</label> <br>
-     <input type="text" name="redirect" value="<?=$redirect?>" hidden>
-     <?php if (isset($errores['terminos'])): ?>
-        <span class='error'><?=$errores['terminos']?></span><br>
-     <?php endif; ?>
-     <input type="submit" name="enviar" value="enviar"><br>
+    <label for='passR'>Repirte la contraseña</label>
+    <input type="password" id='passR' name="passR" value="" 
+    placeholder="Repite la contraseña"
+    pattern="(?=.*\d.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[;$%&#@*\\\+\-?¿!¡])(?!.*\s).{5,10}"
+    title="Al menos un dijito, una letra mayúscula, un minuscula y caracter especial"
+    >
+    <div class='terminos'>
+      <label for='terminos'>Acepto los terminos y condiciones</label>
+      <input type="checkbox" id='terminos' name="terminos" value="aceptar" <?=($acepta)?'checked':''?>>
+    </div>
+
+    <input type="text" name="redirect" value="<?=$redirect?>" hidden>
+    <?php if (isset($errores['terminos'])): ?>
+      <label for='terminos' class='error'>Debes aceptar los términos</label>
+    <?php endif; ?>
+    <input id='enviar' type="submit" name="enviar" value="Enviar">
 
    </form>
  </div>

@@ -1,10 +1,11 @@
 :root {
     /*--colorPrincipal:rgb(88, 248, 160);*/
     --colorPrincipal: #C2F4FD;
+    --colorPrincipalOpacidad: rgba(194, 244, 253, 0.363);
     --colorFooter: rgb(132, 209, 223);
     --colorOpacidad: rgba(175, 172, 172, 0.288);
     --colorHover: #85dcd4;
-    --colorBotonAventura: #CE3D3D;
+    --colorBotonAventura: rgba(105, 188, 201, 0.678);
     --colorFondoAventura: #568884c7;
     --colorFondoForm: #c4c4c4;
     --colorFondoLogin: rgba(166, 251, 204, 0.19);
@@ -58,9 +59,9 @@
 }
 
 @media screen and (min-width: 40.5em) {
-  .scroll{
-    bottom: 10vh;
-  }
+    .scroll {
+        bottom: 10vh;
+    }
 }
 
 

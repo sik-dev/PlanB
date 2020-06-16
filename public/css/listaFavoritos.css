@@ -51,7 +51,7 @@
 
 .tarjeta {
     position: relative;
-    width: 60%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -212,12 +212,11 @@
     .contenedor {
         grid-template-columns: 1fr 1fr 1fr;
     }
-    .tarjeta>a>img {
-        height: 200px;
+    .tarjeta {
+        height: 241px;
     }
-    .tarjeta>a>div:last-of-type {
-        left: 0px;
-        bottom: 140px;
+    .tarjeta>a>img {
+        height: 210px;
     }
     .imagen {
         height: 350px;

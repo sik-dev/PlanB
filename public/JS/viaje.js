@@ -4,7 +4,7 @@ const app = (function() {
     let datosViaje = null;
     let datosItinerario = null;
     let numDia = 1;
-    const idViaje = location.href.slice(35, location.href.length); //cogemos el ID del viaje de la URL
+    const idViaje = (location.hostname === 'localhost') ? location.href.slice(35, location.href.length) : location.href.slice(38, location.href.length); //cogemos el ID del viaje de la URL
     let idUser;
     let favorito;
     const URL_VIAJE = '/AJAX-obtenViaje.php?id=';
@@ -223,6 +223,8 @@ const app = (function() {
                 let div3 = document.createElement('div');
                 let borrar = document.createElement('img');
                 borrar.src = '/logos_proyecto/basura.png';
+                borrar.alt = 'Borrar comentario';
+                borrar.title = 'Borrar comentario';
                 borrar.textContent = 'Borrar comentario';
                 borrar.dataset.id = reg.id;
                 borrar.classList.add('borrarComentario');
@@ -383,13 +385,13 @@ const app = (function() {
         diaSeleccionado();
     }
 
-    function fotoSeleccionada(){
-        const src = 'imgs'+ this.firstChild.src.split('imgs')[1];
+    function fotoSeleccionada() {
+        const src = 'imgs' + this.firstChild.src.split('imgs')[1];
         const fotoDia = document.getElementById('fotoDiaSel');
         /* const nuevaFotoSeleccionada = document.cloneNode() */
         fotoDia.src = src;
-/*         console.log(fotoDia);
-        console.log(src); */
+        /*         console.log(fotoDia);
+                console.log(src); */
     }
 
     function diaSeleccionado() {

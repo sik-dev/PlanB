@@ -120,9 +120,7 @@
     </div>
     <div>
       <input id='buscar' type="submit" name='buscar' value='Buscar'>
-      <button id='aventura'>
-        <a href="aventura.php">Aventura</a>
-      </button>
+      <a href="aventura.php" id='aventura'>Aventura</a>
     </div>
 
     <div class='errores'>
@@ -143,7 +141,10 @@
         <h2>Viaje no encontrado</h2>
     <?php  }else{ ?>
         <h2>Resultados de busqueda</h2>
-
+        <input type="checkbox" id="menuBusqueda">
+        <p>Filtrar resultados de busqueda:
+          <label for="menuBusqueda"></label>
+        </p>
         <div class='opcionesBusqueda'>
           <div>
             <p>Nombre</p>

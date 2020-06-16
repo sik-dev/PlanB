@@ -1,84 +1,6 @@
 @import url('fonts.css');
 @import url('reset.css');
 @import url('root.css');
-/* .login {}
- */
-/* .login{
-  font-family: 'Sriracha', cursive;
-  width: 100%;
-  margin-top: 100px;
-  min-height: var(--mainHeight);
-
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 100px auto;
-  align-items: center;
-  justify-items: center;
-}
-
-.login > h1{
-  grid-area: 1 / 1 / 2 / -1;
-  font-size: 26px;
-}
-
-.login > form{
-  grid-area: 2 / 1 / -1 / -1;
-  align-self: start;
-
-  width: 50%;
-  max-width: 300px;
-  margin: 25px;
-
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-
-.login > form > label,
-.login > form > input{
-  flex-basis: 100%;
-  margin: 5px 0;
-}
-
-.login > form > label:last-of-type{
-  flex-basis: 30%;
-}
-
-.login > form > input[type="checkbox"],
-.login > form > a{
-  flex-basis: 50%;
-}
-
-#recuerdame{
-  flex-basis: 10%;
-}
-
-.login > form > input[type="submit"]{
-  flex-basis: 100%;
-  font-size: var(--textNav1);
-  background-color: var(--fondoTextarea);
-  border-radius: 2px;
-  border: #0001 1.5px solid;
-}
-
-.login > form > a{
-  text-decoration: none;
-  color: var(--colorTextNav);
-  text-align: center;
-  margin: 10px 0;
-}
-
-#olvidadoContraseña{
-  font-size: 13px;
-}
-
-/******* @media screen and (min-width: 40.5em) **********/
-@media screen and (min-width: 40.5em){
-  .login > h1{
-    font-size: 35px;
-  }
-}
-
 .imagen {
     background-image: url('../logos_proyecto/avion 3.jpg');
     height: 320px;
@@ -86,7 +8,7 @@
     display: flex;
     align-items: flex-end;
     width: 100vw;
-    max-width: 1838px;
+    /*max-width: 1838px;*/
     min-width: 420px;
 }
 
@@ -148,7 +70,7 @@ form .botones * {
 }
 
 form .botones input {
-    margin-bottom: 100px;
+    margin-bottom: 10px;
     text-decoration: none;
     background-color: var(--colorFondo);
     color: black;
@@ -156,14 +78,10 @@ form .botones input {
     border: 1px solid var(--colorTextNav);
     text-align: center;
     width: 160px;
-}
-
-form .botones input:hover {
-    background-color: var(--colorPrincipal);
 }
 
 form .botones a {
-    margin-bottom: 100px;
+    margin-bottom: 10px;
     text-decoration: none;
     background-color: var(--colorFondo);
     color: black;
@@ -173,14 +91,17 @@ form .botones a {
     width: 160px;
 }
 
-form .botones a:hover {
-    background-color: var(--colorAgregar);
+form .botones a:hover,
+form .botones input:hover {
+    background-image: url('../logos_proyecto/cloud.gif');
+    background-position: center;
 }
 
 #olvidadoContraseña {
     font-size: 13px;
     text-decoration: none;
     color: var(--colorAzulOscuro);
+    text-align: center;
 }
 
 
@@ -206,7 +127,7 @@ form .botones a:hover {
         background-position: 0px -89px;
     }
     form {
-        width: 35%;
+        width: 30%;
     }
     form div:nth-of-type(3) {
         flex-direction: row;
@@ -216,6 +137,6 @@ form .botones a:hover {
 
 @media screen and (min-width: 1700px) {
     .imagen {
-        height: 500px;
+        height: 400px;
     }
 }

@@ -72,14 +72,14 @@ class UsuarioManager implements IDWESEntidadManager
                     $campos);
     }
   }
-  /*
+  
   public static function updatePassword($info){
     $db = DWESBaseDatos::obtenerInstancia();
     $db->ejecuta("UPDATE usuario
                     SET   pass = ?
                     WHERE email = ?", $info);
   }
-
+  /*
   public static function getInfo($id){
     $db = DWESBaseDatos::obtenerInstancia();
     $db->ejecuta("SELECT email, descripcion, nombre, pais, foto, pass, mediaGlobal

@@ -1,6 +1,7 @@
 <?php
   $errores = [];
   $nuevaPassword;
+  
 
   //print_r($_POST);
 
@@ -19,7 +20,7 @@
 
       if (count($errores) == 0) {
 
-        ViajesManager::updatePassword([$nuevaPassword, $email]);
+        UsuarioManager::updatePassword([$nuevaPassword, $email]);
 
         header("Location: login.php");
         die();
@@ -36,9 +37,11 @@
       $email = $_GET['email'];
       $token = $_GET['token'];
 
-      $tokenBD = ViajesManager::getTokenPassword($email)[0];
+      $tokenBD = TokenManager::getBy($email)[0];
 
-      if( $tokenBD['token'] != null && $tokenBD['token'] == $token ){
+    
+
+      if( isset($tokenBD['token']) && $tokenBD['token'] != null && $tokenBD['token'] == $token ){
         $tokenCorrecto =  true;
       }else{
         $tokenCorrecto =  false;
@@ -58,24 +61,35 @@
   <?php if ($tokenCorrecto){ ?>
       <h2>Recupera tu contraseña</h2>
       <form action="recuperarPassword.php" method="post">
-        <label for="password">Contraseña Nueva</label>
-        <input type="password" name="password">
-        <br>
+        <label for='password'>Nueva contraseña</label>
+        <input type="password" id='password' name="password" value="" 
+          placeholder="Introduce una contraseña valida"
+          pattern="(?=.*\d.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[;$%&#@*\\\+\-?¿!¡])(?!.*\s).{5,10}"
+          title="Al menos un dijito, una letra mayúscula, un minuscula y caracter especial"
+        >
+        
         <label for="password2">Repita la contraseña</label>
-        <input type="password" name="password2">
+        <input type="password" id='password2' name="password2" value="" 
+          placeholder="Introduce una contraseña valida"
+          pattern="(?=.*\d.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[;$%&#@*\\\+\-?¿!¡])(?!.*\s).{5,10}"
+          title="Al menos un dijito, una letra mayúscula, un minuscula y caracter especial"
+        >
+
         <input type="text" name="email" value="<?=$email?>" hidden>
-        <br>
+        
         <?php if( isset($errores) && $errores != null) { ?>
-          <span class="error"><?=$errores?></span>
-          <br>
+          <span class="error"><?=$errores?></span>          
         <?php } ?>
-        <input type="submit" name="Enviar" value="Enviar">
+
+        <input id='enviar' type="submit" name="Enviar" value="Enviar">
       </form>
   <?php } ?>
   <?php if (!$tokenCorrecto){ ?>
-      <p>No se ha podido restablecer la contraseña, pruebe de nuevo</p>
-      <br>
-      <a href="login.php">Login</a>
+      <div class='errorContraseña'>
+        <p>No se ha podido restablecer la contraseña, pruebe de nuevo.</p>
+        <a href="login.php">Login</a>
+      </div>
+     
   <?php } ?>
 
 
