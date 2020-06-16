@@ -7,11 +7,16 @@
     </div>
 
     <div class="enlaces">
-      <p>Menu</p>
+      <p>Menú</p>
+
       <a href="inicio.php">Inicio</a>
-      <a href="login.php">Login</a>
+      <?php if( isset($_SESSION['autentificado']) && $_SESSION['autentificado'] == true ){ ?>
+        <a href="perfil.php" data-id=<?=$_SESSION['id']?> id="perfil">Perfil</a>
+      <?php }elseif($uri != '/login.php'){ ?>
+        <a href="login.php">Login</a></li>
+      <?php }?>
       <a href="quienesSomos.php">¿Quienes somos?</a>
-      <a href="TestAllViajes.php">TEST</a>
+      <a href="TestAllViajes.php">Ver todos los viajes</a>
     </div>
 
     <div class="social">
