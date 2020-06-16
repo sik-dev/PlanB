@@ -50,6 +50,7 @@ nav,
 #nombre>h1,
 #nombre>h3 {
     font-family: 'Rockhead';
+    user-select: none;
 }
 
 

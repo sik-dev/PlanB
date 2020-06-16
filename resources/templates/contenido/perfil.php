@@ -28,7 +28,7 @@
     <p>Media Global: <?=$user->getMedia()?></p>
     <div class='botones'>
       <a href="crearViaje_1.php?id=<?=$user->getId()?>">Subir viaje</a>
-      <a href="tusViajes.php?id=<?=$user->getId()?>">Tus viajes</a>
+      <a href="tusViajes.php?id=<?=$user->getId()?>">Mis viajes</a>
       <a href="editarPerfil.php?id=<?=$user->getId()?>">Editar perfil</a>
     </div>
 
