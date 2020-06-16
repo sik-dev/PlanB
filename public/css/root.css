@@ -2,7 +2,7 @@
     /*--colorPrincipal:rgb(88, 248, 160);*/
     --colorPrincipal: #C2F4FD;
     --colorPrincipalOpacidad: rgba(194, 244, 253, 0.363);
-    --colorFooter: rgb(132, 209, 223);
+    --colorFooter: rgba(133, 210, 223, 0.68);
     --colorOpacidad: rgba(175, 172, 172, 0.288);
     --colorHover: #85dcd4;
     --colorBotonAventura: rgba(105, 188, 201, 0.678);
@@ -19,6 +19,7 @@
     --colorTransparenteAzul: rgba(238, 244, 245, 0.5);
     --colorAzulClaro: #C2F4FD;
     --colorAzulOscuro: rgb(3, 31, 107);
+    --colorFooterTexto: rgb(50, 72, 131);
     --transparenteTarjeta: rgba(241, 218, 218, 0.774);
     --fondoViaje: rgba(255, 199, 134, 0.47);
     --imgPerfil: 70px;
