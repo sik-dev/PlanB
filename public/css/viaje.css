@@ -617,7 +617,7 @@
     background-position: center;
 }
 
-#btn-cerrar {
+.btn-cerrar {
     position: absolute;
     bottom: 3px;
     right: 4px;
