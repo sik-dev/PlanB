@@ -44,6 +44,7 @@ foreach ($viajeFavorito as $fila) {
 */
 /* $idsIguales = ($id === $datos['viaje']->getIdUser());
 print_r(!$idsIguales); */
+
 ?>
 <link rel="stylesheet" href="/css/viaje.css">
 <script src="JS/modificarViaje.js"></script>
@@ -52,23 +53,51 @@ print_r(!$idsIguales); */
   <div class="datosUsuario">
     <div id="titulo">
       <h1><?=$datos['viaje']->getCiudadDestino()?></h1>
+      <div class="puntuacion">
+        <div id='estrellas'>
+          <?php for($i=1; $i <= 5; $i++) { ?>
+            <?php if ($datos['media'] >= $i) { ?>
+              <?php $arrayMedia[$i] = 'rellena' ?>
+            <?php }else{ ?>
+              <?php $arrayMedia[$i] = 'noRellena' ?>
+            <?php } ?>
+
+          <?php } ?>
+
+            <?php 
+              $arrayMedia = array_reverse($arrayMedia);
+  
+              for($j=0; $j < count($arrayMedia); $j++) { 
+            ?>
+
+              <?php if ($arrayMedia[$j] == 'noRellena') { ?>
+                <span>☆</span>
+              <?php }else{ ?>
+                <span class='rellena'>☆</span>
+              <?php } ?>
+
+            <?php }?>
+        
+        </div>   
+        <!--<div>
+          <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+        </div>-->
+        <span id="mediaViaje"><?=$datos['media']?></span>
+        <p>de <span id='voto'><?=$datos['numVotos']?></span> votos.</p>
+      </div>
       <div id='avion'>
+        <p>Añadir a favoritos</p>
         <img class="favoritos" src="logos_proyecto/avion_dibujo_vacio.png">
       </div>
-      <?php if ($id === $datos['viaje']->getIdUser()) {?>
-        <button id="botonModificarViaje">Modificar Viaje</button>
-      <?php }?>
-      <div class="puntuacion">
-        <div>
-          <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-        </div>
-        <span id="mediaViaje"><?=$datos['media']?><span>
-      </div>
       <div id="usuario">
+        <p>Viaje publicado por: </p>
         <a href="perfilPublico.php?id_user=<?=$datos['viaje']->getIdUser()?>">
           <img class="fotoSmall"src="imgs/<?=$datosPerfil->getId().'/'.$datosPerfil->getFoto()?>" data-idUserViaje="<?=$datos['viaje']->getIdUser()?>">
         </a>
       </div>
+      <?php if ($id === $datos['viaje']->getIdUser()) {?>
+        <button id="botonModificarViaje">Modificar Viaje</button>
+      <?php }?>
     </div>
     <div id="imgViaje">
       <img id='fotoViaje' class="cursor" src="imgs/<?=$datos['viaje']->getIdUser().'/'.$datos['viaje']->getFoto()?>">

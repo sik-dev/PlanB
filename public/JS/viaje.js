@@ -195,6 +195,35 @@ const app = (function() {
         //recibimos la nueva media del viaje y se la monstramos
         const p = document.getElementById('mediaViaje');
         p.textContent = datos;
+
+        const puntuacion = document.getElementById('estrellas').children;
+
+        console.log(datos);
+
+
+        let arrayMedia = [];
+
+        for (let index = 0; index < puntuacion.length; index++) {
+            if (datos >= index + 1) {
+                arrayMedia[index] = 'rellena';
+            } else {
+                arrayMedia[index] = 'noRellena';
+            }
+        }
+
+        arrayMedia = arrayMedia.reverse();
+
+        arrayMedia.forEach((reg, i) => {
+            if (reg == 'rellena') {
+                puntuacion[i].classList.add('rellena');
+            } else {
+                puntuacion[i].classList.remove('rellena');
+            }
+        });
+
+
+
+
     }
 
     function pintaComentarios(datos) {
@@ -309,7 +338,7 @@ const app = (function() {
             divItinerarioDias.innerHTML = '';
         }
 
-        
+
 
         const datos = datosItinerario[numDia - 1];
         /* const div = document.getElementById('itinerarioDias'); */

@@ -21,7 +21,8 @@ class ViajeManager implements IDWESEntidadManager{
           $fila['id_user']
         ),
         'media' => $fila['media'],
-        'diasViaje' => $fila['diasViaje']
+        'diasViaje' => $fila['diasViaje'],
+        'numVotos' => $fila['numVotos']
       ];
     }, $datos);
   }
@@ -205,7 +206,8 @@ class ViajeManager implements IDWESEntidadManager{
     }
 
     $db->ejecuta("SELECT viaje.*,
-                    round( avg(valoracion.puntuacion), 2) media 
+                    round( avg(valoracion.puntuacion), 2) media, 
+                    count(valoracion.puntuacion) numVotos
                     $diasViaje
                   FROM viaje INNER JOIN valoracion
                   ON viaje.id = valoracion.id_viaje
