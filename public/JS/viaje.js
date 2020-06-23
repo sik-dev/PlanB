@@ -7,6 +7,7 @@ const app = (function() {
     const idViaje = (location.hostname === 'localhost') ? location.href.slice(35, location.href.length) : location.href.slice(38, location.href.length); //cogemos el ID del viaje de la URL
     let idUser;
     let favorito;
+    let haVotado = false;
     const URL_VIAJE = '/AJAX-obtenViaje.php?id=';
     const URL_FAVORITOS = '/AJAX-obtenFavoritos.php?id=';
     const URL_COMENTARIOS = '/AJAX-obtenComentarios.php?id=';
@@ -196,6 +197,15 @@ const app = (function() {
         const p = document.getElementById('mediaViaje');
         p.textContent = datos;
 
+        /*
+        if (!haVotado) {
+            const voto = document.getElementById('voto');
+            voto.textContent = parseInt(voto.textContent) + 1;
+            haVotado = true;
+        }*/
+        const voto = document.getElementById('mediaViaje').nextElementSibling;
+        voto.textContent = '¡Gracias por votar!';
+
         const puntuacion = document.getElementById('estrellas').children;
 
         console.log(datos);
@@ -328,6 +338,7 @@ const app = (function() {
         const divItinerario = document.querySelector('.itinerario');
         const divItinerarioDias = document.getElementsByClassName('itinerarioDias')[0];
         const divFormItinerario = document.querySelector('.insertItinerario');
+        const divFotosItinerario = document.querySelector('#fotosItinerario');
 
         //cuando se estee insertando un nuevo itinerario
         //y se haga click en un dia desaparezca el formulario
@@ -337,6 +348,11 @@ const app = (function() {
         if (divItinerarioDias.firstChild) { //si ya tiene contenido, lo vaciamos para poner un nuevo dia
             divItinerarioDias.innerHTML = '';
         }
+
+        if (divFotosItinerario) {
+            divFotosItinerario.remove();
+        }
+
 
 
 
@@ -375,6 +391,7 @@ const app = (function() {
         divItinerarioDias.appendChild(itinerario);
 
         const fotos = datos.fotos;
+
         const divFotos = document.createElement('div');
         const divImgs = document.createElement('div');
         const divImgSelect = document.createElement('div');
@@ -408,8 +425,9 @@ const app = (function() {
         divFotos.appendChild(divImgSelect);
         divFotos.appendChild(divImgs);
 
-        divItinerarioDias.appendChild(divFotos);
+        /*divItinerarioDias.appendChild(divFotos);*/
         divItinerario.appendChild(divItinerarioDias);
+        divItinerario.appendChild(divFotos);
 
         diaSeleccionado();
     }

@@ -153,18 +153,18 @@
           </div>
           <div>
             <p>Valoración</p>
-            <a href="resultadosBusqueda.php?page=1&order=media&dir=ASC&filtro=<?=$filtro?>&buscador=<?=$buscador?>">↑</a>
-            <a href="resultadosBusqueda.php?page=1&order=media&dir=DESC&filtro=<?=$filtro?>&buscador=<?=$buscador?>">↓</a>
+            <a href="resultadosBusqueda.php?page=1&order=media&dir=DESC&filtro=<?=$filtro?>&buscador=<?=$buscador?>">↑</a>
+            <a href="resultadosBusqueda.php?page=1&order=media&dir=ASC&filtro=<?=$filtro?>&buscador=<?=$buscador?>">↓</a>
           </div>
           <div>
             <p>Nº de días</p>
-            <a href="resultadosBusqueda.php?page=1&order=diasViaje&dir=ASC&filtro=<?=$filtro?>&buscador=<?=$buscador?>">↑</a>
-            <a href="resultadosBusqueda.php?page=1&order=diasViaje&dir=DESC&filtro=<?=$filtro?>&buscador=<?=$buscador?>">↓</a>
+            <a href="resultadosBusqueda.php?page=1&order=diasViaje&dir=DESC&filtro=<?=$filtro?>&buscador=<?=$buscador?>">↑</a>
+            <a href="resultadosBusqueda.php?page=1&order=diasViaje&dir=ASC&filtro=<?=$filtro?>&buscador=<?=$buscador?>">↓</a>
           </div>
           <div>
             <p>Precio</p>
-            <a href="resultadosBusqueda.php?page=1&order=viaje.precio&dir=ASC&filtro=<?=$filtro?>&buscador=<?=$buscador?>">↑</a>
-            <a href="resultadosBusqueda.php?page=1&order=viaje.precio&dir=DESC&filtro=<?=$filtro?>&buscador=<?=$buscador?>">↓</a>
+            <a href="resultadosBusqueda.php?page=1&order=viaje.precio&dir=DESC&filtro=<?=$filtro?>&buscador=<?=$buscador?>">↑</a>
+            <a href="resultadosBusqueda.php?page=1&order=viaje.precio&dir=ASC&filtro=<?=$filtro?>&buscador=<?=$buscador?>">↓</a>
           </div>
       
         

@@ -83,7 +83,7 @@ print_r(!$idsIguales); */
           <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
         </div>-->
         <span id="mediaViaje"><?=$datos['media']?></span>
-        <p>de <span id='voto'><?=$datos['numVotos']?></span> votos.</p>
+        <p>de <span id='voto'><?=$datos['numVotos']?></span> <?=($datos['numVotos'] > 1)?  " votos." : " voto." ?></p>
       </div>
       <div id='avion'>
         <p>Añadir a favoritos</p>

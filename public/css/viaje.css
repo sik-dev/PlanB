@@ -35,7 +35,7 @@
     display: flex;
     flex-direction: column;
     padding: 10px 0;
-    margin: 30px;
+    padding: 30px;
     align-items: flex-start;
 }
 
@@ -193,33 +193,38 @@
 #modificarItinerario {
     flex-basis: 100%;
     height: 30px;
-    margin: 10px 20%;
+    margin: 10px 34%;
     align-self: center;
     background-color: var(--fondoTextarea);
     border: #0001 1.5px solid;
     border-radius: 2px;
+    cursor: pointer;
 }
 
 #agregarItinerario {
     width: 20px;
     margin: 0 10px;
+    cursor: pointer;
 }
 
 .itinerario>ul {
-    flex-basis: 100%;
+    flex-basis: 30%;
     list-style: none;
+    align-self: center;
     text-align: center;
 }
 
 .itinerario>ul>li {
-    margin: 10px 20%;
+    margin: 15px 10%;
     border: var(--colorPrincipal) 2px solid;
     border-radius: 2px;
+    padding: 4px;
 }
 
 .itinerario>ul>li>p {
     text-align: center;
     height: 1em;
+    cursor: pointer;
 }
 
 .botonesDia {
@@ -244,10 +249,11 @@
 }
 
 .itinerarioDias {
-    flex-basis: 100%;
+    flex-basis: 60%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 20px;
 }
 
 .itinerarioDias>p,
@@ -262,6 +268,15 @@
 
 .itinerarioDias>div>p:last-of-type {
     margin-bottom: 0;
+}
+
+.itinerarioDias>div>h4 {
+    border-bottom: solid 2px var(--borderMenu);
+    margin-bottom: 16px;
+    width: 70%;
+    margin-top: 16px;
+    font-size: 2.2em;
+    font-family: 'KrinkesRegular';
 }
 
 #fotosItinerario {
@@ -439,6 +454,7 @@
     border: #0001 1.5px solid;
     border-radius: 2px;
     width: 70px;
+    cursor: pointer;
 }
 
 
@@ -519,6 +535,7 @@
     display: grid;
     justify-content: center;
     align-items: center;
+    margin-top: 60px;
 }
 
 #modificarViaje,
@@ -712,16 +729,19 @@
 /******* @media screen and (min-width: 40.5em) **********/
 
 @media screen and (min-width: 40.5em) {
+    #titulo {
+        padding-left: 55px;
+    }
     #titulo>h1 {
         flex-basis: 60%;
+        font-size: 3.5em;
     }
     #botonModificarViaje {
         order: 1;
-        margin: 20px 10%;
+        /*margin: 20px 10%;*/
     }
-    #modificarItinerario,
-    .itinerario>ul>li {
-        margin: 10px 30%;
+    #modificarItinerario {
+        margin: 10px 35%;
     }
     #itinerarioDias>p,
     #itinerarioDias>div:first-of-type {
@@ -764,6 +784,9 @@
         display: flex;
         flex-wrap: wrap;
     }
+    .itinerarioDias>div>h4 {
+        width: 60%;
+    }
 }
 
 
@@ -771,10 +794,15 @@
 
 @media screen and (min-width: 60.5em) {
     #titulo {
+        padding-left: 100px;
         justify-content: center;
     }
     #titulo>h1 {
         flex-basis: 30%;
+        font-size: 4.5em;
+    }
+    #modificarItinerario {
+        margin: 10px 40%;
     }
     .puntuacion {
         flex-basis: 60%;
@@ -843,6 +871,15 @@
     #modalFoto img:first-of-type {
         height: 576px;
         width: 1024px;
+    }
+    .itinerario>ul {
+        flex-basis: 25%;
+    }
+    .itinerario>ul>li {
+        margin: 15px 25%;
+    }
+    .itinerarioDias>div>h4 {
+        width: 45%;
     }
 }
 

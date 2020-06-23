@@ -132,18 +132,18 @@
         </div>
         <div>
           <p>Valoración</p>
-          <a href="inicio.php?page=1&order=media&dir=ASC">↑</a>
-          <a href="inicio.php?page=1&order=media&dir=DESC">↓</a>
+          <a href="inicio.php?page=1&order=media&dir=DESC">↑</a>
+          <a href="inicio.php?page=1&order=media&dir=ASC">↓</a>
         </div>
         <div>
           <p>Nº de días</p>
-          <a href="inicio.php?page=1&order=diasViaje&dir=ASC">↑</a>
-          <a href="inicio.php?page=1&order=diasViaje&dir=DESC">↓</a>
+          <a href="inicio.php?page=1&order=diasViaje&dir=DESC">↑</a>
+          <a href="inicio.php?page=1&order=diasViaje&dir=ASC">↓</a>
         </div>
         <div>
           <p>Precio</p>
-          <a href="inicio.php?page=1&order=viaje.precio&dir=ASC">↑</a>
-          <a href="inicio.php?page=1&order=viaje.precio&dir=DESC">↓</a>
+          <a href="inicio.php?page=1&order=viaje.precio&dir=DESC">↑</a>
+          <a href="inicio.php?page=1&order=viaje.precio&dir=ASC">↓</a>
         </div>
         
         
