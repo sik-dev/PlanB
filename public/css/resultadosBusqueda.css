@@ -7,7 +7,7 @@
 }
 
 .imagen {
-    background-image: url('../logos_proyecto/Viaje_Fondo-1920x720.png');
+    background-image: url('../logos_proyecto/Viaje_Fondo-1920x720.jpg');
     height: 320px;
     background-size: cover;
     display: flex;

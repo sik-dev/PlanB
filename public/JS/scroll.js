@@ -4,7 +4,7 @@ const app_aventura = (function() {
 
     function main() {
         const boton = document.querySelector('.scroll');
-        const distanciaScroll = 200;
+        const distanciaScroll = 500;
 
         boton.addEventListener('click', (e) => {
             window.scrollTo(pageXOffset, 0);
