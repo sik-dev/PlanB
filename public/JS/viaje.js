@@ -471,12 +471,20 @@ const app = (function() {
     function eventoFavoritos() {
         const URL = '/favoritos.php?';
         const img = document.querySelector('#avion img');
+        let n;
+
+        if (location.hostname === 'localhost') { //si estamos ne localhost
+            n = 37;
+        } else { //si estamos con IP fija
+            n = 40;
+        }
+
         img.addEventListener('click', function(e) {
             if (idUser) {
-                if (img.src.slice(37) == 'avion_dibujo_relleno.png') { //Quitar favorito
+                if (img.src.slice(n) == 'avion_dibujo_relleno.png') { //Quitar favorito
                     peticionAJAX(URL + 'quitar_favorito=true&id_viaje=' + idViaje + '&id_user=' + idUser, quitarFavoritos);
                 }
-                if (img.src.slice(37) == 'avion_dibujo_vacio.png') { //añadir favorito
+                if (img.src.slice(n) == 'avion_dibujo_vacio.png') { //añadir favorito
                     peticionAJAX(URL + 'añadir_favorito=true&id_viaje=' + idViaje + '&id_user=' + idUser, addFavoritos);
                 }
             } else {

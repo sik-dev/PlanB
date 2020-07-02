@@ -8,27 +8,25 @@ const app = (function() {
 
         input.addEventListener('keyup', function() {
             const param = "suggest=" + this.value + "&opcion=" + filtro.value;
-            pedirPostJSON(URL_SUGERENCIAS, gestionaSugerencias, param);
+            pedirPostJSON(URL_SUGERENCIAS + '?' + param, gestionaSugerencias);
         });
     }
 
-    function pedirPostJSON(uri, exito, param) {
+    function pedirPostJSON(uri, exito) {
         const xhr = new XMLHttpRequest();
 
-        xhr.onload = function() {
-            if (this.status === 200) {
-                /* console.log(this.responseText);
-                console.log(JSON.parse(this.responseText)); */
-                (this.responseText == '') ? exito(this.responseText):exito(JSON.parse(this.responseText));
-                /* exito(JSON.parse(this.responseText)) */
-            } else {
-                console.error(`Error: ${this.status} ${this.statusText}`);
+        xhr.open('GET', uri);
+        xhr.setRequestHeader('X_REQUESTED_WITH', 'xmlhttprequest');
+        xhr.addEventListener('readystatechange', function(e) {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    exito(JSON.parse(xhr.responseText));
+                } else {
+                    console.error(`Error: ${xhr.status} ${xhr.statusText}`);
+                }
             }
-        }
-
-        xhr.open('POST', uri);
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.send(param);
+        });
+        xhr.send();
     }
 
     function gestionaSugerencias(datos) {
@@ -39,7 +37,7 @@ const app = (function() {
         const ul = document.createElement('ul');
         const divSugerencias = document.querySelector('#sugerencia');
         let a, text, li;
-        
+
         /* if (divSugerencias = form.querySelector('#sugerencia')) {
           form.removeChild(divSugerencias);
         } */
@@ -51,7 +49,11 @@ const app = (function() {
                 li = document.createElement('li');
                 text = document.createTextNode(sugerencia);
                 a = document.createElement('a');
-                a.href = 'http://localhost:9000/resultadosBusqueda.php?filtro=' + select.value + '&buscador=' + sugerencia /* .ciudad_destino */ ;
+                if (location.hostname === 'localhost') {
+                    a.href = 'http://localhost:9000/resultadosBusqueda.php?filtro=' + select.value + '&buscador=' + sugerencia /* .ciudad_destino */ ;
+                } else {
+                    a.href = location.origin + '/resultadosBusqueda.php?filtro=' + select.value + '&buscador=' + sugerencia /* .ciudad_destino */ ;
+                }
                 a.style.color = 'black';
                 a.appendChild(text);
                 li.appendChild(a);

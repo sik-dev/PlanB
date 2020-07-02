@@ -113,13 +113,13 @@ function enviarJSON($sugerencias)
   echo $obj;
 }
 
-if(isset($_POST['suggest']) && !empty($_POST['suggest'])) {  
-  $sugerencia = $_POST['suggest'];
+if(isset($_GET['suggest']) && !empty($_GET['suggest'])) {  
+  $sugerencia = $_GET['suggest'];
 
   if (!empty($sugerencia)) {
-    if(strpos($_POST['opcion'], 'ciudad')){
+    if(strpos($_GET['opcion'], 'ciudad')){
       enviarJSON(sacarDatos($ciudades, $sugerencia));
-    }else if(strpos($_POST['opcion'], 'pais')){
+    }else if(strpos($_GET['opcion'], 'pais')){
       enviarJSON(sacarDatos($paises, $sugerencia));
     }
   }
