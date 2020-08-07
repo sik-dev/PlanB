@@ -8,4 +8,4 @@ else
     port="$1"
 fi
 
-php -S 192.168.1.64:$port -t public public/enrutador.php 
+php -S localhost:$port -t public public/enrutador.php 

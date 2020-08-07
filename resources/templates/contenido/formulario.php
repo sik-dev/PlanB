@@ -117,7 +117,7 @@ if(count($_POST)>0){
 
   <h2>Regístrate</h2>
 
-  <form class="" action="formulario.php" method="post" validate=false> 
+  <form class="animated fadeInLeft" action="formulario.php" method="post" validate=false> 
 
     <label for='name'>Nombre</label>
     <input type="text" id='name' name="nombre" value="<?=$nombre?>" placeholder="Introduce tu nombre">

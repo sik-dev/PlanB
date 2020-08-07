@@ -77,7 +77,7 @@ if( $_SESSION['autentificado'] == true ) {
     <h1>Todos los destinos al alcance de tu mano</h1>
   </div>
 
-   <form class="" action="login.php" method="post">
+   <form action="login.php" method="post" class="animated fadeInLeft">
 
      <div class='name'>
         <label for="name">Nombre</label>
