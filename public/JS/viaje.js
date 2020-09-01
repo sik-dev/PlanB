@@ -246,7 +246,7 @@ const app = (function() {
             let a = document.createElement('a');
             let img = document.createElement('img');
             let span = document.createElement('span');
-            a.href = 'http://localhost:9000/perfilPublico.php?id_user=' + reg.id_user;
+            a.href = '/perfilPublico.php?id_user=' + reg.id_user;
             img.src = `imgs/${reg.id_user}/${reg.foto}`;
             img.classList.add('fotoSmall');
             a.appendChild(img);
