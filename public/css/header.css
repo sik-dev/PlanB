@@ -143,7 +143,6 @@ nav>ul>li>a:hover {
     nav>ul>li {
         float: left;
         border: none;
-        margin: 10px;
     }
 }
 
@@ -166,5 +165,8 @@ nav>ul>li>a:hover {
     }
     #nombre>h3 {
         align-self: flex-start;
+    }
+    nav>ul>li {
+        margin: 10px;
     }
 }

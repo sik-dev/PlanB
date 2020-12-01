@@ -20,32 +20,32 @@
     font-family: 'KrinkesRegular';
     font-size: 3.5em;
     padding: 0.5em;
-    /* padding: 10px; */
 }
 
 .editarPerfil>form {
     border: var(--borderMenu) .5px solid;
     border-radius: 2px;
     background-color: var(--fondoViaje);
+    margin: 60px auto;
+
     flex-basis: 60%;
-    max-width: 500px;
+    max-width: 550px;
     align-self: flex-start;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 60px auto;
+    
 }
 
 .editarPerfil>form>fieldset {
     margin: 10px;
     border: none;
     border-top: var(--borderMenu) 2px solid;
-    /* border-left: none;
-  border-right: none; */
     padding: 0 10px;
+
     flex: 1 0 327px;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .editarPerfil>form>fieldset:nth-of-type(1) {
@@ -56,14 +56,24 @@
     padding: 0 5px;
 }
 
-.editarPerfil>form>fieldset:first-of-type>input {
-    margin: 20px 0;
+.editarPerfil>form>fieldset:first-of-type>input,
+.editarPerfil>form>fieldset>label:last-of-type {
+    flex: 0 0 100%;
 }
 
 .editarPerfil>form>fieldset>label,
 .editarPerfil>form>fieldset>input,
 .editarPerfil>form>fieldset>select {
-    flex: 0 0 50%;
+    margin: 10px 0;
+    flex: 0 0 48%;
+}
+
+.editarPerfil>form>fieldset>input {
+    height: 25px;
+}
+
+.editarPerfil>form>fieldset>select {
+    width: 48%;
 }
 
 .editarPerfil>form>fieldset>textarea {
@@ -80,7 +90,6 @@
 .editarPerfil>form>fieldset>button {
     width: 110px;
     height: 25px;
-    margin-right: 80%;
     background-color: var(--fondoTextarea);
     border: #0001 1.5px solid;
     border-radius: 2px;
@@ -97,9 +106,8 @@
     border: 4px solid var(--colorPrincipal);
 }
 
-@media screen and (min-width: 40.5em) {
-    .editarPerfil>form>fieldset>input:not([type="file"]),
-    .editarPerfil>form>fieldset>select {
+/* @media screen and (min-width: 40.5em) {
+    .editarPerfil>form>fieldset>input:not([type="file"]){
         width: 250px;
     }
-}
+} */

@@ -223,14 +223,15 @@
 
 .itinerario>ul>li>p {
     text-align: center;
-    height: 1em;
+    line-height: 100%;
+    height: 35px;
     cursor: pointer;
 }
 
 .botonesDia {
     width: 4em;
     height: 1em;
-    float: right;
+    margin: 0 15%;
     display: flex;
     justify-content: space-around;
     align-content: center;
@@ -742,6 +743,12 @@
     }
     #modificarItinerario {
         margin: 10px 35%;
+    }
+    .itinerario>ul>li>p {
+        height: auto;
+    }
+    .botonesDia {
+        margin: auto;
     }
     #itinerarioDias>p,
     #itinerarioDias>div:first-of-type {
