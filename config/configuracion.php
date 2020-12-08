@@ -17,7 +17,7 @@
 
   $datosEmail = [
     'correo' => 'daw.planb@gmail.com',
-    'pass' => 'planbViajes',
+    'pass' => 'daw.viajes20',
     'server' => 'smtp.gmail.com'
   ];
 
