@@ -4,6 +4,10 @@ Template base del proyecto para no repetir código
 Son necesarias las variables
   $ruta_contenido
 */
+if (!file_exists($main = "$ROOT/resources/templates/contenido$ruta_contenido")) {
+  header("Location: page404.php");
+  die();
+}
 ?>
 
 
@@ -19,7 +23,7 @@ Son necesarias las variables
   <body>
     <?php
         require("$ROOT/resources/templates/header.php");
-        require("$ROOT/resources/templates/contenido$ruta_contenido");
+        require($main);
         require("$ROOT/resources/templates/footer.php");
      ?>
 
